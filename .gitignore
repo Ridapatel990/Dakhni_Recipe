@@ -23,6 +23,8 @@ project.xcworkspace
 **/.xcode.env.local
 
 # Gradle
+frontend/android/app/build/
+
 /build/*
 /packages/react-native-gradle-plugin/build/
 /packages/rn-tester/build
