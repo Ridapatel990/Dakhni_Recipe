@@ -173,6 +173,7 @@ const HomeScreen = ({
                 {getRecipe && getRecipe.length
                   ? getRecipe?.map((recipe: GetRecipeInteface) => (
                       <DetailedCard
+                        recipeId={recipe.id}
                         recipeLabel={recipe.name}
                         mins={recipe.cooking_time}
                         imageUri={recipe.image1}
@@ -259,6 +260,7 @@ const HomeScreen = ({
                 {popularCat && popularCat.length
                   ? popularCat?.map((popRecipe: GetPopularInterface) => (
                       <DetailedCard
+                        recipeId={popRecipe?.recipe.id}
                         recipeLabel={popRecipe?.recipe?.name}
                         mins={popRecipe?.recipe?.cooking_time}
                         imageUri={popRecipe?.recipe?.image1}

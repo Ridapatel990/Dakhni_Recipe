@@ -1,8 +1,18 @@
-import { View, Text, SafeAreaView, ScrollView, StyleSheet } from "react-native";
-import React from "react";
-import { NavigationProp, ParamListBase } from "@react-navigation/native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  RefreshControl,
+} from "react-native";
+import React, { useState, useCallback } from "react";
+import {
+  NavigationProp,
+  ParamListBase,
+  useFocusEffect,
+} from "@react-navigation/native";
 import Card from "../components/home/Card";
-import BottomNavigationBar from "../components/BottomNavigationBar";
 import { useGetAll } from "../hooks";
 import { RecipeInterface } from "../interfaces";
 
@@ -30,17 +40,33 @@ const SavedRecipePage = ({
         break;
     }
   };
+  const [enabled, setEnabled] = useState(false);
 
   const { data: savedRecipes } = useGetAll({
     key: "/social/saved-recipe/list/",
-    enabled: true,
+    enabled: enabled,
     onSuccess(data) {
-      // console.log("onSuccessonSuccessonSuccess", data);
+      console.log("onSuccessonSuccessonSuccess", data);
+      setEnabled(false);
     },
     onError(err) {
-      // console.log("ERRRIRIRIRIRI", err);
+      console.log("ERRRIRIRIRIRI", err);
     },
   });
+
+  useFocusEffect(() => {
+    setEnabled(true);
+    console.log("Screen is focused");
+  });
+
+  const [isRefreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(() => {
+    setEnabled(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 1000);
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -49,6 +75,9 @@ const SavedRecipePage = ({
       </View>
 
       <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
+        }
         horizontal={false}
         style={{
           flexDirection: "column",

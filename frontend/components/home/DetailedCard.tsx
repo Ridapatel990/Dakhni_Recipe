@@ -2,11 +2,12 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import SavedBtn from "../SavedBtn";
 import { mediaUrl } from "../../utils/urls";
-import { useGetAll } from "../../hooks";
+import { useCreateOrUpdate, useGetAll } from "../../hooks";
 
 interface DetailedProps {
   imageUri?: string;
   recipeLabel: string;
+  recipeId: string;
   mins: string;
   Press?: () => void;
 }
@@ -14,12 +15,19 @@ interface DetailedProps {
 const DetailedCard: React.FC<DetailedProps> = ({
   imageUri = null,
   recipeLabel,
+  recipeId,
   mins,
 }) => {
   const [isSaved, setIsSaved] = useState(false);
 
-  const handleSave = () => {
+  const { mutate } = useCreateOrUpdate({
+    url: "/social/saved-recipe/create/",
+  });
+
+  const handleSave = (recipeId: string) => {
     setIsSaved(!isSaved);
+    const data = { recipe: recipeId };
+    mutate(data);
   };
 
   return (
@@ -52,7 +60,10 @@ const DetailedCard: React.FC<DetailedProps> = ({
               <Text>{mins}</Text>
             </View>
 
-            <SavedBtn onSave={handleSave} isSaved={isSaved}></SavedBtn>
+            <SavedBtn
+              onSave={() => handleSave(recipeId)}
+              isSaved={isSaved}
+            ></SavedBtn>
           </View>
         </View>
       </View>
