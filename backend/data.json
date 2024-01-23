@@ -1,0 +1,2147 @@
+[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2024-01-09T09:17:11.837Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 17,
+            "object_id": "05288b5a-153b-46a9-ba95-a145fbc72e7c",
+            "object_repr": "Vegetarian",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2024-01-09T09:17:24.504Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 17,
+            "object_id": "44575d9e-4c8e-45be-81f6-6a97cd762c80",
+            "object_repr": "Snacks",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2024-01-09T09:17:32.291Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 17,
+            "object_id": "08a96648-35da-4d23-80e9-850ca50afde8",
+            "object_repr": "Healthy",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2024-01-09T09:17:41.831Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 17,
+            "object_id": "0a6844ef-e0da-4eb2-a053-76c14a1c7f40",
+            "object_repr": "Drinks",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2024-01-09T09:17:49.923Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 17,
+            "object_id": "98e80295-6f70-423f-ae30-c28f50e703a8",
+            "object_repr": "Chutney",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2024-01-09T09:17:56.939Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 17,
+            "object_id": "04e299f3-5017-44ba-8aa2-355687ee6c4a",
+            "object_repr": "Kebabs",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2024-01-09T09:18:03.099Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 17,
+            "object_id": "6ffb06e3-170b-480b-a196-fa37ce9861cf",
+            "object_repr": "Tandoori",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2024-01-09T09:31:37.670Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "fcc339ec-8e9a-4354-8ac2-28e9245bab62",
+            "object_repr": "Omlete",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2024-01-09T09:31:37.672Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "993565e8-ebe2-45dd-b98a-3e0ffa6d7789",
+            "object_repr": "Omlete",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2024-01-09T09:33:41.570Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "62f44899-8f75-4474-8ac4-656dfbfcb3ec",
+            "object_repr": "Omlete",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2024-01-09T09:34:15.139Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "3984d747-2bd1-4b87-ac2e-804087a4d68b",
+            "object_repr": "Omlete",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2024-01-09T10:57:29.237Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "b2720dd2-3ffa-4749-bd2b-82a778967aa5",
+            "object_repr": "Orange Juice",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2024-01-09T10:57:29.248Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "4564a639-67a1-4769-8c76-50d502ea9ce1",
+            "object_repr": "Orange Juice",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2024-01-09T11:08:14.681Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "2ae993d7-2879-4123-b335-cef041c415e4",
+            "object_repr": "Orange Juice2",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2024-01-09T11:08:14.684Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "2be04289-a336-4327-8693-050004163a5c",
+            "object_repr": "Orange Juice",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2024-01-09T11:08:14.685Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "dad22522-7f91-4ab5-9772-cf88c1f14acd",
+            "object_repr": "Omlete",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2024-01-09T12:06:07.000Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "ecdb9f6c-4d0c-43b2-9f55-88f63653679f",
+            "object_repr": "Orange Juice2",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2024-01-09T12:06:07.003Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "d16bdaf9-8382-4c4b-a514-9c897916afbc",
+            "object_repr": "Orange Juice2",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2024-01-09T12:06:07.004Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "68963bd8-5112-4749-a5dc-323119eb4c79",
+            "object_repr": "Orange Juice2",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2024-01-09T12:06:07.005Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "09aad96a-e05e-44e3-a502-8e4e24cc4bb8",
+            "object_repr": "Orange Juice2",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2024-01-09T12:06:07.006Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "8dcd8bc3-8d60-4b6f-98bc-dc17ebc55561",
+            "object_repr": "Orange Juice2",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2024-01-09T12:06:07.007Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "19a9fca7-2d8a-4e55-aee6-79b33aaad26d",
+            "object_repr": "Orange Juice2",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2024-01-09T12:06:15.453Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 8,
+            "object_id": "80eff261-35fd-4f86-8a50-2e537ce17f93",
+            "object_repr": "Sugar",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2024-01-09T12:06:15.456Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 8,
+            "object_id": "80946623-5fe2-4f6d-bf00-04505f4b679c",
+            "object_repr": "Orange",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2024-01-09T12:06:15.457Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 8,
+            "object_id": "9c0aef76-a8ab-4b45-9af2-6d1deb58a082",
+            "object_repr": "Salt",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2024-01-09T12:06:15.459Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 8,
+            "object_id": "03bc0f50-4ed7-448e-bca9-f5b45c7a4aaf",
+            "object_repr": "Egg",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2024-01-09T12:28:42.901Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 19,
+            "object_id": "a85c69e4-8222-4ed9-bc04-af4ee04e14d8",
+            "object_repr": "Configuration object (a85c69e4-8222-4ed9-bc04-af4ee04e14d8)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2024-01-09T12:28:54.242Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 19,
+            "object_id": "04447d0c-0491-45db-b166-880fdea98f1f",
+            "object_repr": "Configuration object (04447d0c-0491-45db-b166-880fdea98f1f)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2024-01-10T11:49:08.833Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 19,
+            "object_id": "04447d0c-0491-45db-b166-880fdea98f1f",
+            "object_repr": "Configuration object (04447d0c-0491-45db-b166-880fdea98f1f)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Popular recipe rate\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2024-01-10T11:49:15.791Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "fc8fd4a2-cc81-4fc4-9b93-9891b95e7c26",
+            "object_repr": "Rate object (fc8fd4a2-cc81-4fc4-9b93-9891b95e7c26)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Rate\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2024-01-10T11:49:33.862Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "a5783cc7-f25f-4e47-b723-11cc67a9ab5e",
+            "object_repr": "Rate object (a5783cc7-f25f-4e47-b723-11cc67a9ab5e)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 32,
+        "fields": {
+            "action_time": "2024-01-10T11:49:43.513Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "f72334cf-205f-4cb2-893b-3ea22c63b274",
+            "object_repr": "Rate object (f72334cf-205f-4cb2-893b-3ea22c63b274)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 33,
+        "fields": {
+            "action_time": "2024-01-10T11:52:53.033Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "48bf4c39-e7db-4021-b950-4b1bc95ec5b0",
+            "object_repr": "Candice Malone",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 34,
+        "fields": {
+            "action_time": "2024-01-10T11:53:12.242Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "5a191cc9-b44d-400f-b503-682a534c2def",
+            "object_repr": "Rate object (5a191cc9-b44d-400f-b503-682a534c2def)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 35,
+        "fields": {
+            "action_time": "2024-01-10T11:53:23.021Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 19,
+            "object_id": "04447d0c-0491-45db-b166-880fdea98f1f",
+            "object_repr": "Configuration object (04447d0c-0491-45db-b166-880fdea98f1f)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Popular recipe limit\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 36,
+        "fields": {
+            "action_time": "2024-01-10T11:56:43.685Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "fc8fd4a2-cc81-4fc4-9b93-9891b95e7c26",
+            "object_repr": "Rate object (fc8fd4a2-cc81-4fc4-9b93-9891b95e7c26)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Rate\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 37,
+        "fields": {
+            "action_time": "2024-01-10T11:56:47.083Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "a5783cc7-f25f-4e47-b723-11cc67a9ab5e",
+            "object_repr": "Rate object (a5783cc7-f25f-4e47-b723-11cc67a9ab5e)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 38,
+        "fields": {
+            "action_time": "2024-01-10T11:56:49.788Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "f72334cf-205f-4cb2-893b-3ea22c63b274",
+            "object_repr": "Rate object (f72334cf-205f-4cb2-893b-3ea22c63b274)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 39,
+        "fields": {
+            "action_time": "2024-01-10T11:56:52.141Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "5a191cc9-b44d-400f-b503-682a534c2def",
+            "object_repr": "Rate object (5a191cc9-b44d-400f-b503-682a534c2def)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 40,
+        "fields": {
+            "action_time": "2024-01-10T11:59:56.866Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "6fe1a998-2fba-4a3d-b02b-2bca25790aa2",
+            "object_repr": "PopularRecipe object (6fe1a998-2fba-4a3d-b02b-2bca25790aa2)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 41,
+        "fields": {
+            "action_time": "2024-01-10T12:00:58.001Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "6fe1a998-2fba-4a3d-b02b-2bca25790aa2",
+            "object_repr": "PopularRecipe object (6fe1a998-2fba-4a3d-b02b-2bca25790aa2)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 42,
+        "fields": {
+            "action_time": "2024-01-10T12:00:58.005Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "aa295c9d-1dae-43d2-8686-fb1e397bbb03",
+            "object_repr": "PopularRecipe object (aa295c9d-1dae-43d2-8686-fb1e397bbb03)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 43,
+        "fields": {
+            "action_time": "2024-01-10T12:00:58.006Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "12aa3ab8-b7e0-42a6-9edd-7a3adfc50959",
+            "object_repr": "PopularRecipe object (12aa3ab8-b7e0-42a6-9edd-7a3adfc50959)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 44,
+        "fields": {
+            "action_time": "2024-01-10T12:00:58.007Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "7aa84fd9-cb55-44ab-9e6c-c49919583a37",
+            "object_repr": "PopularRecipe object (7aa84fd9-cb55-44ab-9e6c-c49919583a37)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 45,
+        "fields": {
+            "action_time": "2024-01-10T12:00:58.009Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "899bd79e-f2b3-4db3-9b7e-62efab8d3e6d",
+            "object_repr": "PopularRecipe object (899bd79e-f2b3-4db3-9b7e-62efab8d3e6d)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 46,
+        "fields": {
+            "action_time": "2024-01-10T12:00:58.010Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "8317eb5c-3697-4134-955e-677595d5e822",
+            "object_repr": "PopularRecipe object (8317eb5c-3697-4134-955e-677595d5e822)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 47,
+        "fields": {
+            "action_time": "2024-01-10T12:01:03.351Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "e7500ea1-2f81-4358-b354-5dedee26e0af",
+            "object_repr": "PopularRecipe object (e7500ea1-2f81-4358-b354-5dedee26e0af)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 48,
+        "fields": {
+            "action_time": "2024-01-11T04:36:56.713Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "ed1229b5-e2f7-49cd-8053-7a017a45617d",
+            "object_repr": "Oren Miles",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 49,
+        "fields": {
+            "action_time": "2024-01-11T04:37:07.174Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "object_repr": "test",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 50,
+        "fields": {
+            "action_time": "2024-01-11T04:37:22.853Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "05f06375-d258-4612-b963-795d17d3bb1d",
+            "object_repr": "Kim Ford",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 51,
+        "fields": {
+            "action_time": "2024-01-11T04:37:33.696Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "9a61671f-a2cd-4fb6-8a86-c0d570ef6ecf",
+            "object_repr": "Rate object (9a61671f-a2cd-4fb6-8a86-c0d570ef6ecf)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 52,
+        "fields": {
+            "action_time": "2024-01-11T04:38:56.090Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "aa295c9d-1dae-43d2-8686-fb1e397bbb03",
+            "object_repr": "PopularRecipe object (aa295c9d-1dae-43d2-8686-fb1e397bbb03)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 53,
+        "fields": {
+            "action_time": "2024-01-11T04:38:56.093Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "12aa3ab8-b7e0-42a6-9edd-7a3adfc50959",
+            "object_repr": "PopularRecipe object (12aa3ab8-b7e0-42a6-9edd-7a3adfc50959)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 54,
+        "fields": {
+            "action_time": "2024-01-11T04:38:56.095Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "e7500ea1-2f81-4358-b354-5dedee26e0af",
+            "object_repr": "PopularRecipe object (e7500ea1-2f81-4358-b354-5dedee26e0af)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 55,
+        "fields": {
+            "action_time": "2024-01-11T04:38:56.097Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 10,
+            "object_id": "7f389e51-b326-44fb-a0a2-ec2e3b4e8179",
+            "object_repr": "PopularRecipe object (7f389e51-b326-44fb-a0a2-ec2e3b4e8179)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 56,
+        "fields": {
+            "action_time": "2024-01-11T04:41:39.613Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "fc8fd4a2-cc81-4fc4-9b93-9891b95e7c26",
+            "object_repr": "Rate object (fc8fd4a2-cc81-4fc4-9b93-9891b95e7c26)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Rate\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 57,
+        "fields": {
+            "action_time": "2024-01-11T04:41:45.487Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 16,
+            "object_id": "f72334cf-205f-4cb2-893b-3ea22c63b274",
+            "object_repr": "Rate object (f72334cf-205f-4cb2-893b-3ea22c63b274)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Rate\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 58,
+        "fields": {
+            "action_time": "2024-01-11T05:04:11.294Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 19,
+            "object_id": "04447d0c-0491-45db-b166-880fdea98f1f",
+            "object_repr": "Configuration object (04447d0c-0491-45db-b166-880fdea98f1f)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Trending recipe limit\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 59,
+        "fields": {
+            "action_time": "2024-01-11T05:04:22.505Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 15,
+            "object_id": "f63ba286-0645-4df5-afa2-ef14068f1433",
+            "object_repr": "RecentlySearched object (f63ba286-0645-4df5-afa2-ef14068f1433)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 60,
+        "fields": {
+            "action_time": "2024-01-11T05:04:33.957Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 15,
+            "object_id": "be740a63-8485-4a6b-b7f7-5fbb2d460cdf",
+            "object_repr": "RecentlySearched object (be740a63-8485-4a6b-b7f7-5fbb2d460cdf)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 61,
+        "fields": {
+            "action_time": "2024-01-11T05:10:33.769Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 15,
+            "object_id": "4d8a4705-0518-4f14-8228-e4a444059cfe",
+            "object_repr": "RecentlySearched object (4d8a4705-0518-4f14-8228-e4a444059cfe)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 62,
+        "fields": {
+            "action_time": "2024-01-11T05:10:56.539Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 15,
+            "object_id": "95fe2585-2a63-428f-90b6-d49866f17333",
+            "object_repr": "RecentlySearched object (95fe2585-2a63-428f-90b6-d49866f17333)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 63,
+        "fields": {
+            "action_time": "2024-01-11T05:11:19.950Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 15,
+            "object_id": "95fe2585-2a63-428f-90b6-d49866f17333",
+            "object_repr": "RecentlySearched object (95fe2585-2a63-428f-90b6-d49866f17333)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 64,
+        "fields": {
+            "action_time": "2024-01-11T05:11:27.501Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 15,
+            "object_id": "f63ba286-0645-4df5-afa2-ef14068f1433",
+            "object_repr": "RecentlySearched object (f63ba286-0645-4df5-afa2-ef14068f1433)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 65,
+        "fields": {
+            "action_time": "2024-01-11T05:18:29.984Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 15,
+            "object_id": "49b01555-a23b-427f-86c3-4d575a8e0fae",
+            "object_repr": "RecentlySearched object (49b01555-a23b-427f-86c3-4d575a8e0fae)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 66,
+        "fields": {
+            "action_time": "2024-01-11T06:47:19.049Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 7,
+            "object_id": "48bf4c39-e7db-4021-b950-4b1bc95ec5b0",
+            "object_repr": "Candice Malone",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 67,
+        "fields": {
+            "action_time": "2024-01-11T06:53:00.186Z",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "content_type": 19,
+            "object_id": "04447d0c-0491-45db-b166-880fdea98f1f",
+            "object_repr": "Configuration object (04447d0c-0491-45db-b166-880fdea98f1f)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Trending recipe limit\", \"Popular recipe limit\"]}}]"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 4,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 4,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 4,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 4,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 5,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 5,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 5,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 5,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 6,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 6,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 6,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 6,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add recipe",
+            "content_type": 7,
+            "codename": "add_recipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change recipe",
+            "content_type": 7,
+            "codename": "change_recipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete recipe",
+            "content_type": 7,
+            "codename": "delete_recipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view recipe",
+            "content_type": 7,
+            "codename": "view_recipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add ingredient",
+            "content_type": 8,
+            "codename": "add_ingredient"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change ingredient",
+            "content_type": 8,
+            "codename": "change_ingredient"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete ingredient",
+            "content_type": 8,
+            "codename": "delete_ingredient"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view ingredient",
+            "content_type": 8,
+            "codename": "view_ingredient"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add procedure",
+            "content_type": 9,
+            "codename": "add_procedure"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change procedure",
+            "content_type": 9,
+            "codename": "change_procedure"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete procedure",
+            "content_type": 9,
+            "codename": "delete_procedure"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view procedure",
+            "content_type": 9,
+            "codename": "view_procedure"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add popular recipe",
+            "content_type": 10,
+            "codename": "add_popularrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change popular recipe",
+            "content_type": 10,
+            "codename": "change_popularrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete popular recipe",
+            "content_type": 10,
+            "codename": "delete_popularrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view popular recipe",
+            "content_type": 10,
+            "codename": "view_popularrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 41,
+        "fields": {
+            "name": "Can add trending recipe",
+            "content_type": 11,
+            "codename": "add_trendingrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 42,
+        "fields": {
+            "name": "Can change trending recipe",
+            "content_type": 11,
+            "codename": "change_trendingrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 43,
+        "fields": {
+            "name": "Can delete trending recipe",
+            "content_type": 11,
+            "codename": "delete_trendingrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 44,
+        "fields": {
+            "name": "Can view trending recipe",
+            "content_type": 11,
+            "codename": "view_trendingrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 45,
+        "fields": {
+            "name": "Can add notification",
+            "content_type": 12,
+            "codename": "add_notification"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 46,
+        "fields": {
+            "name": "Can change notification",
+            "content_type": 12,
+            "codename": "change_notification"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 47,
+        "fields": {
+            "name": "Can delete notification",
+            "content_type": 12,
+            "codename": "delete_notification"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 48,
+        "fields": {
+            "name": "Can view notification",
+            "content_type": 12,
+            "codename": "view_notification"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 49,
+        "fields": {
+            "name": "Can add review",
+            "content_type": 13,
+            "codename": "add_review"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 50,
+        "fields": {
+            "name": "Can change review",
+            "content_type": 13,
+            "codename": "change_review"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 51,
+        "fields": {
+            "name": "Can delete review",
+            "content_type": 13,
+            "codename": "delete_review"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 52,
+        "fields": {
+            "name": "Can view review",
+            "content_type": 13,
+            "codename": "view_review"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 53,
+        "fields": {
+            "name": "Can add saved recipe",
+            "content_type": 14,
+            "codename": "add_savedrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 54,
+        "fields": {
+            "name": "Can change saved recipe",
+            "content_type": 14,
+            "codename": "change_savedrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 55,
+        "fields": {
+            "name": "Can delete saved recipe",
+            "content_type": 14,
+            "codename": "delete_savedrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 56,
+        "fields": {
+            "name": "Can view saved recipe",
+            "content_type": 14,
+            "codename": "view_savedrecipe"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 57,
+        "fields": {
+            "name": "Can add recently searched",
+            "content_type": 15,
+            "codename": "add_recentlysearched"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 58,
+        "fields": {
+            "name": "Can change recently searched",
+            "content_type": 15,
+            "codename": "change_recentlysearched"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 59,
+        "fields": {
+            "name": "Can delete recently searched",
+            "content_type": 15,
+            "codename": "delete_recentlysearched"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 60,
+        "fields": {
+            "name": "Can view recently searched",
+            "content_type": 15,
+            "codename": "view_recentlysearched"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 61,
+        "fields": {
+            "name": "Can add rate",
+            "content_type": 16,
+            "codename": "add_rate"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 62,
+        "fields": {
+            "name": "Can change rate",
+            "content_type": 16,
+            "codename": "change_rate"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 63,
+        "fields": {
+            "name": "Can delete rate",
+            "content_type": 16,
+            "codename": "delete_rate"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 64,
+        "fields": {
+            "name": "Can view rate",
+            "content_type": 16,
+            "codename": "view_rate"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 65,
+        "fields": {
+            "name": "Can add category",
+            "content_type": 17,
+            "codename": "add_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 66,
+        "fields": {
+            "name": "Can change category",
+            "content_type": 17,
+            "codename": "change_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 67,
+        "fields": {
+            "name": "Can delete category",
+            "content_type": 17,
+            "codename": "delete_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 68,
+        "fields": {
+            "name": "Can view category",
+            "content_type": 17,
+            "codename": "view_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 69,
+        "fields": {
+            "name": "Can add ingredient list",
+            "content_type": 18,
+            "codename": "add_ingredientlist"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 70,
+        "fields": {
+            "name": "Can change ingredient list",
+            "content_type": 18,
+            "codename": "change_ingredientlist"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 71,
+        "fields": {
+            "name": "Can delete ingredient list",
+            "content_type": 18,
+            "codename": "delete_ingredientlist"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 72,
+        "fields": {
+            "name": "Can view ingredient list",
+            "content_type": 18,
+            "codename": "view_ingredientlist"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 73,
+        "fields": {
+            "name": "Can add configuration",
+            "content_type": 19,
+            "codename": "add_configuration"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 74,
+        "fields": {
+            "name": "Can change configuration",
+            "content_type": 19,
+            "codename": "change_configuration"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 75,
+        "fields": {
+            "name": "Can delete configuration",
+            "content_type": 19,
+            "codename": "delete_configuration"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 76,
+        "fields": {
+            "name": "Can view configuration",
+            "content_type": 19,
+            "codename": "view_configuration"
+        }
+    },
+
+    {
+        "model": "sessions.session",
+        "pk": "gf40c7wtythbwxegq2grr0w91r36u9zm",
+        "fields": {
+            "session_data": ".eJxVjTsOwyAQBe9CHRCsYVlSus8ZLFggdhLZkj9VlLvHllwk9ZuZ9xZd3Na-25Yyd0MWV1EsWMfJSUR20lZNkiKRbDgUIovGaRCXXy1FfpbxcPMjjvdJ8TSu85DUgahzXdRtyuXVnuxfoI9Lv9uN339DzUCWCMEABBODTYBNcjUEk6wHH7IxWCsm1oBcddEug2eXtfh8AV-fP7A:1rN8Dw:8f57aGpVEiKSlTfsUqql8B3hl1APxQUXzidLG064ZPY",
+            "expire_date": "2024-01-23T09:16:40.666Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "shgkegvkvftx32vttdar74oo0k2e164d",
+        "fields": {
+            "session_data": ".eJxVjTsOwyAQBe9CHRCsYVlSus8ZLFggdhLZkj9VlLvHllwk9ZuZ9xZd3Na-25Yyd0MWV1EsWMfJSUR20lZNkiKRbDgUIovGaRCXXy1FfpbxcPMjjvdJ8TSu85DUgahzXdRtyuXVnuxfoI9Lv9uN339DzUCWCMEABBODTYBNcjUEk6wHH7IxWCsm1oBcddEug2eXtfh8AV-fP7A:1rLkk8:P1-xAzPvtdHC63pDw69TaK_sSBmoesWiA1ghuidBCt0",
+            "expire_date": "2024-01-19T14:00:12.660Z"
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": "1e77c8ef-92b1-488a-8c6e-8c9bcf753936",
+        "fields": {
+            "password": "pbkdf2_sha256$600000$j1XOMO6hyP4zm7uFeRPWvE$j+aLgMldQBKnfWLwVijxdkeQB1buaYDkmIoE0rgYMsE=",
+            "last_login": null,
+            "name": "Yasin",
+            "email": "yasin@mail.com",
+            "is_admin": false,
+            "profession": null,
+            "description": null,
+            "chef_status": "Pre-processed",
+            "profile_pic": "",
+            "registered_on": "2024-01-11T06:59:16.202Z"
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": "3ca37582-7bfe-48dd-8f7d-5467d02bfa2e",
+        "fields": {
+            "password": "pbkdf2_sha256$600000$bVnYJcsAByKkfgnztIt1Qp$jwz2/fHbzfMZicUeI6/OBMBCqvouoC6acYvFdF/4EwU=",
+            "last_login": null,
+            "name": "Rida",
+            "email": "patelrida990@gmail.com",
+            "is_admin": false,
+            "profession": null,
+            "description": null,
+            "chef_status": "Pre-processed",
+            "profile_pic": "",
+            "registered_on": "2024-01-11T06:51:05.092Z"
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": "70a0ea42-717b-4723-b34c-d9efcdf63cb1",
+        "fields": {
+            "password": "pbkdf2_sha256$600000$ZXDfJ1axOSx075axfkM0Ei$GUcHDke7zplWo3Z716npUJy8wPOgOQqdY2gybhbjKqY=",
+            "last_login": null,
+            "name": "Rida",
+            "email": "ridapatel9090@gmail.com",
+            "is_admin": false,
+            "profession": null,
+            "description": null,
+            "chef_status": "Pre-processed",
+            "profile_pic": "",
+            "registered_on": "2024-01-11T06:39:24.826Z"
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": "931b657f-9a1d-4e5d-8675-d54fb02ba23b",
+        "fields": {
+            "password": "pbkdf2_sha256$600000$7Sc55yYOXEaC0ESzutIUNd$yJ8Djbfejn2tsIf7DGrqjyZN4zmHp+8WHEYwjtR1k9U=",
+            "last_login": null,
+            "name": "Rida",
+            "email": "ridapatel555@gmail.com",
+            "is_admin": false,
+            "profession": null,
+            "description": null,
+            "chef_status": "Pre-processed",
+            "profile_pic": "",
+            "registered_on": "2024-01-11T06:42:54.951Z"
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": "9e81cc5a-f0ad-4aba-9633-e1343283ea2d",
+        "fields": {
+            "password": "pbkdf2_sha256$600000$GmeEddhmgaftgjCwp6aeGg$Owc5k6NQnp1EHxzaGV8qtNyy9c3isB6UAgC24kyhy6Q=",
+            "last_login": null,
+            "name": "Rida Patel",
+            "email": "rida@mail.com",
+            "is_admin": true,
+            "profession": null,
+            "description": "description updated",
+            "chef_status": "Pre-processed",
+            "profile_pic": "accounts/Amul_official_logo.svg.png",
+            "registered_on": "2024-01-08T09:04:01.558Z"
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+        "fields": {
+            "password": "pbkdf2_sha256$600000$v30U56bywvdGnFPkBsHa4u$Ojp/ozyojyWvLTxJfYCdzatJ7d9o03Inu4XQ/yY9svM=",
+            "last_login": "2024-01-09T09:16:40.664Z",
+            "name": "Meenaz",
+            "email": "meenaz@mail.com",
+            "is_admin": true,
+            "profession": null,
+            "description": null,
+            "chef_status": "Pre-processed",
+            "profile_pic": "",
+            "registered_on": "2024-01-05T13:59:52.841Z"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": "05f06375-d258-4612-b963-795d17d3bb1d",
+        "fields": {
+            "created_on": "2024-01-11T04:37:22.851Z",
+            "updated_on": "2024-01-11T04:37:22.851Z",
+            "is_deleted": false,
+            "chef": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "name": "Kim Ford",
+            "serve_qty": 920,
+            "cooking_time": "1hr",
+            "link": null,
+            "image1": "",
+            "image2": "",
+            "image3": "",
+            "category": [
+                "04e299f3-5017-44ba-8aa2-355687ee6c4a",
+                "08a96648-35da-4d23-80e9-850ca50afde8",
+                "44575d9e-4c8e-45be-81f6-6a97cd762c80",
+                "05288b5a-153b-46a9-ba95-a145fbc72e7c"
+            ]
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": "48bf4c39-e7db-4021-b950-4b1bc95ec5b0",
+        "fields": {
+            "created_on": "2024-01-10T11:52:53.029Z",
+            "updated_on": "2024-01-11T06:47:19.046Z",
+            "is_deleted": true,
+            "chef": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "name": "Candice Malone",
+            "serve_qty": 3,
+            "cooking_time": "20mins",
+            "link": null,
+            "image1": "",
+            "image2": "",
+            "image3": "",
+            "category": [
+                "04e299f3-5017-44ba-8aa2-355687ee6c4a",
+                "98e80295-6f70-423f-ae30-c28f50e703a8",
+                "08a96648-35da-4d23-80e9-850ca50afde8",
+                "05288b5a-153b-46a9-ba95-a145fbc72e7c"
+            ]
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+        "fields": {
+            "created_on": "2024-01-09T12:08:22.447Z",
+            "updated_on": "2024-01-11T04:37:07.170Z",
+            "is_deleted": false,
+            "chef": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "name": "test",
+            "serve_qty": 1,
+            "cooking_time": "10min",
+            "link": null,
+            "image1": "",
+            "image2": "",
+            "image3": "",
+            "category": [
+                "0a6844ef-e0da-4eb2-a053-76c14a1c7f40"
+            ]
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": "7a7ef429-9699-4d97-bc14-f2d7d446ac4d",
+        "fields": {
+            "created_on": "2024-01-09T12:07:56.535Z",
+            "updated_on": "2024-01-09T12:08:10.947Z",
+            "is_deleted": false,
+            "chef": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "name": "Orange Juice1",
+            "serve_qty": 1,
+            "cooking_time": "10min",
+            "link": null,
+            "image1": "recipes/orange_huice_F7O5ggk.jpeg",
+            "image2": "",
+            "image3": "",
+            "category": [
+                "0a6844ef-e0da-4eb2-a053-76c14a1c7f40"
+            ]
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": "ed1229b5-e2f7-49cd-8053-7a017a45617d",
+        "fields": {
+            "created_on": "2024-01-11T04:36:56.708Z",
+            "updated_on": "2024-01-11T04:36:56.708Z",
+            "is_deleted": false,
+            "chef": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "name": "Oren Miles",
+            "serve_qty": 214,
+            "cooking_time": "30mins",
+            "link": null,
+            "image1": "",
+            "image2": "",
+            "image3": "",
+            "category": [
+                "04e299f3-5017-44ba-8aa2-355687ee6c4a",
+                "0a6844ef-e0da-4eb2-a053-76c14a1c7f40"
+            ]
+        }
+    },
+    {
+        "model": "recipes.ingredient",
+        "pk": "3a6c3ab0-3052-430b-8451-5697a0ca8c69",
+        "fields": {
+            "created_on": "2024-01-09T12:07:56.539Z",
+            "updated_on": "2024-01-09T12:07:56.539Z",
+            "is_deleted": false,
+            "name": "Orange"
+        }
+    },
+    {
+        "model": "recipes.ingredient",
+        "pk": "cad7c9b0-fe5d-4ecc-8704-7dde5d4145f5",
+        "fields": {
+            "created_on": "2024-01-09T12:07:56.541Z",
+            "updated_on": "2024-01-09T12:07:56.541Z",
+            "is_deleted": false,
+            "name": "Sugar"
+        }
+    },
+    {
+        "model": "recipes.ingredientlist",
+        "pk": "07da99c9-1143-4128-89bd-acebf99fb701",
+        "fields": {
+            "created_on": "2024-01-09T12:08:22.453Z",
+            "updated_on": "2024-01-09T12:08:22.453Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "ingredient": "cad7c9b0-fe5d-4ecc-8704-7dde5d4145f5",
+            "quantity": "as taste",
+            "unit": null
+        }
+    },
+    {
+        "model": "recipes.ingredientlist",
+        "pk": "23b37d21-afc9-4644-a0cf-36ee68188c19",
+        "fields": {
+            "created_on": "2024-01-09T12:07:56.542Z",
+            "updated_on": "2024-01-09T12:07:56.542Z",
+            "is_deleted": false,
+            "recipe": "7a7ef429-9699-4d97-bc14-f2d7d446ac4d",
+            "ingredient": "cad7c9b0-fe5d-4ecc-8704-7dde5d4145f5",
+            "quantity": "as taste",
+            "unit": null
+        }
+    },
+    {
+        "model": "recipes.ingredientlist",
+        "pk": "64394c3e-7fa0-4cf0-b75c-2d6943c6f554",
+        "fields": {
+            "created_on": "2024-01-09T12:07:56.542Z",
+            "updated_on": "2024-01-09T12:07:56.542Z",
+            "is_deleted": false,
+            "recipe": "7a7ef429-9699-4d97-bc14-f2d7d446ac4d",
+            "ingredient": "3a6c3ab0-3052-430b-8451-5697a0ca8c69",
+            "quantity": "2",
+            "unit": null
+        }
+    },
+    {
+        "model": "recipes.ingredientlist",
+        "pk": "df24eb0b-c3dd-4557-a2b9-51526f28558d",
+        "fields": {
+            "created_on": "2024-01-09T12:08:22.453Z",
+            "updated_on": "2024-01-09T12:08:22.453Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "ingredient": "3a6c3ab0-3052-430b-8451-5697a0ca8c69",
+            "quantity": "2",
+            "unit": null
+        }
+    },
+    {
+        "model": "recipes.procedure",
+        "pk": "40debaa1-9e8d-468d-9158-0d9352710726",
+        "fields": {
+            "created_on": "2024-01-09T12:08:22.454Z",
+            "updated_on": "2024-01-09T12:08:22.454Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "order": 2,
+            "description": "strain the jiuce and add sugar as needed"
+        }
+    },
+    {
+        "model": "recipes.procedure",
+        "pk": "5482996e-a6a7-4e65-8b8f-a4235ba9a1f9",
+        "fields": {
+            "created_on": "2024-01-09T12:07:56.542Z",
+            "updated_on": "2024-01-09T12:07:56.542Z",
+            "is_deleted": false,
+            "recipe": "7a7ef429-9699-4d97-bc14-f2d7d446ac4d",
+            "order": 2,
+            "description": "strain the jiuce and add sugar as needed"
+        }
+    },
+    {
+        "model": "recipes.procedure",
+        "pk": "995e893e-1009-434c-86de-d0f0956c207d",
+        "fields": {
+            "created_on": "2024-01-09T12:07:56.542Z",
+            "updated_on": "2024-01-09T12:07:56.542Z",
+            "is_deleted": false,
+            "recipe": "7a7ef429-9699-4d97-bc14-f2d7d446ac4d",
+            "order": 1,
+            "description": "pil the oranges, add them in mixer, grind well"
+        }
+    },
+    {
+        "model": "recipes.procedure",
+        "pk": "c9e4d8b1-8c49-4a34-adf5-b1727e952342",
+        "fields": {
+            "created_on": "2024-01-09T12:08:22.454Z",
+            "updated_on": "2024-01-09T12:08:22.454Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "order": 1,
+            "description": "pil the oranges, add them in mixer, grind well"
+        }
+    },
+    {
+        "model": "recipes.trendingrecipe",
+        "pk": "ac78d8e2-b255-4ade-9a4f-669c479d4c10",
+        "fields": {
+            "created_on": "2024-01-11T05:18:44.168Z",
+            "updated_on": "2024-01-11T05:18:44.168Z",
+            "is_deleted": false,
+            "recipe": "05f06375-d258-4612-b963-795d17d3bb1d"
+        }
+    },
+    {
+        "model": "recipes.popularrecipe",
+        "pk": "163d2167-9df7-4a2b-bb8c-33ffd0e9ba61",
+        "fields": {
+            "created_on": "2024-01-11T04:42:01.414Z",
+            "updated_on": "2024-01-11T04:42:01.414Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f"
+        }
+    },
+    {
+        "model": "recipes.popularrecipe",
+        "pk": "c0a1f227-d451-471f-8b56-319c52f0b242",
+        "fields": {
+            "created_on": "2024-01-11T04:42:01.420Z",
+            "updated_on": "2024-01-11T04:42:01.420Z",
+            "is_deleted": false,
+            "recipe": "48bf4c39-e7db-4021-b950-4b1bc95ec5b0"
+        }
+    },
+    {
+        "model": "portal.configuration",
+        "pk": "04447d0c-0491-45db-b166-880fdea98f1f",
+        "fields": {
+            "created_on": "2024-01-11T06:53:00.185Z",
+            "updated_on": "2024-01-11T06:53:00.185Z",
+            "is_deleted": false,
+            "trending_recipe_limit": 10,
+            "popular_recipe_limit": 10,
+            "popular_recipe_rate": "3.5"
+        }
+    },
+    {
+        "model": "portal.category",
+        "pk": "04e299f3-5017-44ba-8aa2-355687ee6c4a",
+        "fields": {
+            "created_on": "2024-01-09T09:17:56.938Z",
+            "updated_on": "2024-01-09T09:17:56.938Z",
+            "is_deleted": false,
+            "name": "Kebabs"
+        }
+    },
+    {
+        "model": "portal.category",
+        "pk": "05288b5a-153b-46a9-ba95-a145fbc72e7c",
+        "fields": {
+            "created_on": "2024-01-09T09:17:11.835Z",
+            "updated_on": "2024-01-09T09:17:11.835Z",
+            "is_deleted": false,
+            "name": "Vegetarian"
+        }
+    },
+    {
+        "model": "portal.category",
+        "pk": "08a96648-35da-4d23-80e9-850ca50afde8",
+        "fields": {
+            "created_on": "2024-01-09T09:17:32.290Z",
+            "updated_on": "2024-01-09T09:17:32.290Z",
+            "is_deleted": false,
+            "name": "Healthy"
+        }
+    },
+    {
+        "model": "portal.category",
+        "pk": "0a6844ef-e0da-4eb2-a053-76c14a1c7f40",
+        "fields": {
+            "created_on": "2024-01-09T09:17:41.831Z",
+            "updated_on": "2024-01-09T09:17:41.831Z",
+            "is_deleted": false,
+            "name": "Drinks"
+        }
+    },
+    {
+        "model": "portal.category",
+        "pk": "44575d9e-4c8e-45be-81f6-6a97cd762c80",
+        "fields": {
+            "created_on": "2024-01-09T09:17:24.503Z",
+            "updated_on": "2024-01-09T09:17:24.503Z",
+            "is_deleted": false,
+            "name": "Snacks"
+        }
+    },
+    {
+        "model": "portal.category",
+        "pk": "6ffb06e3-170b-480b-a196-fa37ce9861cf",
+        "fields": {
+            "created_on": "2024-01-09T09:18:03.097Z",
+            "updated_on": "2024-01-09T09:18:03.097Z",
+            "is_deleted": false,
+            "name": "Tandoori"
+        }
+    },
+    {
+        "model": "portal.category",
+        "pk": "98e80295-6f70-423f-ae30-c28f50e703a8",
+        "fields": {
+            "created_on": "2024-01-09T09:17:49.922Z",
+            "updated_on": "2024-01-09T09:17:49.922Z",
+            "is_deleted": false,
+            "name": "Chutney"
+        }
+    },
+    {
+        "model": "social.rate",
+        "pk": "5a191cc9-b44d-400f-b503-682a534c2def",
+        "fields": {
+            "created_on": "2024-01-10T11:53:12.240Z",
+            "updated_on": "2024-01-10T11:56:52.140Z",
+            "is_deleted": false,
+            "recipe": "48bf4c39-e7db-4021-b950-4b1bc95ec5b0",
+            "user": "9e81cc5a-f0ad-4aba-9633-e1343283ea2d",
+            "rate": "5.0"
+        }
+    },
+    {
+        "model": "social.rate",
+        "pk": "9a61671f-a2cd-4fb6-8a86-c0d570ef6ecf",
+        "fields": {
+            "created_on": "2024-01-11T04:37:33.693Z",
+            "updated_on": "2024-01-11T04:37:33.693Z",
+            "is_deleted": false,
+            "recipe": "05f06375-d258-4612-b963-795d17d3bb1d",
+            "user": "9e81cc5a-f0ad-4aba-9633-e1343283ea2d",
+            "rate": "4.0"
+        }
+    },
+    {
+        "model": "social.rate",
+        "pk": "a5783cc7-f25f-4e47-b723-11cc67a9ab5e",
+        "fields": {
+            "created_on": "2024-01-10T11:49:33.861Z",
+            "updated_on": "2024-01-10T11:56:47.082Z",
+            "is_deleted": false,
+            "recipe": "7a7ef429-9699-4d97-bc14-f2d7d446ac4d",
+            "user": "9e81cc5a-f0ad-4aba-9633-e1343283ea2d",
+            "rate": "2.0"
+        }
+    },
+    {
+        "model": "social.rate",
+        "pk": "f72334cf-205f-4cb2-893b-3ea22c63b274",
+        "fields": {
+            "created_on": "2024-01-10T11:49:43.511Z",
+            "updated_on": "2024-01-11T04:41:45.486Z",
+            "is_deleted": false,
+            "recipe": "7a7ef429-9699-4d97-bc14-f2d7d446ac4d",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502",
+            "rate": "4.4"
+        }
+    },
+    {
+        "model": "social.rate",
+        "pk": "fc8fd4a2-cc81-4fc4-9b93-9891b95e7c26",
+        "fields": {
+            "created_on": "2024-01-10T04:31:59.283Z",
+            "updated_on": "2024-01-11T04:41:39.612Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "user": "9e81cc5a-f0ad-4aba-9633-e1343283ea2d",
+            "rate": "4.5"
+        }
+    },
+    {
+        "model": "social.review",
+        "pk": "13b95173-f34a-41c3-9053-8d7afd77464a",
+        "fields": {
+            "created_on": "2024-01-10T04:38:40.973Z",
+            "updated_on": "2024-01-10T04:38:40.973Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "user": "9e81cc5a-f0ad-4aba-9633-e1343283ea2d",
+            "comment": "review recipe for orange juice 2"
+        }
+    },
+    {
+        "model": "social.savedrecipe",
+        "pk": "4a3dfdc7-c72f-4ba7-9f1b-10d03ee533af",
+        "fields": {
+            "created_on": "2024-01-09T12:56:25.143Z",
+            "updated_on": "2024-01-09T12:56:25.143Z",
+            "is_deleted": false,
+            "recipe": "7a7ef429-9699-4d97-bc14-f2d7d446ac4d",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502"
+        }
+    },
+    {
+        "model": "social.savedrecipe",
+        "pk": "d42e2357-f006-404d-99af-30264ebebd9a",
+        "fields": {
+            "created_on": "2024-01-10T04:22:03.705Z",
+            "updated_on": "2024-01-10T04:22:03.705Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "user": "9e81cc5a-f0ad-4aba-9633-e1343283ea2d"
+        }
+    },
+    {
+        "model": "social.recentlysearched",
+        "pk": "07313d00-b7e1-485c-80a1-05eafd8f392d",
+        "fields": {
+            "created_on": "2024-01-10T04:23:50.654Z",
+            "updated_on": "2024-01-10T04:23:50.654Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "user": "9e81cc5a-f0ad-4aba-9633-e1343283ea2d"
+        }
+    },
+    {
+        "model": "social.recentlysearched",
+        "pk": "49b01555-a23b-427f-86c3-4d575a8e0fae",
+        "fields": {
+            "created_on": "2024-01-11T05:18:29.983Z",
+            "updated_on": "2024-01-11T05:18:29.983Z",
+            "is_deleted": false,
+            "recipe": "05f06375-d258-4612-b963-795d17d3bb1d",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502"
+        }
+    },
+    {
+        "model": "social.recentlysearched",
+        "pk": "4d8a4705-0518-4f14-8228-e4a444059cfe",
+        "fields": {
+            "created_on": "2024-01-11T05:10:33.768Z",
+            "updated_on": "2024-01-11T05:10:33.768Z",
+            "is_deleted": false,
+            "recipe": "7a135579-ef7b-4245-8c64-5807a0021d6f",
+            "user": "e4245cb5-66c5-4f08-8a88-3c9e88461502"
+        }
+    },
+    {
+        "model": "social.recentlysearched",
+        "pk": "be740a63-8485-4a6b-b7f7-5fbb2d460cdf",
+        "fields": {
+            "created_on": "2024-01-11T05:04:33.956Z",
+            "updated_on": "2024-01-11T05:04:33.956Z",
+            "is_deleted": false,
+            "recipe": "48bf4c39-e7db-4021-b950-4b1bc95ec5b0",
+            "user": "9e81cc5a-f0ad-4aba-9633-e1343283ea2d"
+        }
+    }
+]

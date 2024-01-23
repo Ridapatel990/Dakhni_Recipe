@@ -3,7 +3,9 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .forms import UserChangeForm, UserCreationForm
 from accounts.models import User
-#Test
+
+# Test
+
 
 class MyUserAdmin(BaseUserAdmin):
     # The forms to add and change user instances
@@ -13,21 +15,37 @@ class MyUserAdmin(BaseUserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('id', 'name', 'email', 'is_admin')
-    list_filter = ('is_admin',)
+    list_display = ("id", "name", "email", "is_admin")
+    list_filter = ("is_admin",)
     add_fieldsets = (
-        (None, {'fields': ('email', 'password1', 'password2', 'is_active')}),
-        ('Personal info', {'fields': ('name',)}),
-        ('Permissions', {'fields': ('is_admin',)}),
+        (None, {"fields": ("email", "password1", "password2")}),
+        ("Personal info", {"fields": ("name",)}),
+        ("Permissions", {"fields": ("is_admin",)}),
     )
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'is_active')}),
-        ('Personal info', {'fields': ('name', 'address', 'profile_pic' )}),
-        ('Permissions', {'fields': ('is_admin',)}),
+        (None, {"fields": ("email", "password")}),
+        (
+            "Personal info",
+            {
+                "fields": (
+                    "name",
+                    "chef_status",
+                    "profession",
+                    "description",
+                    "profile_pic",
+                    "otp",
+                    "is_verified",
+                )
+            },
+        ),
+        ("Permissions", {"fields": ("is_admin",)}),
     )
 
-    search_fields = ('email', 'name')
-    ordering = ('name', 'email', )
+    search_fields = ("email", "name")
+    ordering = (
+        "name",
+        "email",
+    )
     filter_horizontal = ()
 
 
