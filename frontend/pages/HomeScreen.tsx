@@ -21,7 +21,7 @@ import DetailedCard from "../components/home/DetailedCard";
 import Icon from "react-native-vector-icons/Ionicons";
 import CustomTabs from "../components/common/CustomTabs";
 import SimpleCard from "../components/home/SimpleCard";
-import { useGetAll } from "../hooks";
+import { useDebounce, useGetAll } from "../hooks";
 import {
   CategoryInterface,
   GetNewInteface,
@@ -33,6 +33,7 @@ import BigCard from "../components/common/BigCard";
 import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SeeAllNewRecipe from "./SeeAllNewRecipe";
+import Card from "../components/home/Card";
 
 const HomeScreen = ({
   navigation,
@@ -44,10 +45,16 @@ const HomeScreen = ({
   const [chipText, setChipText] = useState<string | undefined>(undefined);
   const [user, setUser] = useState<UserInterface | undefined>(undefined);
 
+  const [recentlySearchedRecipe, setRecentlySearchedRecipe] = useState([]);
+  const [recentlyEnabled, setRecentlyEnabled] = useState(false);
+
   const handleSearch = (text: string) => {
     //logic
     setSearchText(text);
   };
+
+  const query = useDebounce(searchText, 1000);
+
   const onItemTapped = (index: number) => {
     switch (index) {
       case 0:
@@ -72,13 +79,14 @@ const HomeScreen = ({
     key: "/portal/popular-categories/",
     enabled: true,
   });
+
   const { data: allCategories } = useGetAll({
     key: "/portal/category/",
     enabled: true,
   });
 
   const { data: getRecipe } = useGetAll({
-    key: "/recipes/list/?random=true",
+    key: `/recipes/list/?random=true&q=${query}`,
     enabled: true,
   });
 
@@ -97,6 +105,15 @@ const HomeScreen = ({
     enabled: true,
   });
 
+  useGetAll({
+    key: "social/recently-search-recipe/list/",
+    enabled: recentlyEnabled,
+    onSuccess(data) {
+      setRecentlySearchedRecipe(data);
+      console.log(data, "<====recently searched recepi");
+    },
+  });
+
   // console.log("qwertyuiopojhdsafgnm", getRecipe);
   const getUser = async () => {
     const user: UserInterface | undefined = JSON.parse(
@@ -111,13 +128,23 @@ const HomeScreen = ({
     getUser();
   }, []);
 
+  const onSearchFocus = () => {
+    console.log("in  onSearchFocus");
+    setRecentlyEnabled(true);
+  };
+
+  const onSearchBlur = () => {
+    setRecentlyEnabled(false);
+    setRecentlySearchedRecipe([]);
+  };
+
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
       <ScrollView
         showsVerticalScrollIndicator={true}
-        style={{ marginBottom: 10 }}
+        style={{ marginBottom: 10, paddingHorizontal: 20 }}
       >
-        <View style={{ marginLeft: 20 }}>
+        <View style={{ marginLeft: 0 }}>
           <View>
             <Text style={styles.helloText}>Hello {user?.name || "Tulip"},</Text>
             <Text style={styles.welcomeText}>
@@ -130,8 +157,10 @@ const HomeScreen = ({
               <CustomSearchBar
                 value={searchText}
                 placeholder={"Search"}
-                onChangeText={() => handleSearch}
+                onChangeText={handleSearch}
                 barWidth={"70%"}
+                onFocus={onSearchFocus}
+                onBlur={onSearchBlur}
               ></CustomSearchBar>
 
               <FilterButton
@@ -140,176 +169,235 @@ const HomeScreen = ({
               ></FilterButton>
             </View>
 
-            <ScrollView
-              horizontal={true}
-              style={{
-                flexDirection: "row",
-                maxWidth: "100%",
-                paddingVertical: 10,
-              }}
-            >
-              {allCategories && allCategories.length
-                ? allCategories.map((cat: CategoryInterface, index: number) => (
-                    <CustomChips
-                      key={cat.id}
-                      label={cat.name}
-                      selected={chipText}
-                      setSelected={setChipText}
-                      defaultSelected={index == 0}
-                    ></CustomChips>
-                  ))
-                : ""}
-            </ScrollView>
-
-            <ScrollView horizontal={true}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  marginRight: 20,
-                  marginTop: 10,
-                }}
-              >
-                {getRecipe && getRecipe.length
-                  ? getRecipe?.map((recipe: GetRecipeInteface) => (
-                      <DetailedCard
-                        recipeId={recipe.id}
-                        recipeLabel={recipe.name}
-                        mins={recipe.cooking_time}
+            {query && (
+              <ScrollView>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    flexWrap: "wrap",
+                    paddingBottom: 70,
+                    paddingHorizontal: 0,
+                  }}
+                >
+                  {getRecipe &&
+                    getRecipe?.length &&
+                    getRecipe?.map((recipe: GetRecipeInteface) => (
+                      <Card
+                        CardWidth={140}
+                        CardHeight={140}
+                        key={recipe.id}
+                        CardName={recipe.name}
                         imageUri={recipe.image1}
-                      ></DetailedCard>
-                    ))
-                  : ""}
-              </View>
-            </ScrollView>
-
-            <View
-              style={{
-                marginTop: 30,
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View>
-                {/* <Text style={styles.trendingText}>Trending now</Text> */}
-                <Image source={require("../assets/category.png")} />
-              </View>
-
-              <TouchableOpacity
-                style={{ flexDirection: "row", marginRight: 20 }}
-                onPress={() => navigation.navigate("SeeAllTrending")}
-              >
-                <Text style={styles.seeAllText}>See All</Text>
-                <Icon name="arrow-forward" size={14} style={{ padding: 4 }} />
-              </TouchableOpacity>
-            </View>
-
-            <View>
-              <ScrollView
-                horizontal={true}
-                style={{ flexDirection: "row", marginTop: 20 }}
-              >
-                {trendingRecipe && trendingRecipe.length
-                  ? trendingRecipe?.map((trendRecipe: GetPopularInterface) => (
-                      <BigCard
-                        BigCardName={trendRecipe?.recipe?.name}
-                        imageUri={trendRecipe?.recipe?.image1}
-                        Rating={trendRecipe?.recipe?.rate}
-                        time={trendRecipe?.recipe?.cooking_time}
-                      ></BigCard>
-                    ))
-                  : ""}
+                        Rating={recipe.rate}
+                      ></Card>
+                    ))}
+                </View>
               </ScrollView>
-            </View>
+            )}
 
-            <View style={{ marginTop: 20 }}>
-              <Text style={styles.popularText}>Popular Category</Text>
-            </View>
+            {recentlySearchedRecipe &&
+              recentlySearchedRecipe.length > 0 &&
+              recentlySearchedRecipe?.map((recipe: GetPopularInterface) => (
+                <Card
+                  key={recipe.id}
+                  CardName={recipe?.recipe?.name}
+                  imageUri={recipe?.recipe?.image1}
+                  Rating={recipe?.recipe?.rate}
+                ></Card>
+              ))}
+            {!query && recentlySearchedRecipe.length === 0 && (
+              <>
+                <ScrollView
+                  horizontal={true}
+                  style={{
+                    flexDirection: "row",
+                    maxWidth: "100%",
+                    paddingVertical: 10,
+                  }}
+                >
+                  {allCategories && allCategories.length
+                    ? allCategories.map(
+                        (cat: CategoryInterface, index: number) => (
+                          <CustomChips
+                            key={cat.id}
+                            label={cat.name}
+                            selected={chipText}
+                            setSelected={setChipText}
+                            defaultSelected={index == 0}
+                          ></CustomChips>
+                        )
+                      )
+                    : ""}
+                </ScrollView>
 
-            <ScrollView
-              horizontal={true}
-              style={{ flexDirection: "row", marginTop: 20 }}
-            >
-              {popularCategories && popularCategories.length
-                ? popularCategories.map(
-                    (cat: CategoryInterface, index: number) => (
-                      <CustomTabs
-                        key={cat.id}
-                        defaultSelected={index === 0}
-                        label={cat.name}
-                        width={"auto"}
-                        height={32}
-                        margin={4}
-                        selected={tabText}
-                        setSelected={setTabText}
-                      ></CustomTabs>
-                    )
-                  )
-                : ""}
-            </ScrollView>
+                <ScrollView horizontal={true}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      marginRight: 20,
+                      marginTop: 10,
+                    }}
+                  >
+                    {getRecipe && getRecipe.length
+                      ? getRecipe?.map((recipe: GetRecipeInteface) => (
+                          <DetailedCard
+                            recipeId={recipe.id}
+                            recipeLabel={recipe.name}
+                            mins={recipe.cooking_time}
+                            imageUri={recipe.image1}
+                          ></DetailedCard>
+                        ))
+                      : ""}
+                  </View>
+                </ScrollView>
 
-            <ScrollView horizontal={true}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  marginRight: 20,
-                  marginTop: 10,
-                }}
-              >
-                {popularCat && popularCat.length
-                  ? popularCat?.map((popRecipe: GetPopularInterface) => (
-                      <DetailedCard
-                        recipeId={popRecipe?.recipe.id}
-                        recipeLabel={popRecipe?.recipe?.name}
-                        mins={popRecipe?.recipe?.cooking_time}
-                        imageUri={popRecipe?.recipe?.image1}
-                      ></DetailedCard>
-                    ))
-                  : ""}
-              </View>
-            </ScrollView>
+                <View
+                  style={{
+                    marginTop: 30,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <View>
+                    {/* <Text style={styles.trendingText}>Trending now</Text> */}
+                    <Image source={require("../assets/category.png")} />
+                  </View>
 
-            <View
-              style={{
-                marginTop: 30,
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View>
-                <Text style={styles.trendingText}>New Recipe</Text>
-                {/* <Image source={require('../assets/category.png')} /> */}
-              </View>
+                  <TouchableOpacity
+                    style={{ flexDirection: "row", marginRight: 20 }}
+                    onPress={() => navigation.navigate("SeeAllTrending")}
+                  >
+                    <Text style={styles.seeAllText}>See All</Text>
+                    <Icon
+                      name="arrow-forward"
+                      size={14}
+                      style={{ padding: 4 }}
+                    />
+                  </TouchableOpacity>
+                </View>
 
-              <TouchableOpacity
-                style={{ flexDirection: "row", marginRight: 20 }}
-                onPress={() => navigation.navigate("SeeAllNewRecipe")}
-              >
-                <Text style={styles.seeAllText}>See All</Text>
-                <Icon name="arrow-forward" size={14} style={{ padding: 4 }} />
-              </TouchableOpacity>
-            </View>
+                <View>
+                  <ScrollView
+                    horizontal={true}
+                    style={{ flexDirection: "row", marginTop: 20 }}
+                  >
+                    {trendingRecipe && trendingRecipe.length
+                      ? trendingRecipe?.map(
+                          (trendRecipe: GetPopularInterface) => (
+                            <BigCard
+                              BigCardName={trendRecipe?.recipe?.name}
+                              imageUri={trendRecipe?.recipe?.image1}
+                              Rating={trendRecipe?.recipe?.rate}
+                              time={trendRecipe?.recipe?.cooking_time}
+                            ></BigCard>
+                          )
+                        )
+                      : ""}
+                  </ScrollView>
+                </View>
 
-            <ScrollView horizontal={true}>
-              <View
-                style={{
-                  justifyContent: "space-between",
-                  flexDirection: "row",
-                }}
-              >
-                {newRecipe && newRecipe.length
-                  ? newRecipe?.map((recipe: GetNewInteface) => (
-                      <SimpleCard
-                        label={recipe.name}
-                        imageUri={recipe.image1}
-                      ></SimpleCard>
-                    ))
-                  : ""}
-              </View>
-            </ScrollView>
+                <View style={{ marginTop: 20 }}>
+                  <Text style={styles.popularText}>Popular Category</Text>
+                </View>
 
-            {/* <View style={{marginTop: 20, flexDirection: 'row'}}>
+                <ScrollView
+                  horizontal={true}
+                  style={{ flexDirection: "row", marginTop: 20 }}
+                >
+                  {popularCategories && popularCategories.length
+                    ? popularCategories.map(
+                        (cat: CategoryInterface, index: number) => (
+                          <CustomTabs
+                            key={cat.id}
+                            defaultSelected={index === 0}
+                            label={cat.name}
+                            width={"auto"}
+                            height={32}
+                            margin={4}
+                            selected={tabText}
+                            setSelected={setTabText}
+                          ></CustomTabs>
+                        )
+                      )
+                    : ""}
+                </ScrollView>
+
+                <ScrollView horizontal={true}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      marginRight: 20,
+                      marginTop: 10,
+                    }}
+                  >
+                    {popularCat && popularCat.length
+                      ? popularCat?.map((popRecipe: GetPopularInterface) => (
+                          <DetailedCard
+                            recipeId={popRecipe?.recipe.id}
+                            recipeLabel={popRecipe?.recipe?.name}
+                            mins={popRecipe?.recipe?.cooking_time}
+                            imageUri={popRecipe?.recipe?.image1}
+                          ></DetailedCard>
+                        ))
+                      : ""}
+                  </View>
+                </ScrollView>
+
+                <View
+                  style={{
+                    marginTop: 30,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <View>
+                    <Text style={styles.trendingText}>New Recipe</Text>
+                    {/* <Image source={require('../assets/category.png')} /> */}
+                  </View>
+
+                  <TouchableOpacity
+                    style={{ flexDirection: "row", marginRight: 20 }}
+                    onPress={() => navigation.navigate("SeeAllNewRecipe")}
+                  >
+                    <Text style={styles.seeAllText}>See All</Text>
+                    <Icon
+                      name="arrow-forward"
+                      size={14}
+                      style={{ padding: 4 }}
+                    />
+                  </TouchableOpacity>
+                </View>
+
+                <ScrollView horizontal={true}>
+                  <View
+                    style={{
+                      justifyContent: "space-between",
+                      flexDirection: "row",
+                    }}
+                  >
+                    {newRecipe && newRecipe.length
+                      ? newRecipe?.map((recipe: GetNewInteface) => (
+                          <SimpleCard
+                            label={recipe.name}
+                            imageUri={recipe.image1}
+                          ></SimpleCard>
+                        ))
+                      : ""}
+                  </View>
+                </ScrollView>
+              </>
+            )}
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+/* <View style={{marginTop: 20, flexDirection: 'row'}}>
           <CustomTabs defaultSelected={true} label={'All'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
           <CustomTabs label={'Read'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
           <CustomTabs label={'Unread'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
@@ -319,19 +407,7 @@ const HomeScreen = ({
           <CustomTabs defaultSelected={true} label={'Ingredients'} width={150} height={32} margin={4} selected={selected} setSelected={setSelected}></CustomTabs>
           <CustomTabs label={'Procedure'} width={150} height={32} margin={4} selected={selected} setSelected={setSelected}></CustomTabs>
 
-        </View> */}
-          </View>
-        </View>
-      </ScrollView>
-      {/*       <View style={{ marginTop: 70 }}>
-        <BottomNavigationBar
-          onItemTapped={onItemTapped}
-          selectedIndex={0}
-        ></BottomNavigationBar>
-      </View> */}
-    </SafeAreaView>
-  );
-};
+        </View> */
 
 const styles = StyleSheet.create({
   container: {

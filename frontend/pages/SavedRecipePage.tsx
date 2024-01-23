@@ -11,10 +11,12 @@ import {
   NavigationProp,
   ParamListBase,
   useFocusEffect,
+  useIsFocused,
 } from "@react-navigation/native";
 import Card from "../components/home/Card";
 import { useGetAll } from "../hooks";
 import { RecipeInterface } from "../interfaces";
+import { serverAPI } from "../utils";
 
 const SavedRecipePage = ({
   navigation,
@@ -40,29 +42,30 @@ const SavedRecipePage = ({
         break;
     }
   };
-  const [enabled, setEnabled] = useState(false);
 
-  const { data: savedRecipes } = useGetAll({
-    key: "/social/saved-recipe/list/",
-    enabled: enabled,
-    onSuccess(data) {
-      console.log("onSuccessonSuccessonSuccess", data);
-      setEnabled(false);
-    },
-    onError(err) {
-      console.log("ERRRIRIRIRIRI", err);
-    },
-  });
+  const isFocused = useIsFocused();
+
+  const [savedRecipes, setSavedRecipes] = useState([]);
+
+  const getRecipeData = () => {
+    serverAPI.get("/social/saved-recipe/list/").then((val: any) => {
+      console.log("first", val?.data?.rows);
+      setSavedRecipes(val?.data?.rows);
+    });
+  };
 
   useFocusEffect(() => {
-    setEnabled(true);
-    console.log("Screen is focused");
+    if (isFocused) {
+      // setEnabled(true);
+      // console.log("Screen is focused");
+      getRecipeData();
+    }
   });
 
   const [isRefreshing, setRefreshing] = useState(false);
 
   const onRefresh = useCallback(() => {
-    setEnabled(true);
+    getRecipeData();
     setTimeout(() => {
       setRefreshing(false);
     }, 1000);
