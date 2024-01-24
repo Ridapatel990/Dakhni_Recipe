@@ -10,32 +10,32 @@ import BigButton from "../components/common/BigButton";
 import BigCard from "../components/common/BigCard";
 import BottomNavigationBar from "../components/BottomNavigationBar";
 
-const ScrollViewContent = () => (
-  <ScrollView horizontal={false}>
-    <View>
-      <BigCard
-        BigCardName="Biryani"
-        BigCardWidth={360}
-        Review="13k Reviews"
-      ></BigCard>
-      <BigCard
-        BigCardName="Biryani"
-        BigCardWidth={360}
-        Review="13k Reviews"
-      ></BigCard>
-      <BigCard
-        BigCardName="Biryani"
-        BigCardWidth={360}
-        Review="13k Reviews"
-      ></BigCard>
-      <BigCard
-        BigCardName="Biryani"
-        BigCardWidth={360}
-        Review="13k Reviews"
-      ></BigCard>
-    </View>
-  </ScrollView>
-);
+// const ScrollViewContent = () => (
+//   <ScrollView horizontal={false}>
+//     <View>
+//       <BigCard
+//         BigCardName="Biryani"
+//         BigCardWidth={360}
+//         Review="13k Reviews"
+//       ></BigCard>
+//       <BigCard
+//         BigCardName="Biryani"
+//         BigCardWidth={360}
+//         Review="13k Reviews"
+//       ></BigCard>
+//       <BigCard
+//         BigCardName="Biryani"
+//         BigCardWidth={360}
+//         Review="13k Reviews"
+//       ></BigCard>
+//       <BigCard
+//         BigCardName="Biryani"
+//         BigCardWidth={360}
+//         Review="13k Reviews"
+//       ></BigCard>
+//     </View>
+//   </ScrollView>
+// );
 
 const AccountPage = ({
   navigation,
@@ -68,6 +68,8 @@ const AccountPage = ({
           <Profile navigation={navigation}></Profile>
         </View>
 
+
+
         <View style={{ margin: 10 }}>
           <ProfileComponent></ProfileComponent>
         </View>
@@ -83,7 +85,30 @@ const AccountPage = ({
         ></BigButton>
       </View>
 
-      <ScrollViewContent />
+      <ScrollView horizontal={false}>
+    <View>
+      <BigCard
+        BigCardName="Biryani"
+        BigCardWidth={360}
+        Review="13k Reviews"
+      ></BigCard>
+      <BigCard
+        BigCardName="Biryani"
+        BigCardWidth={360}
+        Review="13k Reviews"
+      ></BigCard>
+      <BigCard
+        BigCardName="Biryani"
+        BigCardWidth={360}
+        Review="13k Reviews"
+      ></BigCard>
+      <BigCard
+        BigCardName="Biryani"
+        BigCardWidth={360}
+        Review="13k Reviews"
+      ></BigCard>
+    </View>
+  </ScrollView>
 
       {/* <View>
           <View>

@@ -1,6 +1,6 @@
 import Input from '@ant-design/react-native/lib/input-item/Input';
 import React, { useState } from 'react';
-  import { StyleSheet, Text, TextInput, View } from 'react-native';
+  import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
   import { Dropdown } from 'react-native-element-dropdown';
   import InputField from '../components/common/InputField';
 
@@ -13,20 +13,21 @@ import React, { useState } from 'react';
   ];
 
   const data2 = [
-    { label: 'Grams', value: '1' },
-    { label: 'Kilograms', value: '2' },
-    { label: 'Litres', value: '3' },
+    { title: 'Grams', value1: '8' },
+    { title: 'Kilograms', value1: '9' },
+    { title: 'Litres', value1: '10' },
     
   ];
 
   const DropdownComponent = () => {
     const [value, setValue] = useState<string | null>(null);
+    const [value1, setValue1] = useState<string | null>(null);
     const [isFocus, setIsFocus] = useState(false);
 
     const renderLabel1 = () => {
       if (value || isFocus) {
         return (
-          <Text style={[styles.label, isFocus && { color: 'black' }]}>
+          <Text style={[styles.label1, isFocus && { color: 'black' }]}>
             
           </Text>
         );
@@ -35,9 +36,9 @@ import React, { useState } from 'react';
     };
 
     const renderLabel2 = () => {
-      if (value || isFocus) {
+      if (value1 || isFocus) {
         return (
-          <Text style={[styles.label, isFocus && { color: 'black' }]}>
+          <Text style={[styles.label2, isFocus && { color: 'black' }]}>
             
           </Text>
         );
@@ -50,6 +51,7 @@ import React, { useState } from 'react';
         {renderLabel1()}
         <Dropdown
           style={[styles.dropdown, isFocus && { borderColor: 'gray' }]}
+          itemTextStyle={{color:'black'}}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}
           inputSearchStyle={styles.inputSearchStyle}
@@ -78,23 +80,30 @@ import React, { useState } from 'react';
         {renderLabel2()}
          <Dropdown
           style={[styles.dropdown2, isFocus && { borderColor: 'gray' }]}
+          itemTextStyle={{color:'black'}}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}
           iconStyle={styles.iconStyle}
           data={data2}
+          search
+          searchPlaceholder='Search...'
           maxHeight={300}
-          labelField="label"
-          valueField="value"
+          labelField="title"
+          valueField="value1"
           placeholder='Grams'
           value={value}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
           onChange={item => {
-            setValue(item.value);
+            setValue1(item.value1);
             setIsFocus(false);
           }}
           
         />
+
+        <TouchableOpacity style={{alignSelf:'center'}}>
+        <Image source={require('../assets/Increment.png')}></Image>
+        </TouchableOpacity>
 
       </View>
     );
@@ -104,12 +113,11 @@ import React, { useState } from 'react';
 
   const styles = StyleSheet.create({
     container: {
-      width:'100%',
+      marginLeft:10,
       padding: 16,
-      alignContent:'center',
-      marginRight:100,
       flexDirection:"row",
       borderRadius:10,
+      marginBottom:30
     },
     dropdown: {
       height: 50,
@@ -132,7 +140,16 @@ import React, { useState } from 'react';
     icon: {
       marginRight: 5,
     },
-    label: {
+    label1: {
+      position: 'absolute',
+      backgroundColor: 'white',
+      left: 22,
+      top: 8,
+      zIndex: 999,
+      paddingHorizontal: 8,
+      fontSize: 14,
+    },
+    label2: {
       position: 'absolute',
       backgroundColor: 'white',
       left: 22,
@@ -157,7 +174,8 @@ import React, { useState } from 'react';
     },
   quantity:{
   borderColor:'red',
-  width:70,
+  width:50,
+  textAlign:'center',
   height:50,
   borderWidth:0.5,
   borderRadius:10,

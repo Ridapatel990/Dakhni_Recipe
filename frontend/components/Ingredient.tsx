@@ -37,9 +37,9 @@ const styles=StyleSheet.create({
         flexDirection:'row',
         backgroundColor:'rgba(220, 220, 220, 0.4)',
         height:80,
+        width:'100%',
         borderRadius:10,
         marginBottom:10,
-        
     },
 
     imgtext:{

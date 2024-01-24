@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet,Image } from 'react-native'
+import { View, Text, StyleSheet,Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 interface StepsCardProps {
@@ -10,12 +10,26 @@ interface StepsCardProps {
 
 const StepsCard: React.FC<StepsCardProps>  = ({txtLabel, description, time}) => {
   return (
-    
+    <View style={styles.slide}>
+    <View style={{alignSelf:'center',marginTop:10}}><Image source={require('../assets/drag_handle.png')}></Image></View>
     <View style={styles.cardContainer}>
         
-     <View>
+     
+        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+           
         <Text style={styles.stepText}>{txtLabel}</Text>
-     </View>
+        
+        <View style={{flexDirection:'row',alignSelf:'flex-end',marginRight:5,marginBottom:15}}>
+            <TouchableOpacity>
+            <Image source={require('../assets/PencilLine.png')} style={{marginRight:10}}></Image>
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+            <Image source={require('../assets/Delete.png')} style={{marginRight:5}}></Image>
+            </TouchableOpacity>
+        </View>
+        </View>
+    
      <View>
         <Text style={styles.description}>
             {description}
@@ -23,6 +37,10 @@ const StepsCard: React.FC<StepsCardProps>  = ({txtLabel, description, time}) => 
         <Text style={styles.time}>{time}</Text>
      </View>
      </View>
+     
+     
+    
+    </View>
   )
 }
 
@@ -40,10 +58,12 @@ const styles = StyleSheet.create({
         width: 320,
         backgroundColor: '#D9D9D9',
         borderRadius: 12,
-        marginRight:10
+        marginRight:20
     },
     stepText: {
         padding: 10,
+        color:'black',
+        fontWeight:'400'
     },
     description:{
         paddingLeft: 10,

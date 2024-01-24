@@ -19,7 +19,7 @@ const RatingChip: React.FC<RatingChipProps> = ({Rating='4.0'}) => {
         borderRadius:50,
         display:'flex',
         flexDirection:'row',
-        justifyContent:'space-between',
+        // justifyContent:'space-between',
         alignItems:'center',
         padding:2,
 

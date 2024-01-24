@@ -13,6 +13,8 @@ import BottomNavigationBar from "../components/BottomNavigationBar";
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import Ingredient from "../components/Ingredient";
 import IngredientsList from "../components/IngredientList";
+import CreateProcedure from '../components/CreateProcedure';
+import CreateIngredient from '../components/CreateIngredient'
 
 const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
     const onItemTapped = (index: number) => {
@@ -40,9 +42,10 @@ const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
     
     let list;
     if (longTabText === 'Ingredients' ) {
-      list = <Text>Ingredients</Text>
+      list =<View><CreateIngredient></CreateIngredient>
+            <CreateIngredient></CreateIngredient></View>
     } else {
-      list = <Procedure addStep="{addStep}" saveButton="saveButton"></Procedure>
+      list = <CreateProcedure></CreateProcedure>
       
     }
 
@@ -69,7 +72,8 @@ const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
 
                 <RecipeChipComponenet image="clock" title="Cook Time(Min)" component="{component}"></RecipeChipComponenet>
                 <RecipeChipComponenet image="serves" title="Serves" component="{component}"></RecipeChipComponenet>
-                <RecipeChipComponenet image="category" title="Category" dropdowncomp="{dropdownlist}"></RecipeChipComponenet>
+                <RecipeChipComponenet image="category" title="Category"></RecipeChipComponenet>
+                
 
                 
 
