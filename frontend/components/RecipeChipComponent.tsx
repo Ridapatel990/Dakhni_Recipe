@@ -27,6 +27,7 @@ const RecipeChipComponenet : React.FC<RecipeChipProps> =({title,image,component,
                 </View>
                 <View>
                 {component && <IncDecComponent></IncDecComponent>}
+                
                 {dropdowncomp && <DropDownList></DropDownList>}
                 </View>
                 
