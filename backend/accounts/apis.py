@@ -13,6 +13,7 @@ from .serializers import (
 )
 from portal.services import trigger_mails
 import random
+from portal.constants import GETALL, POST, PUT, DELETE
 
 
 class PasswordLoginView(APIView):
@@ -40,7 +41,20 @@ class UserView(BaseAPIView):
     getall_serializer = UserGetSerializer
     related_models = {}
     search_ignore_fields = []
+    allowed_methods = [GETALL, POST, PUT, DELETE]
     order = "registered_on"
+
+
+class ProfileView(APIView):
+    def get(self, request, *args, **kwargs):
+        try:
+            obj = User.objects.get(id=request.thisUser.id)
+        except:
+            return Response("Object does not exists.", status=418)
+        return Response(
+            data=SingleUserGetSerializer(obj).data,
+            status=200,
+        )
 
 
 class SendOTPView(APIView):

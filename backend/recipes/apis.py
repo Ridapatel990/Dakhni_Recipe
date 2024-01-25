@@ -17,6 +17,7 @@ from .models import (
 )
 from .serializers import (
     RecipeSerializer,
+    IngredientLovSerializer,
     GetRecipeSerializer,
     GetAllRecipeSerializer,
     TrendingRecipeSerializer,
@@ -163,3 +164,14 @@ class HomePageView(APIView):
         }
         return Response(data={"rows": data}, status=200)
 
+
+class IngredientView(APIView):
+    def get(self, request):
+        return Response(
+            data={
+                "rows": IngredientLovSerializer(
+                    Ingredient.objects.all(), many=True
+                ).data
+            },
+            status=200,
+        )
