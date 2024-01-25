@@ -68,7 +68,7 @@ class GetAllRecipeSerializer(ModelSerializer):
 
     def get_rate(slef, obj):
         avg_rate = Rate.objects.filter(recipe=obj.id).aggregate(Avg("rate"))
-        return avg_rate.get("rate__avg") if avg_rate.get("rate__avg") else 0
+        return avg_rate.get("rate__avg") if avg_rate.get("rate__avg") else 0.0
 
     class Meta:
         model = Recipe
