@@ -1,9 +1,11 @@
 import React from "react";
-import { View,Text,Image,ImageBackground, ImageURISource, StyleSheet } from "react-native";
+import { View,Text,Image,ImageBackground, ImageURISource, StyleSheet,DimensionValue } from "react-native";
 
 
 interface CircularAvatarProps {
     image?: string | null;
+    height?:DimensionValue;
+    width?:DimensionValue
   }
 
 
@@ -14,12 +16,12 @@ interface CircularAvatarProps {
     // 'review':require('../../assets/Review.png'),
 }
 
-const CircularAvatar : React.FC<CircularAvatarProps> = ({image}) =>{
+const CircularAvatar : React.FC<CircularAvatarProps> = ({image,height,width}) =>{
 
     const styles=StyleSheet.create({
         profileImage:{
-            height:140,
-            width:150,
+            height:height,
+            width:width,
             alignSelf:'center',
             borderRadius:90
         }

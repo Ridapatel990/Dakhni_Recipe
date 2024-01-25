@@ -16,7 +16,7 @@ import IngredientsList from "../components/IngredientList";
 import CreateProcedure from '../components/CreateProcedure';
 import CreateIngredient from '../components/CreateIngredient'
 
-const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
+const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
     const onItemTapped = (index: number) => {
         switch (index) {
           case 0: 
@@ -42,8 +42,8 @@ const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
     
     let list;
     if (longTabText === 'Ingredients' ) {
-      list =<View><CreateIngredient></CreateIngredient>
-            <CreateIngredient></CreateIngredient></View>
+      list =<View style={{marginBottom:30}}><CreateIngredient></CreateIngredient>
+          </View>
     } else {
       list = <CreateProcedure></CreateProcedure>
       
@@ -84,12 +84,12 @@ const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
             {/* <DropDownList></DropDownList> */}
 
             
-                        <View style={{flexDirection: 'row',alignSelf:'center',marginBottom:10}}>
+                        <View style={{flexDirection: 'row',alignSelf:'center',marginBottom:10,width:'100%',marginLeft:30}}>
                     
-                    <CustomTabs defaultSelected={true} label={'Ingredients'} width={'40%'} height={42} margin={4} selected={longTabText} setSelected={setLongTabText}></CustomTabs>
+                    <CustomTabs defaultSelected={true} label={'Ingredients'} width={'44%'} height={42} margin={4} selected={longTabText} setSelected={setLongTabText}></CustomTabs>
                     
                     
-                    <CustomTabs label={'Procedure'} width={'40%'} height={42} margin={4} selected={longTabText} setSelected={setLongTabText}></CustomTabs>
+                    <CustomTabs label={'Procedure'} width={'44%'} height={42} margin={4} selected={longTabText} setSelected={setLongTabText}></CustomTabs>
                     </View>
                     
                     
@@ -105,12 +105,12 @@ const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
                    
 
 
-        <View style={{ marginTop: 70 }}>
+        {/* <View style={{ marginTop: 70 }}>
         <BottomNavigationBar
           onItemTapped={onItemTapped}
           selectedIndex={0}
         ></BottomNavigationBar>
-      </View>
+      </View> */}
 
         </ScrollView>
         
@@ -121,4 +121,4 @@ const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
         
     )
 } 
-export default Recipe
+export default RecipeCreatePage

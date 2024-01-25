@@ -25,7 +25,7 @@ const RecipeChipComponenet : React.FC<RecipeChipProps> =({title,image,component,
                     {image && <Image source={Assets[image]} style={{marginTop:11}}></Image>}
                     <Text style={styles.text}>{title}</Text>
                 </View>
-                <View>
+                <View style={{marginRight:5}}>
                 {component && <IncDecComponent></IncDecComponent>}
                 
                 {dropdowncomp && <DropDownList></DropDownList>}

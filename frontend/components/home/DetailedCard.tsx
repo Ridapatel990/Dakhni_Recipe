@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
   lowerSection: {
     flex: 1,
-    backgroundColor: "#D9D9D9",
+    backgroundColor: "rgba(217, 217, 217, 0.58)",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     paddingTop: 50,

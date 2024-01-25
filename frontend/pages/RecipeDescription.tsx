@@ -36,10 +36,10 @@ const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase
 
         <View style={{flexDirection:'row',width:256,alignSelf:'center',justifyContent:'space-between'}}>
         {/* <View style={{flexDirection:'column', width:'30%'}}> */}
-        <StarCustomTab tabBorderColor='gray' label={'Share'}  width={'auto'} height={32} margin={3} selected={tabText} setSelected={setTabText} image="share"></StarCustomTab>
+        <StarCustomTab tabBorderColor='gray' label={'Share'}  width={'auto'} height={32} margin={3} selected={tabText} setSelected={setTabText} image="share" shareComponent='shareComponent'></StarCustomTab>
         {/* </View> */}
         {/* <View style={{flexDirection:'column',width:'30%'}}> */}
-        <StarCustomTab tabBorderColor='gray' label={'Rate Recipe'}  width={'auto'} height={32} margin={3} selected={tabText} setSelected={setTabText} image="rate"></StarCustomTab>
+        <StarCustomTab tabBorderColor='gray' label={'Rate Recipe'}  width={'auto'} height={32} margin={3} selected={tabText} setSelected={setTabText} image="rate" rateComponent='rateComponent'></StarCustomTab>
         {/* </View> */}
         {/* <View style={{flexDirection:'column', width:'30%'}}> */}
         <StarCustomTab tabBorderColor='gray' label={'Reviews'}  width={'auto'} height={32} margin={3} selected={tabText} setSelected={setTabText} image="share"></StarCustomTab>

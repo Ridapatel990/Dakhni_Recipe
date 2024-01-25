@@ -140,11 +140,12 @@ const HomeScreen = ({
 
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
+      
       <ScrollView
         showsVerticalScrollIndicator={true}
-        style={{ marginBottom: 10, paddingHorizontal: 20 }}
+        style={{ marginBottom: 0, paddingHorizontal: 20 }}
       >
-        <View style={{ marginLeft: 0 }}>
+        <View style={{ paddingBottom:30 }}>
           <View>
             <Text style={styles.helloText}>Hello {user?.name || "Tulip"},</Text>
             <Text style={styles.welcomeText}>
@@ -153,18 +154,18 @@ const HomeScreen = ({
           </View>
 
           <View style={{ flexDirection: "column", position: "relative" }}>
-            <View style={{ flexDirection: "row" }}>
+            <View style={{ flexDirection: "row",justifyContent:'space-between',width:'90%' }}>
               <CustomSearchBar
                 value={searchText}
                 placeholder={"Search"}
                 onChangeText={handleSearch}
-                barWidth={"70%"}
+                barWidth={"80%"}
                 onFocus={onSearchFocus}
                 onBlur={onSearchBlur}
               ></CustomSearchBar>
 
               <FilterButton
-                btnWidth={40}
+                btnWidth={30}
                 Press={() => navigation.navigate("FilterPage")}
               ></FilterButton>
             </View>
@@ -371,7 +372,7 @@ const HomeScreen = ({
                   </TouchableOpacity>
                 </View>
 
-                <ScrollView horizontal={true}>
+                <ScrollView horizontal={true} style={{paddingBottom:10}}>
                   <View
                     style={{
                       justifyContent: "space-between",
@@ -393,6 +394,7 @@ const HomeScreen = ({
           </View>
         </View>
       </ScrollView>
+      
     </SafeAreaView>
   );
 };

@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView ,StyleSheet} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Profile from "../components/Profile";
@@ -37,6 +37,32 @@ import BottomNavigationBar from "../components/BottomNavigationBar";
 //   </ScrollView>
 // );
 
+interface ProfileProps {
+  Name?:string,
+  Label?:string,
+  Description?:string
+}
+
+const styles=StyleSheet.create({
+  Name:{
+    fontSize:20,
+    alignSelf:'center',
+    marginTop:10
+  },
+
+  Label:{
+    fontSize:15,
+    alignSelf:'center',
+    marginTop:10
+  },
+
+  Description:{
+    fontSize:15,
+    alignSelf:'center',
+    marginTop:10
+  },
+})
+
 const AccountPage = ({
   navigation,
 }: {
@@ -67,14 +93,28 @@ const AccountPage = ({
         <View>
           <Profile navigation={navigation}></Profile>
         </View>
-
-
-
-        <View style={{ margin: 10 }}>
-          <ProfileComponent></ProfileComponent>
         </View>
-      </View>
+       
 
+        
+        
+      <View style={{flexDirection: "column"}}>
+            <CircularAvatar image="photo"></CircularAvatar>
+            <Text style={{...styles.Name}}>Elena</Text>
+            
+        </View>
+        <ScrollView horizontal={false}>
+        <View>
+
+        <Text style={{...styles.Label}}>Chef</Text>
+        <Text style={{...styles.Description}}>Lorem ipsum dolor sit amet consect </Text>
+        
+        </View>
+        
+        
+      
+
+      
       <View style={{ margin: 20, padding: 20 }}>
         <BigButton
           btnLabel="Recipe"
@@ -85,8 +125,8 @@ const AccountPage = ({
         ></BigButton>
       </View>
 
-      <ScrollView horizontal={false}>
-    <View>
+      
+    <View style={{marginBottom:260}}>
       <BigCard
         BigCardName="Biryani"
         BigCardWidth={360}

@@ -58,14 +58,15 @@ const SavedRecipePage = ({
     if (isFocused) {
       // setEnabled(true);
       // console.log("Screen is focused");
-      getRecipeData();
+      // getRecipeData();
+      console.log('In focusedddddd')
     }
   });
 
   const [isRefreshing, setRefreshing] = useState(false);
 
   const onRefresh = useCallback(() => {
-    getRecipeData();
+    // getRecipeData();
     setTimeout(() => {
       setRefreshing(false);
     }, 1000);

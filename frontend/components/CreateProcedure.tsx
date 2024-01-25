@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView ,Image} from 'react-native'
+import { View, Text, StyleSheet, ScrollView ,Image, TextInput} from 'react-native'
 import React, { useState } from 'react'
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,6 +8,9 @@ import BottomNavigationBar from './BottomNavigationBar';
 import { TouchableOpacity } from 'react-native';
 import BigButton from './common/BigButton';
 import CreateStepCard from './CreateStepCard'
+import BottomBarContainer from '../pages/BottomBarContainer';
+import RecipeCreatePage from '../pages/RecipeCreatePage';
+import Input from '@ant-design/react-native/lib/input-item/Input';
 
 
 interface ProcedureProps{
@@ -24,23 +27,29 @@ const Procedure: React.FC<ProcedureProps>  = ({}) => {
 
         <View style={{marginLeft:10}}>
             <CreateStepCard txtLabel='Step 1' description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 minutes ago'></CreateStepCard>
-            <CreateStepCard txtLabel='Step 1' description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 minutes ago'></CreateStepCard>
-            <CreateStepCard txtLabel='Step 1' description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 minutes ago'></CreateStepCard>
-            <CreateStepCard txtLabel='Step 1' description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 minutes ago'></CreateStepCard>
             
-            
+            </View>
 
 
-             <TouchableOpacity><View style={{flexDirection:'row',justifyContent:'center',marginRight:20,marginTop:20,marginBottom:10}}><Image source={require('../assets/AddRecipe.png')}></Image>
-               <Text style={{color:'black'}}>Add New Step</Text></View></TouchableOpacity>
-        </View>
+             
+            <View style={{width:'90%',alignSelf:'center',marginTop:20}}>
+              <Text style={{marginBottom:5,color:'black'}}>Step 3:</Text>
+              <TextInput style={styles.Input}></TextInput>
+            </View>
+
+            <TouchableOpacity><View style={{flexDirection:'row',marginLeft:20,marginTop:10,marginBottom:10}}><Image source={require('../assets/AddRecipe.png')}></Image>
+               <Text style={{color:'black'}}>Add New</Text></View></TouchableOpacity>
+        
+
         <View style={{marginTop:80}}>
         <BigButton btnLabel={'Save'} btnHeight={50} btnWidth={90} btnBorder={10}></BigButton>
             </View>
+
+
         </ScrollView>
     
     
-    
+   
   </SafeAreaView>
   )
 }
@@ -64,6 +73,14 @@ const styles = StyleSheet.create({
       color: 'black',
       alignSelf: 'center',
     //   margin: 10,
+    },
+
+    Input:{
+      borderColor:'rgba(216, 219, 223, 1)',
+      width:'100%',
+      height:100,
+      borderWidth:0.5,
+      marginRight:10,      
     }
 
 })

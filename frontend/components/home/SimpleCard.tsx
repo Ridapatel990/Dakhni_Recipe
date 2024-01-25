@@ -10,7 +10,7 @@ interface SimpleCardProps {
 const SimpleCard: React.FC<SimpleCardProps> = ({ label, imageUri }) => {
   const styles = StyleSheet.create({
     container: {
-      height: 150,
+      height: 160,
       width: 124,
       marginTop: 20,
       marginRight: 10,

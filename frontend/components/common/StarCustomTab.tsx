@@ -55,6 +55,22 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
   }, []);
 
     const styles = StyleSheet.create({
+      // modalBackdrop: {
+      //   flex: 1,
+      //   backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent backdrop color
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // },
+      // backdrop: {
+      //   flex: 1,
+      //   width: '100%',
+      // },
+      // modalContent: {
+      //   // backgroundColor: 'white',
+      //   padding: 20,
+      //   borderRadius: 10,
+      //   alignItems: 'center',
+      // },
         tabs:{
             marginRight:4,
             zIndex:3, 
@@ -119,7 +135,18 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
 
     {/* Modal for the pop-up */}
     {shareComponent &&
-    <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={toggleModal} presentationStyle='overFullScreen'>
+    <Modal animationType="slide" transparent={true}  visible={modalVisible} onRequestClose={toggleModal}  presentationStyle='overFullScreen'>
+{/* 
+      <View style={styles.modalBackdrop}>
+
+      <TouchableOpacity
+            style={styles.backdrop}
+            onPress={() => setModalVisible(false)}
+          /> */}
+    
+
+    {/* <View style={styles.modalContent}> */}
+  
     
     <View style={{flexDirection:'column', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       
@@ -145,6 +172,10 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
 
         </View>
       </View>
+
+              
+    {/* </View>
+      </View> */}
       
     </Modal>}
 

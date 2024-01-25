@@ -3,6 +3,8 @@ import React, { useState } from 'react';
   import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
   import { Dropdown } from 'react-native-element-dropdown';
   import InputField from '../components/common/InputField';
+  import BigButton from './common/BigButton';
+import { useGetAll } from '../hooks';
 
   const data1 = [
     { label: 'Beef', value: '1' },
@@ -19,36 +21,49 @@ import React, { useState } from 'react';
     
   ];
 
-  const DropdownComponent = () => {
+  const CreateIngredient = () => {
     const [value, setValue] = useState<string | null>(null);
     const [value1, setValue1] = useState<string | null>(null);
     const [isFocus, setIsFocus] = useState(false);
 
-    const renderLabel1 = () => {
-      if (value || isFocus) {
-        return (
-          <Text style={[styles.label1, isFocus && { color: 'black' }]}>
-            
-          </Text>
-        );
-      }
-      return null;
-    };
+    const [ingredientList,setIngredientList] = useState([]);
 
-    const renderLabel2 = () => {
-      if (value1 || isFocus) {
-        return (
-          <Text style={[styles.label2, isFocus && { color: 'black' }]}>
-            
-          </Text>
-        );
+
+    useGetAll({
+      key:'/',
+      onSuccess:(data)=> {
+console.log(data,"<=========ngredient datat")
+        setIngredientList(data)
+
       }
-      return null;
-    };
+    })
+
+    // const renderLabel1 = () => {
+    //   if (value || isFocus) {
+    //     return (
+    //       <Text style={[styles.label1, isFocus && { color: 'black' }]}>
+            
+    //       </Text>
+    //     );
+    //   }
+    //   return null;
+    // };
+
+    // const renderLabel2 = () => {
+    //   if (value1 || isFocus) {
+    //     return (
+    //       <Text style={[styles.label2, isFocus && { color: 'black' }]}>
+            
+    //       </Text>
+    //     );
+    //   }
+    //   return null;
+    // };
 
     return (
+      <View>
       <View style={styles.container}>
-        {renderLabel1()}
+        {/* {renderLabel1()} */}
         <Dropdown
           style={[styles.dropdown, isFocus && { borderColor: 'gray' }]}
           itemTextStyle={{color:'black'}}
@@ -56,7 +71,7 @@ import React, { useState } from 'react';
           selectedTextStyle={styles.selectedTextStyle}
           inputSearchStyle={styles.inputSearchStyle}
           iconStyle={styles.iconStyle}
-          data={data1}
+          data={ingredientList}
           search
           maxHeight={300}
           labelField="label"
@@ -67,7 +82,7 @@ import React, { useState } from 'react';
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
           onChange={item => {
-            setValue(item.value);
+            // setValue(item.value);
             setIsFocus(false);
           }}
           
@@ -77,7 +92,8 @@ import React, { useState } from 'react';
         </View> */}
 
         <TextInput style={styles.quantity}></TextInput>
-        {renderLabel2()}
+
+        {/* {renderLabel2()} */}
          <Dropdown
           style={[styles.dropdown2, isFocus && { borderColor: 'gray' }]}
           itemTextStyle={{color:'black'}}
@@ -91,7 +107,7 @@ import React, { useState } from 'react';
           labelField="title"
           valueField="value1"
           placeholder='Grams'
-          value={value}
+          value={value1}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
           onChange={item => {
@@ -105,23 +121,30 @@ import React, { useState } from 'react';
         <Image source={require('../assets/Increment.png')}></Image>
         </TouchableOpacity>
 
+       
+
       </View>
+
+<View style={{flexDirection:'column',height:100,alignSelf:'center'}}>
+<BigButton btnLabel={'Save'} btnHeight={50} btnWidth={90} btnBorder={10}></BigButton>
+    </View>
+    </View>
+
     );
   };
 
-  export default DropdownComponent;
+  export default CreateIngredient;
 
   const styles = StyleSheet.create({
     container: {
-      marginLeft:10,
-      padding: 16,
+      paddingHorizontal: 10,
+      paddingVertical:15,
       flexDirection:"row",
       borderRadius:10,
-      marginBottom:30
     },
     dropdown: {
       height: 50,
-      width:110,
+      width:115,
       borderColor: 'red',
       borderWidth: 0.5,
       borderRadius: 8,
@@ -130,7 +153,7 @@ import React, { useState } from 'react';
 
     dropdown2: {
       height: 50,
-      width:110,
+      width:115,
       borderColor: 'red',
       borderWidth: 0.5,
       borderRadius: 8,
@@ -138,7 +161,7 @@ import React, { useState } from 'react';
       marginRight:10
     },
     icon: {
-      marginRight: 5,
+      marginRight:5,
     },
     label1: {
       position: 'absolute',
@@ -174,7 +197,7 @@ import React, { useState } from 'react';
     },
   quantity:{
   borderColor:'red',
-  width:50,
+  width:60,
   textAlign:'center',
   height:50,
   borderWidth:0.5,

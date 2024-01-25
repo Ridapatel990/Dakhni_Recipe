@@ -4,16 +4,28 @@ import SavedRecipePage from "./SavedRecipePage";
 import NotificationPage from "./NotificationPage";
 import AccountPage from "./AccountPage";
 import Icon from "react-native-vector-icons/Ionicons";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { Image, ImageURISource, StyleSheet, TouchableOpacity, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
-import Recipe from "./RecipeCreatePage";
+import RecipeCreatePage from "./RecipeCreatePage";
 
 const Tab = createBottomTabNavigator();
 
-interface BottomTabProps {
-  btnLabel: string;
-  Press?: () => void;
+
+
+
+
+
+const Assets: {[key:string]:ImageURISource}= {
+  'Home':require('../assets/Home.png'),
+  'Bookmark':require('../assets/Bookmark.png'),
+  'Notifications':require('../assets/Notification.png'),
+  'Profile':require('../assets/Profile.png'),
+  'selectedHome':require('../assets/selectedHome.png'),
+  'selectedBookmark':require('../assets/selectedBookmark.png'),
+  'selectedNotifications':require('../assets/selectedNotification.png'),
+  'selectedProfile':require('../assets/selectedProfile.png'),
+  'Add':require('../assets/whiteAdd.png')
 }
 
 function BottomBarContainer({
@@ -112,23 +124,36 @@ function BottomBarContainer({
         headerShown: false,
         tabBarIcon: ({ focused }) => {
           let iconName;
+          // if (route.name === "HomeScreen") {
+          //   iconName = focused ? "home" : "home-outline";
+          // } else if (route.name === "SavedRecipePage") {
+          //   iconName = focused ? "bookmark" : "bookmark-outline";
+          // } else if (route.name === "NotificationPage") {
+          //   iconName = focused ? "notifications" : "notifications-outline";
+          // } else if (route.name === "AccountPage") {
+          //   iconName = focused ? "person" : "person-outline";
+          // } else {
+          //   iconName = "add";
+          // }
+
           if (route.name === "HomeScreen") {
-            iconName = focused ? "home" : "home-outline";
+            iconName = focused ? "selectedHome" : "Home";
           } else if (route.name === "SavedRecipePage") {
-            iconName = focused ? "bookmark" : "bookmark-outline";
+            iconName = focused ? "selectedBookmark" : "Bookmark";
           } else if (route.name === "NotificationPage") {
-            iconName = focused ? "notifications" : "notifications-outline";
+            iconName = focused ? "selectedNotifications" : "Notifications";
           } else if (route.name === "AccountPage") {
-            iconName = focused ? "person" : "person-outline";
+            iconName = focused ? "selectedProfile" : "Profile";
           } else {
-            iconName = "add";
+            iconName = "Add";
           }
           return (
-            <Icon
-              name={iconName}
-              size={30}
-              color={focused ? "#FC1125" : "#D9D9D9"}
-            />
+            // <Icon
+            //   name={iconName}
+            //   size={30}
+            //   color={focused ? "#FC1125" : "#D9D9D9"}
+            // />
+            <Image style={{height:25,width:25}} source={Assets[iconName]} ></Image>
           );
         },
       })}
@@ -140,7 +165,7 @@ function BottomBarContainer({
       ></Tab.Screen>
       <Tab.Screen
         name="Add"
-        component={Recipe}
+        component={RecipeCreatePage}
         options={{
           tabBarButton: (props) => (
             <AddButton
@@ -150,6 +175,11 @@ function BottomBarContainer({
           ),
         }}
       ></Tab.Screen>
+
+
+
+      
+
       <Tab.Screen
         name="NotificationPage"
         component={NotificationPage}
