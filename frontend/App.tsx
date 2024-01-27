@@ -21,6 +21,7 @@ import BottomBarContainer from "./pages/BottomBarContainer";
 import RecipeCreatePage from "./pages/RecipeCreatePage";
 import SeeAllNewRecipe from "./pages/SeeAllNewRecipe";
 import SeeAllTrending from "./pages/SeeAllTrending";
+import FilterResponse from "./pages/FilterResponse";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +61,7 @@ function App() {
           <Stack.Screen name="RecipeCreatePage" component={RecipeCreatePage} />
           <Stack.Screen name="SeeAllNewRecipe" component={SeeAllNewRecipe} />
           <Stack.Screen name="SeeAllTrending" component={SeeAllTrending} />
+          <Stack.Screen name="FilterResponse" component={FilterResponse} />
         </Stack.Navigator>
       </NavigationContainer>
     </QueryClientProvider>

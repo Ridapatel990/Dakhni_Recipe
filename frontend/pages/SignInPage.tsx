@@ -127,8 +127,6 @@ const SignInPage = ({
         Press={() => onSubmit()}
       />
 
-      
-
       <TouchableOpacity style={styles.gButton}>
         <Image source={require("../assets/gbutton.png")} />
       </TouchableOpacity>

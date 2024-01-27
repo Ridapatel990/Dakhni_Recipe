@@ -93,3 +93,16 @@ export interface GetIngredientInterface{
   name : string;
   id: string;
 }
+
+export interface InputIngredientInterface{
+  name : string | null;
+  quantity: string;
+  unit?: string;
+}
+
+export interface FilterDataInterface {
+  categories:Array<string>,
+  time:string | null;
+  rate:number | null;
+
+}

@@ -4,29 +4,30 @@ import SavedRecipePage from "./SavedRecipePage";
 import NotificationPage from "./NotificationPage";
 import AccountPage from "./AccountPage";
 import Icon from "react-native-vector-icons/Ionicons";
-import { Image, ImageURISource, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ImageURISource,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import RecipeCreatePage from "./RecipeCreatePage";
 
 const Tab = createBottomTabNavigator();
 
-
-
-
-
-
-const Assets: {[key:string]:ImageURISource}= {
-  'Home':require('../assets/Home.png'),
-  'Bookmark':require('../assets/Bookmark.png'),
-  'Notifications':require('../assets/Notification.png'),
-  'Profile':require('../assets/Profile.png'),
-  'selectedHome':require('../assets/selectedHome.png'),
-  'selectedBookmark':require('../assets/selectedBookmark.png'),
-  'selectedNotifications':require('../assets/selectedNotification.png'),
-  'selectedProfile':require('../assets/selectedProfile.png'),
-  'Add':require('../assets/whiteAdd.png')
-}
+const Assets: { [key: string]: ImageURISource } = {
+  Home: require("../assets/Home.png"),
+  Bookmark: require("../assets/Bookmark.png"),
+  Notifications: require("../assets/Notification.png"),
+  Profile: require("../assets/Profile.png"),
+  selectedHome: require("../assets/selectedHome.png"),
+  selectedBookmark: require("../assets/selectedBookmark.png"),
+  selectedNotifications: require("../assets/selectedNotification.png"),
+  selectedProfile: require("../assets/selectedProfile.png"),
+  Add: require("../assets/whiteAdd.png"),
+};
 
 function BottomBarContainer({
   navigation,
@@ -153,7 +154,10 @@ function BottomBarContainer({
             //   size={30}
             //   color={focused ? "#FC1125" : "#D9D9D9"}
             // />
-            <Image style={{height:25,width:25}} source={Assets[iconName]} ></Image>
+            <Image
+              style={{ height: 25, width: 25 }}
+              source={Assets[iconName]}
+            ></Image>
           );
         },
       })}
@@ -175,10 +179,6 @@ function BottomBarContainer({
           ),
         }}
       ></Tab.Screen>
-
-
-
-      
 
       <Tab.Screen
         name="NotificationPage"
