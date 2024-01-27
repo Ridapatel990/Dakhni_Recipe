@@ -88,3 +88,8 @@ export interface UserInterface {
 //   "profile_pic": "/media/accounts/Amul_official_logo.svg.png",
 //   "registered_on": "2024-01-08T09:04:01.558391Z"
 // }
+
+export interface GetIngredientInterface{
+  name : string;
+  id: string;
+}

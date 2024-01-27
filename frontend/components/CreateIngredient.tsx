@@ -5,6 +5,7 @@ import React, { useState } from 'react';
   import InputField from '../components/common/InputField';
   import BigButton from './common/BigButton';
 import { useGetAll } from '../hooks';
+import { GetIngredientInterface } from '../interfaces';
 
   const data1 = [
     { label: 'Beef', value: '1' },
@@ -29,12 +30,11 @@ import { useGetAll } from '../hooks';
     const [ingredientList,setIngredientList] = useState([]);
 
 
-    useGetAll({
-      key:'/',
+    const {data : getIngredient} = useGetAll({
+      key:'/recipes/ingredient/',
       onSuccess:(data)=> {
-console.log(data,"<=========ngredient datat")
-        setIngredientList(data)
-
+      console.log(data,"<=========ngredient datat")
+      setIngredientList(data)
       }
     })
 
@@ -64,8 +64,11 @@ console.log(data,"<=========ngredient datat")
       <View>
       <View style={styles.container}>
         {/* {renderLabel1()} */}
+
+
+
         <Dropdown
-          style={[styles.dropdown, isFocus && { borderColor: 'gray' }]}
+          style={[styles.dropdown, isFocus && { borderColor: 'red' }]}
           itemTextStyle={{color:'black'}}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}
@@ -74,19 +77,20 @@ console.log(data,"<=========ngredient datat")
           data={ingredientList}
           search
           maxHeight={300}
-          labelField="label"
-          valueField="value"
+          labelField={'name'}
+          valueField={'id'}
           placeholder='Ingredient'
           searchPlaceholder="Search..."
-          value={value}
+          // value={ingredient.name}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
           onChange={item => {
             // setValue(item.value);
             setIsFocus(false);
           }}
-          
+        
         />
+        
         {/* <View style={{bottom:35,width:120}}>
         <InputField height={50}></InputField>
         </View> */}
