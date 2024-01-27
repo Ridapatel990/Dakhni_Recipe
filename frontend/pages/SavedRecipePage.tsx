@@ -104,6 +104,7 @@ const SavedRecipePage = ({
                   key={item.recipe.id}
                   CardName={item.recipe.name}
                   imageUri={item.recipe.image1}
+                  // Rating={item.recipe.rate}
                   Rating={item.recipe.rate}
                 ></Card>
               ))

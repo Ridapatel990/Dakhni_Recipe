@@ -8,6 +8,7 @@ import CustomTabs from '../components/common/CustomTabs';
 import IngredientsList from '../components/IngredientList'
 import CircularAvatar from '../components/CircleAvatar';
 import Procedure from '../components/Procedure';
+import { useGetAll } from '../hooks';
 
 const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>{
     const [searchText, setSearchText] = useState('');
@@ -26,9 +27,18 @@ const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase
     
   }
 
+   const {data : getRecipe} = useGetAll ({
+    key:'/recipes/list/?random=true',
+    select:(data:any) => data?.data,
+    onSuccess: (data) => {
+      console.log(data, "<=========data");
+    },
+   });
+
     return (
       <ScrollView>
       <View style={{flexDirection:'row',alignSelf:'center',marginBottom:20}}>
+      
       
       <BigCard BigCardName='Biryani' BigCardWidth={360} Review='13k Reviews'></BigCard>
       

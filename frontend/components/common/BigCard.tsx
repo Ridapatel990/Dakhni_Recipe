@@ -18,7 +18,7 @@ interface CardProps {
   imageUri?: string | null;
   BigCardWidth?: DimensionValue;
   BigCardHeight?: DimensionValue;
-  Rating?: number;
+  Rating?: string;
   Review?: string;
   time?: string;
 }
@@ -41,7 +41,7 @@ const Card: React.FC<CardProps> = ({
           source={
             imageUri
               ? { uri: mediaUrl + imageUri }
-              : require("../../assets/BigCardImage.png")
+              : require("../../assets/BigCardImage.png")  
           }
           style={{
             ...styles.image,

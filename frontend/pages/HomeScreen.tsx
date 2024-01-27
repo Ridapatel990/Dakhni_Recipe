@@ -27,6 +27,7 @@ import {
   GetNewInteface,
   GetPopularInterface,
   GetRecipeInteface,
+  GetTrendingInterface,
   UserInterface,
 } from "../interfaces";
 import BigCard from "../components/common/BigCard";
@@ -190,7 +191,7 @@ const HomeScreen = ({
                         key={recipe.id}
                         CardName={recipe.name}
                         imageUri={recipe.image1}
-                        Rating={recipe.rate}
+                        Rating={String(recipe.rate)}
                       ></Card>
                     ))}
                 </View>
@@ -286,7 +287,7 @@ const HomeScreen = ({
                   >
                     {trendingRecipe && trendingRecipe.length
                       ? trendingRecipe?.map(
-                          (trendRecipe: GetPopularInterface) => (
+                          (trendRecipe: GetTrendingInterface) => (
                             <BigCard
                               BigCardName={trendRecipe?.recipe?.name}
                               imageUri={trendRecipe?.recipe?.image1}

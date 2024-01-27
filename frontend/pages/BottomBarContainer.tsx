@@ -11,11 +11,6 @@ import RecipeCreatePage from "./RecipeCreatePage";
 
 const Tab = createBottomTabNavigator();
 
-
-
-
-
-
 const Assets: {[key:string]:ImageURISource}= {
   'Home':require('../assets/Home.png'),
   'Bookmark':require('../assets/Bookmark.png'),
