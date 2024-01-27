@@ -51,7 +51,7 @@ const LandingPage = ({
         <BigButton
           btnLabel={"Start Cooking"}
           btnWidth={240}
-          Press={() => navigation.navigate("RecipeDescription")}
+          Press={() => navigation.navigate("SignInPage")}
           btnPosition={"absolute"}
           btnHeight={60}
           btnBorder={8}
