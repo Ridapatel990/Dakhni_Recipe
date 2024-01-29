@@ -19,8 +19,8 @@ def send_notification(sender, instance, created, **kwargs):
                 "Content-Type": "application/json",
                 "Authorization": "key=" + server_key,
             }
-            title = "New Recipe Added"
-            body = "Description"
+            title = "New Recipe Alert!"
+            body = "We've just added a delicious new recipe to our collection. Perfect for cooking enthusiasts and anyone who loves trying new flavors. Don't miss out!"
             icon = ""
             image = ""
             payload = {
