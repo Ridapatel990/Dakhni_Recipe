@@ -13,6 +13,9 @@ class AuthMiddleware:
         token = request.headers.get("x-access-token")
         if (
             request.path.startswith("/admin")
+            # or request.path.startswith("/")
+            # or request.path.startswith("/send")
+            # or request.path.startswith("/firebase-messaging-sw.js")
             or request.path.startswith("/api/accounts/change-password")
             or request.path.startswith("/api/accounts/login")
             or request.path.startswith("/api/accounts/sent-otp")

@@ -71,8 +71,8 @@ class RecipeView(BaseAPIView):
                 else:
                     return Response(data=recipe_serializer.errors, status=400)
         except Exception as e:
-            if recipe:
-                recipe.delete()
+            # if recipe:
+            #     recipe.delete()
             return Response(str(e), status=418)
 
     def put(self, request, id=None, *args, **kwargs):

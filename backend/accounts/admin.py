@@ -35,6 +35,7 @@ class MyUserAdmin(BaseUserAdmin):
                     "profile_pic",
                     "otp",
                     "is_verified",
+                    "fcm_token"
                 )
             },
         ),

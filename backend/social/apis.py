@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from django.db.models import Q
 from portal.base import BaseAPIView
-from portal.constants import GETALL, POST
-from .models import SavedRecipe, RecentlySearched, Rate, Review
+from portal.constants import GETALL, POST, PUT
+from .models import SavedRecipe, RecentlySearched, Rate, Review, Notification
 from .serializers import (
     RateSerializer,
     GetReviewSerializer,
@@ -11,8 +11,11 @@ from .serializers import (
     SavedRecipeSerializer,
     GetSavedRecipeSerializer,
     GetRecentlySearchedSerializer,
+    NotificationSerializer,
+    GetNotificationSerializer,
 )
 from recipes.models import Recipe
+from accounts.models import User
 
 
 class RateRecipeView(BaseAPIView):
@@ -108,3 +111,21 @@ class SavedRecipeView(BaseAPIView):
                 )
             else:
                 return Response(data=saved_recipe_serializer.errors, status=400)
+
+
+class NotificationView(BaseAPIView):
+    model = Notification
+    serializer_class = GetNotificationSerializer
+    post_serializer = NotificationSerializer
+    allowed_methods = [GETALL, PUT]
+    related_models = {"recipe": Recipe, "user": User}
+
+    def get(self, request, id=None, *args, **kwargs):
+        type = request.query_params.get("type")
+        filters = Q(user=request.thisUser.id)
+        if type == "read":
+            filters &= Q(is_read=True)
+        elif type == "unread":
+            filters &= Q(is_read=False)
+        self.query_set = self.model.objects.filter(filters)
+        return super().get(request, id, *args, **kwargs)
