@@ -99,7 +99,7 @@ import { GetIngredientInterface } from '../interfaces';
 
         {/* {renderLabel2()} */}
          <Dropdown
-          style={[styles.dropdown2, isFocus && { borderColor: 'gray' }]}
+          style={[styles.dropdown2, isFocus && { borderColor: 'red' }]}
           itemTextStyle={{color:'black'}}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}

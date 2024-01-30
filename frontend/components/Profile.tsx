@@ -19,6 +19,7 @@ const Profile = ({
     // Perform action for edit
     setModalVisible(false); // Close the modal
     // Add logic for edit here
+    navigation.navigate("EditProfilePage")
   };
 
   const handleLogout = async () => {

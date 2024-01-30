@@ -59,7 +59,7 @@ const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}
                 <TouchableOpacity>
                     <View>
                 <Image source={require('../assets/UploadIcon.png')} style={{alignSelf:'center'}}></Image>
-                <Text style={{alignSelf:'center',fontSize:13,fontWeight:'200'}}>Uplaod Image</Text>
+                <Text style={{alignSelf:'center',fontSize:13,fontWeight:'200'}}>Upload Image</Text>
                 </View>
                 </TouchableOpacity>
               </View>
@@ -72,16 +72,18 @@ const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}
 
                 <RecipeChipComponenet image="clock" title="Cook Time(Min)" component="{component}"></RecipeChipComponenet>
                 <RecipeChipComponenet image="serves" title="Serves" component="{component}"></RecipeChipComponenet>
-                <RecipeChipComponenet image="category" title="Category"></RecipeChipComponenet>
+                <RecipeChipComponenet image="category" title="Category" dropdowncomp="{dropdowncomp}"></RecipeChipComponenet>
                 
-
+                
+            {/* <DropDownList></DropDownList> */}
+            
                 
 
                 
 
 
             </View>
-            {/* <DropDownList></DropDownList> */}
+            
 
             
                         <View style={{flexDirection: 'row',alignSelf:'center',marginBottom:10,width:'100%',marginLeft:30}}>

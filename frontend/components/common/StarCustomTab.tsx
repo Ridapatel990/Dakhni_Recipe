@@ -19,7 +19,8 @@ interface CustomTabsProps {
     image?:string,
     tabBorderColor?: string,
     shareComponent?:string,
-    rateComponent?:string
+    rateComponent?:string,
+    Press?: () => void;
   }
 
 const Assets: {[key:string]:ImageURISource}= {
@@ -28,10 +29,9 @@ const Assets: {[key:string]:ImageURISource}= {
     'rate':require('../../assets/blackStar.png'),
     'review':require('../../assets/Review.png'),
 }
-const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, margin, selected,setSelected, disabled = false, defaultSelected = false,image,tabBorderColor,shareComponent,rateComponent}) => {
+const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, margin, selected,setSelected, disabled = false, defaultSelected = false,image,tabBorderColor,shareComponent,rateComponent,Press}) => {
     const chipColor = selected === label ? 'white' : disabled ? 'grey' : 'white';
   const labelColor = selected === label || disabled ? 'black' : 'black';
-  console.log(image)
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -55,22 +55,14 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
   }, []);
 
     const styles = StyleSheet.create({
-      // modalBackdrop: {
-      //   flex: 1,
-      //   backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent backdrop color
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      // },
-      // backdrop: {
-      //   flex: 1,
-      //   width: '100%',
-      // },
-      // modalContent: {
-      //   // backgroundColor: 'white',
-      //   padding: 20,
-      //   borderRadius: 10,
-      //   alignItems: 'center',
-      // },
+      
+      modalBackdrop: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    backdrop: {
+        flex: 1,
+    },
         tabs:{
             marginRight:4,
             zIndex:3, 
@@ -97,6 +89,7 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
       if (!disabled) {
         setSelected(label);
         toggleModal(); // Show the pop-up when the tab is pressed
+        Press && Press()
       }
       // Logic
     }
@@ -114,7 +107,7 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
               ? tabBorderColor
                 ? tabBorderColor
                 : "red"
-              : "white",
+              : "gray",
         },
       ]}
       onPress={handlePress}
@@ -136,14 +129,13 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
     {/* Modal for the pop-up */}
     {shareComponent &&
     <Modal animationType="slide" transparent={true}  visible={modalVisible} onRequestClose={toggleModal}  presentationStyle='overFullScreen'>
-{/* 
-      <View style={styles.modalBackdrop}>
 
+      <View style={styles.modalBackdrop}>
       <TouchableOpacity
             style={styles.backdrop}
             onPress={() => setModalVisible(false)}
-          /> */}
-    
+          />
+    </View>
 
     {/* <View style={styles.modalContent}> */}
   
@@ -183,6 +175,13 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
 
     {rateComponent &&
     <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={toggleModal} presentationStyle='overFullScreen'>
+
+<View style={styles.modalBackdrop}>
+      <TouchableOpacity
+            style={styles.backdrop}
+            onPress={() => setModalVisible(false)}
+          />
+    </View>
     
     <View style={{flexDirection:'column', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       

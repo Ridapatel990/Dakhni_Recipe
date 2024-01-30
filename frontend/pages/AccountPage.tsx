@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Profile from "../components/Profile";
-import EditPage from "./EditPage";
+import EditPage from "./EditProfilePage";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import CircularAvatar from "../components/CircleAvatar";
 import ProfileComponent from "../components/home/ProfileComponent";
@@ -66,6 +66,13 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 10,
   },
+
+  profileImage:{
+    height:150,
+    width:150,
+    alignSelf:'center',
+    borderRadius:90
+}
 });
 
 const AccountPage = ({
@@ -99,7 +106,7 @@ const AccountPage = ({
     key: "/accounts/profile/",
     select: (data: any) => data?.data,
     onSuccess: (data) => {
-      console.log(data, "<=========data");
+
       setProfile(data);
     },
   });
@@ -107,9 +114,7 @@ const AccountPage = ({
   const { data: getRecipe } = useGetAll({
     key: "//recipes/list/?random=true",
     select: (data: any) => data?.data,
-    onSuccess: (data) => {
-      console.log(data, "<=========data");
-      
+    onSuccess: (data) => {     
     },
   });
   // const getProfile = async()=>{
@@ -117,7 +122,7 @@ const AccountPage = ({
   // }
 
   // useEffect(()=>{}, [])
-
+  
   return (
     <SafeAreaView>
       <View style={{ flexDirection: "column" }}>
@@ -127,7 +132,11 @@ const AccountPage = ({
       </View>
 
       <View style={{ flexDirection: "column" }}>
-        <CircularAvatar image="photo"></CircularAvatar>
+        <View >
+            <View style={{marginTop:0}}>
+        <Image source={ profile?.profile_pic ? {uri: mediaUrl + profile?.profile_pic} : require('../assets/NoProfile.png')} style={styles.profileImage}></Image>
+        </View>
+        </View>
         <Text style={{ ...styles.Name }}>{profile?.name}</Text>
       </View>
       <ScrollView horizontal={false}>

@@ -67,7 +67,8 @@ const TimeProps: React.FC<TimeProps> = ({Time='0'}) => {
         </BlurView> */}
         <Text style={styles.timeText}>{Time}</Text></View>
         <View style={{marginRight:15,marginBottom:4}}>
-             <SavedBtn ></SavedBtn></View>
+             <SavedBtn></SavedBtn>
+             </View>
              {/* </View> */}
         
         </SafeAreaView>

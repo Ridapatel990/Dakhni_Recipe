@@ -3,6 +3,8 @@ import React, { useState } from 'react';
   import { StyleSheet, Text, TextInput, View } from 'react-native';
   import { Dropdown } from 'react-native-element-dropdown';
   import InputField from '../components/common/InputField';
+import DropDownList from '../components/DropDownList';
+
 
   const data1 = [
     { label: 'Beef', value: '1' },
@@ -47,7 +49,7 @@ import React, { useState } from 'react';
 
     return (
       <View style={styles.container}>
-        {renderLabel1()}
+        {/* {renderLabel1()}
         <Dropdown
           style={[styles.dropdown, isFocus && { borderColor: 'gray' }]}
           placeholderStyle={styles.placeholderStyle}
@@ -70,10 +72,7 @@ import React, { useState } from 'react';
           }}
           
         />
-        {/* <View style={{bottom:35,width:120}}>
-        <InputField height={50}></InputField>
-        </View> */}
-
+        
         <TextInput style={styles.quantity}></TextInput>
         {renderLabel2()}
          <Dropdown
@@ -93,9 +92,8 @@ import React, { useState } from 'react';
             setValue(item.value);
             setIsFocus(false);
           }}
-          
-        />
-
+        /> */}
+        
       </View>
     );
   };
