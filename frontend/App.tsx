@@ -22,6 +22,7 @@ import RecipeCreatePage from "./pages/RecipeCreatePage";
 import SeeAllNewRecipe from "./pages/SeeAllNewRecipe";
 import SeeAllTrending from "./pages/SeeAllTrending";
 import FilterResponse from "./pages/FilterResponse";
+import BottomTabBarComponent from "./pages/TestBottomBar";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ function App() {
             name="BottomBarContainer"
             component={BottomBarContainer}
           />
+
           <Stack.Screen name="ResetPassPage" component={ResetPassPage} />
           <Stack.Screen name="SavedRecipePage" component={SavedRecipePage} />
           <Stack.Screen name="NotificationPage" component={NotificationPage} />

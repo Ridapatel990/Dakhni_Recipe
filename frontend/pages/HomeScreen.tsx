@@ -102,6 +102,9 @@ const HomeScreen = ({
 
   const { data: trendingRecipe } = useGetAll({
     key: "recipes/trending-recipes/list/",
+    onSuccess(data) {
+      // console.log(data, "yuiopkjgfdfgjkl;.kltfgnm,.");
+    },
     enabled: true,
   });
 
@@ -140,12 +143,11 @@ const HomeScreen = ({
 
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
-      
       <ScrollView
         showsVerticalScrollIndicator={true}
         style={{ marginBottom: 0, paddingHorizontal: 20 }}
       >
-        <View style={{ paddingBottom:30 }}>
+        <View style={{ paddingBottom: 30 }}>
           <View>
             <Text style={styles.helloText}>Hello {user?.name || "Tulip"},</Text>
             <Text style={styles.welcomeText}>
@@ -154,7 +156,13 @@ const HomeScreen = ({
           </View>
 
           <View style={{ flexDirection: "column", position: "relative" }}>
-            <View style={{ flexDirection: "row",justifyContent:'space-between',width:'90%' }}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                width: "90%",
+              }}
+            >
               <CustomSearchBar
                 value={searchText}
                 placeholder={"Search"}
@@ -286,14 +294,18 @@ const HomeScreen = ({
                   >
                     {trendingRecipe && trendingRecipe.length
                       ? trendingRecipe?.map(
-                          (trendRecipe: GetPopularInterface) => (
-                            <BigCard
-                              BigCardName={trendRecipe?.recipe?.name}
-                              imageUri={trendRecipe?.recipe?.image1}
-                              Rating={trendRecipe?.recipe?.rate}
-                              time={trendRecipe?.recipe?.cooking_time}
-                            ></BigCard>
-                          )
+                          (trendRecipe: GetPopularInterface) => {
+                            console.log(trendRecipe);
+                            return (
+                              <BigCard
+                                BigCardName={trendRecipe?.recipe?.name}
+                                imageUri={trendRecipe?.recipe?.image1}
+                                Rating={trendRecipe?.recipe?.rate}
+                                time={trendRecipe?.recipe?.cooking_time}
+                                recipeId={trendRecipe?.recipe?.id}
+                              ></BigCard>
+                            );
+                          }
                         )
                       : ""}
                   </ScrollView>
@@ -372,7 +384,7 @@ const HomeScreen = ({
                   </TouchableOpacity>
                 </View>
 
-                <ScrollView horizontal={true} style={{paddingBottom:10}}>
+                <ScrollView horizontal={true} style={{ paddingBottom: 10 }}>
                   <View
                     style={{
                       justifyContent: "space-between",
@@ -394,7 +406,6 @@ const HomeScreen = ({
           </View>
         </View>
       </ScrollView>
-      
     </SafeAreaView>
   );
 };

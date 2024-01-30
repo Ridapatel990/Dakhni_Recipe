@@ -60,7 +60,7 @@ const FilterPage = ({
   const { mutate } = useCreateOrUpdate({
     url: "/recipes/filter-recipes/",
     onSuccess: async (response) => {
-      console.log(response.data);
+      // console.log(response.data);
       navigation.navigate("FilterResponse", { rows: response.data?.rows });
     },
   });
@@ -72,7 +72,7 @@ const FilterPage = ({
 
   const onFilter = async () => {
     // const data = getValues();
-    console.log(filterData);
+    // console.log(filterData);
     mutate(filterData);
   };
 
@@ -169,12 +169,14 @@ const FilterPage = ({
           }}
         >
           {allCategories && allCategories.length
-            ? allCategories.map((cat: CategoryInterface, index: number) => (
+            ? allCategories.map((cat: CategoryInterface) => (
                 <CustomChips
                   key={cat.id}
                   label={cat.name}
                   selected={
-                    filterData.categories.includes(cat.id) ? cat.name : ""
+                    filterData.categories.includes(cat.id)
+                      ? cat.name
+                      : cat.name + "dummy"
                   }
                   setSelected={() => ""}
                   defaultSelected={false}
@@ -183,6 +185,14 @@ const FilterPage = ({
                       setFilterData((prev) => ({
                         ...prev,
                         categories: [...prev.categories, cat.id],
+                      }));
+                    } else {
+                      let cats = filterData.categories;
+                      const index = cats.indexOf(cat.id);
+                      cats.splice(index, 1);
+                      setFilterData((prev) => ({
+                        ...prev,
+                        categories: cats,
                       }));
                     }
                   }}

@@ -51,7 +51,7 @@ const FilterResponse = ({
 
   useFocusEffect(() => {
     if (isFocused) {
-      console.log("In focusedddddd");
+      // console.log("In focusedddddd");
     }
   });
 
@@ -66,7 +66,7 @@ const FilterResponse = ({
 
   useEffect(() => {
     if (route.params?.rows && route.params?.rows.length) {
-      console.log("inside filter", route.params?.rows);
+      // console.log("inside filter", route.params?.rows);
       setRecipes(route.params?.rows);
     }
   }, []);
