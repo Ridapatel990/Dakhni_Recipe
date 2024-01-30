@@ -2,8 +2,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from social.views import *
 
 urlpatterns = [
+    # path("", index),
+    # path("send/", send),
+    # path("firebase-messaging-sw.js", showFirebaseJS, name="show_firebase_js"),
     path("admin/", admin.site.urls),
     path("api/accounts/", include("accounts.urls")),
     path("api/recipes/", include("recipes.urls")),

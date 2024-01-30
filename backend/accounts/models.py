@@ -12,6 +12,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
     is_admin = models.BooleanField(default=False)
     profession = models.CharField(max_length=255, blank=True, null=True)
+    fcm_token = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     otp = models.IntegerField(null=True, blank=True)
     is_verified = models.BooleanField(default=False)

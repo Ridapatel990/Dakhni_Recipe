@@ -52,7 +52,6 @@ class ProcedureSerializer(ModelSerializer):
 
 
 class GetRecipeSerializer(ModelSerializer):
-
     chef = UserGetSerializer(read_only=True)
     ingredients = GetIngredientListSerializer(read_only=True, many=True)
     procedure = ProcedureSerializer(read_only=True, many=True)
@@ -68,7 +67,7 @@ class GetAllRecipeSerializer(ModelSerializer):
 
     def get_rate(slef, obj):
         avg_rate = Rate.objects.filter(recipe=obj.id).aggregate(Avg("rate"))
-        return avg_rate.get("rate__avg") if avg_rate.get("rate__avg") else 0.0
+        return str(round(avg_rate.get("rate__avg"), 1)) if avg_rate.get("rate__avg") else 0.0
 
     class Meta:
         model = Recipe

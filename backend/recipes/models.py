@@ -1,5 +1,8 @@
 from django.db import models
 from portal.base import BaseModel
+from django.db.models.signals import post_save
+
+from .signals import send_notification
 from portal.models import Configuration
 
 
@@ -19,6 +22,9 @@ class Recipe(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+post_save.connect(send_notification, sender=Recipe)
 
 
 class Ingredient(BaseModel):

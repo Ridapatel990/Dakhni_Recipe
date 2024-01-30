@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import SavedRecipe, RecentlySearched, Rate, Review
+from .models import SavedRecipe, RecentlySearched, Rate, Review, Notification
 from recipes.serializers import GetAllRecipeSerializer
 from accounts.serializers import UserGetSerializer
 
@@ -49,4 +49,18 @@ class GetRecentlySearchedSerializer(ModelSerializer):
 
     class Meta:
         model = RecentlySearched
+        fields = "__all__"
+
+
+class GetNotificationSerializer(ModelSerializer):
+    recipe = GetAllRecipeSerializer(read_only=True)
+
+    class Meta:
+        model = Notification
+        fields = "__all__"
+
+
+class NotificationSerializer(ModelSerializer):
+    class Meta:
+        model = Notification
         fields = "__all__"
