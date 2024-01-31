@@ -117,7 +117,7 @@ class BaseAPIView(APIView):
             limit = request.GET.get("limit") or 20
             search = request.GET.get("q", "")
             queryset = self.get_queryset()
-            if search:
+            if search and search != "undefined":
                 queryset = queryset.filter(
                     self.search_query_filter(search_query=search)
                 )

@@ -33,7 +33,21 @@ class RecipeView(BaseAPIView):
     getall_serializer = GetAllRecipeSerializer
     serializer_class = GetRecipeSerializer
     post_serializer = RecipeSerializer
-    related_models = {"category": Category}
+    related_models = {"category":Category}
+    search_ignore_fields = [
+        "category",
+        "chef",
+        "serve_qty",
+        "cooking_time",
+        "link",
+        "id",
+        "image1",
+        "image2",
+        "image3",
+        "created_on",
+        "updated_on",
+        "is_deleted",
+    ]
     allowed_methods = [GET, GETALL, POST, DELETE]
 
     def get(self, request, id=None, *args, **kwargs):
