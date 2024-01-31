@@ -1,9 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from .managers import MyUserManager
+from django.db.models.signals import post_save
 from uuid import uuid4
 
 from portal.choices import ChefStatusChoices
+from .signals import send_verification_email
 
 
 class User(AbstractBaseUser):
@@ -48,6 +50,8 @@ class User(AbstractBaseUser):
         "Is the user a member of staff?"
         return self.is_admin
 
+
+post_save.connect(send_verification_email, sender=User)
 
 # class Followers(BaseModel):
 #     followed_by = models.ForeignKey(

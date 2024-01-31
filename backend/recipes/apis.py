@@ -151,7 +151,7 @@ class FilterRecipeView(APIView):
                 "recipe__id", flat=True
             )
             filters &= Q(id__in=recently_searched)
-        recipes = Recipe.objects.filter(filters).order_by(order_by)
+        recipes = Recipe.objects.filter(filters).order_by(order_by).distinct()
         return Response(
             data={
                 "rows": GetAllRecipeSerializer(
