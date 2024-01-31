@@ -28,6 +28,7 @@ class BaseAPIView(APIView):
     allowed_methods = [GET, GETALL, POST, PUT, DELETE]
     search_ignore_fields = []
     archive_in_delete = False
+    context = {}
 
     def __init__(self):
         self.model = self.get_model()
@@ -36,6 +37,12 @@ class BaseAPIView(APIView):
         self.query_set = self.get_queryset()
         # self.get_single_query = self.get_queryset()
         self.order = self.get_order()
+
+    def get_context(self):
+        try:
+            return self.context
+        except:
+            return {}
 
     def get_lookup(self):
         try:
@@ -132,7 +139,12 @@ class BaseAPIView(APIView):
             count = queryset.count()
             objs = queryset[int(pg) * int(limit) : (int(pg) + 1) * int(limit)]
             return Response(
-                data={"rows": serializer(objs, many=True).data, "count": count},
+                data={
+                    "rows": serializer(
+                        objs, many=True, context=self.get_context()
+                    ).data,
+                    "count": count,
+                },
                 status=200,
             )
         else:
@@ -141,7 +153,9 @@ class BaseAPIView(APIView):
             print("get by id")
             try:
                 return Response(
-                    data=self.serializer(self.model.objects.get(id=id)).data,
+                    data=self.serializer(
+                        self.model.objects.get(id=id), context=self.get_context()
+                    ).data,
                     status=200,
                 )
             except (self.model.DoesNotExist, ValidationError):

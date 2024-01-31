@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from .models import User
 
 
@@ -29,9 +29,14 @@ class UserUpdateSerializer(ModelSerializer):
 
 
 class SingleUserGetSerializer(ModelSerializer):
-    from recipes.serializers import GetAllRecipeSerializer
 
-    recipes = GetAllRecipeSerializer(read_only=True, many=True)
+    # recipes = GetAllRecipeSerializer(read_only=True, many=True)
+    recipes = SerializerMethodField()
+
+    def get_recipes(self,obj):
+        from recipes.serializers import GetAllRecipeSerializer
+        from recipes.models import Recipe
+        return GetAllRecipeSerializer(Recipe.objects.filter(chef=obj), many=True, context={"user":obj}).data
 
     class Meta:
         model = User

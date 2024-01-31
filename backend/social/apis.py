@@ -58,6 +58,7 @@ class RecentlSearchedRecipeView(BaseAPIView):
     related_models = {"recipe": Recipe}
 
     def get(self, request, id=None, *args, **kwargs):
+        self.context = {"user": request.thisUser.id}
         self.query_set = RecentlySearched.objects.filter(
             user=request.thisUser.id
         ).select_related("recipe")
@@ -88,7 +89,7 @@ class SavedRecipeView(BaseAPIView):
     related_models = {"recipe": Recipe}
 
     def get(self, request, id=None, *args, **kwargs):
-        print(request.thisUser.id)
+        self.context = {"user": request.thisUser.id}
         self.query_set = SavedRecipe.objects.filter(
             user=request.thisUser.id
         ).select_related("recipe")

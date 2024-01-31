@@ -1,4 +1,5 @@
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
+from django.db.models import Q
 from django.db.models import Avg
 from .models import (
     Recipe,
@@ -9,7 +10,7 @@ from .models import (
     PopularRecipe,
 )
 from portal.serializers import CategoryLovSerializer
-from social.models import Rate
+from social.models import Rate, SavedRecipe
 from accounts.serializers import UserGetSerializer
 
 
@@ -64,10 +65,22 @@ class GetRecipeSerializer(ModelSerializer):
 
 class GetAllRecipeSerializer(ModelSerializer):
     rate = SerializerMethodField()
+    is_saved = SerializerMethodField()
+
+    def get_is_saved(self, obj):
+        user = self.context.get("user")
+        if SavedRecipe.objects.filter(Q(user=user) & Q(recipe=obj)).exists():
+            return True
+        return False
 
     def get_rate(slef, obj):
-        avg_rate = Rate.objects.filter(recipe=obj.id).aggregate(Avg("rate"))
-        return str(round(avg_rate.get("rate__avg"), 1)) if avg_rate.get("rate__avg") else 0.0
+        # print(obj)
+        avg_rate = Rate.objects.filter(recipe=obj).aggregate(Avg("rate"))
+        return (
+            str(round(avg_rate.get("rate__avg"), 1))
+            if avg_rate.get("rate__avg")
+            else 0.0
+        )
 
     class Meta:
         model = Recipe
@@ -81,7 +94,15 @@ class TrendingRecipeSerializer(ModelSerializer):
 
 
 class GetTrendingRecipeSerializer(ModelSerializer):
-    recipe = GetAllRecipeSerializer(read_only=True)
+    # recipe = GetAllRecipeSerializer(read_only=True)
+    recipe = SerializerMethodField()
+
+    def get_recipe(self, obj):
+        user = self.context.get("user")
+        return GetAllRecipeSerializer(
+            Recipe.objects.filter(trending_recipes=obj.id).first(),
+            context={"user": user},
+        ).data
 
     class Meta:
         model = TrendingRecipe
@@ -95,7 +116,15 @@ class PopularRecipeSerializer(ModelSerializer):
 
 
 class GetPopularRecipeSerializer(ModelSerializer):
-    recipe = GetAllRecipeSerializer(read_only=True)
+    # recipe = GetAllRecipeSerializer(read_only=True)\
+
+    recipe = SerializerMethodField()
+
+    def get_recipe(self, obj):
+        user = self.context.get("user")
+        return GetAllRecipeSerializer(
+            Recipe.objects.filter(popular_recipes=obj).first(), context={"user": user}
+        ).data
 
     class Meta:
         model = PopularRecipe
