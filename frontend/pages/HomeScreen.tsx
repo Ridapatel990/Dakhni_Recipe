@@ -63,14 +63,14 @@ const HomeScreen = ({
     enabled: true,
   });
 
-  const { data: allCategories, refetch: refetchAllCategories } = useGetAll({
+  const { data: allCategories } = useGetAll({
     key: `/portal/category/?q=${
       allCatChipText === "All" ? undefined : allCatChipText
     }`,
     enabled: true,
   });
 
-  const { data: getRecipe } = useGetAll({
+  const { data: getRecipe, refetch: getRecipeRefetch } = useGetAll({
     key: `/recipes/list/?random=true&q=${
       allCatChipText == "All" && searchText == ""
         ? undefined
@@ -128,7 +128,7 @@ const HomeScreen = ({
 
   useEffect(() => {
     if (allCatChipText) {
-      refetchAllCategories();
+      getRecipeRefetch();
       // console.log(allCategories, "qwe234567890-==========");
     }
   }, [allCatChipText]);

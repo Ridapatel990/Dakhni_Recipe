@@ -117,43 +117,74 @@ const FilterPage = ({
         ))}
       </View>
 
-      <View style={{ top: 15 }}>
+      <View
+        style={{
+          top: 15,
+          flexDirection: "column",
+          flexWrap: "wrap",
+          alignSelf: "center",
+          width: "85%",
+        }}
+      >
         <Text style={styles.categoryText}>Rate</Text>
         <TouchableOpacity
           style={{
             flexDirection: "row",
+            flexWrap: "wrap",
             paddingVertical: 10,
-            left: 30,
             marginTop: 5,
           }}
         >
-          {["1", "2", "3", "4", "5"].map((item: string) => (
-            <Controller
-              control={control}
-              name="rate"
-              render={({ field: { onChange, onBlur, value } }) => (
-                <StarCustomTab
-                  label={item}
-                  width={50}
-                  height={32}
-                  margin={3}
-                  selected={tabText}
-                  setSelected={setTabText}
-                  image="star"
-                  Press={() => {
-                    setFilterData((prev) => ({
-                      ...prev,
-                      rate: parseInt(item),
-                      // rate:
-                      // filterData.rate == parseInt(item)
-                      //   ? null
-                      //   : parseInt(item),
-                    }));
-                  }}
-                />
-              )}
-            />
-          ))}
+          <StarCustomTab
+            label={"5"}
+            width={50}
+            height={32}
+            margin={3}
+            selected={tabText}
+            setSelected={setTabText}
+            image="star"
+            activeImage="white-star"
+          ></StarCustomTab>
+          <StarCustomTab
+            label={"4"}
+            width={50}
+            height={32}
+            margin={3}
+            selected={tabText}
+            setSelected={setTabText}
+            image="star"
+            activeImage="white-star"
+          ></StarCustomTab>
+          <StarCustomTab
+            label={"3"}
+            width={50}
+            height={32}
+            margin={3}
+            selected={tabText}
+            setSelected={setTabText}
+            image="star"
+            activeImage="white-star"
+          ></StarCustomTab>
+          <StarCustomTab
+            label={"2"}
+            width={50}
+            height={32}
+            margin={3}
+            selected={tabText}
+            setSelected={setTabText}
+            image="star"
+            activeImage="white-star"
+          ></StarCustomTab>
+          <StarCustomTab
+            label={"1"}
+            width={50}
+            height={32}
+            margin={3}
+            selected={tabText}
+            setSelected={setTabText}
+            image="star"
+            activeImage="white-star"
+          ></StarCustomTab>
         </TouchableOpacity>
       </View>
 
