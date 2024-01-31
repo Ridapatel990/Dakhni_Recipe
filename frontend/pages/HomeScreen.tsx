@@ -70,7 +70,7 @@ const HomeScreen = ({
     enabled: true,
   });
 
-  console.log(query, "qtyuodcjsjhcjs");
+  // console.log(query, "qtyuodcjsjhcjs");
 
   const { data: getRecipe, refetch: getRecipeRefetch } = useGetAll({
     key: `/recipes/list/?random=true&q=${
@@ -143,7 +143,7 @@ const HomeScreen = ({
   }, [popularCatChipText]);
 
   const onSearchFocus = () => {
-    console.log("in  onSearchFocus");
+    // console.log("in  onSearchFocus");
     setRecentlyEnabled(true);
   };
 
@@ -158,7 +158,7 @@ const HomeScreen = ({
         showsVerticalScrollIndicator={true}
         style={{ marginBottom: 0, paddingHorizontal: 20 }}
       >
-        <View style={{ paddingBottom: 30 }}>
+        <View style={{ paddingBottom: 80 }}>
           <View>
             <Text style={styles.helloText}>Hello {user?.name || "Tulip"},</Text>
             <Text style={styles.welcomeText}>
@@ -263,6 +263,7 @@ const HomeScreen = ({
                     {getRecipe && getRecipe.length
                       ? getRecipe?.map((recipe: GetRecipeInteface) => (
                           <DetailedCard
+                          key={recipe.id}
                             recipeId={recipe.id}
                             recipeLabel={recipe.name}
                             mins={recipe.cooking_time}
@@ -306,9 +307,10 @@ const HomeScreen = ({
                     {trendingRecipe && trendingRecipe.length
                       ? trendingRecipe?.map(
                           (trendRecipe: GetPopularInterface) => {
-                            console.log(trendRecipe);
+                            // console.log(trendRecipe);
                             return (
                               <BigCard
+                              key={trendRecipe.id}
                                 BigCardName={trendRecipe?.recipe?.name}
                                 imageUri={trendRecipe?.recipe?.image1}
                                 Rating={trendRecipe?.recipe?.rate}
@@ -360,6 +362,7 @@ const HomeScreen = ({
                     {popularCat && popularCat.length
                       ? popularCat?.map((popRecipe: GetPopularInterface) => (
                           <DetailedCard
+                          key={popRecipe?.id}
                             recipeId={popRecipe?.recipe.id}
                             recipeLabel={popRecipe?.recipe?.name}
                             mins={popRecipe?.recipe?.cooking_time}
@@ -405,6 +408,7 @@ const HomeScreen = ({
                     {newRecipe && newRecipe.length
                       ? newRecipe?.map((recipe: GetNewInteface) => (
                           <SimpleCard
+                          key={recipe.id}
                             label={recipe.name}
                             imageUri={recipe.image1}
                           ></SimpleCard>
@@ -420,18 +424,6 @@ const HomeScreen = ({
     </SafeAreaView>
   );
 };
-
-/* <View style={{marginTop: 20, flexDirection: 'row'}}>
-          <CustomTabs defaultSelected={true} label={'All'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
-          <CustomTabs label={'Read'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
-          <CustomTabs label={'Unread'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
-        </View>
-
-        <View style={{marginTop: 20, flexDirection: 'row'}}>
-          <CustomTabs defaultSelected={true} label={'Ingredients'} width={150} height={32} margin={4} selected={selected} setSelected={setSelected}></CustomTabs>
-          <CustomTabs label={'Procedure'} width={150} height={32} margin={4} selected={selected} setSelected={setSelected}></CustomTabs>
-
-        </View> */
 
 const styles = StyleSheet.create({
   container: {

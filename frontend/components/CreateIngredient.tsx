@@ -82,7 +82,7 @@ const CreateIngredient = () => {
   useGetAll({
     key: "/recipes/ingredient/",
     onSuccess: (data) => {
-      console.log(data, "<=========ngredient datat");
+      // console.log(data, "<=========ngredient datat");
       setIngredientList(data);
     },
   });
@@ -192,9 +192,9 @@ const CreateIngredient = () => {
               style={{ alignSelf: "center" }}
               onPress={() => {
                 let newArr = [...inputIngredients];
-                console.log(newArr, index);
+                // console.log(newArr, index);
                 newArr.splice(index, 1);
-                console.log(newArr);
+                // console.log(newArr);
                 setInputIngredients(newArr);
               }}
             >

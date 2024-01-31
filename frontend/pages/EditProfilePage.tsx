@@ -57,7 +57,7 @@ const EditProfilePage = () => {
         <InputField textforInput='Email'></InputField>
         <InputField textforInput='Profession'></InputField>
         <InputField textforInput='Description'></InputField>
-        </View>
+      </View>
 
         <View style={{marginTop:50}}>
           <BigButton btnLabel='Save' btnHeight={70} btnWidth={100} btnPosition='relative' btnBorder={10}></BigButton>

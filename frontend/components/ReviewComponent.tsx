@@ -19,7 +19,7 @@ const ReviewComponent:React.FC<ReviewComponentProps> = ({name,font=20,time,revie
     const {data:getReview}=useGetAll({
         key:'/recipes/list/?random=true',
         onSuccess:(data)=> {
-            console.log(data,"<=========ngredient datat")
+            // console.log(data,"<=========ngredient datat")
             setReviews(data)
             }
     })

@@ -29,17 +29,17 @@ const VerifyEmailPage = ({
   const { mutate } = useCreateOrUpdate({
     url: "/accounts/verify-otp/",
     onSuccess(data, variables) {
-      console.log(data, "<======");
+      // console.log(data, "<======");
       navigation.navigate("ResetPassPage", { email: variables?.email });
     },
     onError(data) {
-      console.log("Request Failed", data);
+      // console.log("Request Failed", data);
     },
   });
 
   const onSubmit = () => {
     let isEmpty = otp?.some((item) => !item);
-    console.log(isEmpty, "<=====isEmptyyy", otp);
+    // console.log(isEmpty, "<=====isEmptyyy", otp);
 
     if (isEmpty) {
       ToastAndroid.show("Please fill the otp", ToastAndroid.SHORT);

@@ -33,7 +33,7 @@ const RecipeChipComponenet : React.FC<RecipeChipProps> =({title,image,component,
             </View>
                 <View style={{alignSelf:'flex-end',width:'80%'}}>
                 {dropdowncomp && <DropDownList  ></DropDownList>}
-            </View>
+                </View>
             
         </View>
     );
@@ -45,7 +45,9 @@ const styles= StyleSheet.create({
         justifyContent:'space-between',
         width:'90%',
         height:60,
-        alignSelf:'center',
+        // alignSelf:'center',
+        marginLeft: 20,
+        marginRight: 20,
         borderRadius:9,
         marginBottom:10,       
     },

@@ -21,7 +21,7 @@ const ReviewPage: React.FC<ReviewPageProps> = ({Reviews='0 Reviews'}) =>{
     const {data:getReview}=useGetAll({
         key:'/recipes/list/?random=true',
         onSuccess:(data)=> {
-            console.log(data,"<=========ngredient datat")
+            // console.log(data,"<=========ngredient datat")
             setReview(data)
             }
     })

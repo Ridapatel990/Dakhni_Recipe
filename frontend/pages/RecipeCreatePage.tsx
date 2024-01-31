@@ -72,7 +72,7 @@ const RecipeCreatePage = ({
     });
 
     if (!result.didCancel) {
-      console.log(result);
+      // console.log(result);
       setImage(image);
     }
   };
@@ -141,7 +141,6 @@ const RecipeCreatePage = ({
             dropdowncomp="{dropdowncomp}"
           ></RecipeChipComponenet>
 
-          {/* <DropDownList></DropDownList> */}
         </View>
 
         <View
@@ -175,17 +174,10 @@ const RecipeCreatePage = ({
 
         <View style={{ flexDirection: "column", marginLeft: 10 }}>{list}</View>
 
-        <View style={{ flexDirection: "column", marginLeft: 10 }}>{list}</View>
 
-        {/* <View style={{ marginTop: 70 }}>
-        <BottomNavigationBar
-          onItemTapped={onItemTapped}
-          selectedIndex={0}
-        ></BottomNavigationBar>
-      </View> */}
+        
       </ScrollView>
     </View>
-    // {/* </View> */}
   );
 };
 export default RecipeCreatePage;
