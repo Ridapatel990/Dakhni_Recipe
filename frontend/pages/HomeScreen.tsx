@@ -280,7 +280,7 @@ const HomeScreen = ({
                   </TouchableOpacity>
                 </View>
 
-                <View>
+                <View style={{width:'100%'}}>
                   <ScrollView
                     horizontal={true}
                     style={{ flexDirection: "row", marginTop: 20 }}
@@ -289,6 +289,7 @@ const HomeScreen = ({
                       ? trendingRecipe?.map(
                           (trendRecipe: GetTrendingInterface) => (
                             <BigCard
+                            BigCardWidth={300}
                               BigCardName={trendRecipe?.recipe?.name}
                               imageUri={trendRecipe?.recipe?.image1}
                               Rating={trendRecipe?.recipe?.rate}

@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
+import * as ImagePicker from "react-native-image-picker";
 import CircularAvatar from '../components/CircleAvatar'
 import { Image } from 'react-native'
 import { InputAccessoryView } from 'react-native'
@@ -11,6 +13,27 @@ import BigButton from '../components/common/BigButton'
 
 const EditProfilePage = () => {
 
+  const [image, setImage] = useState<string | undefined>('');
+  //   interface OptionsCommon {
+  //     mediaType: ImagePicker.MediaType;
+  // }
+  //   const imageOptions:OptionsCommon ={
+      
+  //   }
+    const selectImage = async () => {
+      let result = await ImagePicker.launchImageLibrary({
+        mediaType:'photo'
+        // mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        // allowsEditing: true,
+        // aspect: [4, 3],
+        // quality: 1,
+      });
+    
+      if (!result.didCancel) {
+        console.log(result)
+        setImage(result.assets[0].uri);
+      }
+    };
 
   const styles=StyleSheet.create({
     
@@ -46,9 +69,13 @@ const EditProfilePage = () => {
 
       <View style={{alignSelf:'center',width:200,marginBottom:20}}>
         <View style={styles.profile}>
-          <TouchableOpacity style={{alignSelf:'flex-end',width:200}}>
-            <Image style={{alignSelf:'flex-end',width:50,height:50}} source={require('../assets/EditPen.png')}>
+          <TouchableOpacity style={{alignSelf:'flex-end',width:200}} onPress={selectImage}>
+          {image ? (
+          <Image source={{ uri: image }} style={{ objectFit:"cover",alignSelf:'center',width:'100%',height:'100%',borderRadius:100 }} />
+        ) : (
+           <Image style={{alignSelf:'flex-end',width:50,height:50}} source={require('../assets/EditPen.png')}>
             </Image>
+            )}
           </TouchableOpacity></View>
       </View>
 

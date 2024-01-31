@@ -50,7 +50,7 @@ const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}
       
     }
 
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState<string | undefined>('');
   //   interface OptionsCommon {
   //     mediaType: ImagePicker.MediaType;
   // }
@@ -68,7 +68,7 @@ const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}
     
       if (!result.didCancel) {
         console.log(result)
-        setImage(image);
+        setImage(result.assets[0].uri);
       }
     };
 
@@ -79,20 +79,21 @@ const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}
             
 
         <View style={{flexDirection:'column',width:'100%',marginBottom:60}}>
-            <View style={{marginTop:9,backgroundColor:'rgba(220, 220, 220, 0.4)',width:'90%',height:300,justifyContent:'center',alignSelf:'center',borderRadius:10}}>
+            <View style={{marginTop:9,backgroundColor:'rgba(220, 220, 220, 0.4)',width:'90%',aspectRatio:1,justifyContent:'center',alignSelf:'center',borderRadius:10}}>
                 <TouchableOpacity onPress={selectImage}>
-                    <View style={{alignSelf:'center'}}>
+                    
                     {image ? (
-          <Image source={{ uri: image }} style={{ width: 400, height: 400 }} />
+          <Image source={{ uri: image }} style={{ objectFit:"cover",alignSelf:'center',width:'100%',height:'100%',borderRadius:10 }} />
         ) : (
           <Image source={require('../assets/UploadIcon.png')} style={{alignSelf:'center'}}></Image>
-        )}
+          )}
+       {!image  && <View style={{alignSelf:'center'}}>
                 <Text style={{alignSelf:'center',fontSize:13,fontWeight:'200'}}>Upload Image</Text>
-                </View>
+                </View>}
                 </TouchableOpacity>
               </View>
 
-            <View style={{width:'100%',paddingHorizontal:20}}>
+            <View style={{width:'100%',paddingHorizontal:20,alignSelf:'center'}}>
             <InputField  style={{marginRight:0,marginLeft:0}}></InputField>
             </View>
             </View>
@@ -100,10 +101,10 @@ const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}
 
                 <RecipeChipComponenet image="clock" title="Cook Time(Min)" component="{component}"></RecipeChipComponenet>
                 <RecipeChipComponenet image="serves" title="Serves" component="{component}"></RecipeChipComponenet>
-                <RecipeChipComponenet image="category" title="Category" dropdowncomp="{dropdowncomp}"></RecipeChipComponenet>
+                {/* <RecipeChipComponenet image="category" title="Category" dropdowncomp="{dropdowncomp}"></RecipeChipComponenet>
+                 */}
                 
-                
-            {/* <DropDownList></DropDownList> */}
+            <DropDownList></DropDownList>
             
                 
 
