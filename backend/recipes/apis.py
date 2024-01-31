@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.db import transaction
-from django.db.models import Q
+from django.db.models import Q, Avg
 
 from portal.base import BaseAPIView
 from portal.models import Category
@@ -25,7 +25,7 @@ from .serializers import (
     GetTrendingRecipeSerializer,
     GetPopularRecipeSerializer,
 )
-from social.models import RecentlySearched
+from social.models import RecentlySearched, Rate
 
 
 class RecipeView(BaseAPIView):
@@ -141,7 +141,16 @@ class FilterRecipeView(APIView):
         filters = Q()
         order_by = "-created_on"
         if rate and rate != "" and rate != "undefined":
-            filters &= Q(rate__rate=int(rate))
+            avg_rates_by_recipe = Rate.objects.values("recipe").annotate(
+                avg_rate=Avg("rate")
+            )
+            # print(avg_rates_by_recipe, "pppppppppppppppppppppp")
+            recipe_ids = [
+                entry["recipe"]
+                for entry in avg_rates_by_recipe
+                if entry["avg_rate"] is not None and entry["avg_rate"] >= int(rate)
+            ]
+            filters &= Q(id__in=list(recipe_ids))
         if categories_list and len(categories_list) > 0:
             filters &= Q(category__in=categories_list)
         if time == "oldest":
