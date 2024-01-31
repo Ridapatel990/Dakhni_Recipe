@@ -33,7 +33,7 @@ class RecipeView(BaseAPIView):
     getall_serializer = GetAllRecipeSerializer
     serializer_class = GetRecipeSerializer
     post_serializer = RecipeSerializer
-    related_models = {"category":Category}
+    related_models = {"category": Category}
     search_ignore_fields = [
         "category",
         "chef",
@@ -47,10 +47,15 @@ class RecipeView(BaseAPIView):
         "created_on",
         "updated_on",
         "is_deleted",
+        "category__created_on",
+        "category__updated_on",
+        "category__is_deleted",
+        "category__id",
     ]
     allowed_methods = [GET, GETALL, POST, DELETE]
 
     def get(self, request, id=None, *args, **kwargs):
+        self.context = {"user": request.thisUser.id}
         random = request.query_params.get("random")
         if random == "true":
             self.order = "?"
@@ -110,6 +115,10 @@ class PopularRecipeView(BaseAPIView):
     allowed_methods = [GETALL]
     query_set = PopularRecipe.objects.all().select_related("recipe")
 
+    def get(self, request, id=None, *args, **kwargs):
+        self.context = {"user": request.thisUser.id}
+        return super().get(request, id, *args, **kwargs)
+
 
 class TrendingRecipeView(BaseAPIView):
     model = TrendingRecipe
@@ -118,6 +127,10 @@ class TrendingRecipeView(BaseAPIView):
     related_models = {}
     allowed_methods = [GETALL]
     query_set = TrendingRecipe.objects.all().select_related("recipe")
+
+    def get(self, request, id=None, *args, **kwargs):
+        self.context = {"user": request.thisUser.id}
+        return super().get(request, id, *args, **kwargs)
 
 
 class FilterRecipeView(APIView):
@@ -141,7 +154,9 @@ class FilterRecipeView(APIView):
         recipes = Recipe.objects.filter(filters).order_by(order_by)
         return Response(
             data={
-                "rows": GetAllRecipeSerializer(recipes, many=True).data,
+                "rows": GetAllRecipeSerializer(
+                    recipes, many=True, context={"user": request.thisUser.id}
+                ).data,
                 "count": recipes.count(),
             },
             status=200,
@@ -164,17 +179,21 @@ class HomePageView(APIView):
         )
         data = {
             "category": CategoryLovSerializer(categories, many=True).data,
-            "recipes": GetAllRecipeSerializer(random_recipes, many=True).data,
+            "recipes": GetAllRecipeSerializer(
+                random_recipes, many=True, context={"user": request.thisUser.id}
+            ).data,
             "trending_recipes": GetTrendingRecipeSerializer(
-                trending_recipes, many=True
+                trending_recipes, many=True, context={"user": request.thisUser.id}
             ).data,
             "popular_category": CategoryLovSerializer(
                 popular_categories, many=True
             ).data,
             "popular_recipes": GetPopularRecipeSerializer(
-                popular_recipes, many=True
+                popular_recipes, many=True, context={"user": request.thisUser.id}
             ).data,
-            "new_recipes": GetAllRecipeSerializer(new_recipes, many=True).data,
+            "new_recipes": GetAllRecipeSerializer(
+                new_recipes, many=True, context={"user": request.thisUser.id}
+            ).data,
         }
         return Response(data={"rows": data}, status=200)
 

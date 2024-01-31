@@ -1,7 +1,8 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from .models import SavedRecipe, RecentlySearched, Rate, Review, Notification
 from recipes.serializers import GetAllRecipeSerializer
 from accounts.serializers import UserGetSerializer
+from recipes.models import Recipe
 
 
 class RateSerializer(ModelSerializer):
@@ -31,7 +32,16 @@ class SavedRecipeSerializer(ModelSerializer):
 
 
 class GetSavedRecipeSerializer(ModelSerializer):
-    recipe = GetAllRecipeSerializer(read_only=True)
+    # recipe = GetAllRecipeSerializer(read_only=True)
+
+    recipe = SerializerMethodField()
+
+    def get_recipe(self, obj):
+        user = self.context.get("user")
+        return GetAllRecipeSerializer(
+            Recipe.objects.filter(saved_recipe=obj.id).first(),
+            context={"user": user},
+        ).data
 
     class Meta:
         model = SavedRecipe
@@ -45,7 +55,16 @@ class RecentlySearchedSerializer(ModelSerializer):
 
 
 class GetRecentlySearchedSerializer(ModelSerializer):
-    recipe = GetAllRecipeSerializer(read_only=True)
+    # recipe = GetAllRecipeSerializer(read_only=True)
+
+    recipe = SerializerMethodField()
+
+    def get_recipe(self, obj):
+        user = self.context.get("user")
+        return GetAllRecipeSerializer(
+            Recipe.objects.filter(recently_searched=obj.id).first(),
+            context={"user": user},
+        ).data
 
     class Meta:
         model = RecentlySearched
