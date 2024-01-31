@@ -25,7 +25,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({
   BigCardName,
   imageUri,
-  BigCardWidth = 300,
+  BigCardWidth = '90%',
   BigCardHeight = 230,
   Rating,
   Review,

@@ -17,6 +17,7 @@ interface CustomTabsProps {
     disabled?: boolean;
     defaultSelected?: boolean; 
     image?:string,
+    activeImage?:string,
     tabBorderColor?: string,
     shareComponent?:string,
     rateComponent?:string,
@@ -25,13 +26,14 @@ interface CustomTabsProps {
 
 const Assets: {[key:string]:ImageURISource}= {
     'star':require('../../assets/gradientstar.png'),
+    'white-star':require('../../assets/whiteStar.png'),
     'share':require('../../assets/ShareIcon.png'),
     'rate':require('../../assets/blackStar.png'),
     'review':require('../../assets/Review.png'),
 }
-const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, margin, selected,setSelected, disabled = false, defaultSelected = false,image,tabBorderColor,shareComponent,rateComponent,Press}) => {
-    const chipColor = selected === label ? 'white' : disabled ? 'grey' : 'white';
-  const labelColor = selected === label || disabled ? 'black' : 'black';
+const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, margin, selected,setSelected, disabled = false, defaultSelected = false,image,activeImage,tabBorderColor,shareComponent,rateComponent,Press}) => {
+    const chipColor = selected === label ? 'red' : disabled ? 'grey' : 'white';
+  const labelColor = selected === label || disabled ? 'white' : 'black';
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -120,7 +122,7 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
         
        <Text style={[styles.labelText, {color: labelColor}]}>{label}</Text></View>
        <View style={{alignSelf:'flex-start',marginTop:5}}>
-       {image && <Image source={Assets[image]} ></Image>}</View>
+       {image && <Image source={activeImage ? (selected === label ? Assets[activeImage] :Assets[image]  ):  Assets[image]} ></Image>}</View>
 
 
 

@@ -49,14 +49,14 @@ const FilterPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
         <CustomChips key={3} label={'Popularity'}  selected={selected} setSelected={setSelected}></CustomChips>
       </View>
 
-      <View style={{top:15}}>
+      <View style={{top:15,flexDirection:'column',flexWrap:'wrap',alignSelf:'center',width:'85%'}}>
       <Text style={styles.categoryText}>Rate</Text>
-      <TouchableOpacity style={{flexDirection: 'row',paddingVertical:10,left:30,marginTop:5}}>
-      <StarCustomTab label={'5'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star"></StarCustomTab>    
-      <StarCustomTab label={'4'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star"></StarCustomTab>    
-      <StarCustomTab label={'3'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star"></StarCustomTab>    
-      <StarCustomTab label={'2'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star"></StarCustomTab>    
-      <StarCustomTab label={'1'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star"></StarCustomTab>    
+      <TouchableOpacity style={{flexDirection: 'row',flexWrap:'wrap',paddingVertical:10,marginTop:5}}>
+      <StarCustomTab label={'5'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star" activeImage='white-star'></StarCustomTab>    
+      <StarCustomTab label={'4'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star" activeImage='white-star'></StarCustomTab>    
+      <StarCustomTab label={'3'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star" activeImage='white-star'></StarCustomTab>    
+      <StarCustomTab label={'2'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star" activeImage='white-star'></StarCustomTab>    
+      <StarCustomTab label={'1'}  width={50} height={32} margin={3} selected={tabText} setSelected={setTabText} image="star" activeImage='white-star'></StarCustomTab>    
       
       
       </TouchableOpacity>

@@ -155,10 +155,10 @@ const AccountPage = ({
           ></BigButton>
         </View>
 
-        <View style={{ marginBottom: 260 }}>
+        <View style={{ marginBottom: 260,paddingRight:20 }}>
           {profile?.recipes && profile?.recipes.length ? profile.recipes.map((recipe:RecipeInterface)=>(<BigCard
             BigCardName={recipe.name}
-            BigCardWidth={360}
+            BigCardWidth={'100%'}
             Review={String(recipe.rate)}
             imageUri={recipe.image1 || null}
             // imageUri={{uri: mediaUrl + recipe.image1} }

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import * as ImagePicker from "react-native-image-picker";
 import { View,Image,Text, TouchableOpacity, ScrollView } from "react-native";
 import InputField from "../components/common/InputField";
 import RecipeChipComponenet from "../components/RecipeChipComponent";
@@ -49,6 +50,29 @@ const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}
       
     }
 
+    const [image, setImage] = useState(null);
+  //   interface OptionsCommon {
+  //     mediaType: ImagePicker.MediaType;
+  // }
+  //   const imageOptions:OptionsCommon ={
+      
+  //   }
+    const selectImage = async () => {
+      let result = await ImagePicker.launchImageLibrary({
+        mediaType:'photo'
+        // mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        // allowsEditing: true,
+        // aspect: [4, 3],
+        // quality: 1,
+      });
+    
+      if (!result.didCancel) {
+        console.log(result)
+        setImage(image);
+      }
+    };
+
+
     return(
      <View> 
 <ScrollView style={{height:'100%'}}>
@@ -56,9 +80,13 @@ const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}
 
         <View style={{flexDirection:'column',width:'100%',marginBottom:60}}>
             <View style={{marginTop:9,backgroundColor:'rgba(220, 220, 220, 0.4)',width:'90%',height:300,justifyContent:'center',alignSelf:'center',borderRadius:10}}>
-                <TouchableOpacity>
-                    <View>
-                <Image source={require('../assets/UploadIcon.png')} style={{alignSelf:'center'}}></Image>
+                <TouchableOpacity onPress={selectImage}>
+                    <View style={{alignSelf:'center'}}>
+                    {image ? (
+          <Image source={{ uri: image }} style={{ width: 400, height: 400 }} />
+        ) : (
+          <Image source={require('../assets/UploadIcon.png')} style={{alignSelf:'center'}}></Image>
+        )}
                 <Text style={{alignSelf:'center',fontSize:13,fontWeight:'200'}}>Upload Image</Text>
                 </View>
                 </TouchableOpacity>
