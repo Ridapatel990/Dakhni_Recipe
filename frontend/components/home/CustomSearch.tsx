@@ -35,10 +35,11 @@ const CustomSearchBar: React.FC<CustomSearchBar> = ({
       marginLeft: 0,
     },
     searchInput: {
-      paddingHorizontal: 10,
+      // paddingHorizontal: 10,
       fontSize: 16,
       color: "black",
       flex: 1,
+      paddingBottom: 9,
     },
 
     searchIcon: {

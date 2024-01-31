@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react';
-import {View,Text,ScrollView} from "react-native"
+import {View,Text,ScrollView, TouchableOpacity} from "react-native"
 import BigCard from '../components/common/BigCard'
 import StarCustomTab from "../components/common/StarCustomTab";
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
@@ -8,6 +8,8 @@ import CustomTabs from '../components/common/CustomTabs';
 import IngredientsList from '../components/IngredientList'
 import CircularAvatar from '../components/CircleAvatar';
 import Procedure from '../components/Procedure';
+import { useGetAll } from '../hooks';
+import ReviewPage from './ReviewPage';
 
 const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>{
     const [searchText, setSearchText] = useState('');
@@ -26,9 +28,18 @@ const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase
     
   }
 
+   const {data : getRecipe} = useGetAll ({
+    key:'/recipes/list/?random=true',
+    select:(data:any) => data?.data,
+    onSuccess: (data) => {
+    
+    },
+   });
+
     return (
       <ScrollView>
       <View style={{flexDirection:'row',alignSelf:'center',marginBottom:20}}>
+      
       
       <BigCard BigCardName='Biryani' BigCardWidth={360} Review='13k Reviews'></BigCard>
       
@@ -42,7 +53,8 @@ const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase
         <StarCustomTab tabBorderColor='gray' label={'Rate Recipe'}  width={'auto'} height={32} margin={3} selected={tabText} setSelected={setTabText} image="rate" rateComponent='rateComponent'></StarCustomTab>
         {/* </View> */}
         {/* <View style={{flexDirection:'column', width:'30%'}}> */}
-        <StarCustomTab tabBorderColor='gray' label={'Reviews'}  width={'auto'} height={32} margin={3} selected={tabText} setSelected={setTabText} image="share"></StarCustomTab>
+        <TouchableOpacity >
+        <StarCustomTab tabBorderColor='gray' label={'Reviews'}  width={'auto'} height={32} margin={3} selected={tabText} setSelected={setTabText} image="share" Press={()=>navigation.navigate('ReviewPage')}></StarCustomTab></TouchableOpacity>
         {/* </View> */}
         </View>
         

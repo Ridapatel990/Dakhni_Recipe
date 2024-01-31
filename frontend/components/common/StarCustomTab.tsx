@@ -30,7 +30,7 @@ interface CustomTabsProps {
   tabBorderColor?: string;
   shareComponent?: string;
   rateComponent?: string;
-  onPress?: () => void;
+  Press?: () => void;
 }
 
 const Assets: { [key: string]: ImageURISource } = {
@@ -52,11 +52,10 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
   tabBorderColor,
   shareComponent,
   rateComponent,
-  onPress = null,
+  Press,
 }) => {
   const chipColor = selected === label ? "white" : disabled ? "grey" : "white";
   const labelColor = selected === label || disabled ? "black" : "black";
-  console.log(image);
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -76,22 +75,13 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
   }, []);
 
   const styles = StyleSheet.create({
-    // modalBackdrop: {
-    //   flex: 1,
-    //   backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent backdrop color
-    //   justifyContent: 'center',
-    //   alignItems: 'center',
-    // },
-    // backdrop: {
-    //   flex: 1,
-    //   width: '100%',
-    // },
-    // modalContent: {
-    //   // backgroundColor: 'white',
-    //   padding: 20,
-    //   borderRadius: 10,
-    //   alignItems: 'center',
-    // },
+    modalBackdrop: {
+      ...StyleSheet.absoluteFillObject,
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
+    backdrop: {
+      flex: 1,
+    },
     tabs: {
       marginRight: 4,
       zIndex: 3,
@@ -117,6 +107,7 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
     if (!disabled) {
       setSelected(label);
       toggleModal(); // Show the pop-up when the tab is pressed
+      Press && Press();
     }
     // Logic
   };
@@ -134,10 +125,10 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
                 ? tabBorderColor
                   ? tabBorderColor
                   : "red"
-                : "white",
+                : "gray",
           },
         ]}
-        onPress={onPress ? onPress : handlePress}
+        onPress={handlePress}
         disabled={disabled}
       >
         <View style={{ overflow: "hidden", borderRadius: 10, zIndex: 10 }}>
@@ -157,13 +148,12 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
           onRequestClose={toggleModal}
           presentationStyle="overFullScreen"
         >
-          {/* 
-      <View style={styles.modalBackdrop}>
-
-      <TouchableOpacity
-            style={styles.backdrop}
-            onPress={() => setModalVisible(false)}
-          /> */}
+          <View style={styles.modalBackdrop}>
+            <TouchableOpacity
+              style={styles.backdrop}
+              onPress={() => setModalVisible(false)}
+            />
+          </View>
 
           {/* <View style={styles.modalContent}> */}
 
@@ -269,6 +259,13 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
           onRequestClose={toggleModal}
           presentationStyle="overFullScreen"
         >
+          <View style={styles.modalBackdrop}>
+            <TouchableOpacity
+              style={styles.backdrop}
+              onPress={() => setModalVisible(false)}
+            />
+          </View>
+
           <View
             style={{
               flexDirection: "column",

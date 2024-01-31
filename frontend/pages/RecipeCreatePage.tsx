@@ -108,9 +108,11 @@ const RecipeCreatePage = ({
           <RecipeChipComponenet
             image="category"
             title="Category"
+            dropdowncomp="{dropdowncomp}"
           ></RecipeChipComponenet>
+
+          {/* <DropDownList></DropDownList> */}
         </View>
-        {/* <DropDownList></DropDownList> */}
 
         <View
           style={{
@@ -140,6 +142,8 @@ const RecipeCreatePage = ({
             setSelected={setLongTabText}
           ></CustomTabs>
         </View>
+
+        <View style={{ flexDirection: "column", marginLeft: 10 }}>{list}</View>
 
         <View style={{ flexDirection: "column", marginLeft: 10 }}>{list}</View>
 

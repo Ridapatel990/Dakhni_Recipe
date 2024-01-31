@@ -24,6 +24,37 @@ const data1 = [
   { label: "Rice", value: "4" },
   { label: "Potato", value: "5" },
 ];
+//   <TextInput style={styles.quantity}></TextInput>
+
+//   {/* {renderLabel2()} */}
+//    <Dropdown
+//     style={[styles.dropdown2, isFocus && { borderColor: 'red' }]}
+//     itemTextStyle={{color:'black'}}
+//     placeholderStyle={styles.placeholderStyle}
+//     selectedTextStyle={styles.selectedTextStyle}
+//     iconStyle={styles.iconStyle}
+//     data={data2}
+//     search
+//     searchPlaceholder='Search...'
+//     maxHeight={300}
+//     labelField="title"
+//     valueField="value1"
+//     placeholder='Grams'
+//     value={value1}
+//     onFocus={() => setIsFocus(true)}
+//     onBlur={() => setIsFocus(false)}
+//     onChange={item => {
+//       setValue1(item.value1);
+//       setIsFocus(false);
+//     }}
+
+//   />
+
+//   <TouchableOpacity style={{alignSelf:'center'}}>
+//   <Image source={require('../assets/Increment.png')}></Image>
+//   </TouchableOpacity>
+
+// </View>
 
 const data2 = [
   { title: "Grams", value1: "8" },

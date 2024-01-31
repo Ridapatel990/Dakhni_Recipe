@@ -54,7 +54,17 @@ const CustomChips: React.FC<CustomChipsProps> = ({
       onPress={handlePress}
       disabled={disabled}
     >
-      <Text style={[styles.label, { color: labelColor }]}>{label}</Text>
+      <Text
+        style={[
+          styles.label,
+          {
+            color: labelColor,
+            fontWeight: selected === label ? "500" : "300",
+          },
+        ]}
+      >
+        {label}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -71,6 +81,7 @@ const styles = StyleSheet.create({
     paddingRight: 8,
     borderWidth: 1,
     marginTop: 5,
+    paddingBottom: 2,
   },
   label: {
     fontWeight: "300",

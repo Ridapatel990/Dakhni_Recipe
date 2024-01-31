@@ -8,19 +8,19 @@ interface IngredientProps{
     quantity:string
 }
 
-const Assets: {[key:string]:ImageURISource}= {
-    'rice':require('../assets/Rice.png'),
-    'chicken':require('../assets/Chicken.png'),
-    'egg':require('../assets/Egg.png'),
-    'tomato':require('../assets/Tomato.png'),
-}
+// const Assets: {[key:string]:ImageURISource}= {
+//     'rice':require('../assets/Rice.png'),
+//     'chicken':require('../assets/Chicken.png'),
+//     'egg':require('../assets/Egg.png'),
+//     'tomato':require('../assets/Tomato.png'),
+// }
 
 const Ingredient: React.FC<IngredientProps> = ({name,image,quantity}) =>{
     return(
         <View>
             <View style={styles.mainView}>
                 <View style={styles.imgtext}>
-                {image && <Image source={Assets[image]} ></Image>}
+                {/* {image && <Image source={Assets[image]} ></Image>} */}
                     <Text style={{alignSelf:'center',paddingLeft:5}}>{name}</Text>
                 </View>
                 <View style={styles.quantity}>

@@ -15,7 +15,7 @@ interface CardProps {
   imageUri?: string | null;
   CardWidth?: DimensionValue;
   CardHeight?: DimensionValue;
-  Rating?: number;
+  Rating?: string;
 }
 const Card: React.FC<CardProps> = ({
   CardName,

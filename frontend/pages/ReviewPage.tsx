@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { View ,Text, StyleSheet,Image, TouchableOpacity} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import InputField from "../components/common/InputField";
@@ -6,12 +6,37 @@ import BigButton from "../components/common/BigButton";
 import CircularAvatar from "../components/CircleAvatar";
 import ProfileComponent from "../components/home/ProfileComponent";
 import ReviewComponent from "../components/ReviewComponent";
+import { useGetAll } from "../hooks";
+import { GetProfileInterface } from "../interfaces";
+
    
 interface ReviewPageProps{
     Reviews?:string
 }
 
 const ReviewPage: React.FC<ReviewPageProps> = ({Reviews='0 Reviews'}) =>{
+
+    const [review,setReview]= useState([]);
+
+    const {data:getReview}=useGetAll({
+        key:'/recipes/list/?random=true',
+        onSuccess:(data)=> {
+            console.log(data,"<=========ngredient datat")
+            setReview(data)
+            }
+    })
+
+    const [profile, setProfile] = useState<GetProfileInterface | null>(null);
+
+  const { data: getProfile } = useGetAll({
+    key: "/accounts/profile/",
+    select: (data: any) => data?.data,
+    onSuccess: (data) => {
+
+      setProfile(data);
+    },
+  });
+
 
     return(
      <SafeAreaView>
@@ -36,14 +61,14 @@ const ReviewPage: React.FC<ReviewPageProps> = ({Reviews='0 Reviews'}) =>{
         
         
         </View>
-        <View style={{flexDirection:'column',alignSelf:'flex-end',marginRight:65,marginTop:80}}>
+        <View style={{flexDirection:'column',alignSelf:'flex-end',marginRight:75,marginTop:80}}>
         <BigButton btnHeight={50} btnWidth={90} btnBorder={10} btnLabel="Save"></BigButton>
         </View>
         </View>   
         
         <View style={{flexDirection:'column'}}>
         <View style={{marginTop:30}}>
-        <ReviewComponent name="Elena" time="Jun 12 2020,12:42" review="Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quod?"></ReviewComponent>
+        <ReviewComponent name={profile?.name} time="Jun 12 2020,12:42" review="Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quod?"></ReviewComponent>
         </View>
 
         <View style={{marginTop:30}}>

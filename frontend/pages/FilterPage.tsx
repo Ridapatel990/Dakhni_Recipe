@@ -140,7 +140,7 @@ const FilterPage = ({
                   selected={tabText}
                   setSelected={setTabText}
                   image="star"
-                  onPress={() => {
+                  Press={() => {
                     setFilterData((prev) => ({
                       ...prev,
                       rate: parseInt(item),

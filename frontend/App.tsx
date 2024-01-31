@@ -23,6 +23,8 @@ import SeeAllNewRecipe from "./pages/SeeAllNewRecipe";
 import SeeAllTrending from "./pages/SeeAllTrending";
 import FilterResponse from "./pages/FilterResponse";
 import BottomTabBarComponent from "./pages/TestBottomBar";
+import ReviewPage from "./pages/ReviewPage";
+import EditProfilePage from "./pages/EditProfilePage";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +66,8 @@ function App() {
           <Stack.Screen name="SeeAllNewRecipe" component={SeeAllNewRecipe} />
           <Stack.Screen name="SeeAllTrending" component={SeeAllTrending} />
           <Stack.Screen name="FilterResponse" component={FilterResponse} />
+          <Stack.Screen name="ReviewPage" component={ReviewPage} />
+          <Stack.Screen name="EditProfilePage" component={EditProfilePage} />
         </Stack.Navigator>
       </NavigationContainer>
     </QueryClientProvider>

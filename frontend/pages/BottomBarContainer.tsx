@@ -20,6 +20,17 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Tab = createBottomTabNavigator();
 
+// const Assets: { [key: string]: ImageURISource } = {
+//   Home: require("../assets/Home.png"),
+//   Bookmark: require("../assets/Bookmark.png"),
+//   Notifications: require("../assets/Notification.png"),
+//   Profile: require("../assets/Profile.png"),
+//   selectedHome: require("../assets/selectedHome.png"),
+//   selectedBookmark: require("../assets/selectedBookmark.png"),
+//   selectedNotifications: require("../assets/selectedNotification.png"),
+//   selectedProfile: require("../assets/selectedProfile.png"),
+//   Add: require("../assets/whiteAdd.png"),
+// };
 const Assets: { [key: string]: ImageURISource } = {
   Home: require("../assets/Home.png"),
   Bookmark: require("../assets/Bookmark.png"),

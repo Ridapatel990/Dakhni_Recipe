@@ -12,7 +12,8 @@ export interface CategoryInterface extends BaseObjInterface {
 export interface RecipeInterface extends BaseObjInterface {
     name: string;
     image1: string | null;
-    rate: number;
+    rate: string;
+    cooking_time:string
 }
 
 export interface GetRecipeInteface extends BaseObjInterface {
@@ -31,7 +32,7 @@ export interface GetPopularInterface extends BaseObjInterface {
   recipe: {
     name: string;
     image1: string | undefined;
-    rate: number;
+    rate: string;
     cooking_time: string
     id: string
     image2: string | undefined;
@@ -59,7 +60,7 @@ export interface GetTrendingInterface extends BaseObjInterface {
     recipe: {
       name: string;
       image1: string | undefined;
-      rate: number;
+      rate: string;
       cooking_time: string
       id: string
       image2: string | undefined;
@@ -104,5 +105,12 @@ export interface FilterDataInterface {
   categories:Array<string>,
   time:string | null;
   rate:number | null;
-
+}
+export interface GetProfileInterface{
+  name : string;
+  id: string;
+  profession: string;
+  description:string;
+  recipes:Array<RecipeInterface>,
+  profile_pic:string;
 }

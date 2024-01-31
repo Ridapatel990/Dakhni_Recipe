@@ -3,6 +3,39 @@ import { View,StyleSheet ,Image,ImageURISource,Text} from 'react-native';
 import MultiSelect from 'react-native-multiple-select';
 import { useState } from 'react';
 
+export type DimensionValue =
+  | number
+  | 'auto'
+  | `${number}%`
+  | null;
+
+
+type FlexAlignType =
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'stretch'
+  | 'baseline';
+
+interface FlexStyle {
+  alignContent?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'stretch'
+    | 'space-between'
+    | 'space-around'
+    | undefined;
+  alignItems?: FlexAlignType | undefined;
+  maxWidth?: DimensionValue | undefined;
+
+}
+
+const stylelistCotainerProp:FlexStyle ={
+  alignContent:'flex-end',
+  maxWidth:'100%'
+  
+}
 const  DropDownList  =()=> {
 
 
@@ -49,15 +82,16 @@ const  DropDownList  =()=> {
 
     return (
     //   <View style={{ flex: 1 }}>
-        
-        <MultiSelect styleDropdownMenu={styles.view} styleDropdownMenuSubsection={{backgroundColor: 'lightgray'}}
-          hideTags
+        <View>
+          
+        <MultiSelect styleDropdownMenu={styles.view} styleDropdownMenuSubsection={{backgroundColor: 'rgba(217, 217, 217, 0.58)'}}
+          hideTags={true}
           items={items}
           uniqueKey="id"
-        //   ref={(component) => { this.multiSelect = component }}
+          // ref={(component) => { this.multiSelect = component }}
           onSelectedItemsChange={onSelectedItemsChange}
           selectedItems={selectedItems}
-          selectText=""
+          selectText="category"
           searchInputPlaceholderText="Search Items..."
           onChangeInput={ (text)=> console.log(text)}
           altFontFamily="ProximaNova-Light"
@@ -68,12 +102,14 @@ const  DropDownList  =()=> {
           selectedItemIconColor="#CCC"
           itemTextColor="#000"
           displayKey="name"
+          styleListContainer={stylelistCotainerProp}
           searchInputStyle={{ color: '#CCC' }}
+          onToggleList={()=>( console.log('CLG Called'))}
         //   flatListProps={{onLayout}}
         //   submitButtonColor="#CCC"
         //   submitButtonText="Submit"
         ></MultiSelect>
-        // </View>
+         </View>
        
       
     );
@@ -83,10 +119,10 @@ const  DropDownList  =()=> {
 const styles= StyleSheet.create({
    view:{
     height:60,
-    marginRight:100,
-    width:300,
+    width:'100%',
     alignSelf:'center',
     borderRadius:20,
+    marginRight:50
     // backgroundColor:'lightgray'
    },
    mainView:{
