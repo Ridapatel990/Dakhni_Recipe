@@ -74,6 +74,9 @@ export interface UserInterface {
   id: string;
   name:string;
   email: string;
+  profession:string;
+  description:string;
+  profile_pic:string;
 }
 
 // {
@@ -95,6 +98,17 @@ export interface GetIngredientInterface{
   id: string;
 }
 
+export interface InputIngredientInterface{
+  name : string | null;
+  quantity: string;
+  unit?: string;
+}
+
+export interface FilterDataInterface {
+  categories:Array<string>,
+  time:string | null;
+  rate:number | null;
+}
 export interface GetProfileInterface{
   name : string;
   id: string;
@@ -102,4 +116,17 @@ export interface GetProfileInterface{
   description:string;
   recipes:Array<RecipeInterface>,
   profile_pic:string;
+}
+
+export interface NotificationInterface{
+  id:string;
+    created_on:string;
+    updated_on:string;
+    recipe:{id:string;
+        name:string,
+        rate:number,
+        is_saved:boolean,
+        cooking_time:string,
+        image1:string, 
+    }
 }

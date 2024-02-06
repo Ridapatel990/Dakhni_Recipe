@@ -41,7 +41,7 @@ const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase
       <View style={{flexDirection:'row',alignSelf:'center',marginBottom:20}}>
       
       
-      <BigCard BigCardName='Biryani' BigCardWidth={360} Review='13k Reviews'></BigCard>
+      <BigCard time='30 min' BigCardName='Biryani' BigCardWidth={360} Review='13k Reviews' recipeId=''></BigCard>
       
         </View>
 

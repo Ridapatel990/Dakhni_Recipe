@@ -14,7 +14,8 @@ interface useCreateOrUpdateType<TVariables = any, TContext = unknown> {
     variables: TVariables,
     context: TContext | undefined
   ) => Promise<unknown> | void;
-  onError?: (data:ResponseInterface) =>  Promise<unknown> | void
+  onError?: (data:ResponseInterface) =>  Promise<unknown> | void,
+  headers?: any
 }
 
 export function useCreateOrUpdate<T = unknown>({
@@ -23,10 +24,13 @@ export function useCreateOrUpdate<T = unknown>({
   refetch,
   onSuccess,
   onError,
+  headers
 }: useCreateOrUpdateType) {
   function sendData(data: T) {
+    console.log('Create API called')
+    console.log('------------',data,url,method,headers)
     // setApiHeaders();
-    return serverAPI[method](url, data, {});
+    return serverAPI[method](url, data, {headers:headers});
   }
   
   return useMutation(sendData, {

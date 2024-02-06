@@ -34,7 +34,7 @@ const SignInPage = ({
   const { mutate } = useCreateOrUpdate({
     url: "/accounts/login/",
     onSuccess: async (response) => {
-      // console.log(response.data["token"]);
+      console.log(response.data["user"],"<=============USERRRR");
       await AsyncStorage.setItem("userToken", response.data["token"]);
       await AsyncStorage.setItem("user", JSON.stringify(response.data["user"]));
       setApiHeaders();
@@ -126,8 +126,6 @@ const SignInPage = ({
         btnHeight={60}
         Press={() => onSubmit()}
       />
-
-      
 
       <TouchableOpacity style={styles.gButton}>
         <Image source={require("../assets/gbutton.png")} />

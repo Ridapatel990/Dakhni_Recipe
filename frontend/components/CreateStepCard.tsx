@@ -11,7 +11,7 @@ interface StepsCardProps {
 const StepsCard: React.FC<StepsCardProps>  = ({txtLabel, description, time}) => {
   return (
     <View style={styles.slide}>
-    <View style={{alignSelf:'center',marginTop:10}}><Image source={require('../assets/drag_handle.png')}></Image></View>
+    <View style={{alignSelf:'center',marginTop:10,paddingRight:10}}><Image source={require('../assets/drag_handle.png')}></Image></View>
     <View style={styles.cardContainer}>
         
      

@@ -14,7 +14,6 @@ import {
 import React, { useState, useEffect } from "react";
 import CustomSearchBar from "../components/home/CustomSearch";
 import FilterButton from "../components/home/FilterButton";
-import BottomNavigationBar from "../components/BottomNavigationBar";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import CustomChips from "../components/common/CustomChips";
 import DetailedCard from "../components/home/DetailedCard";
@@ -27,13 +26,10 @@ import {
   GetNewInteface,
   GetPopularInterface,
   GetRecipeInteface,
-  GetTrendingInterface,
   UserInterface,
 } from "../interfaces";
 import BigCard from "../components/common/BigCard";
-import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import SeeAllNewRecipe from "./SeeAllNewRecipe";
 import Card from "../components/home/Card";
 
 const HomeScreen = ({
@@ -42,12 +38,18 @@ const HomeScreen = ({
   navigation: NavigationProp<ParamListBase>;
 }) => {
   const [searchText, setSearchText] = useState("");
-  const [tabText, setTabText] = useState<string | undefined>(undefined);
   const [chipText, setChipText] = useState<string | undefined>(undefined);
   const [user, setUser] = useState<UserInterface | undefined>(undefined);
 
   const [recentlySearchedRecipe, setRecentlySearchedRecipe] = useState([]);
   const [recentlyEnabled, setRecentlyEnabled] = useState(false);
+  const [tabText, setTabText] = useState<string | undefined>(undefined);
+  const [popularCatChipText, setPopularCatChipText] = useState<
+    string | undefined
+  >("all");
+  const [allCatChipText, setAllCatChipText] = useState<string | undefined>(
+    "all"
+  );
 
   const handleSearch = (text: string) => {
     //logic
@@ -56,43 +58,39 @@ const HomeScreen = ({
 
   const query = useDebounce(searchText, 1000);
 
-  const onItemTapped = (index: number) => {
-    switch (index) {
-      case 0:
-        navigation.navigate("HomeScreen");
-        break;
-      case 1:
-        navigation.navigate("SavedRecipePage");
-        break;
-      case 3:
-        navigation.navigate("NotificationPage");
-        break;
-      case 4:
-        navigation.navigate("AccountPage");
-        break;
-
-      default:
-        break;
-    }
-  };
-
   const { data: popularCategories } = useGetAll({
     key: "/portal/popular-categories/",
     enabled: true,
   });
 
   const { data: allCategories } = useGetAll({
-    key: "/portal/category/",
+    key: `/portal/category/?q=${
+      allCatChipText === "All" ? undefined : allCatChipText
+    }`,
     enabled: true,
   });
 
-  const { data: getRecipe } = useGetAll({
-    key: `/recipes/list/?random=true&q=${query}`,
+  console.log(query, "qtyuodcjsjhcjs");
+
+  const { data: getRecipe, refetch: getRecipeRefetch } = useGetAll({
+    key: `/recipes/list/?random=true&q=${
+      allCatChipText == "All" && searchText == ""
+        ? undefined
+        : searchText == ""
+        ? allCatChipText
+        : query
+    }`,
+
     enabled: true,
+    // onSuccess(data) {
+    //   console.log(data, "searchhedddddddddd");
+    // },
   });
 
-  const { data: popularCat } = useGetAll({
-    key: "recipes/popular-recipes/list/?q=kebabs",
+  const { data: popularCat, refetch: refetchPopularCatRecipe } = useGetAll({
+    key: `recipes/popular-recipes/list/?q=${
+      popularCatChipText === "All" ? undefined : popularCatChipText
+    }`,
     enabled: true,
   });
 
@@ -103,6 +101,9 @@ const HomeScreen = ({
 
   const { data: trendingRecipe } = useGetAll({
     key: "recipes/trending-recipes/list/",
+    onSuccess(data) {
+      // console.log(data, "yuiopkjgfdfgjkl;.kltfgnm,.");
+    },
     enabled: true,
   });
 
@@ -111,7 +112,6 @@ const HomeScreen = ({
     enabled: recentlyEnabled,
     onSuccess(data) {
       setRecentlySearchedRecipe(data);
-      console.log(data, "<====recently searched recepi");
     },
   });
 
@@ -129,6 +129,19 @@ const HomeScreen = ({
     getUser();
   }, []);
 
+  useEffect(() => {
+    if (allCatChipText) {
+      getRecipeRefetch();
+      // console.log(allCategories, "qwe234567890-==========");
+    }
+  }, [allCatChipText]);
+
+  useEffect(() => {
+    if (popularCatChipText) {
+      refetchPopularCatRecipe();
+    }
+  }, [popularCatChipText]);
+
   const onSearchFocus = () => {
     console.log("in  onSearchFocus");
     setRecentlyEnabled(true);
@@ -141,12 +154,11 @@ const HomeScreen = ({
 
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
-      
       <ScrollView
         showsVerticalScrollIndicator={true}
         style={{ marginBottom: 0, paddingHorizontal: 20 }}
       >
-        <View style={{ paddingBottom:30 }}>
+        <View style={{ paddingBottom: 30 }}>
           <View>
             <Text style={styles.helloText}>Hello {user?.name || "Tulip"},</Text>
             <Text style={styles.welcomeText}>
@@ -155,7 +167,13 @@ const HomeScreen = ({
           </View>
 
           <View style={{ flexDirection: "column", position: "relative" }}>
-            <View style={{ flexDirection: "row",justifyContent:'space-between',width:'90%' }}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                width: "90%",
+              }}
+            >
               <CustomSearchBar
                 value={searchText}
                 placeholder={"Search"}
@@ -183,7 +201,7 @@ const HomeScreen = ({
                   }}
                 >
                   {getRecipe &&
-                    getRecipe?.length &&
+                    getRecipe?.length > 0 &&
                     getRecipe?.map((recipe: GetRecipeInteface) => (
                       <Card
                         CardWidth={140}
@@ -219,14 +237,14 @@ const HomeScreen = ({
                   }}
                 >
                   {allCategories && allCategories.length
-                    ? allCategories.map(
+                    ? [{ name: "All", id: "all" }, ...allCategories].map(
                         (cat: CategoryInterface, index: number) => (
                           <CustomChips
                             key={cat.id}
+                            defaultSelected={index === 0}
                             label={cat.name}
-                            selected={chipText}
-                            setSelected={setChipText}
-                            defaultSelected={index == 0}
+                            selected={allCatChipText}
+                            setSelected={setAllCatChipText}
                           ></CustomChips>
                         )
                       )
@@ -287,15 +305,19 @@ const HomeScreen = ({
                   >
                     {trendingRecipe && trendingRecipe.length
                       ? trendingRecipe?.map(
-                          (trendRecipe: GetTrendingInterface) => (
-                            <BigCard
-                            BigCardWidth={300}
+                          (trendRecipe: GetPopularInterface) => {
+                            console.log(trendRecipe);
+                            return (
+                              <BigCard
+                              BigCardWidth={300}
                               BigCardName={trendRecipe?.recipe?.name}
-                              imageUri={trendRecipe?.recipe?.image1}
-                              Rating={trendRecipe?.recipe?.rate}
-                              time={trendRecipe?.recipe?.cooking_time}
-                            ></BigCard>
-                          )
+                                imageUri={trendRecipe?.recipe?.image1}
+                                Rating={trendRecipe?.recipe?.rate}
+                                time={trendRecipe?.recipe?.cooking_time}
+                                recipeId={trendRecipe?.recipe?.id}
+                              ></BigCard>
+                            );
+                          }
                         )
                       : ""}
                   </ScrollView>
@@ -310,7 +332,7 @@ const HomeScreen = ({
                   style={{ flexDirection: "row", marginTop: 20 }}
                 >
                   {popularCategories && popularCategories.length
-                    ? popularCategories.map(
+                    ? [{ name: "All", id: "all" }, ...popularCategories].map(
                         (cat: CategoryInterface, index: number) => (
                           <CustomTabs
                             key={cat.id}
@@ -319,8 +341,8 @@ const HomeScreen = ({
                             width={"auto"}
                             height={32}
                             margin={4}
-                            selected={tabText}
-                            setSelected={setTabText}
+                            selected={popularCatChipText}
+                            setSelected={setPopularCatChipText}
                           ></CustomTabs>
                         )
                       )
@@ -362,7 +384,7 @@ const HomeScreen = ({
                   </View>
 
                   <TouchableOpacity
-                    style={{ flexDirection: "row", marginRight: 20 }}
+                    style={{ flexDirection: "row", marginRight: 5 }}
                     onPress={() => navigation.navigate("SeeAllNewRecipe")}
                   >
                     <Text style={styles.seeAllText}>See All</Text>
@@ -374,7 +396,7 @@ const HomeScreen = ({
                   </TouchableOpacity>
                 </View>
 
-                <ScrollView horizontal={true} style={{paddingBottom:10}}>
+                <ScrollView horizontal={true} style={{ paddingBottom: 50 }}>
                   <View
                     style={{
                       justifyContent: "space-between",
@@ -396,7 +418,6 @@ const HomeScreen = ({
           </View>
         </View>
       </ScrollView>
-      
     </SafeAreaView>
   );
 };

@@ -21,8 +21,10 @@ import BottomBarContainer from "./pages/BottomBarContainer";
 import RecipeCreatePage from "./pages/RecipeCreatePage";
 import SeeAllNewRecipe from "./pages/SeeAllNewRecipe";
 import SeeAllTrending from "./pages/SeeAllTrending";
+import FilterResponse from "./pages/FilterResponse";
+import BottomTabBarComponent from "./pages/TestBottomBar";
 import ReviewPage from "./pages/ReviewPage";
-import EditProfilePage from './pages/EditProfilePage'
+import EditProfilePage from "./pages/EditProfilePage";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +48,7 @@ function App() {
             name="BottomBarContainer"
             component={BottomBarContainer}
           />
+
           <Stack.Screen name="ResetPassPage" component={ResetPassPage} />
           <Stack.Screen name="SavedRecipePage" component={SavedRecipePage} />
           <Stack.Screen name="NotificationPage" component={NotificationPage} />
@@ -62,6 +65,7 @@ function App() {
           <Stack.Screen name="RecipeCreatePage" component={RecipeCreatePage} />
           <Stack.Screen name="SeeAllNewRecipe" component={SeeAllNewRecipe} />
           <Stack.Screen name="SeeAllTrending" component={SeeAllTrending} />
+          <Stack.Screen name="FilterResponse" component={FilterResponse} />
           <Stack.Screen name="ReviewPage" component={ReviewPage} />
           <Stack.Screen name="EditProfilePage" component={EditProfilePage} />
         </Stack.Navigator>

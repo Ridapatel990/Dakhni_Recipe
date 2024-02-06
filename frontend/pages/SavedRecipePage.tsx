@@ -11,10 +11,8 @@ import {
   NavigationProp,
   ParamListBase,
   useFocusEffect,
-  useIsFocused,
 } from "@react-navigation/native";
 import Card from "../components/home/Card";
-import { useGetAll } from "../hooks";
 import { RecipeInterface } from "../interfaces";
 import { serverAPI } from "../utils";
 
@@ -23,50 +21,23 @@ const SavedRecipePage = ({
 }: {
   navigation: NavigationProp<ParamListBase>;
 }) => {
-  const onItemTapped = (index: number) => {
-    switch (index) {
-      case 0:
-        navigation.navigate("HomeScreen");
-        break;
-      case 1:
-        navigation.navigate("SavedRecipePage");
-        break;
-      case 3:
-        navigation.navigate("NotificationPage");
-        break;
-      case 4:
-        navigation.navigate("AccountPage");
-        break;
-
-      default:
-        break;
-    }
-  };
-
-  const isFocused = useIsFocused();
-
   const [savedRecipes, setSavedRecipes] = useState([]);
 
-  const getRecipeData = () => {
-    serverAPI.get("/social/saved-recipe/list/").then((val: any) => {
-      console.log("first", val?.data?.rows);
-      setSavedRecipes(val?.data?.rows);
-    });
+  const getRecipeData = async () => {
+    const res = await serverAPI.get("/social/saved-recipe/list/");
+    setSavedRecipes(res?.data?.rows);
   };
 
-  useFocusEffect(() => {
-    if (isFocused) {
-      // setEnabled(true);
-      // console.log("Screen is focused");
-      // getRecipeData();
-      console.log('In focusedddddd')
-    }
-  });
+  useFocusEffect(
+    React.useCallback(() => {
+      getRecipeData();
+    }, [])
+  );
 
   const [isRefreshing, setRefreshing] = useState(false);
 
-  const onRefresh = useCallback(() => {
-    // getRecipeData();
+  const onRefresh = useCallback(async () => {
+    await getRecipeData();
     setTimeout(() => {
       setRefreshing(false);
     }, 1000);
@@ -111,8 +82,6 @@ const SavedRecipePage = ({
             : ""}
         </View>
       </ScrollView>
-
-      {/* <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0} /> */}
     </SafeAreaView>
   );
 };
@@ -137,23 +106,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     paddingLeft: 20,
   },
-
-  // squareImage: {
-  //   // flexDirection: 'row',
-  //   marginTop: 30,
-  //   height: 40,
-
-  // },
-
-  // overLayImg: {
-  //   // flexDirection: 'row',
-  //   marginTop: 30,
-  //   height: 40,
-  //   // position: 'absolute',
-  //   // top: 50,
-  //   // left: 50,
-
-  // }
 });
 
 export default SavedRecipePage;

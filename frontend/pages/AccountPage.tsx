@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
 });
 
 const AccountPage = ({
-  navigation,
+  navigation
 }: {
   navigation: NavigationProp<ParamListBase>;
 }) => {
@@ -101,18 +101,28 @@ const AccountPage = ({
   };
 
   const [profile, setProfile] = useState<GetProfileInterface | null>(null);
+  
 
-  const { data: getProfile } = useGetAll({
-    key: "/accounts/profile/",
-    select: (data: any) => data?.data,
-    onSuccess: (data) => {
+  // const data = await response.json();
+  //     setUserData(data)
 
-      setProfile(data);
-    },
-  });
+  // const handleEditProfile = () => {
+  //   // Navigate to the edit profile page and pass default values as params
+  //   navigation.navigate('EditProfile', { defaultValues: userData });
+  // };
+  // useEffect(() => {
+    const { data: getProfile } = useGetAll({
+      key: "/accounts/profile/",
+      select: (data: any) => data?.data,
+      onSuccess: (data) => {
+  
+        setProfile(data);
+      },
+    });
+  // }, []);
 
   const { data: getRecipe } = useGetAll({
-    key: "//recipes/list/?random=true",
+    key: "/recipes/list/?random=true",
     select: (data: any) => data?.data,
     onSuccess: (data) => {     
     },
@@ -161,6 +171,7 @@ const AccountPage = ({
             BigCardWidth={'100%'}
             Review={String(recipe.rate)}
             imageUri={recipe.image1 || null}
+            recipeId={recipe.id}
             // imageUri={{uri: mediaUrl + recipe.image1} }
             Rating={String(recipe.rate)}
             time={recipe.cooking_time}

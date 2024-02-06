@@ -12,7 +12,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import MaskedView from "@react-native-masked-view/masked-view";
 import BigButton from "../components/common/BigButton";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
-import Sample from "./Sample";
+// import Sample from "./Sample";
 import RecipeDescription from "./RecipeDescription";
 import LinearGradient from "react-native-linear-gradient";
 import RecipeCreatePage from "./RecipeCreatePage";

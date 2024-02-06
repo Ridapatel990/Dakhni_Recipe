@@ -21,15 +21,17 @@ interface CardProps {
   Rating?: string;
   Review?: string;
   time?: string;
+  recipeId: string;
 }
 const Card: React.FC<CardProps> = ({
   BigCardName,
   imageUri,
-  BigCardWidth = '90%',
+  BigCardWidth = 300,
   BigCardHeight = 230,
   Rating,
   Review,
   time,
+  recipeId,
 }) => {
   return (
     <View style={{ display: "flex" }}>
@@ -41,7 +43,7 @@ const Card: React.FC<CardProps> = ({
           source={
             imageUri
               ? { uri: mediaUrl + imageUri }
-              : require("../../assets/BigCardImage.png")  
+              : require("../../assets/BigCardImage.png")
           }
           style={{
             ...styles.image,
@@ -69,9 +71,14 @@ const Card: React.FC<CardProps> = ({
 
         <RatingChip Rating={Rating} />
 
-        <Time Time={time}></Time>
+        <Time Time={time} recipeId={recipeId}></Time>
 
-        {/* <SavedBtn></SavedBtn> */}
+        {/* <SavedBtn
+          onSave={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+          isSaved={false}
+        ></SavedBtn> */}
       </View>
 
       <View style={{ marginTop: 5, marginBottom: 10 }}>
