@@ -14,8 +14,10 @@ def get_trending_recipes():
     )
     for recipe in recipes:
         if TrendingRecipe.objects.filter(recipe=recipe).exists:
+            print("in if",recipe)
             continue
         TrendingRecipe.objects.create(recipe=recipe)
+        print("recipe created", recipe)
 
 
 def get_popular_recipes():

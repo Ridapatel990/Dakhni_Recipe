@@ -50,7 +50,7 @@ class IngredientList(BaseModel):
 
 class Procedure(BaseModel):
     recipe = models.ForeignKey(
-        Recipe, on_delete=models.CASCADE, related_name="procedure"
+        Recipe, on_delete=models.CASCADE, related_name="procedures"
     )
     order = models.PositiveSmallIntegerField()
     description = models.TextField()
