@@ -78,7 +78,14 @@ const CustomTabs: React.FC<CustomTabsProps> = ({
       onPress={handlePress}
       disabled={disabled}
     >
-      <Text style={[styles.labelText, { color: labelColor }]}>{label}</Text>
+      <Text
+        style={[
+          styles.labelText,
+          { color: labelColor, fontWeight: selected === label ? "500" : "300" },
+        ]}
+      >
+        {label}
+      </Text>
     </TouchableOpacity>
   );
 };

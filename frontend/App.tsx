@@ -25,11 +25,37 @@ import FilterResponse from "./pages/FilterResponse";
 import BottomTabBarComponent from "./pages/TestBottomBar";
 import ReviewPage from "./pages/ReviewPage";
 import EditProfilePage from "./pages/EditProfilePage";
+import { IngredientInterface } from "./interfaces";
 
 const queryClient = new QueryClient();
 
+export type RootStackParamList = {
+  LandingPage: undefined;
+  HomeScreen: undefined;
+  SignInPage: undefined;
+  ForgotPassPage: undefined;
+  VerifyEmailPage: undefined;
+  BottomBarContainer: undefined;
+  ResetPassPage: undefined;
+  SavedRecipePage: undefined;
+  NotificationPage: undefined;
+  AccountPage: undefined;
+  SignUpPage: undefined;
+  Sample: undefined;
+  SearchRecipes: undefined;
+  FilterPage: undefined;
+  RecipeDescription: { id: string };
+  // IngredientsList: any;
+  RecipeCreatePage: undefined;
+  SeeAllNewRecipe: undefined;
+  SeeAllTrending: undefined;
+  FilterResponse: undefined;
+  ReviewPage: undefined;
+  EditProfilePage: undefined;
+};
+
 function App() {
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator<RootStackParamList>();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -61,7 +87,7 @@ function App() {
             name="RecipeDescription"
             component={RecipeDescription}
           />
-          <Stack.Screen name="IngredientsList" component={IngredientsList} />
+          {/* <Stack.Screen name="IngredientsList" component={IngredientsList} /> */}
           <Stack.Screen name="RecipeCreatePage" component={RecipeCreatePage} />
           <Stack.Screen name="SeeAllNewRecipe" component={SeeAllNewRecipe} />
           <Stack.Screen name="SeeAllTrending" component={SeeAllTrending} />

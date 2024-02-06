@@ -267,6 +267,11 @@ const HomeScreen = ({
                             recipeLabel={recipe.name}
                             mins={recipe.cooking_time}
                             imageUri={recipe.image1}
+                            Press={() =>
+                              navigation.navigate("RecipeDescription", {
+                                id: recipe?.id,
+                              })
+                            }
                           ></DetailedCard>
                         ))
                       : ""}
@@ -298,7 +303,7 @@ const HomeScreen = ({
                   </TouchableOpacity>
                 </View>
 
-                <View style={{width:'100%'}}>
+                <View style={{ width: "100%" }}>
                   <ScrollView
                     horizontal={true}
                     style={{ flexDirection: "row", marginTop: 20 }}
@@ -309,8 +314,8 @@ const HomeScreen = ({
                             console.log(trendRecipe);
                             return (
                               <BigCard
-                              BigCardWidth={300}
-                              BigCardName={trendRecipe?.recipe?.name}
+                                BigCardWidth={300}
+                                BigCardName={trendRecipe?.recipe?.name}
                                 imageUri={trendRecipe?.recipe?.image1}
                                 Rating={trendRecipe?.recipe?.rate}
                                 time={trendRecipe?.recipe?.cooking_time}

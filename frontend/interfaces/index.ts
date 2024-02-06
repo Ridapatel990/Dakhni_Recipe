@@ -1,31 +1,31 @@
-import { BaseObjInterface } from './baseObjectInterface';
+import { BaseObjInterface } from "./baseObjectInterface";
 
 export interface ResponseInterface {
-    data: any;
-    status: number;
-    statusText: string;
-} 
+  data: any;
+  status: number;
+  statusText: string;
+}
 
 export interface CategoryInterface extends BaseObjInterface {
-    name: string;
+  name: string;
 }
 export interface RecipeInterface extends BaseObjInterface {
-    name: string;
-    image1: string | null;
-    rate: string;
-    cooking_time:string
+  name: string;
+  image1: string | null;
+  rate: string;
+  cooking_time: string;
 }
 
 export interface GetRecipeInteface extends BaseObjInterface {
-    name: string;
-    image1: string | undefined;
-    rate: number;
-    cooking_time: string
-    id: string
-    image2: string | undefined;
-    image3: string | undefined;
-    link: string | undefined;
-    serve_qty: number
+  name: string;
+  image1: string | undefined;
+  rate: number;
+  cooking_time: string;
+  id: string;
+  image2: string | undefined;
+  image3: string | undefined;
+  link: string | undefined;
+  serve_qty: number;
 }
 
 export interface GetPopularInterface extends BaseObjInterface {
@@ -33,50 +33,48 @@ export interface GetPopularInterface extends BaseObjInterface {
     name: string;
     image1: string | undefined;
     rate: string;
-    cooking_time: string
-    id: string
+    cooking_time: string;
+    id: string;
     image2: string | undefined;
     image3: string | undefined;
     link: string | undefined;
-    serve_qty: number
-  }
-
-  
+    serve_qty: number;
+  };
 }
 
 export interface GetNewInteface extends BaseObjInterface {
-    name: string;
-    image1: string | undefined;
-    rate: number;
-    cooking_time: string
-    id: string
-    image2: string | undefined;
-    image3: string | undefined;
-    link: string | undefined;
-    serve_qty: number
+  name: string;
+  image1: string | undefined;
+  rate: number;
+  cooking_time: string;
+  id: string;
+  image2: string | undefined;
+  image3: string | undefined;
+  link: string | undefined;
+  serve_qty: number;
 }
 
 export interface GetTrendingInterface extends BaseObjInterface {
-    recipe: {
-      name: string;
-      image1: string | undefined;
-      rate: string;
-      cooking_time: string
-      id: string
-      image2: string | undefined;
-      image3: string | undefined;
-      link: string | undefined;
-      serve_qty: number
-    }
+  recipe: {
+    name: string;
+    image1: string | undefined;
+    rate: string;
+    cooking_time: string;
+    id: string;
+    image2: string | undefined;
+    image3: string | undefined;
+    link: string | undefined;
+    serve_qty: number;
+  };
 }
 
 export interface UserInterface {
   id: string;
-  name:string;
+  name: string;
   email: string;
-  profession:string;
-  description:string;
-  profile_pic:string;
+  profession: string;
+  description: string;
+  profile_pic: string;
 }
 
 // {
@@ -93,40 +91,69 @@ export interface UserInterface {
 //   "registered_on": "2024-01-08T09:04:01.558391Z"
 // }
 
-export interface GetIngredientInterface{
-  name : string;
+export interface GetIngredientInterface {
+  name: string;
   id: string;
 }
 
-export interface InputIngredientInterface{
-  name : string | null;
+export interface InputIngredientInterface {
+  name: string | null;
   quantity: string;
   unit?: string;
 }
 
 export interface FilterDataInterface {
-  categories:Array<string>,
-  time:string | null;
-  rate:number | null;
+  categories: Array<string>;
+  time: string | null;
+  rate: number | null;
 }
-export interface GetProfileInterface{
-  name : string;
+export interface GetProfileInterface {
+  name: string;
   id: string;
   profession: string;
-  description:string;
-  recipes:Array<RecipeInterface>,
-  profile_pic:string;
+  description: string;
+  recipes: Array<RecipeInterface>;
+  profile_pic: string;
 }
 
-export interface NotificationInterface{
-  id:string;
-    created_on:string;
-    updated_on:string;
-    recipe:{id:string;
-        name:string,
-        rate:number,
-        is_saved:boolean,
-        cooking_time:string,
-        image1:string, 
-    }
+export interface NotificationInterface {
+  id: string;
+  created_on: string;
+  updated_on: string;
+  recipe: {
+    id: string;
+    name: string;
+    rate: number;
+    is_saved: boolean;
+    cooking_time: string;
+    image1: string;
+  };
+}
+
+export interface IngredientInterface extends BaseObjInterface {
+  name: string;
+  quantity: string;
+}
+
+export interface ProcedureInterface extends BaseObjInterface {
+  description: string;
+  order: string;
+}
+
+export interface RecipeDetailInterface extends BaseObjInterface {
+  name: string;
+  image1: string | undefined;
+  rate: string;
+  cooking_time: string;
+  id: string;
+  image2: string | undefined;
+  image3: string | undefined;
+  link: string | undefined;
+  serve_qty: number;
+  category: {
+    id: string;
+    name: string;
+  }[];
+  ingredients: IngredientInterface[];
+  procedures: ProcedureInterface[];
 }
