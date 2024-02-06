@@ -1,4 +1,5 @@
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
+from rest_framework import serializers
 from django.db.models import Q
 from django.db.models import Avg
 from .models import (
@@ -39,11 +40,12 @@ class IngredientLovSerializer(ModelSerializer):
 
 
 class GetIngredientListSerializer(ModelSerializer):
-    ingredient = IngredientLovSerializer(read_only=True)
+    # ingredient = IngredientLovSerializer(read_only=True)
+    name = serializers.CharField(source="ingredient.name")
 
     class Meta:
         model = IngredientList
-        fields = ["id", "ingredient"]
+        fields = ["id", "quantity", "unit", "name"]
 
 
 class ProcedureSerializer(ModelSerializer):
@@ -55,8 +57,13 @@ class ProcedureSerializer(ModelSerializer):
 class GetRecipeSerializer(ModelSerializer):
     chef = UserGetSerializer(read_only=True)
     ingredients = GetIngredientListSerializer(read_only=True, many=True)
-    procedure = ProcedureSerializer(read_only=True, many=True)
+    procedures = SerializerMethodField()
     category = CategoryLovSerializer(read_only=True, many=True)
+
+    def get_procedures(self, obj):
+        return ProcedureSerializer(
+            Procedure.objects.filter(recipe=obj.id).order_by("order"), many=True
+        ).data
 
     class Meta:
         model = Recipe
