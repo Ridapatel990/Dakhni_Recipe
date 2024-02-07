@@ -6,7 +6,14 @@ class UserGetSerializer(ModelSerializer):
     class Meta:
         model = User
         # exclude = ('password', 'last_login')
-        exclude = ("last_login", "password", "otp", "is_verified", "chef_status")
+        exclude = (
+            "last_login",
+            "password",
+            "otp",
+            "is_verified",
+            "chef_status",
+            "fcm_token",
+        )
 
 
 class UserSerializer(ModelSerializer):
@@ -33,10 +40,13 @@ class SingleUserGetSerializer(ModelSerializer):
     # recipes = GetAllRecipeSerializer(read_only=True, many=True)
     recipes = SerializerMethodField()
 
-    def get_recipes(self,obj):
+    def get_recipes(self, obj):
         from recipes.serializers import GetAllRecipeSerializer
         from recipes.models import Recipe
-        return GetAllRecipeSerializer(Recipe.objects.filter(chef=obj), many=True, context={"user":obj}).data
+
+        return GetAllRecipeSerializer(
+            Recipe.objects.filter(chef=obj), many=True, context={"user": obj}
+        ).data
 
     class Meta:
         model = User
