@@ -1,0 +1,92 @@
+[
+{
+    "model": "portal.category",
+    "pk": "00e2a074-e3ec-4222-a32c-4db79182fd64",
+    "fields": {
+        "created_on": "2024-01-25T13:24:48.247Z",
+        "updated_on": "2024-01-25T13:24:48.247Z",
+        "is_deleted": false,
+        "name": "Healthy"
+    }
+},
+{
+    "model": "portal.category",
+    "pk": "17d51d88-edf0-4a9e-8384-2b3db20e2153",
+    "fields": {
+        "created_on": "2024-01-25T13:25:06.239Z",
+        "updated_on": "2024-01-25T13:25:06.239Z",
+        "is_deleted": false,
+        "name": "Drinks"
+    }
+},
+{
+    "model": "portal.category",
+    "pk": "31206b41-88d8-47df-966e-a6e5f6940174",
+    "fields": {
+        "created_on": "2024-01-25T13:24:56.941Z",
+        "updated_on": "2024-01-25T13:24:56.941Z",
+        "is_deleted": false,
+        "name": "Tandoori"
+    }
+},
+{
+    "model": "portal.category",
+    "pk": "3cc2b087-6e84-423e-abda-e6fac7537b86",
+    "fields": {
+        "created_on": "2024-02-01T12:01:00.760Z",
+        "updated_on": "2024-02-01T12:01:00.760Z",
+        "is_deleted": false,
+        "name": "Snacks"
+    }
+},
+{
+    "model": "portal.category",
+    "pk": "3e12967a-4f8f-4ba5-9b32-116d5cc041f8",
+    "fields": {
+        "created_on": "2024-02-01T12:00:40.646Z",
+        "updated_on": "2024-02-01T12:00:40.646Z",
+        "is_deleted": false,
+        "name": "Curries and Gravies"
+    }
+},
+{
+    "model": "portal.category",
+    "pk": "663dc3b6-11b0-4203-9f04-0b0f7772f96c",
+    "fields": {
+        "created_on": "2024-02-01T12:00:29.193Z",
+        "updated_on": "2024-02-01T12:00:29.193Z",
+        "is_deleted": false,
+        "name": "Kebabs"
+    }
+},
+{
+    "model": "portal.category",
+    "pk": "88f00a8f-215a-4008-94b5-bfbc07bbd1a2",
+    "fields": {
+        "created_on": "2024-02-01T12:01:12.380Z",
+        "updated_on": "2024-02-01T12:01:12.380Z",
+        "is_deleted": false,
+        "name": "Biryani Varieties"
+    }
+},
+{
+    "model": "portal.category",
+    "pk": "d4770be4-9cd5-4bb0-b39c-4b750bccce10",
+    "fields": {
+        "created_on": "2024-01-25T13:24:37.274Z",
+        "updated_on": "2024-01-25T13:24:37.274Z",
+        "is_deleted": false,
+        "name": "Vegetarian"
+    }
+},
+{
+    "model": "portal.category",
+    "pk": "e8b3994d-c8ed-4d25-9a8d-117533354d34",
+    "fields": {
+        "created_on": "2024-02-01T12:01:20.308Z",
+        "updated_on": "2024-02-01T12:01:20.308Z",
+        "is_deleted": false,
+        "name": "Chutney"
+    }
+}
+]

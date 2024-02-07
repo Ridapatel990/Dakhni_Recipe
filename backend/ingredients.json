@@ -1,0 +1,652 @@
+[
+{
+    "model": "recipes.ingredient",
+    "pk": "14231579-2f44-4ddb-a0dc-232560754aea",
+    "fields": {
+        "created_on": "2024-02-01T12:02:06.492Z",
+        "updated_on": "2024-02-01T12:02:06.492Z",
+        "is_deleted": false,
+        "name": "Rice"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "14864758-084c-4e6a-a52e-92d5c6dec9a5",
+    "fields": {
+        "created_on": "2024-02-07T05:05:28.920Z",
+        "updated_on": "2024-02-07T05:05:28.920Z",
+        "is_deleted": false,
+        "name": "roasted gram flour (besan)"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "1969d8e1-90a7-40f6-9ff1-9357f38a00af",
+    "fields": {
+        "created_on": "2024-02-07T04:33:27.544Z",
+        "updated_on": "2024-02-07T04:33:27.544Z",
+        "is_deleted": false,
+        "name": "rice"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "1c6becd1-1424-4a42-b32f-f587fe7d78e3",
+    "fields": {
+        "created_on": "2024-02-07T09:46:51.558Z",
+        "updated_on": "2024-02-07T09:46:51.558Z",
+        "is_deleted": false,
+        "name": "water"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "1cfe5f46-03c7-4f69-aba3-cc65ce459628",
+    "fields": {
+        "created_on": "2024-02-07T10:10:34.443Z",
+        "updated_on": "2024-02-07T10:10:34.443Z",
+        "is_deleted": false,
+        "name": "black cardamom pods"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "1d040740-a9ee-49c5-89f5-d6a91537a5d1",
+    "fields": {
+        "created_on": "2024-02-07T10:26:49.236Z",
+        "updated_on": "2024-02-07T10:26:49.236Z",
+        "is_deleted": false,
+        "name": "poppy seeds"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "1f0f7fb7-eac8-4436-bdd2-7cbe3de2d2aa",
+    "fields": {
+        "created_on": "2024-02-07T04:41:52.886Z",
+        "updated_on": "2024-02-07T04:41:52.886Z",
+        "is_deleted": false,
+        "name": "ginger-garlic paste"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "2156ac88-f094-4676-a2d4-0712ace602a9",
+    "fields": {
+        "created_on": "2024-02-07T09:55:21.156Z",
+        "updated_on": "2024-02-07T09:55:21.156Z",
+        "is_deleted": false,
+        "name": "wheat flour"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "33e519c9-b94b-480e-b90e-738cacd39df3",
+    "fields": {
+        "created_on": "2024-02-07T09:45:46.192Z",
+        "updated_on": "2024-02-07T09:45:46.192Z",
+        "is_deleted": false,
+        "name": "Basmati rice"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "3c1dde9d-6e70-4ccc-bb1d-00bc0ae55701",
+    "fields": {
+        "created_on": "2024-02-07T09:50:56.274Z",
+        "updated_on": "2024-02-07T09:50:56.274Z",
+        "is_deleted": false,
+        "name": "mandi spice mix"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "3f56315a-9ec6-4390-b23d-9b556f91929f",
+    "fields": {
+        "created_on": "2024-02-07T09:59:07.583Z",
+        "updated_on": "2024-02-07T09:59:07.583Z",
+        "is_deleted": false,
+        "name": "bay leaves"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "41a53bba-5d60-4b81-a05e-0d3a68c1034b",
+    "fields": {
+        "created_on": "2024-02-01T12:04:07.359Z",
+        "updated_on": "2024-02-01T12:04:07.359Z",
+        "is_deleted": false,
+        "name": "Oil"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "41f92bd2-654a-44f0-814b-99b81c9cc1db",
+    "fields": {
+        "created_on": "2024-02-07T04:31:36.269Z",
+        "updated_on": "2024-02-07T04:31:36.269Z",
+        "is_deleted": false,
+        "name": "yellow lentils"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "433262bb-0f02-422c-844a-645b769b5362",
+    "fields": {
+        "created_on": "2024-02-07T10:26:41.524Z",
+        "updated_on": "2024-02-07T10:26:41.524Z",
+        "is_deleted": false,
+        "name": "coconut milk"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "45f808a3-62af-4924-8967-d1a88ee4ff56",
+    "fields": {
+        "created_on": "2024-02-01T12:02:24.495Z",
+        "updated_on": "2024-02-01T12:02:24.495Z",
+        "is_deleted": false,
+        "name": "Wheat"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "4d0ecd46-f021-476e-a1c5-f03dc80901ac",
+    "fields": {
+        "created_on": "2024-02-07T04:30:45.775Z",
+        "updated_on": "2024-02-07T04:30:45.775Z",
+        "is_deleted": false,
+        "name": "barley"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "4f436601-202e-4368-ab56-c6e70b136d22",
+    "fields": {
+        "created_on": "2024-02-01T12:03:32.163Z",
+        "updated_on": "2024-02-01T12:03:32.163Z",
+        "is_deleted": false,
+        "name": "Potato"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "501b520f-f9ec-424e-92a3-270eaebba04e",
+    "fields": {
+        "created_on": "2024-02-07T04:33:58.301Z",
+        "updated_on": "2024-02-07T04:33:58.301Z",
+        "is_deleted": false,
+        "name": "mixed meat"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "506eb7bc-0922-43e8-8dd0-f140483bc995",
+    "fields": {
+        "created_on": "2024-02-07T05:04:56.426Z",
+        "updated_on": "2024-02-07T05:04:56.426Z",
+        "is_deleted": false,
+        "name": "green chili paste"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "55a2d877-45a6-4da8-8031-0ef29865b162",
+    "fields": {
+        "created_on": "2024-02-01T12:01:57.499Z",
+        "updated_on": "2024-02-01T12:01:57.499Z",
+        "is_deleted": false,
+        "name": "Garam masala"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "57ed31fa-9edb-4619-be1c-235d8b661d98",
+    "fields": {
+        "created_on": "2024-02-07T05:12:29.606Z",
+        "updated_on": "2024-02-07T05:12:29.606Z",
+        "is_deleted": false,
+        "name": "vegetable oil"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "5bf35a39-3f3b-42c8-8a72-9d436044befc",
+    "fields": {
+        "created_on": "2024-02-07T10:03:04.679Z",
+        "updated_on": "2024-02-07T10:03:04.679Z",
+        "is_deleted": false,
+        "name": "cinnamon stick"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "6075c861-2a5b-4a34-bd6c-d6120bdb5e24",
+    "fields": {
+        "created_on": "2024-02-07T09:52:48.592Z",
+        "updated_on": "2024-02-07T09:52:48.592Z",
+        "is_deleted": false,
+        "name": "Raisins"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "61d142fb-abd2-4fd8-bab8-11bf0426f63a",
+    "fields": {
+        "created_on": "2024-02-07T04:42:53.337Z",
+        "updated_on": "2024-02-07T04:42:53.337Z",
+        "is_deleted": false,
+        "name": "red chili powder"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "62d66ec1-66c2-432e-8a4d-154b9088a3bf",
+    "fields": {
+        "created_on": "2024-02-07T10:10:49.769Z",
+        "updated_on": "2024-02-07T10:10:49.769Z",
+        "is_deleted": false,
+        "name": "black peppercorns"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "6362cea4-02c2-42a7-8590-ff0b37c7c846",
+    "fields": {
+        "created_on": "2024-02-01T12:03:58.914Z",
+        "updated_on": "2024-02-01T12:03:58.914Z",
+        "is_deleted": false,
+        "name": "Garlic"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "64c5bf5d-2194-4120-a71c-c75c42892911",
+    "fields": {
+        "created_on": "2024-02-07T04:32:43.410Z",
+        "updated_on": "2024-02-07T04:32:43.410Z",
+        "is_deleted": false,
+        "name": "split black gram"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "67176343-1f41-44ac-b536-af0e227bd05c",
+    "fields": {
+        "created_on": "2024-02-07T05:07:12.768Z",
+        "updated_on": "2024-02-07T05:07:12.769Z",
+        "is_deleted": false,
+        "name": "ground coriander"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "699912f8-a872-4303-b5f6-1492f3dbf348",
+    "fields": {
+        "created_on": "2024-02-07T04:33:03.823Z",
+        "updated_on": "2024-02-07T04:33:03.823Z",
+        "is_deleted": false,
+        "name": "red lentils"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "6ee3569a-9527-42f4-882a-0074248a6346",
+    "fields": {
+        "created_on": "2024-02-07T09:49:28.983Z",
+        "updated_on": "2024-02-07T09:49:28.983Z",
+        "is_deleted": false,
+        "name": "cloves garlic, minced"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "6ee6414e-5290-4f23-9a5d-8798c8a74c8f",
+    "fields": {
+        "created_on": "2024-02-01T13:31:48.419Z",
+        "updated_on": "2024-02-01T13:31:48.419Z",
+        "is_deleted": false,
+        "name": "Mutton"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "6f7daaea-9cb6-4c73-b0d9-77d17ba140c6",
+    "fields": {
+        "created_on": "2024-02-01T12:03:06.398Z",
+        "updated_on": "2024-02-01T12:03:06.398Z",
+        "is_deleted": false,
+        "name": "Onion"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "716ecb4a-b41c-424a-9679-fb7e862a4fc5",
+    "fields": {
+        "created_on": "2024-02-07T10:10:14.902Z",
+        "updated_on": "2024-02-07T10:10:14.902Z",
+        "is_deleted": false,
+        "name": "tomatoes"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "7592b33a-5139-4daa-a8df-0961a9290c00",
+    "fields": {
+        "created_on": "2024-02-01T12:02:16.453Z",
+        "updated_on": "2024-02-01T12:02:16.453Z",
+        "is_deleted": false,
+        "name": "Chicken"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "7927f751-d816-44d2-8b53-9fb10ce862f2",
+    "fields": {
+        "created_on": "2024-02-07T09:52:38.195Z",
+        "updated_on": "2024-02-07T09:52:38.195Z",
+        "is_deleted": false,
+        "name": "Almonds"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "7f45fa87-c31a-478d-8060-35f8798a3627",
+    "fields": {
+        "created_on": "2024-02-01T12:03:49.738Z",
+        "updated_on": "2024-02-01T12:03:49.738Z",
+        "is_deleted": false,
+        "name": "Kidney Beans"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "8201f042-560f-40b3-8c60-b52fbf8c5941",
+    "fields": {
+        "created_on": "2024-02-07T09:47:14.824Z",
+        "updated_on": "2024-02-07T09:47:14.824Z",
+        "is_deleted": false,
+        "name": "ghee"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "8400011d-824e-4048-a533-4652acf508dd",
+    "fields": {
+        "created_on": "2024-02-01T12:02:31.777Z",
+        "updated_on": "2024-02-01T12:02:31.777Z",
+        "is_deleted": false,
+        "name": "Water"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "84bed122-4523-4c69-a417-b3b879766ae8",
+    "fields": {
+        "created_on": "2024-02-07T09:56:40.173Z",
+        "updated_on": "2024-02-07T09:56:40.173Z",
+        "is_deleted": false,
+        "name": "cumin powder"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "8ccd13d5-7867-4ec2-bd10-14b0dd2500c1",
+    "fields": {
+        "created_on": "2024-02-07T05:11:57.127Z",
+        "updated_on": "2024-02-07T05:11:57.127Z",
+        "is_deleted": false,
+        "name": "mint leaves"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "8e73abe5-b64b-497e-921d-2c703ad2a26a",
+    "fields": {
+        "created_on": "2024-02-07T05:11:29.481Z",
+        "updated_on": "2024-02-07T05:11:29.481Z",
+        "is_deleted": false,
+        "name": "coriander leaves"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "93a5a04f-1aa8-44d7-a07b-84def3c28218",
+    "fields": {
+        "created_on": "2024-02-07T09:50:22.038Z",
+        "updated_on": "2024-02-07T09:50:22.039Z",
+        "is_deleted": false,
+        "name": "yogurt"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "9c801b03-1d96-4e4d-bc34-1e807fa32b0b",
+    "fields": {
+        "created_on": "2024-02-07T10:13:52.475Z",
+        "updated_on": "2024-02-07T10:13:52.475Z",
+        "is_deleted": false,
+        "name": "mutton trotters"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "9ecb78d4-ec58-4519-a9ca-6484256b7805",
+    "fields": {
+        "created_on": "2024-02-07T05:05:57.967Z",
+        "updated_on": "2024-02-07T05:05:57.967Z",
+        "is_deleted": false,
+        "name": "garam masala"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "a000e354-9b70-477f-b004-4fe9a751459b",
+    "fields": {
+        "created_on": "2024-01-25T13:25:36.469Z",
+        "updated_on": "2024-01-25T13:25:36.469Z",
+        "is_deleted": false,
+        "name": "Salt"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "a22eb419-1566-41e1-9352-413fd8125095",
+    "fields": {
+        "created_on": "2024-02-07T05:07:47.559Z",
+        "updated_on": "2024-02-07T05:07:47.559Z",
+        "is_deleted": false,
+        "name": "ground cumin"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "a2b2033b-fdc7-4c86-8b0e-0a99e4c81fb8",
+    "fields": {
+        "created_on": "2024-02-07T04:28:59.925Z",
+        "updated_on": "2024-02-07T04:28:59.926Z",
+        "is_deleted": false,
+        "name": "whole wheat"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "a46418b1-f58f-489f-8e7a-2ac5ee3f8328",
+    "fields": {
+        "created_on": "2024-02-07T04:32:08.584Z",
+        "updated_on": "2024-02-07T04:32:08.584Z",
+        "is_deleted": false,
+        "name": "split Bengal gram"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "a47447ea-79bc-40c1-a634-e290517ee60b",
+    "fields": {
+        "created_on": "2024-02-07T09:49:48.931Z",
+        "updated_on": "2024-02-07T09:49:48.931Z",
+        "is_deleted": false,
+        "name": "ginger"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "a6360433-0cb0-46dc-92db-20a024559878",
+    "fields": {
+        "created_on": "2024-02-01T12:02:52.194Z",
+        "updated_on": "2024-02-01T12:02:52.194Z",
+        "is_deleted": false,
+        "name": "Beef"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "a79ef56d-fd3d-41bb-aff1-1e338716fdcf",
+    "fields": {
+        "created_on": "2024-02-07T10:00:42.658Z",
+        "updated_on": "2024-02-07T10:00:42.658Z",
+        "is_deleted": false,
+        "name": "Clove"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "af830c49-ba9c-4f85-a0da-716a76d13260",
+    "fields": {
+        "created_on": "2024-02-07T10:26:55.259Z",
+        "updated_on": "2024-02-07T10:26:55.259Z",
+        "is_deleted": false,
+        "name": "sesame seeds"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "b63641b4-fd1d-4196-83df-99e592d41a26",
+    "fields": {
+        "created_on": "2024-02-01T12:03:39.666Z",
+        "updated_on": "2024-02-01T12:03:39.667Z",
+        "is_deleted": false,
+        "name": "Tomato"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "bf839ce4-1e9a-47a0-9771-67f668b9d7a7",
+    "fields": {
+        "created_on": "2024-02-01T12:02:59.342Z",
+        "updated_on": "2024-02-01T12:02:59.342Z",
+        "is_deleted": false,
+        "name": "Mustard"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "c28ed901-9cc3-4472-b76b-bfa0d047e664",
+    "fields": {
+        "created_on": "2024-02-01T13:31:48.422Z",
+        "updated_on": "2024-02-01T13:31:48.422Z",
+        "is_deleted": false,
+        "name": "salt"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "c84174b8-b933-42f9-8a8c-a59604cc434c",
+    "fields": {
+        "created_on": "2024-02-07T10:10:42.602Z",
+        "updated_on": "2024-02-07T10:10:42.602Z",
+        "is_deleted": false,
+        "name": "fennel seeds"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "cb7c85bb-308e-469a-a565-e67b18c1be17",
+    "fields": {
+        "created_on": "2024-02-07T04:40:20.387Z",
+        "updated_on": "2024-02-07T04:40:20.387Z",
+        "is_deleted": false,
+        "name": "onions"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "cd6ba804-073b-4bdf-b0af-3b541de25876",
+    "fields": {
+        "created_on": "2024-02-07T09:59:33.293Z",
+        "updated_on": "2024-02-07T09:59:33.293Z",
+        "is_deleted": false,
+        "name": "green cardamom pods"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "d852b187-e2fe-4f59-ad78-9a7511bbce6f",
+    "fields": {
+        "created_on": "2024-02-07T10:21:01.508Z",
+        "updated_on": "2024-02-07T10:21:01.508Z",
+        "is_deleted": false,
+        "name": "cooking oil"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "d9421e66-ddde-42e1-817f-f57349877a5d",
+    "fields": {
+        "created_on": "2024-02-07T09:51:59.408Z",
+        "updated_on": "2024-02-07T09:51:59.408Z",
+        "is_deleted": false,
+        "name": "fried onions"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "dec80e07-db8c-4347-b86d-f456e688aa0f",
+    "fields": {
+        "created_on": "2024-02-01T12:03:15.305Z",
+        "updated_on": "2024-02-01T12:03:15.305Z",
+        "is_deleted": false,
+        "name": "Cloves"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "e211f253-0e07-4376-8e98-141c292150b6",
+    "fields": {
+        "created_on": "2024-02-07T09:57:14.665Z",
+        "updated_on": "2024-02-07T09:57:14.666Z",
+        "is_deleted": false,
+        "name": "coriander powder"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "ecc696d2-2c16-4236-a053-07dad8d82c88",
+    "fields": {
+        "created_on": "2024-02-07T09:52:43.188Z",
+        "updated_on": "2024-02-07T09:52:43.188Z",
+        "is_deleted": false,
+        "name": "Cashew"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "f2f642cf-aec7-4ee0-8330-145a7bc2ff74",
+    "fields": {
+        "created_on": "2024-02-07T04:34:57.429Z",
+        "updated_on": "2024-02-07T04:34:57.429Z",
+        "is_deleted": false,
+        "name": "cooking oil or ghee"
+    }
+},
+{
+    "model": "recipes.ingredient",
+    "pk": "fa434cd5-8a88-4aa6-82a1-ae856ec9a313",
+    "fields": {
+        "created_on": "2024-02-01T12:03:24.674Z",
+        "updated_on": "2024-02-07T10:31:03.033Z",
+        "is_deleted": false,
+        "name": "Turmeric Powder"
+    }
+}
+]
