@@ -14,7 +14,7 @@ def get_trending_recipes():
     )
     for recipe in recipes:
         if TrendingRecipe.objects.filter(recipe=recipe).exists:
-            print("in if",recipe)
+            print("in if", recipe)
             continue
         TrendingRecipe.objects.create(recipe=recipe)
         print("recipe created", recipe)
@@ -29,5 +29,13 @@ def get_popular_recipes():
     # recipes = Recipe.objects.filter(id__in=recently_searched).distinct()
     for recipe in recipes:
         if PopularRecipe.objects.filter(recipe=recipe).exists:
+            print("in if", recipe)
             continue
         PopularRecipe.objects.create(recipe=recipe)
+        print("recipe created", recipe)
+
+
+def get_popular_trending_recipes():
+    get_trending_recipes()
+    print("trending done")
+    get_popular_recipes()

@@ -147,11 +147,8 @@ CRONJOBS = [
     # ("0 0 * * *", "recipes.cronjob.get_popular_recipes"),  # Run at midnight
     # ("0 12 * * *", "recipes.cronjob.get_popular_recipes"),  # Run at noon
     # ("*/2 * * * *", "recipes.cronjob.get_popular_recipes"),  # Run every 2 min
-    ("0 */2 * * *", "recipes.cronjob.get_popular_recipes"),  # Run every 2 hour
-    # ("0 0 * * *", "recipes.cronjob.get_trending_recipes"),  # Run at midnight
-    # ("0 12 * * *", "recipes.cronjob.get_trending_recipes"),  # Run at noon
-    # ("*/2 * * * *", "recipes.cronjob.get_trending_recipes"),  # Run every 3 min
-    ("0 */2 * * *", "recipes.cronjob.get_trending_recipes"),  # Run every 2 hour
+    # ("0 */2 * * *", "recipes.cronjob.get_popular_recipes"),  # Run every 2 hour
+    ("0 */3 * * *", "recipes.cronjob.get_popular_trending_recipes"),  # Run every 3 hour
 ]
 
 

@@ -11,7 +11,7 @@ from .models import (
     PopularRecipe,
 )
 from portal.serializers import CategoryLovSerializer
-from social.models import Rate, SavedRecipe
+from social.models import Rate, SavedRecipe, Review
 from accounts.serializers import UserGetSerializer
 
 
@@ -55,6 +55,9 @@ class ProcedureSerializer(ModelSerializer):
 
 
 class GetRecipeSerializer(ModelSerializer):
+    rate = SerializerMethodField()
+    is_saved = SerializerMethodField()
+    reviews = SerializerMethodField()
     chef = UserGetSerializer(read_only=True)
     ingredients = GetIngredientListSerializer(read_only=True, many=True)
     procedures = SerializerMethodField()
@@ -64,6 +67,24 @@ class GetRecipeSerializer(ModelSerializer):
         return ProcedureSerializer(
             Procedure.objects.filter(recipe=obj.id).order_by("order"), many=True
         ).data
+
+    def get_rate(slef, obj):
+        # print(obj)
+        avg_rate = Rate.objects.filter(recipe=obj).aggregate(Avg("rate"))
+        return (
+            str(round(avg_rate.get("rate__avg"), 1))
+            if avg_rate.get("rate__avg")
+            else 0.0
+        )
+
+    def get_reviews(self, obj):
+        return Review.objects.filter(recipe=obj).count()
+
+    def get_is_saved(self, obj):
+        user = self.context.get("user")
+        if SavedRecipe.objects.filter(Q(user=user) & Q(recipe=obj)).exists():
+            return True
+        return False
 
     class Meta:
         model = Recipe
