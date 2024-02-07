@@ -1,0 +1,554 @@
+[
+{
+    "model": "recipes.procedure",
+    "pk": "031c8e45-609b-45a0-9bfe-0651ec8d2e01",
+    "fields": {
+        "created_on": "2024-02-07T04:51:52.925Z",
+        "updated_on": "2024-02-07T04:51:52.925Z",
+        "is_deleted": false,
+        "recipe": "3a7fcec4-e86e-431c-91ed-f3bfbe4fd618",
+        "order": 6,
+        "description": "Cover the dish tightly with foil.\r\nPlace the covered dish in the preheated oven for about 30-40 minutes or until the rice is fully cooked."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "047b37be-1a2f-4ad9-8ffe-0b77dd4e6a56",
+    "fields": {
+        "created_on": "2024-02-07T04:52:11.736Z",
+        "updated_on": "2024-02-07T04:52:11.736Z",
+        "is_deleted": false,
+        "recipe": "3a7fcec4-e86e-431c-91ed-f3bfbe4fd618",
+        "order": 7,
+        "description": "Allow the biryani to rest for 10 minutes before serving.\r\nGently fluff the rice with a fork, mixing the layers.\r\nServe hot with raita or your favorite side dish.\r\nEnjoy your delicious homemade Mandi Biryani!"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "0d06ec70-1f57-4592-8106-44db7a3fce09",
+    "fields": {
+        "created_on": "2024-02-07T04:54:04.685Z",
+        "updated_on": "2024-02-07T04:54:04.685Z",
+        "is_deleted": false,
+        "recipe": "65991667-0240-40e6-82ce-ee3b27ce3d51",
+        "order": 3,
+        "description": "Mix in cumin powder, coriander powder, turmeric powder, red chili powder, garam masala, and salt. Stir well.Pour enough water to cover the mutton. Add bay leaves, cardamom pods, cloves, and cinnamon stick.Cover the pot and let it simmer on low heat for 3-4 hours or until the mutton is tender and the flavors are well absorbed."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "1089aeed-ce67-4d2b-ace9-44101f70798b",
+    "fields": {
+        "created_on": "2024-01-25T13:25:44.772Z",
+        "updated_on": "2024-01-25T13:25:44.772Z",
+        "is_deleted": false,
+        "recipe": "b25e33d7-f30c-47b9-abd6-fb5c62dd87fa",
+        "order": 2,
+        "description": "strain the jiuce and add sugar as needed"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "143ad0ac-7eb5-4ec3-82e2-3e73b9f8de69",
+    "fields": {
+        "created_on": "2024-02-07T04:55:46.891Z",
+        "updated_on": "2024-02-07T04:55:46.891Z",
+        "is_deleted": false,
+        "recipe": "5426eb3c-a6a5-40fb-8b92-aa2a03b902a1",
+        "order": 1,
+        "description": "Clean and Soak the Trotters:\r\nWash mutton trotters thoroughly under running water.\r\nSoak them in water with a pinch of turmeric for about 1-2 hours."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "1520624c-3e81-4064-be5b-34affcbfdb61",
+    "fields": {
+        "created_on": "2024-01-25T13:25:48.202Z",
+        "updated_on": "2024-01-25T13:25:48.202Z",
+        "is_deleted": false,
+        "recipe": "e6d82220-bfb3-4072-b8d3-f84e020b858a",
+        "order": 1,
+        "description": "pil the oranges, add them in mixer, grind well"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "169738ab-2dda-4bb5-a41a-35991a66e7cc",
+    "fields": {
+        "created_on": "2024-02-01T13:35:40.345Z",
+        "updated_on": "2024-02-01T13:35:40.345Z",
+        "is_deleted": false,
+        "recipe": "a6bdddb6-4dd9-4be0-9e2e-ce6848cca202",
+        "order": 1,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "1b01ce6b-bac8-480b-9f71-c96c0c87fde1",
+    "fields": {
+        "created_on": "2024-02-07T04:49:29.870Z",
+        "updated_on": "2024-02-07T04:49:29.870Z",
+        "is_deleted": false,
+        "recipe": "3a7fcec4-e86e-431c-91ed-f3bfbe4fd618",
+        "order": 3,
+        "description": "In a large ovenproof dish, layer half of the par-cooked rice, followed by the cooked chicken."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "22ff61b2-71f7-4d98-8b52-1ff512470759",
+    "fields": {
+        "created_on": "2024-02-07T04:58:54.454Z",
+        "updated_on": "2024-02-07T04:58:54.454Z",
+        "is_deleted": false,
+        "recipe": "e525491c-b92c-42bf-ba3b-4eb44814fe1b",
+        "order": 5,
+        "description": "Add the marinated chicken to the pan and cook until it changes color.\r\nPour in the cashew paste and mix well with the chicken.\r\nPour coconut milk and water into the pan.\r\nBring it to a simmer and let it cook on low heat until the chicken is tender.\r\nAdjust salt and spice levels according to your taste."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "2485de4a-9b62-4825-833c-460fadd2c547",
+    "fields": {
+        "created_on": "2024-02-07T04:56:41.626Z",
+        "updated_on": "2024-02-07T04:56:41.626Z",
+        "is_deleted": false,
+        "recipe": "5426eb3c-a6a5-40fb-8b92-aa2a03b902a1",
+        "order": 4,
+        "description": "In a separate pan, heat ghee.\r\nAdd ginger slices and let them sizzle for a minute.\r\nPour this tempering over the cooked trotters.\r\nSimmer the paya on low heat for another 15-20 minutes until the Flavors meld.\r\nGarnish with fresh coriander leaves and fresh green chilies."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "28f0f915-f507-48a4-bc5e-f6d0405c0c43",
+    "fields": {
+        "created_on": "2024-02-07T04:44:36.666Z",
+        "updated_on": "2024-02-07T04:44:36.666Z",
+        "is_deleted": false,
+        "recipe": "fdee48e4-7ab8-420f-984b-3d021fa9ded8",
+        "order": 3,
+        "description": "Add the soaked and drained grains to the pot. Mix well with the meat. Add enough water to cover the ingredients. Bring to a boil, then reduce the heat and simmer until the grains and meat are tender. Stir occasionally to prevent sticking."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "352f2139-35a3-47f8-bafc-6241a03b55d4",
+    "fields": {
+        "created_on": "2024-02-07T04:53:13.772Z",
+        "updated_on": "2024-02-07T04:53:13.772Z",
+        "is_deleted": false,
+        "recipe": "65991667-0240-40e6-82ce-ee3b27ce3d51",
+        "order": 1,
+        "description": "Mix wheat flour with water to form a smooth paste.\r\nCook the paste in a separate pan until it turns golden brown. Set aside."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "36224a3d-faef-4727-a181-eb1bf56c6369",
+    "fields": {
+        "created_on": "2024-02-07T04:48:38.316Z",
+        "updated_on": "2024-02-07T04:48:38.316Z",
+        "is_deleted": false,
+        "recipe": "3a7fcec4-e86e-431c-91ed-f3bfbe4fd618",
+        "order": 1,
+        "description": "Rinse the Basmati rice under cold water until the water runs clear.\r\nIn a large pot, bring 1 liter of water to a boil.\r\nAdd the rinsed rice, ghee, and salt to the boiling water.\r\nCook the rice until it's 70% done. Drain and set aside."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "376c599c-c5f2-49d2-99f0-48fd80f0a210",
+    "fields": {
+        "created_on": "2024-02-07T04:47:15.609Z",
+        "updated_on": "2024-02-07T04:47:15.609Z",
+        "is_deleted": false,
+        "recipe": "6cf7c198-ff54-46bc-a63f-e1d25b28125b",
+        "order": 5,
+        "description": "Take the marinated mixture and, with slightly wet hands, mold it onto skewers to form elongated kebabs. Ensure that the meat is evenly distributed on the skewers."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "3892efa8-da39-41f6-9655-3e5bf9302dfb",
+    "fields": {
+        "created_on": "2024-01-25T13:25:44.772Z",
+        "updated_on": "2024-01-25T13:25:44.772Z",
+        "is_deleted": false,
+        "recipe": "b25e33d7-f30c-47b9-abd6-fb5c62dd87fa",
+        "order": 1,
+        "description": "pil the oranges, add them in mixer, grind well"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "3941d8ee-b2b1-4e86-8a46-7fde4cdcc3f7",
+    "fields": {
+        "created_on": "2024-02-07T04:46:20.396Z",
+        "updated_on": "2024-02-07T04:46:20.396Z",
+        "is_deleted": false,
+        "recipe": "6cf7c198-ff54-46bc-a63f-e1d25b28125b",
+        "order": 2,
+        "description": "Mix the ingredients thoroughly until well combined. For better results, you can use your hands to ensure an even distribution of spices."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "465d32d7-7f62-45e0-9131-cd5e01b087b9",
+    "fields": {
+        "created_on": "2024-01-25T13:25:54.708Z",
+        "updated_on": "2024-01-25T13:25:54.708Z",
+        "is_deleted": false,
+        "recipe": "dbc42030-4917-4043-818c-7bbf9ba58c3b",
+        "order": 2,
+        "description": "strain the jiuce and add sugar as needed"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "4662f499-128d-442c-8540-f64cce1282a0",
+    "fields": {
+        "created_on": "2024-02-07T04:44:26.276Z",
+        "updated_on": "2024-02-07T04:44:26.276Z",
+        "is_deleted": false,
+        "recipe": "fdee48e4-7ab8-420f-984b-3d021fa9ded8",
+        "order": 2,
+        "description": "In a large pot, heat oil or ghee. Add sliced onions and cook until golden brown. Add ginger-garlic paste and sauté until the raw smell disappears. Add meat pieces, turmeric powder, red chili powder, and salt. Cook until the meat is browned."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "49e29aa6-2684-4be8-837c-b89e55a89669",
+    "fields": {
+        "created_on": "2024-01-25T13:25:51.257Z",
+        "updated_on": "2024-01-25T13:25:51.257Z",
+        "is_deleted": false,
+        "recipe": "66ba7c37-013c-4332-981f-74a6011c9bfe",
+        "order": 2,
+        "description": "strain the jiuce and add sugar as needed"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "4cc89c60-7503-484e-a719-2747bbd268ce",
+    "fields": {
+        "created_on": "2024-02-07T04:46:33.706Z",
+        "updated_on": "2024-02-07T04:46:33.706Z",
+        "is_deleted": false,
+        "recipe": "6cf7c198-ff54-46bc-a63f-e1d25b28125b",
+        "order": 3,
+        "description": "Cover the mixture and let it marinate in the refrigerator for at least 2 hours, allowing the flavors to meld."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "60be973b-89f0-4f12-b207-b13a9e24284e",
+    "fields": {
+        "created_on": "2024-02-07T04:49:10.008Z",
+        "updated_on": "2024-02-07T04:49:10.008Z",
+        "is_deleted": false,
+        "recipe": "3a7fcec4-e86e-431c-91ed-f3bfbe4fd618",
+        "order": 2,
+        "description": "In a large pan, heat vegetable oil over medium heat.\r\nAdd sliced onions and sauté until golden brown.\r\nAdd minced garlic and grated ginger, sauté for another 2 minutes.\r\nAdd chicken pieces and brown them on all sides.\r\nStir in yogurt, mandi spice mix, and salt. Cook until the chicken is tender.\r\nPreheat the oven to 180°C (350°F)."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "776b3051-659d-45bf-adf3-405fa141f011",
+    "fields": {
+        "created_on": "2024-01-25T13:25:36.472Z",
+        "updated_on": "2024-01-25T13:25:36.472Z",
+        "is_deleted": false,
+        "recipe": "a4c82326-98ae-4039-8bf8-80656f584d33",
+        "order": 2,
+        "description": "strain the jiuce and add sugar as needed"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "798d69b3-29ba-4758-b2ac-43ec62f823a0",
+    "fields": {
+        "created_on": "2024-01-25T13:25:36.472Z",
+        "updated_on": "2024-01-25T13:25:36.472Z",
+        "is_deleted": false,
+        "recipe": "a4c82326-98ae-4039-8bf8-80656f584d33",
+        "order": 1,
+        "description": "pil the oranges, add them in mixer, grind well"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "7f13c5f6-6beb-49df-bb39-eccb15935940",
+    "fields": {
+        "created_on": "2024-02-07T04:56:28.609Z",
+        "updated_on": "2024-02-07T04:56:28.609Z",
+        "is_deleted": false,
+        "recipe": "5426eb3c-a6a5-40fb-8b92-aa2a03b902a1",
+        "order": 3,
+        "description": "In a large pressure cooker, add soaked trotters, chopped onions, tomatoes, ginger-garlic paste, yogurt, and the spice bag.\r\nAdd turmeric powder, red chili powder, coriander powder, cumin powder, garam masala, and salt.\r\nPour in enough water to cover the trotters.\r\nPressure cook for 4-5 whistles or until the trotters are tender."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "8289aa0a-f4f7-4f38-9b3a-a2b5bc79c57c",
+    "fields": {
+        "created_on": "2024-02-07T04:57:26.030Z",
+        "updated_on": "2024-02-07T04:57:26.030Z",
+        "is_deleted": false,
+        "recipe": "e525491c-b92c-42bf-ba3b-4eb44814fe1b",
+        "order": 1,
+        "description": "In a bowl, mix the chicken pieces with yogurt, ginger-garlic paste, turmeric powder, and salt.\r\nAllow it to marinate for at least 30 minutes"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "8527858a-56e1-4c2e-bae3-3d28e2379eec",
+    "fields": {
+        "created_on": "2024-02-07T04:53:34.618Z",
+        "updated_on": "2024-02-07T04:53:34.618Z",
+        "is_deleted": false,
+        "recipe": "65991667-0240-40e6-82ce-ee3b27ce3d51",
+        "order": 2,
+        "description": "In a large pot, heat ghee and add sliced onions. Fry until golden brown.\r\nAdd ginger-garlic paste and sauté until the raw smell disappears.\r\nAdd mutton pieces and sear until they are browned on all sides."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "86f2392d-139e-4885-85b7-0a7270fc0a36",
+    "fields": {
+        "created_on": "2024-02-07T04:57:52.407Z",
+        "updated_on": "2024-02-07T04:57:52.407Z",
+        "is_deleted": false,
+        "recipe": "e525491c-b92c-42bf-ba3b-4eb44814fe1b",
+        "order": 2,
+        "description": "Grind cashews, poppy seeds, and sesame seeds into a smooth paste using a little water."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "8d8b85a7-7f27-46c6-8dd0-176b01f7fa6f",
+    "fields": {
+        "created_on": "2024-02-07T04:58:31.172Z",
+        "updated_on": "2024-02-07T04:58:31.172Z",
+        "is_deleted": false,
+        "recipe": "e525491c-b92c-42bf-ba3b-4eb44814fe1b",
+        "order": 4,
+        "description": "Add coriander powder, cumin powder, red chili powder, green cardamom pods, cloves, and cinnamon stick.\r\nCook the spices for a minute until aromatic."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "8ee22ecc-1a65-4b8b-956c-0d6eaca1fc8e",
+    "fields": {
+        "created_on": "2024-02-07T04:56:02.259Z",
+        "updated_on": "2024-02-07T04:56:02.259Z",
+        "is_deleted": false,
+        "recipe": "5426eb3c-a6a5-40fb-8b92-aa2a03b902a1",
+        "order": 2,
+        "description": "Tie all the spices in a piece of muslin cloth to make a spice bag."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "944e51be-0db2-4185-880f-30a7e2b07e9e",
+    "fields": {
+        "created_on": "2024-02-07T04:44:13.469Z",
+        "updated_on": "2024-02-07T04:44:13.469Z",
+        "is_deleted": false,
+        "recipe": "fdee48e4-7ab8-420f-984b-3d021fa9ded8",
+        "order": 1,
+        "description": "Rinse the whole wheat, barley, yellow lentils, Bengal gram, black gram, and rice. Soak them in water for at least 2 hours."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "9964e931-16fe-4107-861a-cf90996e773b",
+    "fields": {
+        "created_on": "2024-02-07T04:58:04.949Z",
+        "updated_on": "2024-02-07T04:58:04.949Z",
+        "is_deleted": false,
+        "recipe": "e525491c-b92c-42bf-ba3b-4eb44814fe1b",
+        "order": 3,
+        "description": "In a deep pan, heat ghee and add sliced onions.\r\nfry until the onions turn golden brown."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "9daa0238-a389-488a-bace-1dbbf976e2f6",
+    "fields": {
+        "created_on": "2024-02-07T04:54:22.150Z",
+        "updated_on": "2024-02-07T04:54:22.150Z",
+        "is_deleted": false,
+        "recipe": "65991667-0240-40e6-82ce-ee3b27ce3d51",
+        "order": 4,
+        "description": "Once the mutton is cooked, add the wheat paste. Stir continuously to avoid lumps."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "9e4e533f-bb2f-495a-a52f-23a5560c4fc3",
+    "fields": {
+        "created_on": "2024-01-25T13:25:48.202Z",
+        "updated_on": "2024-01-25T13:25:48.202Z",
+        "is_deleted": false,
+        "recipe": "e6d82220-bfb3-4072-b8d3-f84e020b858a",
+        "order": 2,
+        "description": "strain the jiuce and add sugar as needed"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "bfc715e6-cf89-4763-ab36-7760f1ddb5b7",
+    "fields": {
+        "created_on": "2024-01-25T13:25:54.708Z",
+        "updated_on": "2024-01-25T13:25:54.708Z",
+        "is_deleted": false,
+        "recipe": "dbc42030-4917-4043-818c-7bbf9ba58c3b",
+        "order": 1,
+        "description": "pil the oranges, add them in mixer, grind well"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "c18f95a6-2977-45fc-9a36-fd9d4e2d0a75",
+    "fields": {
+        "created_on": "2024-02-01T13:35:40.345Z",
+        "updated_on": "2024-02-01T13:35:40.345Z",
+        "is_deleted": false,
+        "recipe": "a6bdddb6-4dd9-4be0-9e2e-ce6848cca202",
+        "order": 2,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "c56f4e2d-e217-4c55-b5cc-07f57a74db1c",
+    "fields": {
+        "created_on": "2024-02-07T04:54:32.624Z",
+        "updated_on": "2024-02-07T04:54:32.625Z",
+        "is_deleted": false,
+        "recipe": "65991667-0240-40e6-82ce-ee3b27ce3d51",
+        "order": 5,
+        "description": "Continue to simmer the nihari on low heat for an additional 30-45 minutes, allowing the gravy to thicken."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "c7239a70-bdfb-4ab2-aae0-10399053538c",
+    "fields": {
+        "created_on": "2024-02-07T04:46:00.503Z",
+        "updated_on": "2024-02-07T04:46:00.503Z",
+        "is_deleted": false,
+        "recipe": "6cf7c198-ff54-46bc-a63f-e1d25b28125b",
+        "order": 1,
+        "description": "In a large mixing bowl, combine the minced meat, chopped onions, ginger-garlic paste, green chili paste, roasted gram flour, garam masala, ground coriander, ground cumin, red chili powder, turmeric powder, salt, fresh coriander leaves, and fresh mint leaves."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "cc60fdba-bdf3-41c1-bfff-53c215eea941",
+    "fields": {
+        "created_on": "2024-02-07T04:50:06.869Z",
+        "updated_on": "2024-02-07T04:50:06.869Z",
+        "is_deleted": false,
+        "recipe": "3a7fcec4-e86e-431c-91ed-f3bfbe4fd618",
+        "order": 5,
+        "description": "Garnish with fried onions, fresh coriander leaves, fried almonds, cashews, and raisins."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "ce7a1bd4-a966-4ae0-9315-51a017faf0b6",
+    "fields": {
+        "created_on": "2024-02-07T04:46:50.613Z",
+        "updated_on": "2024-02-07T04:46:50.613Z",
+        "is_deleted": false,
+        "recipe": "6cf7c198-ff54-46bc-a63f-e1d25b28125b",
+        "order": 4,
+        "description": "Preheat your grill or oven to a medium-high heat."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "d16171bc-c28d-49a5-8063-f4ee57d2f922",
+    "fields": {
+        "created_on": "2024-02-07T04:49:43.877Z",
+        "updated_on": "2024-02-07T04:49:43.877Z",
+        "is_deleted": false,
+        "recipe": "3a7fcec4-e86e-431c-91ed-f3bfbe4fd618",
+        "order": 4,
+        "description": "Repeat the layers, finishing with a layer of rice on top."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "d93235ca-6c19-432b-a6d7-899f65cadc70",
+    "fields": {
+        "created_on": "2024-01-25T13:25:51.257Z",
+        "updated_on": "2024-01-25T13:25:51.257Z",
+        "is_deleted": false,
+        "recipe": "66ba7c37-013c-4332-981f-74a6011c9bfe",
+        "order": 1,
+        "description": "pil the oranges, add them in mixer, grind well"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "e638b3b4-0361-44af-89cb-ab90bfb4856b",
+    "fields": {
+        "created_on": "2024-02-07T04:47:31.117Z",
+        "updated_on": "2024-02-07T04:47:31.117Z",
+        "is_deleted": false,
+        "recipe": "6cf7c198-ff54-46bc-a63f-e1d25b28125b",
+        "order": 6,
+        "description": "Brush the kebabs with vegetable oil.\r\nGrill the seekh kebabs for about 15-20 minutes, turning occasionally until they are cooked through and have a nice char on the outside."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "ef23554e-f4c9-4e82-be1d-6206caf3fc55",
+    "fields": {
+        "created_on": "2024-02-07T04:45:07.564Z",
+        "updated_on": "2024-02-07T04:45:07.564Z",
+        "is_deleted": false,
+        "recipe": "fdee48e4-7ab8-420f-984b-3d021fa9ded8",
+        "order": 5,
+        "description": "Continue cooking the blended mixture on low heat. Keep stirring to prevent sticking. Adjust the consistency by adding water if needed. Cook until the haleem reaches a thick, porridge-like consistency."
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "f3231c1d-6475-4cde-8204-85a84beede81",
+    "fields": {
+        "created_on": "2024-02-01T13:36:25.014Z",
+        "updated_on": "2024-02-01T13:36:25.014Z",
+        "is_deleted": false,
+        "recipe": "b1e37324-3a3b-458e-89c0-68a80a3781cf",
+        "order": 1,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "f957f56c-88cc-41b2-87a6-67125b8ff7e0",
+    "fields": {
+        "created_on": "2024-02-01T13:36:25.014Z",
+        "updated_on": "2024-02-01T13:36:25.014Z",
+        "is_deleted": false,
+        "recipe": "b1e37324-3a3b-458e-89c0-68a80a3781cf",
+        "order": 2,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    }
+},
+{
+    "model": "recipes.procedure",
+    "pk": "f981eb08-9f1f-497d-b2ad-2f8c3aaf2b7a",
+    "fields": {
+        "created_on": "2024-02-07T04:44:48.301Z",
+        "updated_on": "2024-02-07T04:44:48.301Z",
+        "is_deleted": false,
+        "recipe": "fdee48e4-7ab8-420f-984b-3d021fa9ded8",
+        "order": 4,
+        "description": "Using a hand blender or a traditional wooden spoon (ghotni), blend the mixture until it reaches a smooth consistency. This step gives haleem its characteristic texture."
+    }
+}
+]
