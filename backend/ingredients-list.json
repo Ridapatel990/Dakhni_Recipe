@@ -287,19 +287,6 @@
 },
 {
     "model": "recipes.ingredientlist",
-    "pk": "3fdd6e33-55be-4450-a34a-d7cddae2cbaa",
-    "fields": {
-        "created_on": "2024-01-25T13:25:51.256Z",
-        "updated_on": "2024-01-25T13:25:51.256Z",
-        "is_deleted": false,
-        "recipe": "66ba7c37-013c-4332-981f-74a6011c9bfe",
-        "ingredient": "a000e354-9b70-477f-b004-4fe9a751459b",
-        "quantity": "as taste",
-        "unit": null
-    }
-},
-{
-    "model": "recipes.ingredientlist",
     "pk": "4297c3e2-7462-47d5-aafa-835fbc31324d",
     "fields": {
         "created_on": "2024-02-07T09:52:12.129Z",
@@ -755,19 +742,6 @@
 },
 {
     "model": "recipes.ingredientlist",
-    "pk": "9386920a-2070-4698-ba98-ff3170067f97",
-    "fields": {
-        "created_on": "2024-01-25T13:25:36.471Z",
-        "updated_on": "2024-01-25T13:25:36.471Z",
-        "is_deleted": false,
-        "recipe": "a4c82326-98ae-4039-8bf8-80656f584d33",
-        "ingredient": "a000e354-9b70-477f-b004-4fe9a751459b",
-        "quantity": "as taste",
-        "unit": null
-    }
-},
-{
-    "model": "recipes.ingredientlist",
     "pk": "9672b842-045c-43d3-8678-8dd3f07e26f4",
     "fields": {
         "created_on": "2024-02-07T10:20:16.625Z",
@@ -1106,19 +1080,6 @@
 },
 {
     "model": "recipes.ingredientlist",
-    "pk": "c6728195-4bc1-4e03-aa0d-116920c3fa70",
-    "fields": {
-        "created_on": "2024-01-25T13:25:48.201Z",
-        "updated_on": "2024-01-25T13:25:48.201Z",
-        "is_deleted": false,
-        "recipe": "e6d82220-bfb3-4072-b8d3-f84e020b858a",
-        "ingredient": "a000e354-9b70-477f-b004-4fe9a751459b",
-        "quantity": "as taste",
-        "unit": null
-    }
-},
-{
-    "model": "recipes.ingredientlist",
     "pk": "c6840616-1d5c-4db1-8e1a-6028c4e2fc7e",
     "fields": {
         "created_on": "2024-02-07T10:30:00.500Z",
@@ -1231,32 +1192,6 @@
         "recipe": "6cf7c198-ff54-46bc-a63f-e1d25b28125b",
         "ingredient": "a6360433-0cb0-46dc-92db-20a024559878",
         "quantity": "500 grams",
-        "unit": null
-    }
-},
-{
-    "model": "recipes.ingredientlist",
-    "pk": "e014cc15-ca1b-4e15-81df-c021c4dacba9",
-    "fields": {
-        "created_on": "2024-01-25T13:25:44.770Z",
-        "updated_on": "2024-01-25T13:25:44.770Z",
-        "is_deleted": false,
-        "recipe": "b25e33d7-f30c-47b9-abd6-fb5c62dd87fa",
-        "ingredient": "a000e354-9b70-477f-b004-4fe9a751459b",
-        "quantity": "as taste",
-        "unit": null
-    }
-},
-{
-    "model": "recipes.ingredientlist",
-    "pk": "e1f19347-a549-4b2a-af40-ff2ec231fcf5",
-    "fields": {
-        "created_on": "2024-01-25T13:25:54.707Z",
-        "updated_on": "2024-01-25T13:25:54.707Z",
-        "is_deleted": false,
-        "recipe": "dbc42030-4917-4043-818c-7bbf9ba58c3b",
-        "ingredient": "a000e354-9b70-477f-b004-4fe9a751459b",
-        "quantity": "as taste",
         "unit": null
     }
 },
