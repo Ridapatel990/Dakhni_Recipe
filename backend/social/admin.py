@@ -26,6 +26,16 @@ class SavedRecipeList(admin.ModelAdmin):
         return obj.user.name
 
 
+class NotificationList(admin.ModelAdmin):
+    list_display = ("id", "get_recipe_name", "get_user_name")
+
+    def get_recipe_name(self, obj):
+        return obj.recipe.name
+
+    def get_user_name(self, obj):
+        return obj.user.name
+
+
 class RecentlySearchedList(admin.ModelAdmin):
     list_display = ("id", "get_recipe_name", "get_user_name")
 
@@ -40,4 +50,4 @@ admin.site.register(Rate, RateList)
 admin.site.register(Review, ReviewList)
 admin.site.register(SavedRecipe, SavedRecipeList)
 admin.site.register(RecentlySearched, RecentlySearchedList)
-admin.site.register(Notification)
+admin.site.register(Notification, NotificationList)
