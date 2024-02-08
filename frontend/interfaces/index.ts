@@ -127,6 +127,7 @@ export interface NotificationInterface {
     is_saved: boolean;
     cooking_time: string;
     image1: string;
+    
   };
 }
 

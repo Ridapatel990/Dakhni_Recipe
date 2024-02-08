@@ -101,7 +101,11 @@ const NotificationPage = ({
           <View style={{ margin: 20 }}>
 
           {getNotification?.length>0 ? getNotification?.map((notification:NotificationInterface)=><Notification data={notification}
-            
+            Press = {() =>
+              navigation.navigate("RecipeDescription", {
+                id: notification.recipe?.id,
+              })
+            }
           ></Notification>): ''}
 
             
@@ -109,7 +113,7 @@ const NotificationPage = ({
           </View>
         </View>
       </ScrollView>
-      {/* <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0}></BottomNavigationBar> */}
+      {/* <BottomNaviPress?:() => void;gationBar onItemTapped={onItemTapped} selectedIndex={0}></BottomNavigationBar> */}
     </SafeAreaView>
   );
 };

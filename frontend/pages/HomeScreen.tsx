@@ -320,6 +320,11 @@ const HomeScreen = ({
                                 Rating={trendRecipe?.recipe?.rate}
                                 time={trendRecipe?.recipe?.cooking_time}
                                 recipeId={trendRecipe?.recipe?.id}
+                                Press={() =>
+                                  navigation.navigate("RecipeDescription", {
+                                    id: trendRecipe.recipe?.id,
+                                  })
+                                }
                               ></BigCard>
                             );
                           }
@@ -370,6 +375,11 @@ const HomeScreen = ({
                             recipeLabel={popRecipe?.recipe?.name}
                             mins={popRecipe?.recipe?.cooking_time}
                             imageUri={popRecipe?.recipe?.image1}
+                            Press={() =>
+                              navigation.navigate("RecipeDescription", {
+                                id: popRecipe?.recipe?.id,
+                              })
+                            }
                           ></DetailedCard>
                         ))
                       : ""}
@@ -413,6 +423,11 @@ const HomeScreen = ({
                           <SimpleCard
                             label={recipe.name}
                             imageUri={recipe.image1}
+                            Press={() =>
+                              navigation.navigate("RecipeDescription", {
+                                id: recipe?.id,
+                              })
+                            }
                           ></SimpleCard>
                         ))
                       : ""}

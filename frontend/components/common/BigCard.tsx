@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ImageBackground,
   DimensionValue,
+  TouchableOpacity,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import RatingChip from "./RatingChip";
@@ -22,6 +23,7 @@ interface CardProps {
   Review?: string;
   time?: string;
   recipeId: string;
+  Press?:() => void;
 }
 const Card: React.FC<CardProps> = ({
   BigCardName,
@@ -32,8 +34,10 @@ const Card: React.FC<CardProps> = ({
   Review,
   time,
   recipeId,
+  Press
 }) => {
   return (
+    <TouchableOpacity onPress={Press}>
     <View style={{ display: "flex" }}>
       <View
         style={{ ...styles.card, width: BigCardWidth, height: BigCardHeight }}
@@ -86,6 +90,7 @@ const Card: React.FC<CardProps> = ({
         <Text style={styles.review}>{Review}</Text>
       </View>
     </View>
+    </TouchableOpacity>
   );
 };
 
