@@ -32,6 +32,8 @@ interface CustomTabsProps {
   shareComponent?: string;
   rateComponent?: string;
   Press?: () => void;
+  setBg?:boolean;
+  setColor?:boolean
 }
 
 const Assets: { [key: string]: ImageURISource } = {
@@ -56,9 +58,11 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
   shareComponent,
   rateComponent,
   Press,
+  setBg,
+  setColor
 }) => {
-  const chipColor = selected === label ? "red" : disabled ? "grey" : "white";
-  const labelColor = selected === label || disabled ? "white" : "black";
+  const chipColor = selected === label ? setBg ? "white" : "red" : disabled ? "black" : "white" 
+  const labelColor = selected === label || disabled ? setColor?"black": "white" : "black"; 
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -67,7 +71,7 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
   };
 
   const imageComponents = Array.from({ length: 5 }, (_, index) => (
-    <Image key={index} source={require("../../assets/whiteStar.png")} />
+    <Image key={index} source={require("../../assets/rateStar.png")} />
   ));
 
   useEffect(() => {
@@ -316,7 +320,8 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
                 style={{
                   flexDirection: "row",
                   justifyContent: "space-between",
-                  width: 120,
+                  width: '60%',
+                  height: '12%',
                   alignSelf: "center",
                 }}
               >

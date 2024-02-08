@@ -27,14 +27,14 @@ const RecipeChipComponenet : React.FC<RecipeChipProps> =({title,image,component,
                 </View>
                 <View style={{marginRight:5}}>
                 {component && <IncDecComponent></IncDecComponent>}
-                
+                {dropdowncomp && <DropDownList  ></DropDownList>}
                 
             </View>
             </View>
             <View style=
             {{alignSelf:'flex-end',
             width:'80%'}}>
-                {dropdowncomp && <DropDownList  ></DropDownList>}
+                
             </View>
             
         </View>

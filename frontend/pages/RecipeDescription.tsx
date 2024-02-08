@@ -92,6 +92,8 @@ const RecipeDescription = ({
         {/* <View style={{flexDirection:'column', width:'30%'}}> */}
         <StarCustomTab
           tabBorderColor="gray"
+          setBg={true}
+          setColor={true}
           label={"Share"}
           width={"auto"}
           height={32}
@@ -105,6 +107,8 @@ const RecipeDescription = ({
         {/* <View style={{flexDirection:'column',width:'30%'}}> */}
         <StarCustomTab
           tabBorderColor="gray"
+          setBg ={true}
+          setColor={true}
           label={"Rate Recipe"}
           width={"auto"}
           height={32}
@@ -120,12 +124,14 @@ const RecipeDescription = ({
           <StarCustomTab
             tabBorderColor="gray"
             label={"Reviews"}
+            setBg={true}
+            setColor={true}
             width={"auto"}
             height={32}
             margin={3}
             selected={tabText}
             setSelected={setTabText}
-            image="share"
+            image="review"
             Press={() => navigation.navigate("ReviewPage")}
           ></StarCustomTab>
         </TouchableOpacity>

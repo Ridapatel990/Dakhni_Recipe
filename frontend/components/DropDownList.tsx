@@ -28,14 +28,19 @@ interface FlexStyle {
     | undefined;
   alignItems?: FlexAlignType | undefined;
   maxWidth?: DimensionValue | undefined;
-
+  backgroundColor?:string
 }
 
 const stylelistCotainerProp:FlexStyle ={
-  alignContent:'flex-end',
-  maxWidth:'100%'
+  alignContent:'flex-start',
+  maxWidth:300,
   
 }
+
+const stylelistItem:FlexStyle={
+  maxWidth:300,
+}
+
 const  DropDownList  =()=> {
 
 
@@ -81,6 +86,7 @@ const  DropDownList  =()=> {
 }
 
     return (
+    
     //   <View style={{ flex: 1 }}>
         <View>
           
@@ -102,7 +108,9 @@ const  DropDownList  =()=> {
           selectedItemIconColor="#CCC"
           itemTextColor="#000"
           displayKey="name"
+          hideSubmitButton={true}
           styleListContainer={stylelistCotainerProp}
+          styleItemsContainer={stylelistItem}
           searchInputStyle={{ color: '#CCC' }}
           onToggleList={()=>( console.log('CLG Called'))}
         //   flatListProps={{onLayout}}
@@ -119,15 +127,14 @@ const  DropDownList  =()=> {
 const styles= StyleSheet.create({
    view:{
     height:60,
-    width:'100%',
-    alignSelf:'center',
+    width:280,
     borderRadius:20,
-    marginRight:50
-    // backgroundColor:'lightgray'
+    // backgroundColor:'black'
+    overflow:'hidden'
    },
    mainView:{
     flexDirection:'row',
-    backgroundColor:'rgba(220, 220, 220, 0.4)',
+    backgroundColor:'rgba(220, 220, 220, 0.9)',
     justifyContent:'space-between',
     width:'90%',
     height:60,

@@ -137,7 +137,7 @@ const RecipeCreatePage = ({
           ></RecipeChipComponenet>
           <RecipeChipComponenet
             image="category"
-            title="Category"
+            // title="Category"
             dropdowncomp="{dropdowncomp}"
           ></RecipeChipComponenet>
 
