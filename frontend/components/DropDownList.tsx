@@ -73,7 +73,11 @@ const  DropDownList  =()=> {
   }, {
     id: 'suudydjsjd',
     name: 'Abuja',
-  }];
+  },{
+    id: 'vuudydjsjd',
+    name: 'Abu Dhabi',
+  }
+];
 
   const onSelectedItemsChange = (selectedItems:any[]) => {
     setSelectedItems(selectedItems);
@@ -89,15 +93,14 @@ const  DropDownList  =()=> {
     
     //   <View style={{ flex: 1 }}>
         <View>
-          
-        <MultiSelect styleDropdownMenu={styles.view} styleDropdownMenuSubsection={{backgroundColor: 'rgba(217, 217, 217, 0.58)'}}
+        <MultiSelect styleDropdownMenu={styles.view} styleDropdownMenuSubsection={{backgroundColor: 'rgba(216, 216, 216, 0.1)'}}
           hideTags={true}
           items={items}
           uniqueKey="id"
           // ref={(component) => { this.multiSelect = component }}
           onSelectedItemsChange={onSelectedItemsChange}
           selectedItems={selectedItems}
-          selectText="category"
+          selectText="Category"
           searchInputPlaceholderText="Search Items..."
           onChangeInput={ (text)=> console.log(text)}
           altFontFamily="ProximaNova-Light"
@@ -111,7 +114,7 @@ const  DropDownList  =()=> {
           hideSubmitButton={true}
           styleListContainer={stylelistCotainerProp}
           styleItemsContainer={stylelistItem}
-          searchInputStyle={{ color: '#CCC' }}
+          searchInputStyle={{ color: 'black' }}
           onToggleList={()=>( console.log('CLG Called'))}
         //   flatListProps={{onLayout}}
         //   submitButtonColor="#CCC"

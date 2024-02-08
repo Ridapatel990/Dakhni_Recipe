@@ -1,14 +1,17 @@
-import { View, Text, StyleSheet,Image } from 'react-native'
+import { View, Text, StyleSheet,Image, Touchable, TouchableOpacity } from 'react-native'
 import React from 'react'
 import TimeAgo from 'react-native-timeago'
 import moment from 'moment'
 import { NotificationInterface } from '../interfaces'
 
 
-const Notification: React.FC<{data: NotificationInterface }>  = ({data}:{data:NotificationInterface}) => {
+
+const Notification: React.FC<{data: NotificationInterface,  Press?:() => void;
+}>  = ({data,Press}:{data:NotificationInterface;  Press?:() => void;
+}) => {
 
   return (
-    
+    <TouchableOpacity onPress={()=>{Press && Press()}}>
     <View style={styles.cardContainer}>
         
      <View>
@@ -22,6 +25,7 @@ const Notification: React.FC<{data: NotificationInterface }>  = ({data}:{data:No
         {/* <Text style={styles.time}>{time}</Text> */}
      </View>
      </View>
+     </TouchableOpacity>
   )
 }
 

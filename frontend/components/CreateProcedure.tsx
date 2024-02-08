@@ -11,6 +11,7 @@ import CreateStepCard from './CreateStepCard'
 import BottomBarContainer from '../pages/BottomBarContainer';
 import RecipeCreatePage from '../pages/RecipeCreatePage';
 import Input from '@ant-design/react-native/lib/input-item/Input';
+import { useForm,useFieldArray,Control,useWatch } from 'react-hook-form';
 // import Draggable from 'react-native-draggable';
 // import {  NestableDraggableFlatList } from "react-native-draggable-flatlist"
 
@@ -22,16 +23,31 @@ interface ProcedureProps {
 
 const Procedure: React.FC<ProcedureProps> = ({ }) => {
 
-  const [tabText, setTabText] = useState<string | undefined>(undefined)
+  // const [tabText, setTabText] = useState<string | undefined>(undefined)
+  
+  //   const [inputFields, setInputFields] = useState<any>([]);
+  
+  //   const addInputField = () => {
+  //     setInputFields([...inputFields, '']);
+  //   };
+  
+  //   const handleInputChange = (text, index) => {
+  //     const updatedFields = [...inputFields];
+  //     updatedFields[index] = text;
+  //     setInputFields(updatedFields);
+  //   };
+
+  <TouchableOpacity><View style={{ flexDirection: 'row', marginLeft: 20, marginTop: 10, marginBottom: 10 }}><Image source={require('../assets/AddRecipe.png')}></Image>
+      <Text style={{ color: 'black' }}>Add New</Text></View></TouchableOpacity>
   return (
     <SafeAreaView style={{ paddingBottom: 70 }}>
 
      <ScrollView style={{flexDirection: 'column',maxWidth:'100%',paddingVertical:10}}> 
      
        
-       <View style={{ marginLeft: 10, height: 300 }}> 
+       <View style={{ marginLeft: 10 }}> 
            <CreateStepCard txtLabel='Step 1' description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 minutes ago'></CreateStepCard>
-           <CreateStepCard txtLabel='Step 1' description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 minutes ago'></CreateStepCard>
+           
        </View> 
 
 
@@ -40,7 +56,21 @@ const Procedure: React.FC<ProcedureProps> = ({ }) => {
                <TextInput style={styles.Input}></TextInput>
              </View> 
 
-    <TouchableOpacity><View style={{ flexDirection: 'row', marginLeft: 20, marginTop: 10, marginBottom: 10 }}><Image source={require('../assets/AddRecipe.png')}></Image>
+             {/* <View>
+      {inputFields.map((value, index) => (
+        <TextInput
+          key={index}
+          value={value}
+          onChangeText={(text) => handleInputChange(text, index)}
+          placeholder={`Input ${index + 1}`}
+        />
+      ))}
+      <TouchableOpacity onPress={addInputField}>
+        <Text>Add Input Field</Text>
+      </TouchableOpacity>
+    </View> */}
+
+             <TouchableOpacity><View style={{ flexDirection: 'row', marginLeft: 20, marginTop: 10, marginBottom: 10 }}><Image source={require('../assets/AddRecipe.png')}></Image>
       <Text style={{ color: 'black' }}>Add New</Text></View></TouchableOpacity>
 
 
