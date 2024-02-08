@@ -5,17 +5,13 @@ import {
   StyleSheet,
   DimensionValue,
   Image,
-  SafeAreaView,
   ImageURISource,
   Modal,
-  Button,
 } from "react-native";
-// import React from 'react'
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import BigButton from "./BigButton";
 import InputField from "./InputField";
-import { TextInput } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import RatingModal from "./RatingModal";
 
 interface CustomTabsProps {
   label: string;
@@ -30,10 +26,12 @@ interface CustomTabsProps {
   activeImage?: string;
   tabBorderColor?: string;
   shareComponent?: string;
-  rateComponent?: string;
+  RateComponent?: boolean;
+  RateComponentProps?: any;
+  RateCallBack?: () => void;
   Press?: () => void;
-  setBg?:boolean;
-  setColor?:boolean
+  setBg?: boolean;
+  setColor?: boolean;
 }
 
 const Assets: { [key: string]: ImageURISource } = {
@@ -56,13 +54,23 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
   activeImage,
   tabBorderColor,
   shareComponent,
-  rateComponent,
+  RateComponent,
+  RateComponentProps,
+  RateCallBack,
   Press,
   setBg,
-  setColor
+  setColor,
 }) => {
-  const chipColor = selected === label ? setBg ? "white" : "red" : disabled ? "black" : "white" 
-  const labelColor = selected === label || disabled ? setColor?"black": "white" : "black"; 
+  const chipColor =
+    selected === label
+      ? setBg
+        ? "white"
+        : "red"
+      : disabled
+      ? "black"
+      : "white";
+  const labelColor =
+    selected === label || disabled ? (setColor ? "black" : "white") : "black";
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -80,6 +88,12 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
       setSelected(label);
     }
   }, []);
+
+  useEffect(() => {
+    if (!modalVisible) {
+      RateCallBack && RateCallBack();
+    }
+  }, [modalVisible]);
 
   const styles = StyleSheet.create({
     modalBackdrop: {
@@ -156,7 +170,6 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
         </View>
       </TouchableOpacity>
 
-      {/* Modal for the pop-up */}
       {shareComponent && (
         <Modal
           animationType="slide"
@@ -266,101 +279,15 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
         </Modal>
       )}
 
-      {/* Rate Component */}
-
-      {rateComponent && (
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={toggleModal}
-          presentationStyle="overFullScreen"
-        >
-          <View style={styles.modalBackdrop}>
-            <TouchableOpacity
-              style={styles.backdrop}
-              onPress={() => setModalVisible(false)}
-            />
-          </View>
-
-          <View
-            style={{
-              flexDirection: "column",
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <View
-              style={{
-                backgroundColor: "white",
-                width: "90%",
-                height: "30%",
-                borderRadius: 10,
-                flexDirection: "column",
-                alignSelf: "center",
-              }}
-            >
-              <TouchableOpacity onPress={toggleModal}>
-                <Image
-                  style={{
-                    alignSelf: "flex-end",
-                    margin: 5,
-                    height: 20,
-                    width: 20,
-                  }}
-                  source={require("../../assets/Close.png")}
-                ></Image>
-              </TouchableOpacity>
-              <View style={{ alignSelf: "center", margin: 30 }}>
-                <Text style={{ fontSize: 25 }}>Rate Recipe</Text>
-              </View>
-
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  width: '60%',
-                  height: '12%',
-                  alignSelf: "center",
-                }}
-              >
-                {imageComponents}
-              </View>
-
-              <View style={{ flexDirection: "column" }}>
-                <TouchableOpacity
-                  style={{
-                    width: 70,
-                    height: 50,
-                    marginTop: 30,
-                    alignSelf: "center",
-                  }}
-                >
-                  <LinearGradient
-                    colors={["#FC1125", "#FF9300"]}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 0, y: 1 }}
-                    style={{ borderRadius: 10 }}
-                  >
-                    <View>
-                      <Text
-                        style={{
-                          fontSize: 20,
-                          margin: 4,
-                          color: "white",
-                          alignSelf: "center",
-                        }}
-                      >
-                        Send
-                      </Text>
-                    </View>
-                  </LinearGradient>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        </Modal>
+      {RateComponent ? (
+        <RatingModal
+          {...RateComponentProps}
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          toggleModal={toggleModal}
+        />
+      ) : (
+        ""
       )}
     </View>
   );

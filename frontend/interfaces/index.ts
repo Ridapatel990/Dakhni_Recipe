@@ -144,6 +144,7 @@ export interface RecipeDetailInterface extends BaseObjInterface {
   name: string;
   image1: string | undefined;
   rate: string;
+  reviews: string;
   cooking_time: string;
   id: string;
   image2: string | undefined;
@@ -156,4 +157,9 @@ export interface RecipeDetailInterface extends BaseObjInterface {
   }[];
   ingredients: IngredientInterface[];
   procedures: ProcedureInterface[];
+}
+
+export interface ReviewInterfce extends BaseObjInterface {
+  comment: string;
+  user: UserInterface;
 }

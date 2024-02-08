@@ -6,10 +6,10 @@ import {
   NavigationProp,
   ParamListBase,
   RouteProp,
+  useFocusEffect,
 } from "@react-navigation/native";
 import CustomTabs from "../components/common/CustomTabs";
 import IngredientsList from "../components/IngredientList";
-import Procedure from "../components/Procedure";
 import { useGetAll } from "../hooks";
 import { ProcedureInterface, RecipeDetailInterface } from "../interfaces";
 import StepsCard from "../components/StepsCard";
@@ -30,36 +30,23 @@ const RecipeDescription = ({
   navigation: NavigationProp<ParamListBase>;
   route: DetailsScreenRouteProp;
 }) => {
-  const [searchText, setSearchText] = useState("");
   const [tabText, setTabText] = useState<string | undefined>(undefined);
-  const [chipText, setChipText] = useState<string | undefined>(undefined);
-  const [selectedTab, setSelectedTab] = useState(0);
   const [longTabText, setLongTabText] = useState<string | undefined>(
     "Ingredients"
   );
 
   const { id: RecipeId } = route.params;
-  const { data: recipeDetailsData } = useGetAll<RecipeDetailInterface>({
-    key: `/recipes/${RecipeId}/`,
-    select: (data: any) => data?.data,
-  });
+  const { data: recipeDetailsData, refetch: RefetchRecipeDetails } =
+    useGetAll<RecipeDetailInterface>({
+      key: `/recipes/${RecipeId}/`,
+      select: (data: any) => data?.data,
+    });
 
-  // if (longTabText === "Ingredients") {
-  //   list = (
-  //     <IngredientsList data={recipeDetailsData?.ingredients}></IngredientsList>
-  //   );
-  // } else {
-  //   list = recipeDetailsData?.procedures ? (
-  //     recipeDetailsData?.procedures?.map((procedure: ProcedureInterface) => (
-  //       <StepsCard
-  //         txtLabel={`Step ${procedure?.order}`}
-  //         description={procedure?.description}
-  //       ></StepsCard>
-  //     ))
-  //   ) : (
-  //     <Text></Text>
-  //   );
-  // }
+  useFocusEffect(
+    React.useCallback(() => {
+      RefetchRecipeDetails();
+    }, [])
+  );
 
   return (
     <ScrollView>
@@ -70,14 +57,10 @@ const RecipeDescription = ({
           time={recipeDetailsData?.cooking_time}
           BigCardName={recipeDetailsData?.name || ""}
           BigCardWidth={360}
-          Review="13k Reviews"
+          Review={`${recipeDetailsData?.reviews} Reviews`}
+          Rating={`${recipeDetailsData?.rate}`}
           recipeId={recipeDetailsData?.id || ""}
           imageUri={recipeDetailsData?.image1}
-          // time="30 min"
-          // BigCardName="Biryani"
-          // BigCardWidth={360}
-          // Review="13k Reviews"
-          // recipeId=""
         ></BigCard>
       </View>
 
@@ -107,7 +90,7 @@ const RecipeDescription = ({
         {/* <View style={{flexDirection:'column',width:'30%'}}> */}
         <StarCustomTab
           tabBorderColor="gray"
-          setBg ={true}
+          setBg={true}
           setColor={true}
           label={"Rate Recipe"}
           width={"auto"}
@@ -116,7 +99,9 @@ const RecipeDescription = ({
           selected={tabText}
           setSelected={setTabText}
           image="rate"
-          rateComponent="rateComponent"
+          RateComponent
+          RateComponentProps={{ RecipeId: RecipeId }}
+          RateCallBack={RefetchRecipeDetails}
         ></StarCustomTab>
         {/* </View> */}
         {/* <View style={{flexDirection:'column', width:'30%'}}> */}
@@ -132,7 +117,7 @@ const RecipeDescription = ({
             selected={tabText}
             setSelected={setTabText}
             image="review"
-            Press={() => navigation.navigate("ReviewPage")}
+            Press={() => navigation.navigate("ReviewPage", { id: RecipeId })}
           ></StarCustomTab>
         </TouchableOpacity>
         {/* </View> */}
@@ -161,7 +146,6 @@ const RecipeDescription = ({
         ></CustomTabs>
       </View>
 
-      {/* {list && <View> {list}</View>} */}
       <View>
         {longTabText === "Ingredients" ? (
           <IngredientsList

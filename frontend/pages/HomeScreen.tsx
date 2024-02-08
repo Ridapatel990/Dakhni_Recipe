@@ -70,8 +70,6 @@ const HomeScreen = ({
     enabled: true,
   });
 
-  console.log(query, "qtyuodcjsjhcjs");
-
   const { data: getRecipe, refetch: getRecipeRefetch } = useGetAll({
     key: `/recipes/list/?random=true&q=${
       allCatChipText == "All" && searchText == ""

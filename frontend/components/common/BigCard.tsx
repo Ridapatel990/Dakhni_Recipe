@@ -6,10 +6,8 @@ import {
   ImageBackground,
   DimensionValue,
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import RatingChip from "./RatingChip";
 import Time from "./Time";
-import SavedBtn from "../SavedBtn";
 import { mediaUrl } from "../../utils/urls";
 
 interface CardProps {
