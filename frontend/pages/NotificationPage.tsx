@@ -1,12 +1,10 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomTabs from "../components/common/CustomTabs";
-import StepsCard from "../components/StepsCard";
-import BottomNavigationBar from "../components/BottomNavigationBar";
 import { useGetAll } from "../hooks";
-import { NotificationInterface,GetProfileInterface } from "../interfaces";
+import { NotificationInterface } from "../interfaces";
 import Notification from "../components/Notification";
 
 const NotificationPage = ({
@@ -34,22 +32,12 @@ const NotificationPage = ({
     }
   };
 
-  const [profile, setProfile] = useState<GetProfileInterface | null>(null);
-
-
-  const { data: getProfile } = useGetAll({
-    key: "/accounts/profile/",
-    select: (data: any) => data?.data,
-    onSuccess: (data) => {
-
-      setProfile(data);
-    },
-  });
+ 
   
-  const [notify, setNotify] = useState<NotificationInterface | null>(null);
-
-  const {data : getNotification} = useGetAll({
-    key:"/social/notification/list/?type=all",
+  
+  const [tabText, setTabText] = useState<string | undefined>(undefined);
+  const {data : getNotification,refetch} = useGetAll({
+    key:`/social/notification/list/?type=${tabText ? tabText : tabText?.toLowerCase()}`,
     select:(data : any) => data?.data?.rows,
     onSuccess:(data) =>{
       console.log("notify================",data);
@@ -57,7 +45,15 @@ const NotificationPage = ({
     },
   });
 
-  const [tabText, setTabText] = useState<string | undefined>(undefined);
+
+  useEffect(()=> {
+    if(tabText) {
+      refetch();
+    }
+  },[tabText])
+
+
+
   return (
     <SafeAreaView style={{ paddingBottom: 70 }}>
       <ScrollView>

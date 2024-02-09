@@ -13,6 +13,7 @@ export interface RecipeInterface extends BaseObjInterface {
   name: string;
   image1: string | null;
   rate: string;
+  review:string;
   cooking_time: string;
 }
 

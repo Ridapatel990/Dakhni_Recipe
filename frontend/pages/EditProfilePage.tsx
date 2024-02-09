@@ -56,7 +56,7 @@ const EditProfilePage = ({navigation }:{navigation: NavigationProp<ParamListBase
     const data= getValues();
     const formData = new FormData();
 
-    console.log(image,data,"<========dATATTAATATA===>",user,"<===========IAMGEEEEEEE");
+    // console.log(image,data,"<========dATATTAATATA===>",user,"<===========IAMGEEEEEEE");
 
 
     if(image?.uri) {
@@ -72,7 +72,7 @@ const EditProfilePage = ({navigation }:{navigation: NavigationProp<ParamListBase
       formData.append('profession', data.profession || user?.profession);
       formData.append('description', data.description || user?.description);
     
-    console.log("Data",formData)
+    // console.log("Data",formData)
     mutate(formData)
   }
   
@@ -87,7 +87,7 @@ const EditProfilePage = ({navigation }:{navigation: NavigationProp<ParamListBase
     });
 
     if (!result.didCancel && result?.assets) {
-    console.log(result?.assets[0],"<===========RESult")
+    // console.log(result?.assets[0],"<===========RESult")
       setImage(result?.assets[0]);
     }
   };

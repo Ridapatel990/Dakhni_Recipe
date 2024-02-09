@@ -34,7 +34,7 @@ const ResetPassPage = ({
   const { mutate } = useCreateOrUpdate({
     url: "/accounts/change-password/",
     onSuccess(data, variables) {
-      console.log(data, "<======");
+      // console.log(data, "<======");
       navigation.navigate("SignInPage");
     },
     onError(data) {

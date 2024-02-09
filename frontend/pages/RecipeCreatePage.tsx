@@ -72,7 +72,7 @@ const RecipeCreatePage = ({
     });
 
     if (!result.didCancel) {
-      console.log(result);
+      // console.log(result);
       setImage(image);
     }
   };

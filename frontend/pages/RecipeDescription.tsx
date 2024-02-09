@@ -146,7 +146,7 @@ const RecipeDescription = ({
         ></CustomTabs>
       </View>
 
-      <View>
+      <View style={{marginBottom:10}}>
         {longTabText === "Ingredients" ? (
           <IngredientsList
             data={recipeDetailsData?.ingredients}

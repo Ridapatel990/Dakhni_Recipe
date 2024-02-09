@@ -118,7 +118,7 @@ const ReviewPage: React.FC<ReviewPageProps> = ({ navigation, route }) => {
         {ReviewsData?.rows && ReviewsData?.rows?.length > 0
           ? ReviewsData?.rows?.map((review: ReviewInterfce) => {
               return (
-                <View style={{ marginTop: 30 }}>
+                <View style={{ marginTop: 30,marginLeft:15 }}>
                   <ReviewComponent
                     name={review?.user?.name}
                     // time="Jun 12 2020,12:42"

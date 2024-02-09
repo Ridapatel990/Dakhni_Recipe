@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Profile from "../components/Profile";
 import EditPage from "./EditProfilePage";
-import { NavigationProp, ParamListBase } from "@react-navigation/native";
+import { NavigationProp, ParamListBase,RouteProp, useFocusEffect } from "@react-navigation/native";
 import CircularAvatar from "../components/CircleAvatar";
 import ProfileComponent from "../components/home/ProfileComponent";
 import BigButton from "../components/common/BigButton";
@@ -13,6 +13,7 @@ import BottomNavigationBar from "../components/BottomNavigationBar";
 import { useGetAll } from "../hooks";
 import { GetProfileInterface, RecipeInterface } from "../interfaces";
 import { mediaUrl } from "../utils/urls";
+import { RecipeDetailInterface } from "../interfaces";
 import Recipe from "../components/Recipe";
 
 // const ScrollViewContent = () => (
@@ -75,10 +76,24 @@ const styles = StyleSheet.create({
 }
 });
 
+// type RootStackParamList = {
+//   AccountPage: { id: string };
+// };
+
+// type DetailsScreenRouteProp = RouteProp<
+//   RootStackParamList,
+//   "AccountPage"
+// >;
+
+
+
 const AccountPage = ({
-  navigation
+  navigation,
+  // route,
+
 }: {
   navigation: NavigationProp<ParamListBase>;
+  // route: DetailsScreenRouteProp;
 }) => {
   const onItemTapped = (index: number) => {
     switch (index) {
@@ -115,12 +130,23 @@ const AccountPage = ({
       key: "/accounts/profile/",
       select: (data: any) => data?.data,
       onSuccess: (data) => {
-  
         setProfile(data);
       },
     });
   // }, []);
 
+  // const { id: RecipeId } = route.params;
+  // const { data: recipeDetailsData, refetch: RefetchRecipeDetails } =
+  //   useGetAll<RecipeDetailInterface>({
+  //     key: `/recipes/${RecipeId}/`,
+  //     select: (data: any) => data?.data,
+  //   });
+
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     RefetchRecipeDetails();
+  //   }, [])
+  // );
   const { data: getRecipe } = useGetAll({
     key: "/recipes/list/?random=true",
     select: (data: any) => data?.data,
@@ -134,7 +160,7 @@ const AccountPage = ({
   // useEffect(()=>{}, [])
   
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{marginBottom:60}}>
       <View style={{ flexDirection: "column" }}>
         <View>
           <Profile navigation={navigation}></Profile>
@@ -169,12 +195,15 @@ const AccountPage = ({
           {profile?.recipes && profile?.recipes.length ? profile.recipes.map((recipe:RecipeInterface)=>(<BigCard
             BigCardName={recipe.name}
             BigCardWidth={'100%'}
-            Review={String(recipe.rate)}
+            // Review={`${recipeDetailsData?.reviews} Reviews`}
             imageUri={recipe.image1 || null}
             recipeId={recipe.id}
             // imageUri={{uri: mediaUrl + recipe.image1} }
             Rating={String(recipe.rate)}
             time={recipe.cooking_time}
+            Press={() => navigation.navigate("RecipeDescription",{
+              id:recipe?.id
+            })}
           ></BigCard>)): ''}
         </View>
       </ScrollView>
