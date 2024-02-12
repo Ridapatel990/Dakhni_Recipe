@@ -1,16 +1,18 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { mediaUrl } from "../../utils/urls";
 
 interface SimpleCardProps {
   label: string;
   imageUri?: string | null;
+  Press?: () => void;
+
 }
 
-const SimpleCard: React.FC<SimpleCardProps> = ({ label, imageUri }) => {
+const SimpleCard: React.FC<SimpleCardProps> = ({ label, imageUri,Press }) => {
   const styles = StyleSheet.create({
     container: {
-      height: 150,
+      height: 160,
       width: 124,
       marginTop: 20,
       marginRight: 10,
@@ -29,6 +31,7 @@ const SimpleCard: React.FC<SimpleCardProps> = ({ label, imageUri }) => {
     },
   });
   return (
+    <TouchableOpacity onPress={Press}>
     <View style={styles.container}>
       <View>
         <Image
@@ -44,6 +47,7 @@ const SimpleCard: React.FC<SimpleCardProps> = ({ label, imageUri }) => {
         <Text style={styles.text}>{label}</Text>
       </View>
     </View>
+    </TouchableOpacity>
   );
 };
 

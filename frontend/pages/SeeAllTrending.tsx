@@ -12,7 +12,7 @@ const SeeAllNewRecipe = () => {
 
   return (
     <View>
-      <Text style={styles.header}>New Recipes</Text>
+      <Text style={styles.header}>Trending Recipes</Text>
       <ScrollView>
         <View
           style={{
@@ -30,6 +30,7 @@ const SeeAllNewRecipe = () => {
                   imageUri={trendRecipe?.recipe?.image1}
                   Rating={trendRecipe?.recipe?.rate}
                   time={trendRecipe?.recipe?.cooking_time}
+                  recipeId={trendRecipe.id}
                 ></BigCard>
               ))
             : ""}

@@ -15,7 +15,7 @@ interface CardProps {
   imageUri?: string | null;
   CardWidth?: DimensionValue;
   CardHeight?: DimensionValue;
-  Rating?: number;
+  Rating?: string;
 }
 const Card: React.FC<CardProps> = ({
   CardName,
@@ -35,7 +35,7 @@ const Card: React.FC<CardProps> = ({
         style={styles.image}
       >
         <LinearGradient
-          colors={["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 1)"]}
+          colors={["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.5)"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 0, y: 1 }}
           style={styles.buttonGradient}

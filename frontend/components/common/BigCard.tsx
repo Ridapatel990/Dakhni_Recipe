@@ -5,11 +5,10 @@ import {
   StyleSheet,
   ImageBackground,
   DimensionValue,
+  TouchableOpacity,
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import RatingChip from "./RatingChip";
 import Time from "./Time";
-import SavedBtn from "../SavedBtn";
 import { mediaUrl } from "../../utils/urls";
 
 interface CardProps {
@@ -18,9 +17,11 @@ interface CardProps {
   imageUri?: string | null;
   BigCardWidth?: DimensionValue;
   BigCardHeight?: DimensionValue;
-  Rating?: number;
+  Rating?: string;
   Review?: string;
   time?: string;
+  recipeId: string;
+  Press?:() => void;
 }
 const Card: React.FC<CardProps> = ({
   BigCardName,
@@ -30,8 +31,11 @@ const Card: React.FC<CardProps> = ({
   Rating,
   Review,
   time,
+  recipeId,
+  Press
 }) => {
   return (
+    <TouchableOpacity onPress={Press}>
     <View style={{ display: "flex" }}>
       <View
         style={{ ...styles.card, width: BigCardWidth, height: BigCardHeight }}
@@ -69,9 +73,14 @@ const Card: React.FC<CardProps> = ({
 
         <RatingChip Rating={Rating} />
 
-        <Time Time={time}></Time>
+        <Time Time={time} recipeId={recipeId}></Time>
 
-        {/* <SavedBtn></SavedBtn> */}
+        {/* <SavedBtn
+          onSave={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+          isSaved={false}
+        ></SavedBtn> */}
       </View>
 
       <View style={{ marginTop: 5, marginBottom: 10 }}>
@@ -79,6 +88,7 @@ const Card: React.FC<CardProps> = ({
         <Text style={styles.review}>{Review}</Text>
       </View>
     </View>
+    </TouchableOpacity>
   );
 };
 

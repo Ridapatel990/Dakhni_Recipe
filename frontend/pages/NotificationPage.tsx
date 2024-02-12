@@ -1,10 +1,11 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomTabs from "../components/common/CustomTabs";
-import StepsCard from "../components/StepsCard";
-import BottomNavigationBar from "../components/BottomNavigationBar";
+import { useGetAll } from "../hooks";
+import { NotificationInterface } from "../interfaces";
+import Notification from "../components/Notification";
 
 const NotificationPage = ({
   navigation,
@@ -31,7 +32,28 @@ const NotificationPage = ({
     }
   };
 
+ 
+  
+  
   const [tabText, setTabText] = useState<string | undefined>(undefined);
+  const {data : getNotification,refetch} = useGetAll({
+    key:`/social/notification/list/?type=${tabText ? tabText : tabText?.toLowerCase()}`,
+    select:(data : any) => data?.data?.rows,
+    onSuccess:(data) =>{
+      console.log("notify================",data);
+      
+    },
+  });
+
+
+  useEffect(()=> {
+    if(tabText) {
+      refetch();
+    }
+  },[tabText])
+
+
+
   return (
     <SafeAreaView style={{ paddingBottom: 70 }}>
       <ScrollView>
@@ -73,45 +95,21 @@ const NotificationPage = ({
           </View>
 
           <View style={{ margin: 20 }}>
-            <StepsCard
-              txtLabel={"New Recipe Alert!"}
-              description={
-                "Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum"
-              }
-              time="10 mins ago"
-            ></StepsCard>
-            <StepsCard
-              txtLabel={"New Recipe Alert!"}
-              description={
-                "Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum"
-              }
-              time="10 mins ago"
-            ></StepsCard>
-            <StepsCard
-              txtLabel={"New Recipe Alert!"}
-              description={
-                "Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum"
-              }
-              time="10 mins ago"
-            ></StepsCard>
-            <StepsCard
-              txtLabel={"New Recipe Alert!"}
-              description={
-                "Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum"
-              }
-              time="10 mins ago"
-            ></StepsCard>
-            <StepsCard
-              txtLabel={"New Recipe Alert!"}
-              description={
-                "Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum"
-              }
-              time="10 mins ago"
-            ></StepsCard>
+
+          {getNotification?.length>0 ? getNotification?.map((notification:NotificationInterface)=><Notification data={notification}
+            Press = {() =>
+              navigation.navigate("RecipeDescription", {
+                id: notification.recipe?.id,
+              })
+            }
+          ></Notification>): ''}
+
+            
+            
           </View>
         </View>
       </ScrollView>
-      {/* <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0}></BottomNavigationBar> */}
+      {/* <BottomNaviPress?:() => void;gationBar onItemTapped={onItemTapped} selectedIndex={0}></BottomNavigationBar> */}
     </SafeAreaView>
   );
 };

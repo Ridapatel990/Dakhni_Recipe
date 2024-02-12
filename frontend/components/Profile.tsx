@@ -19,6 +19,7 @@ const Profile = ({
     // Perform action for edit
     setModalVisible(false); // Close the modal
     // Add logic for edit here
+    navigation.navigate("EditProfilePage")
   };
 
   const handleLogout = async () => {
@@ -39,6 +40,7 @@ const Profile = ({
       </TouchableOpacity>
 
       <Modal
+        
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -75,13 +77,17 @@ const Profile = ({
 };
 
 const styles = StyleSheet.create({
+  
   centeredView: {
     flex: 1,
     // justifyContent: 'center',
     alignItems: "center",
     marginTop: 82,
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalView: {
+    
     margin: 20,
     backgroundColor: "white",
     borderRadius: 10,

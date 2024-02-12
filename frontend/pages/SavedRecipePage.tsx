@@ -13,56 +13,31 @@ import {
   useFocusEffect,
 } from "@react-navigation/native";
 import Card from "../components/home/Card";
-import { useGetAll } from "../hooks";
 import { RecipeInterface } from "../interfaces";
+import { serverAPI } from "../utils";
 
 const SavedRecipePage = ({
   navigation,
 }: {
   navigation: NavigationProp<ParamListBase>;
 }) => {
-  const onItemTapped = (index: number) => {
-    switch (index) {
-      case 0:
-        navigation.navigate("HomeScreen");
-        break;
-      case 1:
-        navigation.navigate("SavedRecipePage");
-        break;
-      case 3:
-        navigation.navigate("NotificationPage");
-        break;
-      case 4:
-        navigation.navigate("AccountPage");
-        break;
+  const [savedRecipes, setSavedRecipes] = useState([]);
 
-      default:
-        break;
-    }
+  const getRecipeData = async () => {
+    const res = await serverAPI.get("/social/saved-recipe/list/");
+    setSavedRecipes(res?.data?.rows);
   };
-  const [enabled, setEnabled] = useState(false);
 
-  const { data: savedRecipes } = useGetAll({
-    key: "/social/saved-recipe/list/",
-    enabled: enabled,
-    onSuccess(data) {
-      console.log("onSuccessonSuccessonSuccess", data);
-      setEnabled(false);
-    },
-    onError(err) {
-      console.log("ERRRIRIRIRIRI", err);
-    },
-  });
-
-  useFocusEffect(() => {
-    setEnabled(true);
-    console.log("Screen is focused");
-  });
+  useFocusEffect(
+    React.useCallback(() => {
+      getRecipeData();
+    }, [])
+  );
 
   const [isRefreshing, setRefreshing] = useState(false);
 
-  const onRefresh = useCallback(() => {
-    setEnabled(true);
+  const onRefresh = useCallback(async () => {
+    await getRecipeData();
     setTimeout(() => {
       setRefreshing(false);
     }, 1000);
@@ -100,14 +75,13 @@ const SavedRecipePage = ({
                   key={item.recipe.id}
                   CardName={item.recipe.name}
                   imageUri={item.recipe.image1}
+                  // Rating={item.recipe.rate}
                   Rating={item.recipe.rate}
                 ></Card>
               ))
             : ""}
         </View>
       </ScrollView>
-
-      {/* <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0} /> */}
     </SafeAreaView>
   );
 };
@@ -132,23 +106,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     paddingLeft: 20,
   },
-
-  // squareImage: {
-  //   // flexDirection: 'row',
-  //   marginTop: 30,
-  //   height: 40,
-
-  // },
-
-  // overLayImg: {
-  //   // flexDirection: 'row',
-  //   marginTop: 30,
-  //   height: 40,
-  //   // position: 'absolute',
-  //   // top: 50,
-  //   // left: 50,
-
-  // }
 });
 
 export default SavedRecipePage;
