@@ -124,9 +124,10 @@ class NotificationView(BaseAPIView):
     def get(self, request, id=None, *args, **kwargs):
         type = request.query_params.get("type")
         filters = Q(user=request.thisUser.id)
-        if type == "read":
+        # print(type, "iiiiiiiiiiiiiiii")
+        if type == "Read":
             filters &= Q(is_read=True)
-        elif type == "unread":
+        elif type == "Unread":
             filters &= Q(is_read=False)
         self.query_set = self.model.objects.filter(filters)
         return super().get(request, id, *args, **kwargs)
