@@ -35,18 +35,7 @@
         "description": "Mix in cumin powder, coriander powder, turmeric powder, red chili powder, garam masala, and salt. Stir well.Pour enough water to cover the mutton. Add bay leaves, cardamom pods, cloves, and cinnamon stick.Cover the pot and let it simmer on low heat for 3-4 hours or until the mutton is tender and the flavors are well absorbed."
     }
 },
-{
-    "model": "recipes.procedure",
-    "pk": "1089aeed-ce67-4d2b-ace9-44101f70798b",
-    "fields": {
-        "created_on": "2024-01-25T13:25:44.772Z",
-        "updated_on": "2024-01-25T13:25:44.772Z",
-        "is_deleted": false,
-        "recipe": "b25e33d7-f30c-47b9-abd6-fb5c62dd87fa",
-        "order": 2,
-        "description": "strain the jiuce and add sugar as needed"
-    }
-},
+
 {
     "model": "recipes.procedure",
     "pk": "143ad0ac-7eb5-4ec3-82e2-3e73b9f8de69",
@@ -57,18 +46,6 @@
         "recipe": "5426eb3c-a6a5-40fb-8b92-aa2a03b902a1",
         "order": 1,
         "description": "Clean and Soak the Trotters:\r\nWash mutton trotters thoroughly under running water.\r\nSoak them in water with a pinch of turmeric for about 1-2 hours."
-    }
-},
-{
-    "model": "recipes.procedure",
-    "pk": "1520624c-3e81-4064-be5b-34affcbfdb61",
-    "fields": {
-        "created_on": "2024-01-25T13:25:48.202Z",
-        "updated_on": "2024-01-25T13:25:48.202Z",
-        "is_deleted": false,
-        "recipe": "e6d82220-bfb3-4072-b8d3-f84e020b858a",
-        "order": 1,
-        "description": "pil the oranges, add them in mixer, grind well"
     }
 },
 {
@@ -167,18 +144,7 @@
         "description": "Take the marinated mixture and, with slightly wet hands, mold it onto skewers to form elongated kebabs. Ensure that the meat is evenly distributed on the skewers."
     }
 },
-{
-    "model": "recipes.procedure",
-    "pk": "3892efa8-da39-41f6-9655-3e5bf9302dfb",
-    "fields": {
-        "created_on": "2024-01-25T13:25:44.772Z",
-        "updated_on": "2024-01-25T13:25:44.772Z",
-        "is_deleted": false,
-        "recipe": "b25e33d7-f30c-47b9-abd6-fb5c62dd87fa",
-        "order": 1,
-        "description": "pil the oranges, add them in mixer, grind well"
-    }
-},
+
 {
     "model": "recipes.procedure",
     "pk": "3941d8ee-b2b1-4e86-8a46-7fde4cdcc3f7",
@@ -193,18 +159,6 @@
 },
 {
     "model": "recipes.procedure",
-    "pk": "465d32d7-7f62-45e0-9131-cd5e01b087b9",
-    "fields": {
-        "created_on": "2024-01-25T13:25:54.708Z",
-        "updated_on": "2024-01-25T13:25:54.708Z",
-        "is_deleted": false,
-        "recipe": "dbc42030-4917-4043-818c-7bbf9ba58c3b",
-        "order": 2,
-        "description": "strain the jiuce and add sugar as needed"
-    }
-},
-{
-    "model": "recipes.procedure",
     "pk": "4662f499-128d-442c-8540-f64cce1282a0",
     "fields": {
         "created_on": "2024-02-07T04:44:26.276Z",
@@ -213,18 +167,6 @@
         "recipe": "fdee48e4-7ab8-420f-984b-3d021fa9ded8",
         "order": 2,
         "description": "In a large pot, heat oil or ghee. Add sliced onions and cook until golden brown. Add ginger-garlic paste and sauté until the raw smell disappears. Add meat pieces, turmeric powder, red chili powder, and salt. Cook until the meat is browned."
-    }
-},
-{
-    "model": "recipes.procedure",
-    "pk": "49e29aa6-2684-4be8-837c-b89e55a89669",
-    "fields": {
-        "created_on": "2024-01-25T13:25:51.257Z",
-        "updated_on": "2024-01-25T13:25:51.257Z",
-        "is_deleted": false,
-        "recipe": "66ba7c37-013c-4332-981f-74a6011c9bfe",
-        "order": 2,
-        "description": "strain the jiuce and add sugar as needed"
     }
 },
 {
@@ -249,30 +191,6 @@
         "recipe": "3a7fcec4-e86e-431c-91ed-f3bfbe4fd618",
         "order": 2,
         "description": "In a large pan, heat vegetable oil over medium heat.\r\nAdd sliced onions and sauté until golden brown.\r\nAdd minced garlic and grated ginger, sauté for another 2 minutes.\r\nAdd chicken pieces and brown them on all sides.\r\nStir in yogurt, mandi spice mix, and salt. Cook until the chicken is tender.\r\nPreheat the oven to 180°C (350°F)."
-    }
-},
-{
-    "model": "recipes.procedure",
-    "pk": "776b3051-659d-45bf-adf3-405fa141f011",
-    "fields": {
-        "created_on": "2024-01-25T13:25:36.472Z",
-        "updated_on": "2024-01-25T13:25:36.472Z",
-        "is_deleted": false,
-        "recipe": "a4c82326-98ae-4039-8bf8-80656f584d33",
-        "order": 2,
-        "description": "strain the jiuce and add sugar as needed"
-    }
-},
-{
-    "model": "recipes.procedure",
-    "pk": "798d69b3-29ba-4758-b2ac-43ec62f823a0",
-    "fields": {
-        "created_on": "2024-01-25T13:25:36.472Z",
-        "updated_on": "2024-01-25T13:25:36.472Z",
-        "is_deleted": false,
-        "recipe": "a4c82326-98ae-4039-8bf8-80656f584d33",
-        "order": 1,
-        "description": "pil the oranges, add them in mixer, grind well"
     }
 },
 {
@@ -385,30 +303,6 @@
 },
 {
     "model": "recipes.procedure",
-    "pk": "9e4e533f-bb2f-495a-a52f-23a5560c4fc3",
-    "fields": {
-        "created_on": "2024-01-25T13:25:48.202Z",
-        "updated_on": "2024-01-25T13:25:48.202Z",
-        "is_deleted": false,
-        "recipe": "e6d82220-bfb3-4072-b8d3-f84e020b858a",
-        "order": 2,
-        "description": "strain the jiuce and add sugar as needed"
-    }
-},
-{
-    "model": "recipes.procedure",
-    "pk": "bfc715e6-cf89-4763-ab36-7760f1ddb5b7",
-    "fields": {
-        "created_on": "2024-01-25T13:25:54.708Z",
-        "updated_on": "2024-01-25T13:25:54.708Z",
-        "is_deleted": false,
-        "recipe": "dbc42030-4917-4043-818c-7bbf9ba58c3b",
-        "order": 1,
-        "description": "pil the oranges, add them in mixer, grind well"
-    }
-},
-{
-    "model": "recipes.procedure",
     "pk": "c18f95a6-2977-45fc-9a36-fd9d4e2d0a75",
     "fields": {
         "created_on": "2024-02-01T13:35:40.345Z",
@@ -477,18 +371,6 @@
         "recipe": "3a7fcec4-e86e-431c-91ed-f3bfbe4fd618",
         "order": 4,
         "description": "Repeat the layers, finishing with a layer of rice on top."
-    }
-},
-{
-    "model": "recipes.procedure",
-    "pk": "d93235ca-6c19-432b-a6d7-899f65cadc70",
-    "fields": {
-        "created_on": "2024-01-25T13:25:51.257Z",
-        "updated_on": "2024-01-25T13:25:51.257Z",
-        "is_deleted": false,
-        "recipe": "66ba7c37-013c-4332-981f-74a6011c9bfe",
-        "order": 1,
-        "description": "pil the oranges, add them in mixer, grind well"
     }
 },
 {

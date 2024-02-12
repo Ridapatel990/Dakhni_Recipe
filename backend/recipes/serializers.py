@@ -94,12 +94,16 @@ class GetRecipeSerializer(ModelSerializer):
 class GetAllRecipeSerializer(ModelSerializer):
     rate = SerializerMethodField()
     is_saved = SerializerMethodField()
+    reviews = SerializerMethodField()
 
     def get_is_saved(self, obj):
         user = self.context.get("user")
         if SavedRecipe.objects.filter(Q(user=user) & Q(recipe=obj)).exists():
             return True
         return False
+
+    def get_reviews(self, obj):
+        return Review.objects.filter(recipe=obj).count()
 
     def get_rate(slef, obj):
         # print(obj)

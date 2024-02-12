@@ -6,7 +6,7 @@
         "created_on": "2024-02-01T13:26:27.651Z",
         "updated_on": "2024-02-01T13:27:01.612Z",
         "is_deleted": false,
-        "chef": "c1978a4e-2b7f-43d1-9d6f-b04e5a5a7a6b",
+        "chef": "701d306e-2b70-4c6f-8d23-f1600ea2f696",
         "name": "Mandi Biryani",
         "serve_qty": 5,
         "cooking_time": "2hr",
@@ -27,7 +27,7 @@
         "created_on": "2024-02-01T13:31:48.413Z",
         "updated_on": "2024-02-01T13:32:08.466Z",
         "is_deleted": false,
-        "chef": "c1978a4e-2b7f-43d1-9d6f-b04e5a5a7a6b",
+        "chef": "701d306e-2b70-4c6f-8d23-f1600ea2f696",
         "name": "Mutton Paaye",
         "serve_qty": 5,
         "cooking_time": "3hr",
@@ -47,7 +47,7 @@
         "created_on": "2024-02-01T13:33:00.902Z",
         "updated_on": "2024-02-07T05:00:07.886Z",
         "is_deleted": false,
-        "chef": "c1978a4e-2b7f-43d1-9d6f-b04e5a5a7a6b",
+        "chef": "701d306e-2b70-4c6f-8d23-f1600ea2f696",
         "name": "Mutton Nihari",
         "serve_qty": 3,
         "cooking_time": "1hr",
@@ -62,33 +62,12 @@
 },
 {
     "model": "recipes.recipe",
-    "pk": "66ba7c37-013c-4332-981f-74a6011c9bfe",
-    "fields": {
-        "created_on": "2024-01-25T13:25:51.249Z",
-        "updated_on": "2024-01-25T13:25:51.249Z",
-        "is_deleted": false,
-        "chef": "5ec17354-03da-4ff3-9e99-f60b1aa9c63f",
-        "name": "Test Recipe1",
-        "serve_qty": 6,
-        "cooking_time": "30min",
-        "link": null,
-        "image1": "",
-        "image2": "",
-        "image3": "",
-        "category": [
-            "17d51d88-edf0-4a9e-8384-2b3db20e2153",
-            "00e2a074-e3ec-4222-a32c-4db79182fd64"
-        ]
-    }
-},
-{
-    "model": "recipes.recipe",
     "pk": "6cf7c198-ff54-46bc-a63f-e1d25b28125b",
     "fields": {
         "created_on": "2024-02-01T12:08:37.814Z",
         "updated_on": "2024-02-01T13:23:53.194Z",
         "is_deleted": false,
-        "chef": "c1978a4e-2b7f-43d1-9d6f-b04e5a5a7a6b",
+        "chef": "701d306e-2b70-4c6f-8d23-f1600ea2f696",
         "name": "Seekh kabab",
         "serve_qty": 1,
         "cooking_time": "30min",
@@ -103,33 +82,12 @@
 },
 {
     "model": "recipes.recipe",
-    "pk": "a4c82326-98ae-4039-8bf8-80656f584d33",
-    "fields": {
-        "created_on": "2024-01-25T13:25:36.459Z",
-        "updated_on": "2024-01-25T13:25:36.459Z",
-        "is_deleted": false,
-        "chef": "5ec17354-03da-4ff3-9e99-f60b1aa9c63f",
-        "name": "Test Recipe6",
-        "serve_qty": 2,
-        "cooking_time": "30min",
-        "link": null,
-        "image1": "",
-        "image2": "",
-        "image3": "",
-        "category": [
-            "17d51d88-edf0-4a9e-8384-2b3db20e2153",
-            "00e2a074-e3ec-4222-a32c-4db79182fd64"
-        ]
-    }
-},
-{
-    "model": "recipes.recipe",
     "pk": "a6bdddb6-4dd9-4be0-9e2e-ce6848cca202",
     "fields": {
         "created_on": "2024-02-01T13:35:40.337Z",
         "updated_on": "2024-02-01T13:35:59.017Z",
         "is_deleted": false,
-        "chef": "c1978a4e-2b7f-43d1-9d6f-b04e5a5a7a6b",
+        "chef": "701d306e-2b70-4c6f-8d23-f1600ea2f696",
         "name": "Mutton Ribs",
         "serve_qty": 2,
         "cooking_time": "30min",
@@ -150,7 +108,7 @@
         "created_on": "2024-02-01T13:36:25.006Z",
         "updated_on": "2024-02-01T13:36:46.783Z",
         "is_deleted": false,
-        "chef": "c1978a4e-2b7f-43d1-9d6f-b04e5a5a7a6b",
+        "chef": "701d306e-2b70-4c6f-8d23-f1600ea2f696",
         "name": "Beef Stew",
         "serve_qty": 1,
         "cooking_time": "30min",
@@ -165,53 +123,12 @@
 },
 {
     "model": "recipes.recipe",
-    "pk": "b25e33d7-f30c-47b9-abd6-fb5c62dd87fa",
-    "fields": {
-        "created_on": "2024-01-25T13:25:44.762Z",
-        "updated_on": "2024-01-31T07:23:39.832Z",
-        "is_deleted": false,
-        "chef": "5ec17354-03da-4ff3-9e99-f60b1aa9c63f",
-        "name": "Test Recipe",
-        "serve_qty": 6,
-        "cooking_time": "30min",
-        "link": null,
-        "image1": "",
-        "image2": "",
-        "image3": "",
-        "category": [
-            "17d51d88-edf0-4a9e-8384-2b3db20e2153"
-        ]
-    }
-},
-{
-    "model": "recipes.recipe",
-    "pk": "dbc42030-4917-4043-818c-7bbf9ba58c3b",
-    "fields": {
-        "created_on": "2024-01-25T13:25:54.701Z",
-        "updated_on": "2024-01-30T07:29:30.624Z",
-        "is_deleted": false,
-        "chef": "5ec17354-03da-4ff3-9e99-f60b1aa9c63f",
-        "name": "Test Recipe9",
-        "serve_qty": 6,
-        "cooking_time": "30min",
-        "link": null,
-        "image1": "recipes/orange_huice_KqXU76j.jpeg",
-        "image2": "",
-        "image3": "",
-        "category": [
-            "17d51d88-edf0-4a9e-8384-2b3db20e2153",
-            "00e2a074-e3ec-4222-a32c-4db79182fd64"
-        ]
-    }
-},
-{
-    "model": "recipes.recipe",
     "pk": "e525491c-b92c-42bf-ba3b-4eb44814fe1b",
     "fields": {
         "created_on": "2024-02-01T13:34:37.643Z",
         "updated_on": "2024-02-01T13:35:06.046Z",
         "is_deleted": false,
-        "chef": "c1978a4e-2b7f-43d1-9d6f-b04e5a5a7a6b",
+        "chef": "701d306e-2b70-4c6f-8d23-f1600ea2f696",
         "name": "Chicken Korma",
         "serve_qty": 5,
         "cooking_time": "30min",
@@ -227,33 +144,12 @@
 },
 {
     "model": "recipes.recipe",
-    "pk": "e6d82220-bfb3-4072-b8d3-f84e020b858a",
-    "fields": {
-        "created_on": "2024-01-25T13:25:48.193Z",
-        "updated_on": "2024-01-25T13:25:48.193Z",
-        "is_deleted": false,
-        "chef": "5ec17354-03da-4ff3-9e99-f60b1aa9c63f",
-        "name": "Test Recipe4",
-        "serve_qty": 6,
-        "cooking_time": "30min",
-        "link": null,
-        "image1": "",
-        "image2": "",
-        "image3": "",
-        "category": [
-            "17d51d88-edf0-4a9e-8384-2b3db20e2153",
-            "00e2a074-e3ec-4222-a32c-4db79182fd64"
-        ]
-    }
-},
-{
-    "model": "recipes.recipe",
     "pk": "fdee48e4-7ab8-420f-984b-3d021fa9ded8",
     "fields": {
         "created_on": "2024-02-01T13:25:10.792Z",
         "updated_on": "2024-02-01T13:25:22.765Z",
         "is_deleted": false,
-        "chef": "c1978a4e-2b7f-43d1-9d6f-b04e5a5a7a6b",
+        "chef": "701d306e-2b70-4c6f-8d23-f1600ea2f696",
         "name": "Tasty Haleem",
         "serve_qty": 2,
         "cooking_time": "1hr",
