@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, TouchableOpacity, Modal, Text, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
+import { AuthContext } from "../context";
 
 const Profile = ({
   navigation,
@@ -19,14 +20,22 @@ const Profile = ({
     // Perform action for edit
     setModalVisible(false); // Close the modal
     // Add logic for edit here
-    navigation.navigate("EditProfilePage")
+    navigation.navigate("EditProfilePage");
   };
+
+  const { logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
     await AsyncStorage.removeItem("userToken");
     await AsyncStorage.removeItem("user");
     setModalVisible(false);
-    navigation.navigate("SignInPage");
+    // navigation.navigate("SignInPage");
+
+    navigation.reset({
+      routes: [{ name: "BottomBarContainer" }],
+      index: 0,
+    });
+    logout && logout();
   };
 
   return (
@@ -40,7 +49,6 @@ const Profile = ({
       </TouchableOpacity>
 
       <Modal
-        
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -77,7 +85,6 @@ const Profile = ({
 };
 
 const styles = StyleSheet.create({
-  
   centeredView: {
     flex: 1,
     // justifyContent: 'center',
@@ -87,7 +94,6 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalView: {
-    
     margin: 20,
     backgroundColor: "white",
     borderRadius: 10,
