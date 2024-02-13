@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomTabs from "../components/common/CustomTabs";
-import { useGetAll } from "../hooks";
+import { useCreateOrUpdate, useGetAll } from "../hooks";
 import { NotificationInterface } from "../interfaces";
 import Notification from "../components/Notification";
 
@@ -34,7 +34,8 @@ const NotificationPage = ({
 
  
   
-  
+  const [notificationId ,setNotificationId] = useState<string>('');
+
   const [tabText, setTabText] = useState<string | undefined>(undefined);
   const {data : getNotification,refetch} = useGetAll({
     key:`/social/notification/list/?type=${tabText ? tabText : tabText?.toLowerCase()}`,
@@ -44,6 +45,18 @@ const NotificationPage = ({
       
     },
   });
+  const { mutate } = useCreateOrUpdate({
+    url: `/social/notification/${notificationId}/`,
+    method :'put',
+    onSuccess:  (response) => {
+      console.log('Success of read API',response)
+      // ToastAndroid.show("Login Successfully", ToastAndroid.SHORT);
+    },
+    onError : (error) => {
+      console.log('-----',error.status)
+    }
+  });
+
 
 
   useEffect(()=> {
@@ -97,10 +110,13 @@ const NotificationPage = ({
           <View style={{ margin: 20 }}>
 
           {getNotification?.length>0 ? getNotification?.map((notification:NotificationInterface)=><Notification data={notification}
-            Press = {() =>
+            Press = {() =>{
+              setNotificationId(notification.id)
+              mutate({"is_read":true})
               navigation.navigate("RecipeDescription", {
                 id: notification.recipe?.id,
               })
+            }
             }
           ></Notification>): ''}
 

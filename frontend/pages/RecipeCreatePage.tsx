@@ -47,12 +47,14 @@ const RecipeCreatePage = ({
   let list;
   if (longTabText === "Ingredients") {
     list = (
-      <View style={{ marginBottom: 30 }}>
+      <View style={{ marginBottom: 30,zIndex:-1 }}>
         <CreateIngredient></CreateIngredient>
       </View>
     );
   } else {
-    list = <CreateProcedure></CreateProcedure>;
+    list =  <View style={{zIndex:-1 }}>
+            <CreateProcedure></CreateProcedure>
+            </View>
   }
 
   const [image, setImage] = useState<string | undefined>('');
@@ -140,8 +142,8 @@ const RecipeCreatePage = ({
             // title="Category"
             dropdowncomp="{dropdowncomp}"
           ></RecipeChipComponenet>
-
-          {/* <DropDownList></DropDownList> */}
+         
+          <DropDownList></DropDownList>
         </View>
 
         <View
@@ -151,6 +153,7 @@ const RecipeCreatePage = ({
             marginBottom: 10,
             width: "100%",
             marginLeft: 30,
+            zIndex:-1
           }}
         >
           <CustomTabs
