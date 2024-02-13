@@ -12,7 +12,7 @@ import React from "react";
 import LinearGradient from "react-native-linear-gradient";
 
 interface RatingChipProps {
-  Rating?: number;
+  Rating?: string;
 }
 
 const RatingChip: React.FC<RatingChipProps> = ({ Rating = "4.0" }) => {

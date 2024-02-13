@@ -5,27 +5,38 @@ import {
   StyleSheet,
   DimensionValue,
   Image,
-  SafeAreaView,
   ImageURISource,
+  Modal,
 } from "react-native";
-// import React from 'react'
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
+import BigButton from "./BigButton";
+import InputField from "./InputField";
+import RatingModal from "./RatingModal";
 
 interface CustomTabsProps {
   label: string;
   width: DimensionValue;
   height?: DimensionValue;
-  margin: DimensionValue;
+  margin?: DimensionValue;
   selected: string | undefined;
   setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
   disabled?: boolean;
   defaultSelected?: boolean;
   image?: string;
+  activeImage?: string;
   tabBorderColor?: string;
+  shareComponent?: string;
+  RateComponent?: boolean;
+  RateComponentProps?: any;
+  RateCallBack?: () => void;
+  Press?: () => void;
+  setBg?: boolean;
+  setColor?: boolean;
 }
 
 const Assets: { [key: string]: ImageURISource } = {
   star: require("../../assets/gradientstar.png"),
+  "white-star": require("../../assets/whiteStar.png"),
   share: require("../../assets/ShareIcon.png"),
   rate: require("../../assets/blackStar.png"),
   review: require("../../assets/Review.png"),
@@ -40,19 +51,36 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
   disabled = false,
   defaultSelected = false,
   image,
+  activeImage,
   tabBorderColor,
+  shareComponent,
+  RateComponent,
+  RateComponentProps,
+  RateCallBack,
+  Press,
+  setBg,
+  setColor,
 }) => {
   const chipColor =
-    selected === label ? "#FC1125" : disabled ? "grey" : "white";
-  const labelColor = selected === label || disabled ? "white" : "black";
-  // console.log(image)
+    selected === label
+      ? setBg
+        ? "white"
+        : "red"
+      : disabled
+      ? "black"
+      : "white";
+  const labelColor =
+    selected === label || disabled ? (setColor ? "black" : "white") : "black";
 
-  const handlePress = () => {
-    if (!disabled) {
-      setSelected(label);
-      // Logic
-    }
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
   };
+
+  const imageComponents = Array.from({ length: 5 }, (_, index) => (
+    <Image key={index} source={require("../../assets/rateStar.png")} />
+  ));
 
   useEffect(() => {
     // Set the first tab as selected by default when the component mounts
@@ -61,7 +89,20 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
     }
   }, []);
 
+  useEffect(() => {
+    if (!modalVisible) {
+      RateCallBack && RateCallBack();
+    }
+  }, [modalVisible]);
+
   const styles = StyleSheet.create({
+    modalBackdrop: {
+      ...StyleSheet.absoluteFillObject,
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
+    backdrop: {
+      flex: 1,
+    },
     tabs: {
       marginRight: 4,
       zIndex: 3,
@@ -82,31 +123,173 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
       margin: 5,
     },
   });
+
+  const handlePress = () => {
+    if (!disabled) {
+      setSelected(label);
+      toggleModal(); // Show the pop-up when the tab is pressed
+      Press && Press();
+    }
+    // Logic
+  };
+
   return (
-    <TouchableOpacity
-      style={[
-        styles.tabs,
-        {
-          backgroundColor: chipColor,
-          borderColor:
-            selected !== label
-              ? tabBorderColor
+    <View>
+      <TouchableOpacity
+        style={[
+          styles.tabs,
+          {
+            backgroundColor: chipColor,
+
+            borderColor:
+              selected !== label
                 ? tabBorderColor
-                : "red"
-              : "white",
-        },
-      ]}
-      onPress={handlePress}
-      disabled={disabled}
-    >
-      <View style={{ overflow: "hidden", borderRadius: 10, zIndex: 10 }}>
-        <Text style={[styles.labelText, { color: labelColor }]}>{label}</Text>
-      </View>
-      <View style={{ alignSelf: "flex-start", marginTop: 5 }}>
-        {image && <Image source={Assets[image]}></Image>}
-      </View>
-      {/* </View> */}
-    </TouchableOpacity>
+                  ? tabBorderColor
+                  : "red"
+                : "gray",
+          },
+        ]}
+        onPress={handlePress}
+        disabled={disabled}
+      >
+        <View style={{ overflow: "hidden", borderRadius: 10, zIndex: 10 }}>
+          <Text style={[styles.labelText, { color: labelColor }]}>{label}</Text>
+        </View>
+        <View style={{ alignSelf: "flex-start", marginTop: 5 }}>
+          {image && (
+            <Image
+              source={
+                activeImage
+                  ? selected === label
+                    ? Assets[activeImage]
+                    : Assets[image]
+                  : Assets[image]
+              }
+            ></Image>
+          )}
+        </View>
+      </TouchableOpacity>
+
+      {shareComponent && (
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={toggleModal}
+          presentationStyle="overFullScreen"
+        >
+          <View style={styles.modalBackdrop}>
+            <TouchableOpacity
+              style={styles.backdrop}
+              onPress={() => setModalVisible(false)}
+            />
+          </View>
+
+          {/* <View style={styles.modalContent}> */}
+
+          <View
+            style={{
+              flexDirection: "column",
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <View
+              style={{
+                backgroundColor: "white",
+                width: "90%",
+                height: "30%",
+                borderRadius: 10,
+                flexDirection: "column",
+              }}
+            >
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  height: 50,
+                  width: 310,
+                  marginLeft: 5,
+                  marginTop: 15,
+                }}
+              >
+                <Text
+                  style={{
+                    alignSelf: "flex-start",
+                    fontSize: 20,
+                    color: "black",
+                    fontWeight: "400",
+                    marginLeft: 15,
+                  }}
+                >
+                  Recipe Link
+                </Text>
+                <TouchableOpacity onPress={toggleModal}>
+                  <Image
+                    style={{
+                      alignSelf: "flex-start",
+                      marginBottom: 5,
+                      height: 20,
+                      width: 20,
+                    }}
+                    source={require("../../assets/Close.png")}
+                  ></Image>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{ flexDirection: "row", marginLeft: 20, width: "90%" }}
+              >
+                <Text style={{ fontSize: 14 }}>
+                  Copy Recipe Link and Share with your Family and Friends
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  width: "80%",
+                  height: 105,
+                }}
+              >
+                <View
+                  style={{
+                    alignSelf: "flex-start",
+                    marginRight: 5,
+                    width: 240,
+                  }}
+                >
+                  <InputField></InputField>
+                </View>
+                <View style={{ alignSelf: "flex-end", marginRight: 10 }}>
+                  <BigButton
+                    btnLabel="Copy"
+                    btnHeight={50}
+                    btnWidth={90}
+                    btnBorder={10}
+                  ></BigButton>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          {/* </View>
+      </View> */}
+        </Modal>
+      )}
+
+      {RateComponent ? (
+        <RatingModal
+          {...RateComponentProps}
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          toggleModal={toggleModal}
+        />
+      ) : (
+        ""
+      )}
+    </View>
   );
 };
 

@@ -50,7 +50,7 @@ const ForgotPassPage = ({
       navigation.navigate("VerifyEmailPage", { email: variables?.email });
     },
     onError(data) {
-      console.log("Request Failed", data);
+      // console.log("Request Failed", data);
     },
   });
 

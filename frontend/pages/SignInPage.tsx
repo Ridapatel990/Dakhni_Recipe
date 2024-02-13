@@ -34,7 +34,7 @@ const SignInPage = ({
   const { mutate } = useCreateOrUpdate({
     url: "/accounts/login/",
     onSuccess: async (response) => {
-      // console.log(response.data["token"]);
+      console.log(response.data["user"],"<=============USERRRR");
       await AsyncStorage.setItem("userToken", response.data["token"]);
       await AsyncStorage.setItem("user", JSON.stringify(response.data["user"]));
       setApiHeaders();

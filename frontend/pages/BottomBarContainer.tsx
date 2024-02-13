@@ -4,17 +4,44 @@ import SavedRecipePage from "./SavedRecipePage";
 import NotificationPage from "./NotificationPage";
 import AccountPage from "./AccountPage";
 import Icon from "react-native-vector-icons/Ionicons";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  Animated,
+  Image,
+  ImageURISource,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
-import Recipe from "./RecipeCreatePage";
+import RecipeCreatePage from "./RecipeCreatePage";
+import { CurvedBottomBar } from "react-native-curved-bottom-bar";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Tab = createBottomTabNavigator();
 
-interface BottomTabProps {
-  btnLabel: string;
-  Press?: () => void;
-}
+// const Assets: { [key: string]: ImageURISource } = {
+//   Home: require("../assets/Home.png"),
+//   Bookmark: require("../assets/Bookmark.png"),
+//   Notifications: require("../assets/Notification.png"),
+//   Profile: require("../assets/Profile.png"),
+//   selectedHome: require("../assets/selectedHome.png"),
+//   selectedBookmark: require("../assets/selectedBookmark.png"),
+//   selectedNotifications: require("../assets/selectedNotification.png"),
+//   selectedProfile: require("../assets/selectedProfile.png"),
+//   Add: require("../assets/whiteAdd.png"),
+// };
+const Assets: { [key: string]: ImageURISource } = {
+  Home: require("../assets/Home.png"),
+  Bookmark: require("../assets/Bookmark.png"),
+  Notifications: require("../assets/Notification.png"),
+  Profile: require("../assets/Profile.png"),
+  selectedHome: require("../assets/selectedHome.png"),
+  selectedBookmark: require("../assets/selectedBookmark.png"),
+  selectedNotifications: require("../assets/selectedNotification.png"),
+  selectedProfile: require("../assets/selectedProfile.png"),
+  Add: require("../assets/whiteAdd.png"),
+};
 
 function BottomBarContainer({
   navigation,
@@ -22,63 +49,112 @@ function BottomBarContainer({
   navigation: NavigationProp<ParamListBase>;
 }) {
   const styles = StyleSheet.create({
-    navBar: {
-      height: "auto",
-      backgroundColor: "white",
-      shadowColor: "black",
-      shadowOpacity: 0.1,
-      shadowRadius: 24,
-      elevation: 5,
-      position: "absolute",
-      bottom: 0,
-      left: 0,
-      width: "100%",
+    container: {
+      flex: 1,
+      padding: 20,
     },
-
-    addButton: {
-      position: "absolute",
-      backgroundColor: "white",
-      width: 70,
-      height: 80,
-      borderRadius: 35,
-      bottom: 33,
-      marginLeft: 15,
-      zIndex: 10,
-      left: "50%",
-      transform: [{ translateX: -25 }],
+    shawdow: {
+      shadowColor: "#DDDDDD",
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 1,
+      shadowRadius: 5,
+    },
+    button: {
+      flex: 1,
+      justifyContent: "center",
+    },
+    bottomBar: {},
+    btnCircleUp: {
+      width: 60,
+      height: 60,
+      borderRadius: 30,
       alignItems: "center",
       justifyContent: "center",
-      borderColor: "white",
-      borderWidth: 5,
-      shadowColor: "black",
-      shadowOpacity: 0.1,
-      shadowRadius: 24,
+      backgroundColor: "#E8E8E8",
+      bottom: 24,
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 1,
+      },
+      shadowOpacity: 0.2,
+      shadowRadius: 1.41,
+      elevation: 1,
     },
-
-    addIcon: {
-      backgroundColor: "white",
-      padding: 20,
-      flexDirection: "row",
-      justifyContent: "space-around",
+    imgCircle: {
+      width: 30,
+      height: 30,
+      tintColor: "gray",
+    },
+    tabbarItem: {
+      flex: 1,
       alignItems: "center",
-      position: "relative",
+      justifyContent: "center",
     },
   });
+
+  const _renderIcon = (route: string, selectedTab: string) => {
+    let iconName: string = "";
+    let focused = selectedTab === route;
+    if (route === "HomeScreen") {
+      iconName = focused ? "selectedHome" : "Home";
+    } else if (route === "SavedRecipePage") {
+      iconName = focused ? "selectedBookmark" : "Bookmark";
+    } else if (route === "NotificationPage") {
+      iconName = focused ? "selectedNotifications" : "Notifications";
+    } else if (route === "AccountPage") {
+      iconName = focused ? "selectedProfile" : "Profile";
+    }
+    return (
+      <Image
+        style={{ height: 25, width: 25 }}
+        source={Assets[iconName]}
+      ></Image>
+    );
+  };
+  const renderTabBar = ({
+    routeName,
+    selectedTab,
+    navigate,
+  }: {
+    routeName: string;
+    selectedTab: string;
+    navigate: Function;
+  }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => navigate(routeName)}
+        style={styles.tabbarItem}
+      >
+        {_renderIcon(routeName, selectedTab)}
+      </TouchableOpacity>
+    );
+  };
 
   const AddButton: React.FC<{
     children?: React.ReactNode;
     onPress?: () => void;
   }> = ({ children, onPress }) => (
     <TouchableOpacity
-      onPress={() => onPress && onPress()}
+      onPress={() => navigation.navigate("")}
       style={{
-        top: -40,
+        top: -50,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#fff",
         height: 80,
         borderRadius: 40,
+        position: "relative",
         padding: 10,
+        zIndex: 10,
+        borderColor: "white",
+        // borderWidth: 5,
+        shadowColor: "black",
+        shadowOpacity: 0.1,
+        shadowRadius: 25,
       }}
     >
       <LinearGradient
@@ -100,7 +176,12 @@ function BottomBarContainer({
     </TouchableOpacity>
   );
   return (
-    <Tab.Navigator
+    <CurvedBottomBar.Navigator
+      tabBar={renderTabBar}
+      style={styles.bottomBar}
+      shadowStyle={styles.shawdow}
+      circleWidth={50}
+      bgColor="white"
       initialRouteName="HomeScreen"
       screenOptions={({ route }) => ({
         tabBarShowLabel: false,
@@ -110,52 +191,101 @@ function BottomBarContainer({
           height: 60,
         },
         headerShown: false,
+      })}
+      renderCircle={({ selectedTab, navigate }) => {
+        return (
+          <Animated.View style={styles.btnCircleUp}>
+            <LinearGradient
+              colors={["rgba(252, 17, 37, 1)", "rgba(255, 147, 0, 1)"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0, y: 1 }}
+              style={{ borderRadius: 50, height: 60, width: 60 }}
+            >
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigate("RecipeCreatePage")} //Correct navigation daldo yaha
+              >
+                <Ionicons
+                  name={"add"}
+                  color="white"
+                  size={25}
+                  style={{ justifyContent: "center", alignSelf: "center" }}
+                />
+              </TouchableOpacity>
+            </LinearGradient>
+          </Animated.View>
+          //<View style={styles.addIcon}></View>
+        );
+      }}
+      /*       screenOptions={({ route }) => ({
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          padding: 12,
+          paddingBottom: 20,
+          height: 60,
+        },
+        headerShown: false,
         tabBarIcon: ({ focused }) => {
           let iconName;
+          // if (route.name === "HomeScreen") {
+          //   iconName = focused ? "home" : "home-outline";
+          // } else if (route.name === "SavedRecipePage") {
+          //   iconName = focused ? "bookmark" : "bookmark-outline";
+          // } else if (route.name === "NotificationPage") {
+          //   iconName = focused ? "notifications" : "notifications-outline";
+          // } else if (route.name === "AccountPage") {
+          //   iconName = focused ? "person" : "person-outline";
+          // } else {
+          //   iconName = "add";
+          // }
+
           if (route.name === "HomeScreen") {
-            iconName = focused ? "home" : "home-outline";
+            iconName = focused ? "selectedHome" : "Home";
           } else if (route.name === "SavedRecipePage") {
-            iconName = focused ? "bookmark" : "bookmark-outline";
+            iconName = focused ? "selectedBookmark" : "Bookmark";
           } else if (route.name === "NotificationPage") {
-            iconName = focused ? "notifications" : "notifications-outline";
+            iconName = focused ? "selectedNotifications" : "Notifications";
           } else if (route.name === "AccountPage") {
-            iconName = focused ? "person" : "person-outline";
+            iconName = focused ? "selectedProfile" : "Profile";
           } else {
-            iconName = "add";
+            iconName = "Add";
           }
           return (
-            <Icon
-              name={iconName}
-              size={30}
-              color={focused ? "#FC1125" : "#D9D9D9"}
-            />
+            // <Icon
+            //   name={iconName}
+            //   size={30}
+            //   color={focused ? "#FC1125" : "#D9D9D9"}
+            // />
+            <Image
+              style={{ height: 25, width: 25 }}
+              source={Assets[iconName]}
+            ></Image>
           );
         },
-      })}
+      })} */
     >
-      <Tab.Screen name="HomeScreen" component={HomeScreen}></Tab.Screen>
-      <Tab.Screen
+      <CurvedBottomBar.Screen
+        position="LEFT"
+        name="HomeScreen"
+        component={HomeScreen}
+      ></CurvedBottomBar.Screen>
+      <CurvedBottomBar.Screen
+        position="LEFT"
         name="SavedRecipePage"
         component={SavedRecipePage}
-      ></Tab.Screen>
-      <Tab.Screen
-        name="Add"
-        component={Recipe}
-        options={{
-          tabBarButton: (props) => (
-            <AddButton
-              {...props}
-              onPress={() => navigation.navigate("RecipeCreatePage")}
-            />
-          ),
-        }}
-      ></Tab.Screen>
-      <Tab.Screen
+      ></CurvedBottomBar.Screen>
+
+      <CurvedBottomBar.Screen
+        position="RIGHT"
         name="NotificationPage"
         component={NotificationPage}
-      ></Tab.Screen>
-      <Tab.Screen name="AccountPage" component={AccountPage}></Tab.Screen>
-    </Tab.Navigator>
+      ></CurvedBottomBar.Screen>
+      <CurvedBottomBar.Screen
+        position="RIGHT"
+        name="AccountPage"
+        component={AccountPage}
+      ></CurvedBottomBar.Screen>
+    </CurvedBottomBar.Navigator>
   );
 }
 export default BottomBarContainer;

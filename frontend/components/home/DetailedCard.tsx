@@ -1,8 +1,9 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import SavedBtn from "../SavedBtn";
 import { mediaUrl } from "../../utils/urls";
 import { useCreateOrUpdate, useGetAll } from "../../hooks";
+import { RouteProp } from "@react-navigation/native";
 
 interface DetailedProps {
   imageUri?: string;
@@ -17,6 +18,7 @@ const DetailedCard: React.FC<DetailedProps> = ({
   recipeLabel,
   recipeId,
   mins,
+  Press,
 }) => {
   const [isSaved, setIsSaved] = useState(false);
 
@@ -31,43 +33,45 @@ const DetailedCard: React.FC<DetailedProps> = ({
   };
 
   return (
-    <View style={styles.card}>
-      <View style={styles.upperSection}>
-        <Image
-          style={styles.circularImage}
-          source={
-            imageUri
-              ? { uri: mediaUrl + imageUri }
-              : require("../../assets/sample.png")
-          }
-        />
-      </View>
-      <View style={styles.lowerSection}>
-        <View style={{ height: "100%", justifyContent: "space-between" }}>
-          <View>
-            <Text style={styles.recepieName}>{recipeLabel}</Text>
-          </View>
-
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <View style={styles.timeText}>
-              <Text>Time</Text>
-              <Text>{mins}</Text>
+    <TouchableOpacity onPress={Press}>
+      <View style={styles.card}>
+        <View style={styles.upperSection}>
+          <Image
+            style={styles.circularImage}
+            source={
+              imageUri
+                ? { uri: mediaUrl + imageUri }
+                : require("../../assets/sample.png")
+            }
+          />
+        </View>
+        <View style={styles.lowerSection}>
+          <View style={{ height: "100%", justifyContent: "space-between" }}>
+            <View>
+              <Text style={styles.recepieName}>{recipeLabel}</Text>
             </View>
 
-            <SavedBtn
-              onSave={() => handleSave(recipeId)}
-              isSaved={isSaved}
-            ></SavedBtn>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <View style={styles.timeText}>
+                <Text>Time</Text>
+                <Text>{mins}</Text>
+              </View>
+
+              <SavedBtn
+                onSave={() => handleSave(recipeId)}
+                isSaved={isSaved}
+              ></SavedBtn>
+            </View>
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
   },
   lowerSection: {
     flex: 1,
-    backgroundColor: "#D9D9D9",
+    backgroundColor: "rgba(217, 217, 217, 0.58)",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     paddingTop: 50,

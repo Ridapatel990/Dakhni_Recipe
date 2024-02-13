@@ -20,7 +20,7 @@ export const useDownaloadFile = (
       //   data.message ? data.message : data.data?.message
       // }`;
 
-      // console.log("callefd");
+      console.log("callefd");
 
       // a.target = "_blank";
       // a.download =
