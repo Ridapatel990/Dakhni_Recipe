@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet,Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet,Image, TouchableOpacity ,TextInput} from 'react-native'
 import React from 'react'
+import { useState } from 'react';
 
 interface StepsCardProps {
     txtLabel: string;
@@ -7,11 +8,37 @@ interface StepsCardProps {
     time? : string;
     Press?: () => void;
   }
+  
 
 const StepsCard: React.FC<StepsCardProps>  = ({txtLabel, description, time}) => {
+
+    const [isVisible, setIsVisible] = useState(true);
+    const [editMode, setEditMode] = useState(false);
+    const [textValue, setTextValue] = useState('Initial Value');
+    const [showComponent, setShowComponent] = useState(false);
+
+  const handleAddComponent = () => {
+    setShowComponent(true);
+  };
+
+  const handlePress = () => {
+    setIsVisible(false);
+  };
+
+  const handleToggleEditMode = () => {
+    setEditMode(!editMode);
+};
+
+const handleTextChange = (text:string) => {
+  setTextValue(text);
+};
+
   return (
     <View style={styles.slide}>
-    <View style={{alignSelf:'center',marginTop:10,paddingRight:10}}><Image source={require('../assets/drag_handle.png')}></Image></View>
+     { isVisible && (
+    <View style={{alignSelf:'center',marginTop:10,paddingLeft:10}}><Image source={require('../assets/drag_handle.png')}></Image></View>)}  
+
+    { isVisible && ( 
     <View style={styles.cardContainer}>
         
      
@@ -20,23 +47,39 @@ const StepsCard: React.FC<StepsCardProps>  = ({txtLabel, description, time}) => 
         <Text style={styles.stepText}>{txtLabel}</Text>
         
         <View style={{flexDirection:'row',alignSelf:'flex-end',marginRight:5,marginBottom:15}}>
-            <TouchableOpacity>
+        { editMode ? (
+
+        <TouchableOpacity onPress={handleToggleEditMode} ><Image source={require('../assets/Tick.png')} style={{marginRight:10,height:16,width:16}}></Image></TouchableOpacity>
+        // <TextInput
+        //   style={{ borderBottomWidth: 1, padding: 5 }}
+        //   value={textValue}
+        //   onChangeText={handleTextChange}
+        //   onBlur={handleToggleEditMode} // Toggle edit mode off on blur
+        //   autoFocus // Automatically focus input field on edit mode
+        // />
+      ) : (
+        <TouchableOpacity onPress={handleToggleEditMode}>
             <Image source={require('../assets/PencilLine.png')} style={{marginRight:10}}></Image>
             </TouchableOpacity>
 
-            <TouchableOpacity>
+      )}
+            
+
+            
+            <TouchableOpacity onPress={handlePress}>
             <Image source={require('../assets/Delete.png')} style={{marginRight:5}}></Image>
             </TouchableOpacity>
+            
         </View>
         </View>
     
      <View>
-        <Text style={styles.description}>
+        <TextInput multiline={true} numberOfLines={3} editable={editMode} style={styles.description}>
             {description}
-        </Text>
-        <Text style={styles.time}>{time}</Text>
+        </TextInput>
+        
      </View>
-     </View>
+     </View>)}
      
      
     
@@ -48,7 +91,7 @@ const styles = StyleSheet.create({
 
     slide:{
         flexDirection:'row', 
-        justifyContent:'space-between'
+        justifyContent:'space-between',
     },
 
     cardContainer:{
@@ -58,25 +101,22 @@ const styles = StyleSheet.create({
         width: 310,
         backgroundColor: '#D9D9D9',
         borderRadius: 12,
-        marginRight:20
+        marginRight:20,
     },
     stepText: {
         padding: 10,
         color:'black',
         fontWeight:'400'
+
     },
     description:{
         paddingLeft: 10,
         color: '#A9A9A9',
+        fontSize:16,
+        paddingBottom:10
 
     },
-    time:{
-        paddingLeft: 10,
-        color: '#A9A9A9',
-        marginTop: 10,
-        fontSize: 7,
-        fontWeight: '400',
-    }
+    
 })
 
 export default StepsCard

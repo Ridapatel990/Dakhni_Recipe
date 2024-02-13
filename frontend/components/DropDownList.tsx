@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { View,StyleSheet ,Image,ImageURISource,Text} from 'react-native';
 import MultiSelect from 'react-native-multiple-select';
 import { useState } from 'react';
+import { RecipeDetailInterface } from '../interfaces';
+import { useGetAll } from '../hooks';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export type DimensionValue =
   | number
@@ -28,17 +31,20 @@ interface FlexStyle {
     | undefined;
   alignItems?: FlexAlignType | undefined;
   maxWidth?: DimensionValue | undefined;
-  backgroundColor?:string
+  backgroundColor?:string;
+  maxHeight?: DimensionValue | undefined;
+
 }
 
 const stylelistCotainerProp:FlexStyle ={
   alignContent:'flex-start',
   maxWidth:300,
-  
+  maxHeight :500
 }
 
 const stylelistItem:FlexStyle={
   maxWidth:300,
+  maxHeight :500
 }
 
 const  DropDownList  =()=> {
@@ -67,6 +73,9 @@ const  DropDownList  =()=> {
   }, {
     id: 'djsjudksjd',
     name: 'Benue',
+  },{
+    id: 'vuudydjsjd',
+    name: 'Abu Dhabi',
   }, {
     id: 'sdhyaysdj',
     name: 'Kaduna',
@@ -77,7 +86,23 @@ const  DropDownList  =()=> {
     id: 'vuudydjsjd',
     name: 'Abu Dhabi',
   }
+  ,{
+    id: 'vuudydjsjd',
+    name: 'Abu Dhabi',
+  }
 ];
+
+const [category,setCategory]=useState<Array<RecipeDetailInterface>
+>([])
+
+useGetAll({
+  key:"/portal/category/",
+  onSuccess:(data) =>{
+    setCategory(data)
+  }
+})
+
+
 
   const onSelectedItemsChange = (selectedItems:any[]) => {
     setSelectedItems(selectedItems);
@@ -91,9 +116,14 @@ const  DropDownList  =()=> {
 
     return (
     
-    //   <View style={{ flex: 1 }}>
-        <View>
-        <MultiSelect styleDropdownMenu={styles.view} styleDropdownMenuSubsection={{backgroundColor: 'rgba(216, 216, 216, 0.1)'}}
+    //<View style={{ flex: 1 }}>
+    // <ScrollView>
+         <View style={{height:'10%'}}>
+        <MultiSelect 
+        styleDropdownMenu={styles.view} 
+        styleDropdownMenuSubsection={{backgroundColor: 'rgba(216, 216, 216, 0.1)',height:400}}
+        styleMainWrapper = {{maxHeight: 400,maxWidth:600}}
+          // fixedHeight={false}
           hideTags={true}
           items={items}
           uniqueKey="id"
@@ -120,7 +150,10 @@ const  DropDownList  =()=> {
         //   submitButtonColor="#CCC"
         //   submitButtonText="Submit"
         ></MultiSelect>
+       
+        
          </View>
+        //  </ScrollView>
        
       
     );

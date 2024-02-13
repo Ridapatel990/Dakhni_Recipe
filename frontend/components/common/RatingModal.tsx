@@ -125,9 +125,11 @@ const RatingModal: React.FC<RatingModal> = ({
               showRating
               onFinishRating={RatingCompleted}
               startingValue={0}
-              style={{ paddingVertical: 10, gap: 5 }}
+              style={{ paddingVertical: 10, gap: 1 }}
               fractions={1}
               jumpValue={0.5}
+              ratingTextColor="grey"
+              imageSize={33}
             />
           </View>
 

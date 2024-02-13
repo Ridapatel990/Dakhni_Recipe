@@ -84,7 +84,7 @@ const CreateIngredient = () => {
   useGetAll({
     key: "/recipes/ingredient/",
     onSuccess: (data) => {
-      console.log(data, "<=========ngredient datat");
+      // console.log(data, "<=========ngredient datat");
       setIngredientList(data);
     },
   });
