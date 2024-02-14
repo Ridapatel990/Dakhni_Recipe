@@ -25,6 +25,7 @@ const SeeAllNewRecipe = () => {
           {newRecipe && newRecipe.length
             ? newRecipe?.map((recipe: GetNewInteface) => (
                 <SimpleCard
+                  key={recipe?.id}
                   label={recipe.name}
                   imageUri={recipe.image1}
                 ></SimpleCard>

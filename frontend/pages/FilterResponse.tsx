@@ -102,7 +102,7 @@ const FilterResponse = ({
               key={item.id}
               CardName={item.name}
               imageUri={item.image1}
-              Rating={item.rate}
+              Rating={item?.rate}
             ></Card>
           ))}
         </View>

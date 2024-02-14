@@ -77,6 +77,11 @@ const SavedRecipePage = ({
                   imageUri={item.recipe.image1}
                   // Rating={item.recipe.rate}
                   Rating={item.recipe.rate}
+                  Press={() => {
+                    navigation.navigate("RecipeDescription", {
+                      id: item?.recipe?.id,
+                    });
+                  }}
                 ></Card>
               ))
             : ""}

@@ -39,10 +39,10 @@ const NotificationPage = ({
   const {data : getNotification,refetch} = useGetAll({
     key:`/social/notification/list/?type=${tabText ? tabText : tabText?.toLowerCase()}`,
     select:(data : any) => data?.data?.rows,
-    onSuccess:(data) =>{
-      console.log("notify================",data);
+    // onSuccess:(data) =>{
+    //   console.log("notify================",data);
       
-    },
+    // },
   });
 
 
@@ -94,9 +94,9 @@ const NotificationPage = ({
             <Text style={styles.todayText}>Today</Text>
           </View>
 
-          <View style={{ margin: 20 }}>
+          <View style={{ margin: 6 }}>
 
-          {getNotification?.length>0 ? getNotification?.map((notification:NotificationInterface)=><Notification data={notification}
+          {getNotification?.length>0 ? getNotification?.map((notification:NotificationInterface)=><Notification key={notification?.id} data={notification}
             Press = {() =>
               navigation.navigate("RecipeDescription", {
                 id: notification.recipe?.id,
