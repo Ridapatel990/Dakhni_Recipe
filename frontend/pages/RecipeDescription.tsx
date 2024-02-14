@@ -36,6 +36,8 @@ const RecipeDescription = ({
   );
 
   const { id: RecipeId } = route.params;
+
+  console.log(RecipeId, "<+=++++++++++++++++++++REcipe IDDIDDI");
   const { data: recipeDetailsData, refetch: RefetchRecipeDetails } =
     useGetAll<RecipeDetailInterface>({
       key: `/recipes/${RecipeId}/`,
@@ -146,7 +148,7 @@ const RecipeDescription = ({
         ></CustomTabs>
       </View>
 
-      <View style={{marginBottom:10}}>
+      <View style={{ marginBottom: 10 }}>
         {longTabText === "Ingredients" ? (
           <IngredientsList
             data={recipeDetailsData?.ingredients}
