@@ -1,37 +1,42 @@
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, Text } from 'react-native';
-import InputField from '../components/common/InputField';
-import Input from '@ant-design/react-native/lib/input-item/Input';
+import { Image } from 'react-native';
+import { TouchableOpacity, View, StyleSheet } from 'react-native';
 
-const Sample = () => {
-  const [inputFields, setInputFields] = useState<any>([]);
+const App = () => {
+  const [isPressed, setIsPressed] = useState(false);
 
-  const addInputField = () => {
-    setInputFields([...inputFields, '']);
+  const handlePress = () => {
+    setIsPressed(true);
+    // You can add additional logic here if needed
   };
 
-  // const handleInputChange = (text, index) => {
-  //   const updatedFields = [...inputFields];
-  //   updatedFields[index] = text;
-  //   setInputFields(updatedFields);
-  // };
-
   return (
-    <View>
-      {/* {inputFields.map((value, index) => (
-        <Input
-          
-          key={index}
-          value={value}
-          onChangeText={(text) => handleInputChange(text, index)}
-          placeholder={`Input ${index + 1}`}
-        />
-      ))} */}
-      <TouchableOpacity onPress={addInputField}>
-        <Text>Add Input Field</Text>
+    <View style={styles.container}>
+      <TouchableOpacity onPress={handlePress} activeOpacity={0.7}>
+        <View style={[styles.object, isPressed && styles.pressedObject]}>
+          <Image source={require("../assets/Card.png")}></Image>
+        </View>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default Sample;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  object: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'blue',
+    // Define other styles for your object
+  },
+  pressedObject: {
+    opacity: 0.5, // Decrease opacity when pressed
+    // You can add other styles to decrease brightness
+  },
+});
+
+export default App;

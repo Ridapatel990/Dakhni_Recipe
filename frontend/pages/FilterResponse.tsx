@@ -103,6 +103,9 @@ const FilterResponse = ({
               CardName={item.name}
               imageUri={item.image1}
               Rating={item.rate}
+              Press={() => {
+                navigation.navigate("RecipeDescription",{id:item?.id})}
+            }
             ></Card>
           ))}
         </View>

@@ -141,7 +141,7 @@ const HomeScreen = ({
   }, [popularCatChipText]);
 
   const onSearchFocus = () => {
-    console.log("in  onSearchFocus");
+    // console.log("in  onSearchFocus");
     setRecentlyEnabled(true);
   };
 
@@ -222,6 +222,9 @@ const HomeScreen = ({
                   CardName={recipe?.recipe?.name}
                   imageUri={recipe?.recipe?.image1}
                   Rating={recipe?.recipe?.rate}
+                  Press={()=> navigation.navigate("RecipeDescription",
+                  {id:recipe?.id}
+                  )}
                 ></Card>
               ))}
             {!query && recentlySearchedRecipe.length === 0 && (

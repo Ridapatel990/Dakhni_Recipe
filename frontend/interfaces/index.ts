@@ -20,7 +20,7 @@ export interface RecipeInterface extends BaseObjInterface {
 export interface GetRecipeInteface extends BaseObjInterface {
   name: string;
   image1: string | undefined;
-  rate: number;
+  rate: string;
   cooking_time: string;
   id: string;
   image2: string | undefined;

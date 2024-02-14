@@ -37,7 +37,7 @@ interface CustomTabsProps {
 const Assets: { [key: string]: ImageURISource } = {
   star: require("../../assets/gradientstar.png"),
   "white-star": require("../../assets/whiteStar.png"),
-  share: require("../../assets/ShareIcon.png"),
+  share: require("../../assets/share.png"),
   rate: require("../../assets/blackStar.png"),
   review: require("../../assets/Review.png"),
 };
@@ -118,9 +118,9 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
     labelText: {
       color: "black",
       fontWeight: "300",
-      fontSize: 11,
+      fontSize: 12,
       alignSelf: "flex-end",
-      margin: 5,
+      margin: 6,
     },
   });
 
@@ -152,12 +152,13 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
         onPress={handlePress}
         disabled={disabled}
       >
-        <View style={{ overflow: "hidden", borderRadius: 10, zIndex: 10 }}>
+        <View style={{ overflow: "hidden", borderRadius: 10, zIndex: 10,alignSelf:'center',marginLeft:3 }}>
           <Text style={[styles.labelText, { color: labelColor }]}>{label}</Text>
         </View>
-        <View style={{ alignSelf: "flex-start", marginTop: 5 }}>
+        <View style={{ alignSelf: "flex-start", marginTop: 7,marginRight:5 }}>
           {image && (
             <Image
+            style={{width:16,height:15}}
               source={
                 activeImage
                   ? selected === label

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View,StyleSheet ,Image,ImageURISource,Text} from 'react-native';
+import { View,StyleSheet ,Image,ImageURISource,Text,ScrollView} from 'react-native';
 import MultiSelect from 'react-native-multiple-select';
 import { useState } from 'react';
 import { RecipeDetailInterface } from '../interfaces';
 import { useGetAll } from '../hooks';
-import { ScrollView } from 'react-native-gesture-handler';
+
 
 export type DimensionValue =
   | number
@@ -117,15 +117,16 @@ useGetAll({
     return (
     
     //<View style={{ flex: 1 }}>
-    // <ScrollView>
-         <View style={{height:'10%'}}>
+    
+        
+    <View>
         <MultiSelect 
         styleDropdownMenu={styles.view} 
         styleDropdownMenuSubsection={{backgroundColor: 'rgba(216, 216, 216, 0.1)',height:400}}
-        styleMainWrapper = {{maxHeight: 400,maxWidth:600}}
+        styleMainWrapper = {{maxHeight: 500,maxWidth:600}}
           // fixedHeight={false}
           hideTags={true}
-          items={items}
+          items={category}
           uniqueKey="id"
           // ref={(component) => { this.multiSelect = component }}
           onSelectedItemsChange={onSelectedItemsChange}
@@ -146,14 +147,14 @@ useGetAll({
           styleItemsContainer={stylelistItem}
           searchInputStyle={{ color: 'black' }}
           onToggleList={()=>( console.log('CLG Called'))}
+          
         //   flatListProps={{onLayout}}
         //   submitButtonColor="#CCC"
         //   submitButtonText="Submit"
         ></MultiSelect>
-       
+      
+       </View>
         
-         </View>
-        //  </ScrollView>
        
       
     );
@@ -161,12 +162,14 @@ useGetAll({
 }
 
 const styles= StyleSheet.create({
+
+  
    view:{
     height:60,
     width:280,
     borderRadius:20,
     // backgroundColor:'black'
-    overflow:'hidden'
+    overflow:'scroll'
    },
    mainView:{
     flexDirection:'row',
@@ -176,7 +179,7 @@ const styles= StyleSheet.create({
     height:60,
     alignSelf:'center',
     borderRadius:9,
-    marginBottom:10,       
+    marginBottom:10,     
 },
 text:{
     fontWeight:'300',

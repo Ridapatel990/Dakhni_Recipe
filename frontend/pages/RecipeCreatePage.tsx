@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as ImagePicker from "react-native-image-picker";
 import { View, Image, Text, TouchableOpacity, ScrollView } from "react-native";
 import InputField from "../components/common/InputField";
-import RecipeChipComponenet from "../components/RecipeChipComponent";
+import RecipeChipComponent from "../components/RecipeChipComponent";
 import BigButton from "../components/common/BigButton";
 import CustomChips from "../components/common/CustomChips";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -127,23 +127,23 @@ const RecipeCreatePage = ({
           </View>
         </View>
         <View style={{ bottom: 20 }}>
-          <RecipeChipComponenet
+          <RecipeChipComponent
             image="clock"
             title="Cook Time(Min)"
             component="{component}"
-          ></RecipeChipComponenet>
-          <RecipeChipComponenet
+          ></RecipeChipComponent>
+          <RecipeChipComponent
             image="serves"
             title="Serves"
             component="{component}"
-          ></RecipeChipComponenet>
-          <RecipeChipComponenet
+          ></RecipeChipComponent>
+          <RecipeChipComponent
             image="category"
             // title="Category"
             dropdowncomp="{dropdowncomp}"
-          ></RecipeChipComponenet>
+          ></RecipeChipComponent>
          
-          <DropDownList></DropDownList>
+          {/* <DropDownList></DropDownList> */}
         </View>
 
         <View

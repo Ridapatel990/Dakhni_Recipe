@@ -3,8 +3,13 @@ import React from "react";
 import SimpleCard from "../components/home/SimpleCard";
 import { useGetAll } from "../hooks";
 import { GetNewInteface } from "../interfaces";
+import { NavigationProp,ParamListBase } from "@react-navigation/native";
 
-const SeeAllNewRecipe = () => {
+const SeeAllNewRecipe = ({
+  navigation,
+}: {
+  navigation: NavigationProp<ParamListBase>;
+}) => {
   const { data: newRecipe } = useGetAll({
     key: "recipes/list/",
     enabled: true,
@@ -27,6 +32,9 @@ const SeeAllNewRecipe = () => {
                 <SimpleCard
                   label={recipe.name}
                   imageUri={recipe.image1}
+                  Press={()=> navigation.navigate("RecipeDescription",
+                  {id:recipe?.id}
+                  )}
                 ></SimpleCard>
               ))
             : ""}

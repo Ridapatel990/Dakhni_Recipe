@@ -15,7 +15,6 @@ import { UserInterface } from '../interfaces';
 import { mediaUrl } from '../utils/urls';
 
 
-
 const EditProfilePage = ({navigation }:{navigation: NavigationProp<ParamListBase>;}) => {
   const {
     control,
@@ -114,7 +113,6 @@ const EditProfilePage = ({navigation }:{navigation: NavigationProp<ParamListBase
       console.log(error.status)
     }
   });
-
 
 
   const styles = StyleSheet.create({

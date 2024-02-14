@@ -11,7 +11,6 @@ interface RecipeChipProps {
     dropdowncomp?: string
 }
 
-
 const Assets: { [key: string]: ImageURISource } = {
     'clock': require('../assets/ClockIcon.png'),
     'serves': require('../assets/ServesIcon.png'),
@@ -28,9 +27,9 @@ const RecipeChipComponenet: React.FC<RecipeChipProps> = ({ title, image, compone
                 </View>
                 <View style={{ marginRight: 5, width: 100 }}>
                     {component && <IncDecComponent></IncDecComponent>}
-                    <View style={{ alignSelf: 'flex-end', marginRight: 15 }}>
+                    <View style={{ alignSelf: 'flex-end', marginRight: 15,height:900 }}>
 
-                        {dropdowncomp && <DropDownList  ></DropDownList>}</View>
+                        {dropdowncomp && <DropDownList></DropDownList>}</View>
 
                 </View>
             </View>
@@ -63,4 +62,3 @@ const styles = StyleSheet.create({
 })
 
 export default RecipeChipComponenet;
-

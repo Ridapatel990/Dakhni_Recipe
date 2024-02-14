@@ -3,8 +3,13 @@ import React from "react";
 import { useGetAll } from "../hooks";
 import { GetPopularInterface } from "../interfaces";
 import BigCard from "../components/common/BigCard";
+import { NavigationProp,ParamListBase } from "@react-navigation/native";
 
-const SeeAllNewRecipe = () => {
+const SeeAllNewRecipe = ({
+  navigation,
+}: {
+  navigation: NavigationProp<ParamListBase>;
+}) => {
   const { data: trendingRecipe } = useGetAll({
     key: "recipes/trending-recipes/list/",
     enabled: true,
@@ -31,6 +36,9 @@ const SeeAllNewRecipe = () => {
                   Rating={trendRecipe?.recipe?.rate}
                   time={trendRecipe?.recipe?.cooking_time}
                   recipeId={trendRecipe.id}
+                  Press={()=> navigation.navigate("RecipeDescription",
+                  {id:trendRecipe?.recipe?.id}
+                  )}
                 ></BigCard>
               ))
             : ""}

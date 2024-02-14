@@ -72,8 +72,8 @@ const FilterPage = ({
 
   const onFilter = async () => {
     // const data = getValues();
-    // console.log(filterData);
-    mutate(filterData);
+    // console.log(filterData,'<=======filterDATATAT');
+    mutate({...filterData,rate:tabText});
   };
 
   return (
