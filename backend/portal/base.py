@@ -127,7 +127,7 @@ class BaseAPIView(APIView):
             if search and search != "undefined":
                 queryset = queryset.filter(
                     self.search_query_filter(search_query=search)
-                )
+                ).distinct()
             # for param in self.request.query_params:
             #     if param not in ["pg", "q", "limit"]:
             #         param_value = self.request.query_params[param]
