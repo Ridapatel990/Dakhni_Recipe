@@ -64,9 +64,9 @@ class BaseAPIView(APIView):
 
     def get_queryset(self):
         try:
-            return self.query_set.order_by(self.get_order())
+            return self.query_set.order_by(self.get_order()).distinct()
         except:
-            return self.model.objects.all().order_by(self.get_order())
+            return self.model.objects.all().order_by(self.get_order()).distinct()
 
     def get_post_serializer(self):
         try:

@@ -8,7 +8,7 @@ import {
   Image,
   ToastAndroid,
 } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import InputField from "../components/common/InputField";
 import BigButton from "../components/common/BigButton";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
@@ -19,6 +19,7 @@ import { useCreateOrUpdate } from "../hooks";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { setApiHeaders } from "../utils/setApiHeaders";
 import { UserInterface } from "../interfaces";
+import { AuthContext } from "../context";
 
 const SignInPage = ({
   navigation,
@@ -31,18 +32,21 @@ const SignInPage = ({
     getValues,
   } = useForm();
 
+  const { login } = useContext(AuthContext);
+
   const { mutate } = useCreateOrUpdate({
     url: "/accounts/login/",
     onSuccess: async (response) => {
-      console.log(response.data["user"],"<=============USERRRR");
       await AsyncStorage.setItem("userToken", response.data["token"]);
       await AsyncStorage.setItem("user", JSON.stringify(response.data["user"]));
       setApiHeaders();
+      login && login();
+      console.log(response.data["user"], "<=============USERRRR");
       ToastAndroid.show("Login Successfully", ToastAndroid.SHORT);
-      navigation.reset({
-        routes: [{ name: "BottomBarContainer" }],
-        index: 0,
-      });
+      // navigation.reset({
+      //   routes: [{ name: "BottomBarContainer" }],
+      //   index: 0,
+      // });
     },
   });
 
