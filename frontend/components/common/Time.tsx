@@ -1,15 +1,10 @@
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
-  DimensionValue,
-  Image,
   SafeAreaView,
-  ImageBackground,
 } from "react-native";
 import React, { useState } from "react";
-import LinearGradient from "react-native-linear-gradient";
 // import FastImage from 'react-native-fast-image';
 // import { BlurView } from '@react-native-community/blur';
 import SavedBtn from "../SavedBtn";
@@ -19,10 +14,15 @@ import { useCreateOrUpdate } from "../../hooks";
 interface TimeProps {
   Time?: string;
   recipeId: string;
+  is_saved?: boolean;
 }
 
-const TimeProps: React.FC<TimeProps> = ({ Time = "0", recipeId }) => {
-  const [isSaved, setIsSaved] = useState(false);
+const TimeProps: React.FC<TimeProps> = ({
+  Time = "0",
+  recipeId,
+  is_saved = false,
+}) => {
+  const [isSaved, setIsSaved] = useState(is_saved);
 
   const { mutate } = useCreateOrUpdate({
     url: "/social/saved-recipe/create/",

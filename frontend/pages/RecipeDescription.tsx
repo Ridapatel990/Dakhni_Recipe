@@ -37,7 +37,6 @@ const RecipeDescription = ({
 
   const { id: RecipeId } = route.params;
 
-  console.log(RecipeId, "<+=++++++++++++++++++++REcipe IDDIDDI");
   const { data: recipeDetailsData, refetch: RefetchRecipeDetails } =
     useGetAll<RecipeDetailInterface>({
       key: `/recipes/${RecipeId}/`,
@@ -62,6 +61,7 @@ const RecipeDescription = ({
           Review={`${recipeDetailsData?.reviews} Reviews`}
           Rating={`${recipeDetailsData?.rate}`}
           recipeId={recipeDetailsData?.id || ""}
+          is_saved={recipeDetailsData?.is_saved || false}
           imageUri={recipeDetailsData?.image1}
         ></BigCard>
       </View>
@@ -161,6 +161,7 @@ const RecipeDescription = ({
             ? recipeDetailsData?.procedures?.map(
                 (procedure: ProcedureInterface) => (
                   <StepsCard
+                    key={procedure?.id}
                     txtLabel={`Step ${procedure?.order}`}
                     description={procedure?.description}
                   ></StepsCard>

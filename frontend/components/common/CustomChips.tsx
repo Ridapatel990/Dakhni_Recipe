@@ -25,10 +25,7 @@ const CustomChips: React.FC<CustomChipsProps> = ({
 
   const handlePress = () => {
     if (!disabled) {
-      if (onPress && setSelected) {
-        onPress();
-        setSelected(label);
-      } else if (setSelected) {
+      if (setSelected) {
         setSelected(label);
       }
       // Logic

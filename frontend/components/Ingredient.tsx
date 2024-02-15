@@ -1,11 +1,11 @@
 import React from "react";
-import { View,Image, Text, StyleSheet } from "react-native";
+import { View, Image, Text, StyleSheet } from "react-native";
 import { ImageURISource } from "react-native";
 
-interface IngredientProps{
-    name:string,
-    image:string,
-    quantity:string
+interface IngredientProps {
+  name: string;
+  image: string;
+  quantity: string;
 }
 
 // const Assets: {[key:string]:ImageURISource}= {
@@ -15,45 +15,54 @@ interface IngredientProps{
 //     'tomato':require('../assets/Tomato.png'),
 // }
 
-const Ingredient: React.FC<IngredientProps> = ({name,image,quantity}) =>{
-    return(
-        <View>
-            <View style={styles.mainView}>
-                <View style={styles.imgtext}>
-                {/* {image && <Image source={Assets[image]} ></Image>} */}
-                    <Text style={{alignSelf:'center',paddingLeft:5}}>{name}</Text>
-                </View>
-                <View style={styles.quantity}>
-                    <Text >{quantity}</Text>
-                </View>
-            </View>
+const Ingredient: React.FC<IngredientProps> = ({ name, image, quantity }) => {
+  return (
+    <View>
+      <View style={styles.mainView}>
+        <View style={styles.imgtext}>
+          {/* {image && <Image source={Assets[image]} ></Image>} */}
+          <Text
+            style={{
+              alignSelf: "center",
+              paddingLeft: 5,
+              color: "black",
+              fontSize: 16,
+              fontWeight: "300",
+            }}
+          >
+            {name}
+          </Text>
         </View>
-    )
-}
+        <View style={styles.quantity}>
+          <Text>{quantity}</Text>
+        </View>
+      </View>
+    </View>
+  );
+};
 
-const styles=StyleSheet.create({
-    mainView:{
-        justifyContent:'space-between',
-        flexDirection:'row',
-        backgroundColor:'rgba(220, 220, 220, 0.4)',
-        height:80,
-        width:'100%',
-        borderRadius:10,
-        marginBottom:10,
-    },
+const styles = StyleSheet.create({
+  mainView: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    backgroundColor: "rgba(220, 220, 220, 0.28)",
+    height: 80,
+    width: "100%",
+    borderRadius: 10,
+    marginBottom: 10,
+  },
 
-    imgtext:{
-        justifyContent:'space-between',
-        flexDirection:'row',
-        alignSelf:'center',
-        marginLeft:10
-    },
+  imgtext: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    alignSelf: "center",
+    marginLeft: 10,
+  },
 
-    quantity:{
-        marginRight:10,
-        flexDirection:'column',
-        justifyContent:'center'
-    },
-
-})
-export default Ingredient
+  quantity: {
+    marginRight: 10,
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+});
+export default Ingredient;

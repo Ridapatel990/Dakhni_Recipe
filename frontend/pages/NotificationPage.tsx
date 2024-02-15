@@ -32,40 +32,36 @@ const NotificationPage = ({
     }
   };
 
- 
-  
-  const [notificationId ,setNotificationId] = useState<string>('');
+  const [notificationId, setNotificationId] = useState<string>("");
 
   const [tabText, setTabText] = useState<string | undefined>(undefined);
-  const {data : getNotification,refetch} = useGetAll({
-    key:`/social/notification/list/?type=${tabText ? tabText : tabText?.toLowerCase()}`,
-    select:(data : any) => data?.data?.rows,
-    onSuccess:(data) =>{
-      console.log("notify================",data);
-      
-    },
+  const { data: getNotification, refetch } = useGetAll({
+    key: `/social/notification/list/?type=${
+      tabText ? tabText : tabText?.toLowerCase()
+    }`,
+    select: (data: any) => data?.data?.rows,
+    // onSuccess:(data) =>{
+    //   console.log("notify================",data);
+
+    // },
   });
   const { mutate } = useCreateOrUpdate({
     url: `/social/notification/${notificationId}/`,
-    method :'put',
-    onSuccess:  (response) => {
-      console.log('Success of read API',response)
+    method: "put",
+    onSuccess: (response) => {
+      console.log("Success of read API", response);
       // ToastAndroid.show("Login Successfully", ToastAndroid.SHORT);
     },
-    onError : (error) => {
-      console.log('-----',error.status)
-    }
+    onError: (error) => {
+      console.log("-----", error.status);
+    },
   });
 
-
-
-  useEffect(()=> {
-    if(tabText) {
+  useEffect(() => {
+    if (tabText) {
       refetch();
     }
-  },[tabText])
-
-
+  }, [tabText]);
 
   return (
     <SafeAreaView style={{ paddingBottom: 70 }}>
@@ -107,21 +103,22 @@ const NotificationPage = ({
             <Text style={styles.todayText}>Today</Text>
           </View>
 
-          <View style={{ margin: 20 }}>
-
-          {getNotification?.length>0 ? getNotification?.map((notification:NotificationInterface)=><Notification data={notification}
-            Press = {() =>{
-              setNotificationId(notification.id)
-              mutate({"is_read":true})
-              navigation.navigate("RecipeDescription", {
-                id: notification.recipe?.id,
-              })
-            }
-            }
-          ></Notification>): ''}
-
-            
-            
+          <View style={{ margin: 6 }}>
+            {getNotification?.length > 0
+              ? getNotification?.map((notification: NotificationInterface) => (
+                  <Notification
+                    key={notification?.id}
+                    data={notification}
+                    Press={() => {
+                      setNotificationId(notification.id);
+                      mutate({ is_read: true });
+                      navigation.navigate("RecipeDescription", {
+                        id: notification.recipe?.id,
+                      });
+                    }}
+                  ></Notification>
+                ))
+              : ""}
           </View>
         </View>
       </ScrollView>

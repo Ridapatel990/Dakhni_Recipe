@@ -20,74 +20,75 @@ interface CardProps {
   Rating?: string;
   Review?: string;
   time?: string;
+  is_saved: boolean;
   recipeId: string;
-  Press?:() => void;
+  Press?: () => void;
 }
 const Card: React.FC<CardProps> = ({
   BigCardName,
   imageUri,
   BigCardWidth = 300,
   BigCardHeight = 230,
+  is_saved = false,
   Rating,
   Review,
   time,
   recipeId,
-  Press
+  Press,
 }) => {
+
   return (
     <TouchableOpacity onPress={Press}>
-    <View style={{ display: "flex" }}>
-      <View
-        style={{ ...styles.card, width: BigCardWidth, height: BigCardHeight }}
-      >
-        <ImageBackground
-          // source={require("../../assets/BigCardImage.png")}
-          source={
-            imageUri
-              ? { uri: mediaUrl + imageUri }
-              : require("../../assets/BigCardImage.png")
-          }
-          style={{
-            ...styles.image,
-            width: BigCardWidth,
-            height: BigCardHeight,
-          }}
+      <View style={{ display: "flex" }}>
+        <View
+          style={{ ...styles.card, width: BigCardWidth, height: BigCardHeight }}
         >
-          <View
+          <ImageBackground
+            // source={require("../../assets/BigCardImage.png")}
+            source={
+              imageUri
+                ? { uri: mediaUrl + imageUri }
+                : require("../../assets/BigCardImage.png")
+            }
             style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
+              ...styles.image,
+              width: BigCardWidth,
+              height: BigCardHeight,
             }}
           >
-            {/* Add more Card components as needed */}
-          </View>
-        </ImageBackground>
-        <View
-          style={{
-            ...styles.overlay,
-            width: BigCardWidth,
-            height: BigCardHeight,
-          }}
-        ></View>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              {/* Add more Card components as needed */}
+            </View>
+          </ImageBackground>
+          <View
+            style={{
+              ...styles.overlay,
+              width: BigCardWidth,
+              height: BigCardHeight,
+            }}
+          ></View>
 
-        <RatingChip Rating={Rating} />
+          <RatingChip Rating={Rating} />
 
-        <Time Time={time} recipeId={recipeId}></Time>
+          <Time Time={time} recipeId={recipeId} is_saved={is_saved}></Time>
+{/* 
+          <SavedBtn
+            onSave={() => handleSave(recipeId)}
+            isSaved={isSaved}
+          ></SavedBtn> */}
+        </View>
 
-        {/* <SavedBtn
-          onSave={function (): void {
-            throw new Error("Function not implemented.");
-          }}
-          isSaved={false}
-        ></SavedBtn> */}
+        <View style={{ marginTop: 5, marginBottom: 10 }}>
+          <Text style={styles.name}>{BigCardName}</Text>
+          <Text style={styles.review}>{Review}</Text>
+        </View>
       </View>
-
-      <View style={{ marginTop: 5, marginBottom: 10 }}>
-        <Text style={styles.name}>{BigCardName}</Text>
-        <Text style={styles.review}>{Review}</Text>
-      </View>
-    </View>
     </TouchableOpacity>
   );
 };

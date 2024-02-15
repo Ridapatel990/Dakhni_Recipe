@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     height: "auto",
     width: 320,
-    backgroundColor: "#D9D9D9",
+    backgroundColor: "rgba(217, 217, 217, 0.28)",
     borderRadius: 12,
     // marginRight:10
     marginLeft: "auto",
@@ -45,6 +45,9 @@ const styles = StyleSheet.create({
   },
   stepText: {
     padding: 10,
+    color: "black",
+    fontSize: 14,
+    fontWeight: "300",
   },
   description: {
     paddingHorizontal: 10,
