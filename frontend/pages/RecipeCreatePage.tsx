@@ -43,6 +43,7 @@ const RecipeCreatePage = ({
   };
 
   const [longTabText, setLongTabText] = useState<string | undefined>(undefined);
+  const [cookingTime, setCookingTime] = useState<number>(0);
 
   let list;
   if (longTabText === "Ingredients") {
@@ -54,8 +55,7 @@ const RecipeCreatePage = ({
   } else {
     list = <CreateProcedure></CreateProcedure>;
   }
-
-  const [image, setImage] = useState<string | undefined>('');
+  const [image, setImage] = useState<string | undefined>("");
   //   interface OptionsCommon {
   //     mediaType: ImagePicker.MediaType;
   // }
@@ -126,6 +126,8 @@ const RecipeCreatePage = ({
         </View>
         <View style={{ bottom: 20 }}>
           <RecipeChipComponenet
+            cookingTime={cookingTime}
+            setCookingTime={setCookingTime}
             image="clock"
             title="Cook Time(Min)"
             component="{component}"
