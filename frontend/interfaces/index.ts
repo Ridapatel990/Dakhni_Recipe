@@ -13,20 +13,22 @@ export interface RecipeInterface extends BaseObjInterface {
   name: string;
   image1: string | null;
   rate: string;
-  review:string;
+  review: string;
+  is_saved: boolean;
   cooking_time: string;
 }
 
 export interface GetRecipeInteface extends BaseObjInterface {
   name: string;
   image1: string | undefined;
-  rate: string;
+  rate:   string;
   cooking_time: string;
   id: string;
   image2: string | undefined;
   image3: string | undefined;
   link: string | undefined;
   serve_qty: number;
+  is_saved: boolean;
 }
 
 export interface GetPopularInterface extends BaseObjInterface {
@@ -34,6 +36,7 @@ export interface GetPopularInterface extends BaseObjInterface {
     name: string;
     image1: string | undefined;
     rate: string;
+    is_saved: boolean;
     cooking_time: string;
     id: string;
     image2: string | undefined;
@@ -46,7 +49,7 @@ export interface GetPopularInterface extends BaseObjInterface {
 export interface GetNewInteface extends BaseObjInterface {
   name: string;
   image1: string | undefined;
-  rate: number;
+  rate: number | string;
   cooking_time: string;
   id: string;
   image2: string | undefined;
@@ -62,6 +65,7 @@ export interface GetTrendingInterface extends BaseObjInterface {
     rate: string;
     cooking_time: string;
     id: string;
+    is_saved: boolean;
     image2: string | undefined;
     image3: string | undefined;
     link: string | undefined;
@@ -124,11 +128,10 @@ export interface NotificationInterface {
   recipe: {
     id: string;
     name: string;
-    rate: number;
+    rate: number | string;
     is_saved: boolean;
     cooking_time: string;
     image1: string;
-    
   };
 }
 
@@ -146,6 +149,7 @@ export interface RecipeDetailInterface extends BaseObjInterface {
   name: string;
   image1: string | undefined;
   rate: string;
+  is_saved: boolean;
   reviews: string;
   cooking_time: string;
   id: string;

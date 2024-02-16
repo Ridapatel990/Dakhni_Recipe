@@ -47,7 +47,15 @@ const stylelistItem:FlexStyle={
   maxHeight :500
 }
 
-const  DropDownList  =()=> {
+interface DropDownListProps{
+  createCategory?:string;
+  setCreateCategory?:any
+}
+
+const  DropDownList:React.FC<DropDownListProps>  =({
+  createCategory,
+  setCreateCategory
+})=> {
 
 
     const [selectedItems,setSelectedItems] = useState<any[]>([])

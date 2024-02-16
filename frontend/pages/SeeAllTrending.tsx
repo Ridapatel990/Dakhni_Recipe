@@ -31,9 +31,11 @@ const SeeAllNewRecipe = ({
           {trendingRecipe && trendingRecipe.length
             ? trendingRecipe?.map((trendRecipe: GetPopularInterface) => (
                 <BigCard
+                  key={trendRecipe?.recipe?.id}
                   BigCardName={trendRecipe?.recipe?.name}
                   imageUri={trendRecipe?.recipe?.image1}
                   Rating={trendRecipe?.recipe?.rate}
+                  is_saved={trendRecipe?.recipe?.is_saved}
                   time={trendRecipe?.recipe?.cooking_time}
                   recipeId={trendRecipe.id}
                   Press={()=> navigation.navigate("RecipeDescription",

@@ -38,12 +38,10 @@ const HomeScreen = ({
   navigation: NavigationProp<ParamListBase>;
 }) => {
   const [searchText, setSearchText] = useState("");
-  const [chipText, setChipText] = useState<string | undefined>(undefined);
   const [user, setUser] = useState<UserInterface | undefined>(undefined);
 
   const [recentlySearchedRecipe, setRecentlySearchedRecipe] = useState([]);
   const [recentlyEnabled, setRecentlyEnabled] = useState(false);
-  const [tabText, setTabText] = useState<string | undefined>(undefined);
   const [popularCatChipText, setPopularCatChipText] = useState<
     string | undefined
   >("all");
@@ -208,6 +206,12 @@ const HomeScreen = ({
                         CardName={recipe.name}
                         imageUri={recipe.image1}
                         Rating={String(recipe.rate)}
+                        Press={() => {
+                          // console.log("presssssssssssssssss")
+                          navigation.navigate("RecipeDescription", {
+                            id: recipe?.id,
+                          });
+                        }}
                       ></Card>
                     ))}
                 </View>
@@ -216,17 +220,21 @@ const HomeScreen = ({
 
             {recentlySearchedRecipe &&
               recentlySearchedRecipe.length > 0 &&
-              recentlySearchedRecipe?.map((recipe: GetPopularInterface) => (
-                <Card
-                  key={recipe.id}
-                  CardName={recipe?.recipe?.name}
-                  imageUri={recipe?.recipe?.image1}
-                  Rating={recipe?.recipe?.rate}
-                  Press={()=> navigation.navigate("RecipeDescription",
-                  {id:recipe?.id}
-                  )}
-                ></Card>
-              ))}
+              recentlySearchedRecipe?.map((recipe: GetPopularInterface) => {
+                return (
+                  <Card
+                    key={recipe.id}
+                    CardName={recipe?.recipe?.name}
+                    imageUri={recipe?.recipe?.image1}
+                    Rating={recipe?.recipe?.rate}
+                    Press={() => {
+                      navigation.navigate("RecipeDescription", {
+                        id: recipe?.recipe?.id,
+                      });
+                    }}
+                  ></Card>
+                );
+              })}
             {!query && recentlySearchedRecipe.length === 0 && (
               <>
                 <ScrollView
@@ -240,13 +248,23 @@ const HomeScreen = ({
                   {allCategories && allCategories.length
                     ? [{ name: "All", id: "all" }, ...allCategories].map(
                         (cat: CategoryInterface, index: number) => (
-                          <CustomChips
+                          // <CustomChips
+                          //   key={cat.id}
+                          //   defaultSelected={index === 0}
+                          //   label={cat.name}
+                          //   selected={allCatChipText}
+                          //   setSelected={setAllCatChipText}
+                          // ></CustomChips>
+                          <CustomTabs
                             key={cat.id}
                             defaultSelected={index === 0}
                             label={cat.name}
+                            width={"auto"}
+                            height={32}
+                            margin={4}
                             selected={allCatChipText}
                             setSelected={setAllCatChipText}
-                          ></CustomChips>
+                          ></CustomTabs>
                         )
                       )
                     : ""}
@@ -264,7 +282,9 @@ const HomeScreen = ({
                     {getRecipe && getRecipe.length
                       ? getRecipe?.map((recipe: GetRecipeInteface) => (
                           <DetailedCard
+                            key={recipe.id}
                             recipeId={recipe.id}
+                            is_saved={recipe?.is_saved}
                             recipeLabel={recipe.name}
                             mins={recipe.cooking_time}
                             imageUri={recipe.image1}
@@ -312,13 +332,15 @@ const HomeScreen = ({
                     {trendingRecipe && trendingRecipe.length
                       ? trendingRecipe?.map(
                           (trendRecipe: GetPopularInterface) => {
-                            console.log(trendRecipe);
+                            // console.log(trendRecipe);
                             return (
                               <BigCard
+                                key={trendRecipe?.recipe?.id}
                                 BigCardWidth={300}
                                 BigCardName={trendRecipe?.recipe?.name}
                                 imageUri={trendRecipe?.recipe?.image1}
                                 Rating={trendRecipe?.recipe?.rate}
+                                is_saved={trendRecipe?.recipe?.is_saved}
                                 time={trendRecipe?.recipe?.cooking_time}
                                 recipeId={trendRecipe?.recipe?.id}
                                 Press={() =>
@@ -372,8 +394,10 @@ const HomeScreen = ({
                     {popularCat && popularCat.length
                       ? popularCat?.map((popRecipe: GetPopularInterface) => (
                           <DetailedCard
+                            key={popRecipe?.recipe.id}
                             recipeId={popRecipe?.recipe.id}
                             recipeLabel={popRecipe?.recipe?.name}
+                            is_saved={popRecipe?.recipe?.is_saved}
                             mins={popRecipe?.recipe?.cooking_time}
                             imageUri={popRecipe?.recipe?.image1}
                             Press={() =>
@@ -422,6 +446,7 @@ const HomeScreen = ({
                     {newRecipe && newRecipe.length
                       ? newRecipe?.map((recipe: GetNewInteface) => (
                           <SimpleCard
+                            key={recipe?.id}
                             label={recipe.name}
                             imageUri={recipe.image1}
                             Press={() =>

@@ -17,7 +17,7 @@ interface CardProps {
   CardWidth?: DimensionValue;
   CardHeight?: DimensionValue;
   Rating?: string;
-  Press?:() => void;
+  Press?: () => void;
 }
 const Card: React.FC<CardProps> = ({
   CardName,

@@ -28,7 +28,7 @@ export function useCreateOrUpdate<T = unknown>({
 }: useCreateOrUpdateType) {
   function sendData(data: T) {
     console.log('Create API called')
-    console.log('------------',data,url,method,headers)
+    // console.log('------------',data,url,method,headers)
     // setApiHeaders();
     return serverAPI[method](url, data, {headers:headers});
   }

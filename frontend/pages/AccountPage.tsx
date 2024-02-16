@@ -3,18 +3,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Profile from "../components/Profile";
-import EditPage from "./EditProfilePage";
 import { NavigationProp, ParamListBase,RouteProp, useFocusEffect } from "@react-navigation/native";
-import CircularAvatar from "../components/CircleAvatar";
-import ProfileComponent from "../components/home/ProfileComponent";
 import BigButton from "../components/common/BigButton";
 import BigCard from "../components/common/BigCard";
-import BottomNavigationBar from "../components/BottomNavigationBar";
 import { useGetAll } from "../hooks";
 import { GetProfileInterface, RecipeInterface } from "../interfaces";
 import { mediaUrl } from "../utils/urls";
-import { RecipeDetailInterface } from "../interfaces";
-import Recipe from "../components/Recipe";
 
 // const ScrollViewContent = () => (
 //   <ScrollView horizontal={false}>
@@ -193,7 +187,9 @@ const AccountPage = ({
 
         <View style={{ marginBottom: 260,paddingRight:20 }}>
           {profile?.recipes && profile?.recipes.length ? profile.recipes.map((recipe:RecipeInterface)=>(<BigCard
+            key={recipe?.id}
             BigCardName={recipe.name}
+            is_saved={recipe?.is_saved}
             BigCardWidth={'100%'}
             // Review={`${recipeDetailsData?.reviews} Reviews`}
             imageUri={recipe.image1 || null}

@@ -1,26 +1,27 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SavedBtn from "../SavedBtn";
 import { mediaUrl } from "../../utils/urls";
-import { useCreateOrUpdate, useGetAll } from "../../hooks";
-import { RouteProp } from "@react-navigation/native";
+import { useCreateOrUpdate } from "../../hooks";
 
 interface DetailedProps {
   imageUri?: string;
   recipeLabel: string;
   recipeId: string;
+  is_saved: boolean;
   mins: string;
   Press?: () => void;
 }
 
 const DetailedCard: React.FC<DetailedProps> = ({
   imageUri = null,
+  is_saved = false,
   recipeLabel,
   recipeId,
   mins,
   Press,
 }) => {
-  const [isSaved, setIsSaved] = useState(false);
+  const [isSaved, setIsSaved] = useState(is_saved);
 
   const { mutate } = useCreateOrUpdate({
     url: "/social/saved-recipe/create/",
@@ -28,8 +29,7 @@ const DetailedCard: React.FC<DetailedProps> = ({
 
   const handleSave = (recipeId: string) => {
     setIsSaved(!isSaved);
-    const data = { recipe: recipeId };
-    mutate(data);
+    mutate({ recipe: recipeId });
   };
 
   return (
