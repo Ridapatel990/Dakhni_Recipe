@@ -62,13 +62,7 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
   setColor,
 }) => {
   const chipColor =
-    selected === label
-      ? setBg
-        ? "white"
-        : "red"
-      : disabled
-      ? "black"
-      : "white";
+    selected === label? setBg? "white": "red": disabled? "black": "white";
   const labelColor =
     selected === label || disabled ? (setColor ? "black" : "white") : "black";
 

@@ -70,7 +70,6 @@ const FilterResponse = ({
       setRecipes(route.params?.rows);
     }
   }, []);
-
   return (
     <SafeAreaView style={styles.container}>
       <View>

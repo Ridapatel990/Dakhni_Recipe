@@ -21,6 +21,7 @@ import StarCustomTab from "../components/common/StarCustomTab";
 import { useForm, Controller } from "react-hook-form";
 import { useCreateOrUpdate, useGetAll } from "../hooks";
 import { CategoryInterface, FilterDataInterface } from "../interfaces";
+import MultiselectChip from "../components/MultiselectChip"
 
 const initialFilterData: FilterDataInterface = {
   categories: [],
@@ -36,6 +37,7 @@ const FilterPage = ({
   const [searchText, setSearchText] = useState("");
   const [tabText, setTabText] = useState<string | undefined>(undefined);
   const [selected, setSelected] = useState<string | undefined>(undefined);
+  const [tabSelected,setTabSelected] = useState<{id:string;name:string}[]>([]);
   // const [selectedCategory, setSelectedCategory] = useState<Array<string>>([]);
   const [filterData, setFilterData] =
     useState<FilterDataInterface>(initialFilterData);
@@ -72,8 +74,9 @@ const FilterPage = ({
 
   const onFilter = async () => {
     // const data = getValues();
-    // console.log(filterData,'<=======filterDATATAT');
-    mutate({...filterData,rate:tabText});
+    let catIds = tabSelected?.map(item => item?.id)
+    console.log(catIds,'<=======filterDATATAT');
+    mutate({...filterData,rate:tabText,categories:catIds});
   };
 
   return (
@@ -200,36 +203,39 @@ const FilterPage = ({
           }}
         >
           {allCategories && allCategories.length
-            ? allCategories.map((cat: CategoryInterface) => (
-                <CustomChips
-                  key={cat.id}
-                  label={cat.name}
-                  selected={
-                    filterData.categories.includes(cat.id)
-                      ? cat.name
-                      : cat.name + "dummy"
-                  }
-                  setSelected={() => ""}
-                  defaultSelected={false}
-                  onPress={() => {
-                    if (!filterData.categories.includes(cat.id)) {
-                      setFilterData((prev) => ({
-                        ...prev,
-                        categories: [...prev.categories, cat.id],
-                      }));
-                    } else {
-                      let cats = filterData.categories;
-                      const index = cats.indexOf(cat.id);
-                      cats.splice(index, 1);
-                      setFilterData((prev) => ({
-                        ...prev,
-                        categories: cats,
-                      }));
-                    }
-                  }}
-                ></CustomChips>
-              ))
-            : ""}
+  ? allCategories.map((cat: CategoryInterface) => (
+      <MultiselectChip
+        key={cat.id}
+        // label1={cat.name}
+        data={cat}
+        tabSelected={
+          tabSelected
+          // filterData.categories.includes(cat.id)
+          //   ? [cat.name]
+          //   : [cat.name + "dummy"]
+        }
+        setTabSelected={setTabSelected}
+        defaultSelected={false}
+        onPress={() => {
+          console.log('on Presssss')
+          if (!filterData.categories.includes(cat.id)) {
+            setFilterData((prev) => ({
+              ...prev,
+              categories: [...prev.categories, cat.id],
+            }));
+          } else {
+            let cats = filterData.categories;
+            const index = cats.indexOf(cat.id);
+            cats.splice(index, 1);
+            setFilterData((prev) => ({
+              ...prev,
+              categories: cats,
+            }));
+          }
+        }}
+      />
+    ))
+  : ""}
         </View>
       </View>
 
@@ -270,3 +276,9 @@ const styles = StyleSheet.create({
 });
 
 export default FilterPage;
+
+// {
+// filterData.categories.includes(cat.id)
+//                       ? cat.name
+//                       : cat.name + "dummy"
+//                   }
