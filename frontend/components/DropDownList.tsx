@@ -90,13 +90,6 @@ const  DropDownList:React.FC<DropDownListProps>  =({
   }, {
     id: 'suudydjsjd',
     name: 'Abuja',
-  },{
-    id: 'vuudydjsjd',
-    name: 'Abu Dhabi',
-  }
-  ,{
-    id: 'vuudydjsjd',
-    name: 'Abu Dhabi',
   }
 ];
 
@@ -177,7 +170,7 @@ const styles= StyleSheet.create({
     width:280,
     borderRadius:20,
     // backgroundColor:'black'
-    overflow:'scroll'
+    overflow:'hidden'
    },
    mainView:{
     flexDirection:'row',

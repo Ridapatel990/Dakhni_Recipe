@@ -80,6 +80,8 @@ const RecipeCreatePage = ({
     }
   };
 
+  // console.log(createCategory);
+
   return (
     <View>
       <ScrollView style={{ height: "100%" }}>
