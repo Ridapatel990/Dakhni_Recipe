@@ -44,11 +44,17 @@ const RecipeCreatePage = ({
 
   const [longTabText, setLongTabText] = useState<string | undefined>(undefined);
   const [cookingTime, setCookingTime] = useState<number>(0);
-  const [createCategory,setCreateCategory] = useState<string>('')
+  const [serveQty,setServeQty] = useState<number>(0);
+  const [selectedCategory,setSelectedCategory] = useState<string>('')
 
   const handleCookingTimeChange = (text: string) => {
     const timeValue = parseInt(text) || 0;
     setCookingTime(timeValue);
+  };
+
+  const handleServeQtyTimeChange = (text: string) => {
+    const timeValue = parseInt(text) || 0;
+    setServeQty(timeValue);
   };
 
 
@@ -89,6 +95,7 @@ const RecipeCreatePage = ({
   };
 
   // console.log(createCategory);
+  console.log(cookingTime)
 
   return (
     <View>
@@ -142,18 +149,23 @@ const RecipeCreatePage = ({
             time={cookingTime}
             increaseTime={()=> setCookingTime((prev:number)=>prev+1)}
             decreaseTime={()=> setCookingTime((prev:number)=>prev-1)}
+            onChangeText={handleCookingTimeChange}
             image="clock"
             title="Cook Time(Min)"
             component="{component}"
           ></RecipeChipComponent>
           <RecipeChipComponent
+            time={serveQty}
+            increaseTime={() => setServeQty((prev:number)=>prev+1)}
+            decreaseTime={() => setServeQty((prev:number)=>prev-1)}
+            onChangeText={handleServeQtyTimeChange}
             image="serves"
             title="Serves"
             component="{component}"
           ></RecipeChipComponent>
           <RecipeChipComponent
             createCategory="{createCategory}"
-            setCreateCategory={setCreateCategory}
+            setSelectedCategory={setSelectedCategory}
             image="category"
             // title="Category"
             dropdowncomp="{dropdowncomp}"

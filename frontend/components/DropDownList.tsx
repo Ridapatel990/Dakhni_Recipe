@@ -48,50 +48,50 @@ const stylelistItem:FlexStyle={
 }
 
 interface DropDownListProps{
-  createCategory?:string;
-  setCreateCategory?:any
+  selectedCategory?:string;
+  setSelectedCategory?:any
 }
 
 const  DropDownList:React.FC<DropDownListProps>  =({
-  createCategory,
-  setCreateCategory
+  selectedCategory,
+  setSelectedCategory
 })=> {
 
 
     const [selectedItems,setSelectedItems] = useState<any[]>([])
 
-  let items = [{
-    id: '92iijs7yta',
-    name: 'Ondo',
-  }, {
-    id: 'a0s0a8ssbsd',
-    name: 'Ogun',
-  }, {
-    id: '16hbajsabsd',
-    name: 'Calabar',
-  }, {
-    id: 'nahs75a5sg',
-    name: 'Lagos',
-  }, {
-    id: '667atsas',
-    name: 'Maiduguri',
-  }, {
-    id: 'hsyasajs',
-    name: 'Anambra',
-  }, {
-    id: 'djsjudksjd',
-    name: 'Benue',
-  },{
-    id: 'vuudydjsjd',
-    name: 'Abu Dhabi',
-  }, {
-    id: 'sdhyaysdj',
-    name: 'Kaduna',
-  }, {
-    id: 'suudydjsjd',
-    name: 'Abuja',
-  }
-];
+//   let items = [{
+//     id: '92iijs7yta',
+//     name: 'Ondo',
+//   }, {
+//     id: 'a0s0a8ssbsd',
+//     name: 'Ogun',
+//   }, {
+//     id: '16hbajsabsd',
+//     name: 'Calabar',
+//   }, {
+//     id: 'nahs75a5sg',
+//     name: 'Lagos',
+//   }, {
+//     id: '667atsas',
+//     name: 'Maiduguri',
+//   }, {
+//     id: 'hsyasajs',
+//     name: 'Anambra',
+//   }, {
+//     id: 'djsjudksjd',
+//     name: 'Benue',
+//   },{
+//     id: 'vuudydjsjd',
+//     name: 'Abu Dhabi',
+//   }, {
+//     id: 'sdhyaysdj',
+//     name: 'Kaduna',
+//   }, {
+//     id: 'suudydjsjd',
+//     name: 'Abuja',
+//   }
+// ];
 
 const [category,setCategory]=useState<Array<RecipeDetailInterface>
 >([])

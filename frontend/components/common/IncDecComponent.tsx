@@ -12,24 +12,27 @@ interface IncDecComponentProps {
   time?: number;
   decreaseTime?: ()=>void;
   increaseTime?: ()=>void;
-  handleCookingTimeChange?: ()=>void;
+  onChangeText?: (text: string)=> void;
 }
 
 const IncDecComponent: React.FC<IncDecComponentProps> = ({
   time=0,
   decreaseTime,
-  increaseTime
+  increaseTime,
+  onChangeText
 }) => {
   //   const [count, setCount] = useState(0);
 
+  
+
   const Increment = () => {
-    if (increaseTime && time) {
+    if (increaseTime) {
       increaseTime()
     }
   };
 
   const Decrement = () => {
-    if (decreaseTime  && time) {
+    if (time > 0 && decreaseTime) {
       decreaseTime()
     }
   };
@@ -47,7 +50,11 @@ const IncDecComponent: React.FC<IncDecComponentProps> = ({
         </TouchableOpacity>
         <TextInput
           value={time.toString()}
-          // onChangeText={(text) => setCookingTime(parseInt(text) || 0)}
+          onChangeText={(text) => {
+            if (onChangeText){
+              onChangeText(text)
+            }
+          }}
           keyboardType={"numeric"}
           style={styles.input}
         ></TextInput>

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { ImageURISource } from "react-native";
 import IncDecComponent from "./common/IncDecComponent";
 import DropDownList from "./DropDownList";
+import { useState } from "react";
 
 interface RecipeChipProps {
   title?: string;
@@ -13,7 +14,10 @@ interface RecipeChipProps {
   decreaseTime?: ()=>void;
   increaseTime?: ()=>void;
   createCategory?:string;
-  setCreateCategory?:any
+  setCreateCategory?:any;
+  onChangeText?: (text: string)=> void;
+  selectedCategory?: string ;
+  setSelectedCategory?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Assets: { [key: string]: ImageURISource } = {
@@ -31,9 +35,11 @@ const RecipeChipComponenet: React.FC<RecipeChipProps> = ({
   increaseTime,
   decreaseTime,
   createCategory,
-  setCreateCategory
+  setCreateCategory,
+  onChangeText,
+  selectedCategory,
+  setSelectedCategory
 }) => {
-
   
 
   return (
@@ -51,12 +57,13 @@ const RecipeChipComponenet: React.FC<RecipeChipProps> = ({
               time={time}
               increaseTime={increaseTime}
               decreaseTime={decreaseTime}
+              onChangeText={onChangeText}
             ></IncDecComponent>
           )}
           <View style={{ alignSelf: "flex-end", marginRight: 15 }}>
             {dropdowncomp && <DropDownList
-              createCategory={createCategory}
-              setCreateCategory={setCreateCategory}
+              selectedCategory={createCategory}
+              setSelectedCategory={setSelectedCategory}
               ></DropDownList>}
           </View>
         </View>
