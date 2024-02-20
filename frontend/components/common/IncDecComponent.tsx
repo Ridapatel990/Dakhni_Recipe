@@ -9,25 +9,28 @@ import {
 import InputField from "./InputField";
 
 interface IncDecComponentProps {
-  cookingTime?: number;
-  setCookingTime?: any;
+  time?: number;
+  decreaseTime?: ()=>void;
+  increaseTime?: ()=>void;
+  handleCookingTimeChange?: ()=>void;
 }
 
 const IncDecComponent: React.FC<IncDecComponentProps> = ({
-  cookingTime = 0,
-  setCookingTime,
+  time=0,
+  decreaseTime,
+  increaseTime
 }) => {
   //   const [count, setCount] = useState(0);
 
   const Increment = () => {
-    if (setCookingTime && cookingTime) {
-      setCookingTime((prev: number) => prev + 1);
+    if (increaseTime && time) {
+      increaseTime()
     }
   };
 
   const Decrement = () => {
-    if (cookingTime > 0 && setCookingTime) {
-      setCookingTime((prev: number) => prev - 1);
+    if (decreaseTime  && time) {
+      decreaseTime()
     }
   };
   return (
@@ -43,8 +46,8 @@ const IncDecComponent: React.FC<IncDecComponentProps> = ({
           <Image source={require("../../assets/Increment.png")}></Image>
         </TouchableOpacity>
         <TextInput
-          value={cookingTime.toString()}
-          onChangeText={(text) => setCookingTime(parseInt(text) || 0)}
+          value={time.toString()}
+          // onChangeText={(text) => setCookingTime(parseInt(text) || 0)}
           keyboardType={"numeric"}
           style={styles.input}
         ></TextInput>

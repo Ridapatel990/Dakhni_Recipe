@@ -9,8 +9,9 @@ interface RecipeChipProps {
   image?: string;
   component?: string;
   dropdowncomp?: string;
-  cookingTime?: number;
-  setCookingTime?: any;
+  time?: number;
+  decreaseTime?: ()=>void;
+  increaseTime?: ()=>void;
   createCategory?:string;
   setCreateCategory?:any
 }
@@ -26,11 +27,15 @@ const RecipeChipComponenet: React.FC<RecipeChipProps> = ({
   image,
   component,
   dropdowncomp,
-  cookingTime,
-  setCookingTime,
+  time,
+  increaseTime,
+  decreaseTime,
   createCategory,
   setCreateCategory
 }) => {
+
+  
+
   return (
     <View>
       <View style={styles.mainView}>
@@ -43,8 +48,9 @@ const RecipeChipComponenet: React.FC<RecipeChipProps> = ({
         <View style={{ marginRight: 5, width: 100 }}>
           {component && (
             <IncDecComponent
-              cookingTime={cookingTime}
-              setCookingTime={setCookingTime}
+              time={time}
+              increaseTime={increaseTime}
+              decreaseTime={decreaseTime}
             ></IncDecComponent>
           )}
           <View style={{ alignSelf: "flex-end", marginRight: 15 }}>

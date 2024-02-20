@@ -46,6 +46,14 @@ const RecipeCreatePage = ({
   const [cookingTime, setCookingTime] = useState<number>(0);
   const [createCategory,setCreateCategory] = useState<string>('')
 
+  const handleCookingTimeChange = (text: string) => {
+    const timeValue = parseInt(text) || 0;
+    setCookingTime(timeValue);
+  };
+
+
+
+
   let list;
   if (longTabText === "Ingredients") {
     list = (
@@ -131,8 +139,9 @@ const RecipeCreatePage = ({
         </View>
         <View style={{ bottom: 20 }}>
           <RecipeChipComponent
-            cookingTime={cookingTime}
-            setCookingTime={setCookingTime}
+            time={cookingTime}
+            increaseTime={()=> setCookingTime((prev:number)=>prev+1)}
+            decreaseTime={()=> setCookingTime((prev:number)=>prev-1)}
             image="clock"
             title="Cook Time(Min)"
             component="{component}"
