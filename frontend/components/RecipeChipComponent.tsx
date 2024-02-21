@@ -11,13 +11,11 @@ interface RecipeChipProps {
   component?: string;
   dropdowncomp?: string;
   time?: number;
-  decreaseTime?: ()=>void;
-  increaseTime?: ()=>void;
-  createCategory?:string;
-  setCreateCategory?:any;
-  onChangeText?: (text: string)=> void;
-  selectedCategory?: string ;
-  setSelectedCategory?: React.Dispatch<React.SetStateAction<string>>;
+  decreaseTime?: () => void;
+  increaseTime?: () => void;
+  setCreateCategory?: any;
+  onChangeText?: (text: string) => void;
+  setSelectedCategory?: React.Dispatch<React.SetStateAction<Array<string>>>;
 }
 
 const Assets: { [key: string]: ImageURISource } = {
@@ -34,14 +32,9 @@ const RecipeChipComponenet: React.FC<RecipeChipProps> = ({
   time,
   increaseTime,
   decreaseTime,
-  createCategory,
-  setCreateCategory,
   onChangeText,
-  selectedCategory,
-  setSelectedCategory
+  setSelectedCategory,
 }) => {
-  
-
   return (
     <View>
       <View style={styles.mainView}>
@@ -61,10 +54,11 @@ const RecipeChipComponenet: React.FC<RecipeChipProps> = ({
             ></IncDecComponent>
           )}
           <View style={{ alignSelf: "flex-end", marginRight: 15 }}>
-            {dropdowncomp && <DropDownList
-              selectedCategory={createCategory}
-              setSelectedCategory={setSelectedCategory}
-              ></DropDownList>}
+            {dropdowncomp && (
+              <DropDownList
+                setSelectedCategory={setSelectedCategory}
+              ></DropDownList>
+            )}
           </View>
         </View>
       </View>

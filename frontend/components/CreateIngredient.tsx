@@ -1,62 +1,19 @@
-import Input from "@ant-design/react-native/lib/input-item/Input";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Image,
   StyleSheet,
-  Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
-import InputField from "../components/common/InputField";
 import BigButton from "./common/BigButton";
 import { useGetAll } from "../hooks";
 import {
   GetIngredientInterface,
+  IngredientInterface,
   InputIngredientInterface,
 } from "../interfaces";
-
-
-
-const data1 = [
-  { label: "Beef", value: "1" },
-  { label: "Chicken", value: "2" },
-  { label: "Tomato", value: "3" },
-  { label: "Rice", value: "4" },
-  { label: "Potato", value: "5" },
-];
-//   <TextInput style={styles.quantity}></TextInput>
-
-//   {/* {renderLabel2()} */}
-//    <Dropdown
-//     style={[styles.dropdown2, isFocus && { borderColor: 'red' }]}
-//     itemTextStyle={{color:'black'}}
-//     placeholderStyle={styles.placeholderStyle}
-//     selectedTextStyle={styles.selectedTextStyle}
-//     iconStyle={styles.iconStyle}
-//     data={data2}
-//     search
-//     searchPlaceholder='Search...'
-//     maxHeight={300}
-//     labelField="title"
-//     valueField="value1"
-//     placeholder='Grams'
-//     value={value1}
-//     onFocus={() => setIsFocus(true)}
-//     onBlur={() => setIsFocus(false)}
-//     onChange={item => {
-//       setValue1(item.value1);
-//       setIsFocus(false);
-//     }}
-
-//   />
-
-//   <TouchableOpacity style={{alignSelf:'center'}}>
-//   <Image source={require('../assets/Increment.png')}></Image>
-//   </TouchableOpacity>
-
-// </View>
 
 const data2 = [
   { title: "Grams", value1: "8" },
@@ -69,10 +26,12 @@ const intialIngredient: InputIngredientInterface = {
   quantity: "",
   unit: "",
 };
-
-const CreateIngredient = () => {
-  const [value1, setValue1] = useState<string | null>(null);
-  const [isFocus, setIsFocus] = useState(false);
+interface CreateIngredientProps {
+  setIngrediants: (list: Array<InputIngredientInterface>) => void;
+}
+const CreateIngredient: React.FC<CreateIngredientProps> = ({
+  setIngrediants,
+}) => {
   const [inputIngredients, setInputIngredients] = useState<
     Array<InputIngredientInterface>
   >([intialIngredient]);
@@ -81,46 +40,23 @@ const CreateIngredient = () => {
     Array<GetIngredientInterface>
   >([]);
 
+  useEffect(()=>{
+    setIngrediants(inputIngredients)
+    console.log("calledddddddddddddd")
+  },[inputIngredients])
   useGetAll({
     key: "/recipes/ingredient/",
     onSuccess: (data) => {
-      // console.log(data, "<=========ngredient datat");
       setIngredientList(data);
     },
   });
 
-  // const renderLabel1 = () => {
-  //   if (value || isFocus) {
-  //     return (
-  //       <Text style={[styles.label1, isFocus && { color: 'black' }]}>
-
-  //       </Text>
-  //     );
-  //   }
-  //   return null;
-  // };
-
-  // const renderLabel2 = () => {
-  //   if (value1 || isFocus) {
-  //     return (
-  //       <Text style={[styles.label2, isFocus && { color: 'black' }]}>
-
-  //       </Text>
-  //     );
-  //   }
-  //   return null;
-  // };
-
   return (
     <View>
       {inputIngredients.map((item: InputIngredientInterface, index: number) => (
-        
-        <View style={styles.container}>
-          {/* {renderLabel1()} */}
-
-          
+        <View style={styles.container} key={index}>
           <Dropdown
-            style={[styles.dropdown, isFocus && { borderColor: "gray" }]}
+            style={styles.dropdown}
             itemTextStyle={{ color: "black" }}
             placeholderStyle={styles.placeholderStyle}
             selectedTextStyle={styles.selectedTextStyle}
@@ -133,34 +69,33 @@ const CreateIngredient = () => {
             valueField="name"
             placeholder="Ingredient"
             searchPlaceholder="Search..."
-            // value={ingredient.name}
-            onFocus={() => setIsFocus(true)}
-            onBlur={() => setIsFocus(false)}
-            onChange={(item: GetIngredientInterface) => {
-              let arr = [...inputIngredients];
-              arr[index] = { ...arr[index], name: item.name };
-              setInputIngredients(arr);
+            value={item.name}
+            onChange={(selectedIngredient: GetIngredientInterface) => {
+              const updatedIngredients = [...inputIngredients];
+              updatedIngredients[index] = {
+                ...updatedIngredients[index],
+                name: selectedIngredient.name,
+              };
+              setInputIngredients(updatedIngredients);
             }}
           />
-
-          {/* <View style={{bottom:35,width:120}}>
-        <InputField height={50}></InputField>
-        </View> */}
 
           <TextInput
             style={styles.quantity}
             keyboardType="numeric"
-            value={String(item.quantity)}
+            value={item.quantity}
             onChangeText={(text) => {
-              let arr = [...inputIngredients];
-              arr[index] = { ...arr[index], quantity: text };
-              setInputIngredients(arr);
+              const updatedIngredients = [...inputIngredients];
+              updatedIngredients[index] = {
+                ...updatedIngredients[index],
+                quantity: text,
+              };
+              setInputIngredients(updatedIngredients);
             }}
-          ></TextInput>
+          />
 
-          {/* {renderLabel2()} */}
           <Dropdown
-            style={[styles.dropdown2, isFocus && { borderColor: "gray" }]}
+            style={styles.dropdown}
             itemTextStyle={{ color: "black" }}
             placeholderStyle={styles.placeholderStyle}
             selectedTextStyle={styles.selectedTextStyle}
@@ -171,55 +106,56 @@ const CreateIngredient = () => {
             maxHeight={300}
             labelField="title"
             valueField="value1"
-            placeholder="Grams"
-            value={value1}
-            onFocus={() => setIsFocus(true)}
-            onBlur={() => setIsFocus(false)}
-            onChange={(item: any) => {
-              let arr = [...inputIngredients];
-              arr[index] = { ...arr[index], unit: item.title };
-              setInputIngredients(arr);
+            placeholder="Unit"
+            value={item.name}
+            onChange={(selectedUnit: any) => {
+              const updatedIngredients = [...inputIngredients];
+              updatedIngredients[index] = {
+                ...updatedIngredients[index],
+                unit: selectedUnit.title,
+              };
+              setInputIngredients(updatedIngredients);
             }}
           />
 
-          {index + 1 == inputIngredients.length ? (
+          {index === inputIngredients.length - 1 ? (
             <TouchableOpacity
               style={{ alignSelf: "center" }}
               onPress={() => {
-                setInputIngredients((prev) => [...prev, intialIngredient]);
+                setInputIngredients([...inputIngredients, intialIngredient]);
               }}
             >
-              <Image source={require("../assets/Increment.png")}></Image>
+              <Image source={require("../assets/Increment.png")} />
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
               style={{ alignSelf: "center" }}
               onPress={() => {
-                let newArr = [...inputIngredients];
-                console.log(newArr, index);
-                newArr.splice(index, 1);
-                console.log(newArr);
-                setInputIngredients(newArr);
+                const updatedIngredients = [...inputIngredients];
+                updatedIngredients.splice(index, 1);
+                setInputIngredients(updatedIngredients);
               }}
             >
-              <Image source={require("../assets/Decrement.png")}></Image>
+              <Image source={require("../assets/Decrement.png")} />
             </TouchableOpacity>
-          )
-          }
+          )}
         </View>
-        
       ))}
 
-
       <View
-        style={{ flexDirection: "column", height: 100, alignSelf: "center", marginTop:10}}
+        style={{
+          flexDirection: "column",
+          height: 100,
+          alignSelf: "center",
+          marginTop: 10,
+        }}
       >
         <BigButton
           btnLabel={"Save"}
           btnHeight={50}
           btnWidth={90}
           btnBorder={10}
-        ></BigButton>
+        />
       </View>
     </View>
   );
