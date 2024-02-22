@@ -80,7 +80,8 @@ class RecipeView(BaseAPIView):
                         ingredient_list_to_create.append(IngredientList(**ingredient))
                     for procedure in request.data.get("procedure"):
                         procedure["recipe"] = recipe
-                        procedure["order"] = int(procedure.get("order"))
+                        procedure["order"] = int(procedure.get("step"))
+                        del procedure["step"]
                         procedure_to_create.append(Procedure(**procedure))
                     IngredientList.objects.bulk_create(ingredient_list_to_create)
                     Procedure.objects.bulk_create(procedure_to_create)
