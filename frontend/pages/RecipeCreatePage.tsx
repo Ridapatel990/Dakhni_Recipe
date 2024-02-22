@@ -4,18 +4,22 @@ import InputField from "../components/common/InputField";
 import RecipeChipComponent from "../components/RecipeChipComponent";
 import CustomTabs from "../components/common/CustomTabs";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
-import CreateProcedure from "../components/CreateProcedure";
+import CreateProcedure, {
+  ProcedureDataType,
+} from "../components/CreateProcedure";
 import CreateIngredient from "../components/CreateIngredient";
 import * as ImagePicker from "react-native-image-picker";
-import { IngredientInterface, InputIngredientInterface } from "../interfaces";
+import { InputIngredientInterface } from "../interfaces";
+import BigButton from "../components/common/BigButton";
+import { useCreateOrUpdate } from "../hooks";
 
 interface postDataInterface {
   name: string;
-  server_qty: string;
+  serve_qty: string;
   cooking_time: string;
   category: Array<string>;
   ingredients: Array<InputIngredientInterface>;
-  procedure: Array<{ procedure: number; description: string }>;
+  procedure: Array<ProcedureDataType>;
 }
 
 const RecipeCreatePage = ({
@@ -25,7 +29,7 @@ const RecipeCreatePage = ({
 }) => {
   const [postData, setPostData] = useState<postDataInterface>({
     name: "",
-    server_qty: "0",
+    serve_qty: "0",
     cooking_time: "0",
     category: [],
     ingredients: [],
@@ -34,8 +38,16 @@ const RecipeCreatePage = ({
 
   const [longTabText, setLongTabText] = useState<string | undefined>(undefined);
   const [image, setImage] = useState<string | undefined>("");
-  const [_, setSelectedCategory] = useState<Array<string>>([]);
-
+  const [selectedCategory, setSelectedCategory] = useState<Array<string>>([]);
+  const { mutate } = useCreateOrUpdate({
+    url: "/recipes/create/",
+    onSuccess() {
+      navigation.navigate("HomeScreen");
+    },
+    onError(data) {
+      console.log("Request Failed", data);
+    },
+  });
   const handleCookingTimeChange = (text: string) => {
     setPostData((prevData) => ({
       ...prevData,
@@ -46,13 +58,19 @@ const RecipeCreatePage = ({
   const handleServeQtyTimeChange = (text: string) => {
     setPostData((prevData) => ({
       ...prevData,
-      server_qty: text,
+      serve_qty: text,
     }));
   };
   const handleSetInredients = (list: Array<InputIngredientInterface>) => {
     setPostData((prevData) => ({
       ...prevData,
       ingredients: list,
+    }));
+  };
+  const handleSetProcedures = (list: Array<ProcedureDataType>) => {
+    setPostData((prevData) => ({
+      ...prevData,
+      procedure: list,
     }));
   };
   // const selectImage = async () => {
@@ -74,7 +92,14 @@ const RecipeCreatePage = ({
     }
   };
 
-  console.log(postData, "POSTDATA");
+  const handleSubmit = () => {
+    setPostData((prevData) => ({
+      ...prevData,
+      category: selectedCategory,
+    }));
+    // console.log(postData, "DATA TO POST ");
+    mutate(postData);
+  };
   return (
     <View>
       <ScrollView style={{ height: "100%" }}>
@@ -149,15 +174,15 @@ const RecipeCreatePage = ({
             component="{component}"
           ></RecipeChipComponent>
           <RecipeChipComponent
-            time={parseInt(postData.server_qty)}
+            time={parseInt(postData.serve_qty)}
             increaseTime={() =>
               handleServeQtyTimeChange(
-                (parseInt(postData.server_qty) + 1).toString()
+                (parseInt(postData.serve_qty) + 1).toString()
               )
             }
             decreaseTime={() =>
               handleServeQtyTimeChange(
-                (parseInt(postData.server_qty) - 1).toString()
+                (parseInt(postData.serve_qty) - 1).toString()
               )
             }
             onChangeText={handleServeQtyTimeChange}
@@ -216,8 +241,28 @@ const RecipeCreatePage = ({
               }
             />
           ) : (
-            <CreateProcedure />
+            <CreateProcedure
+              setProcedure={(list: Array<ProcedureDataType>) =>
+                handleSetProcedures(list)
+              }
+            />
           )}
+        </View>
+        <View
+          style={{
+            flexDirection: "column",
+            height: 100,
+            alignSelf: "center",
+            marginTop: 20,
+          }}
+        >
+          <BigButton
+            Press={() => handleSubmit()}
+            btnLabel={"Save"}
+            btnHeight={50}
+            btnWidth={90}
+            btnBorder={10}
+          />
         </View>
       </ScrollView>
     </View>

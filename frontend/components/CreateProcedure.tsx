@@ -6,7 +6,7 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomTabs from "./common/CustomTabs";
@@ -22,12 +22,14 @@ import { useForm, useFieldArray, Control, useWatch } from "react-hook-form";
 // import Draggable from 'react-native-draggable';
 // import {  NestableDraggableFlatList } from "react-native-draggable-flatlist"
 
-interface ProcedureProps {}
+interface ProcedureProps {
+  setProcedure: (list: Array<ProcedureDataType>) => void;
+}
 
-type ProcedureDataType = {
+export interface ProcedureDataType {
   step: number;
   description: string;
-};
+}
 // const data =[{id:'1',text:'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'}]
 
 // const Procedure: React.FC<ProcedureProps> = ({ }) => {
@@ -125,7 +127,7 @@ type ProcedureDataType = {
 //   )
 // }
 
-const Procedure: React.FC<ProcedureProps> = ({}) => {
+const Procedure: React.FC<ProcedureProps> = ({ setProcedure }) => {
   const [showComponent, setShowComponent] = useState(false);
   const [nextStepNumber, setNextStepNumber] = useState(1);
   const [procedureData, setProcedureData] = useState<ProcedureDataType[]>([]);
@@ -143,9 +145,11 @@ const Procedure: React.FC<ProcedureProps> = ({}) => {
       prevData.filter((item) => item.step !== step)
     );
   };
-  console.log(procedureData, "ppppppppppppppppppp");
+  useEffect(() => {
+    setProcedure(procedureData);
+  }, [procedureData]);
   return (
-    <SafeAreaView style={{ paddingBottom: 70 }}>
+    <SafeAreaView style={{ paddingBottom: 0 }}>
       <ScrollView
         style={{
           flexDirection: "column",
@@ -187,14 +191,14 @@ const Procedure: React.FC<ProcedureProps> = ({}) => {
             <Text style={{ color: "black" }}>Add New</Text>
           </View>
         </TouchableOpacity>
-        <View style={{ marginTop: 80 }}>
+        {/* <View style={{ marginTop: 80 }}>
           <BigButton
             btnLabel={"Save"}
             btnHeight={50}
             btnWidth={90}
             btnBorder={10}
           ></BigButton>
-        </View>
+        </View> */}
       </ScrollView>
     </SafeAreaView>
   );

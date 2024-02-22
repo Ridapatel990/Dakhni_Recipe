@@ -42,7 +42,6 @@ const CreateIngredient: React.FC<CreateIngredientProps> = ({
 
   useEffect(()=>{
     setIngrediants(inputIngredients)
-    console.log("calledddddddddddddd")
   },[inputIngredients])
   useGetAll({
     key: "/recipes/ingredient/",
@@ -142,7 +141,7 @@ const CreateIngredient: React.FC<CreateIngredientProps> = ({
         </View>
       ))}
 
-      <View
+      {/* <View
         style={{
           flexDirection: "column",
           height: 100,
@@ -156,7 +155,7 @@ const CreateIngredient: React.FC<CreateIngredientProps> = ({
           btnWidth={90}
           btnBorder={10}
         />
-      </View>
+      </View> */}
     </View>
   );
 };
