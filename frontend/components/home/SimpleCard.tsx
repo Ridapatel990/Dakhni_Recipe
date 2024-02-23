@@ -38,7 +38,7 @@ const SimpleCard: React.FC<SimpleCardProps> = ({ label, imageUri,Press }) => {
           source={
             imageUri
               ? { uri: mediaUrl + imageUri }
-              : require("../../assets/sample.png")
+              : require("../../assets/sample2.png")
           }
           style={styles.image}
         />

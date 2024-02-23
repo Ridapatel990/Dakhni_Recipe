@@ -48,7 +48,7 @@ const Card: React.FC<CardProps> = ({
             source={
               imageUri
                 ? { uri: mediaUrl + imageUri }
-                : require("../../assets/BigCardImage.png")
+                : require("../../assets/sample2.png")
             }
             style={{
               ...styles.image,

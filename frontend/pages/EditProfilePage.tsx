@@ -1,10 +1,8 @@
-import { View, Text, StyleSheet, TouchableOpacity, ToastAndroid, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import * as ImagePicker from "react-native-image-picker";
-import CircularAvatar from '../components/CircleAvatar'
 import { Image } from 'react-native'
-import { InputAccessoryView } from 'react-native'
 import InputField from '../components/common/InputField'
 import BigButton from '../components/common/BigButton'
 import { useCreateOrUpdate } from '../hooks';

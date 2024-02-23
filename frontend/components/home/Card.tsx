@@ -25,42 +25,42 @@ const Card: React.FC<CardProps> = ({
   CardWidth = 150,
   CardHeight = 160,
   Rating,
-  Press
+  Press,
 }) => {
   return (
-    <TouchableOpacity onPress={()=>Press && Press()} activeOpacity={0.9}>
-    <View style={{ ...styles.card, width: CardWidth, height: CardHeight }}>
-      <ImageBackground
-        source={
-          imageUri
-            ? { uri: mediaUrl + imageUri }
-            : require("../../assets/sample.png")
-        }
-        style={styles.image}
-      >
-        <LinearGradient
-          colors={["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.5)"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 1 }}
-          style={styles.buttonGradient}
-        />
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
+    <TouchableOpacity onPress={() => Press && Press()} activeOpacity={0.9}>
+      <View style={{ ...styles.card, width: CardWidth, height: CardHeight }}>
+        <ImageBackground
+          source={
+            imageUri
+              ? { uri: mediaUrl + imageUri }
+              : require("../../assets/sample2.png")
+          }
+          style={styles.image}
         >
-          {/* Add more Card components as needed */}
-        </View>
-      </ImageBackground>
-      <View style={styles.overlay}></View>
+          <LinearGradient
+            colors={["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.5)"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+            style={styles.buttonGradient}
+          />
 
-      <Text style={styles.name}>{CardName}</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            {/* Add more Card components as needed */}
+          </View>
+        </ImageBackground>
+        <View style={styles.overlay}></View>
 
-      <RatingChip Rating={String(Rating)} />
-    </View>
+        <Text style={styles.name}>{CardName}</Text>
+
+        <RatingChip Rating={String(Rating)} />
+      </View>
     </TouchableOpacity>
   );
 };

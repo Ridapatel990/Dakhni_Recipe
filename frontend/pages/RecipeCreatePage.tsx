@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Image, Text, TouchableOpacity, ScrollView } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  ToastAndroid,
+} from "react-native";
 import InputField from "../components/common/InputField";
 import RecipeChipComponent from "../components/RecipeChipComponent";
 import CustomTabs from "../components/common/CustomTabs";
@@ -37,12 +44,32 @@ const RecipeCreatePage = ({
   });
 
   const [longTabText, setLongTabText] = useState<string | undefined>(undefined);
-  const [image, setImage] = useState<string | undefined>("");
+  const [image, setImage] = useState<ImagePicker.Asset | undefined>(undefined);
+  const [recipeID, setRecipeID] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<Array<string>>([]);
+  const { mutate: imageMutate } = useCreateOrUpdate({
+    url: `/recipes/${recipeID}/`,
+    method: "put",
+    onSuccess() {
+      ToastAndroid.show("Recipe created successfully.", ToastAndroid.SHORT);
+      navigation.navigate("HomeScreen");
+    },
+    onError(data) {
+      console.log("Request Failed", data);
+    },
+  });
   const { mutate } = useCreateOrUpdate({
     url: "/recipes/create/",
-    onSuccess() {
-      navigation.navigate("HomeScreen");
+    onSuccess(data) {
+      console.log(data);
+      setRecipeID(data?.data?.id);
+      const formData = new FormData();
+      formData.append("image1", {
+        uri: image?.uri,
+        type: image?.type,
+        name: image?.fileName,
+      });
+      imageMutate(formData);
     },
     onError(data) {
       console.log("Request Failed", data);
@@ -73,32 +100,39 @@ const RecipeCreatePage = ({
       procedure: list,
     }));
   };
-  // const selectImage = async () => {
-  //   let result = await ImagePicker.launchImageLibrary({
-  //     mediaType: "photo",
-  //   });
-
-  //   if (!result.didCancel) {
-  //     setImage(result.uri);
-  //   }
-  // };
   const selectImage = async () => {
     let result = await ImagePicker.launchImageLibrary({
       mediaType: "photo",
     });
-
-    if (!result.didCancel) {
-      setImage(image);
+    if (!result.didCancel && result?.assets) {
+      // console.log(result?.assets[0],"<===========RESult")
+      setImage(result?.assets[0]);
     }
   };
 
   const handleSubmit = () => {
-    setPostData((prevData) => ({
-      ...prevData,
-      category: selectedCategory,
-    }));
-    // console.log(postData, "DATA TO POST ");
-    mutate(postData);
+    if (!postData.name) {
+      ToastAndroid.show("Name is required", ToastAndroid.SHORT);
+    } else if (!postData.serve_qty) {
+      ToastAndroid.show("Serves quantity is required", ToastAndroid.SHORT);
+    } else if (!postData.cooking_time) {
+      ToastAndroid.show("Cooking time is required", ToastAndroid.SHORT);
+    } else if (selectedCategory.length === 0) {
+      ToastAndroid.show("Category is required", ToastAndroid.SHORT);
+    } else if (postData.ingredients.length === 0) {
+      ToastAndroid.show("Ingredients are required", ToastAndroid.SHORT);
+    } else if (postData.procedure.length === 0) {
+      ToastAndroid.show("Procedure is required", ToastAndroid.SHORT);
+    } else if (!image?.uri) {
+      ToastAndroid.show("Image is required", ToastAndroid.SHORT);
+    } else {
+      // All fields are filled, proceed with submission
+      setPostData((prevData) => ({
+        ...prevData,
+        category: selectedCategory,
+      }));
+      mutate(postData);
+    }
   };
   return (
     <View>
@@ -121,7 +155,7 @@ const RecipeCreatePage = ({
               <View style={{ alignSelf: "center" }}>
                 {image ? (
                   <Image
-                    source={{ uri: image }}
+                    source={{ uri: image?.uri }}
                     style={{ width: 400, height: 400 }}
                   />
                 ) : (
