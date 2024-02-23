@@ -16,6 +16,7 @@ from .serializers import (
 )
 from recipes.models import Recipe
 from accounts.models import User
+from datetime import date, timedelta
 
 
 class RateRecipeView(BaseAPIView):
@@ -125,9 +126,34 @@ class NotificationView(BaseAPIView):
         type = request.query_params.get("type")
         filters = Q(user=request.thisUser.id)
         # print(type, "iiiiiiiiiiiiiiii")
-        if type == "Read":
+        if type in ["Read", "read"]:
             filters &= Q(is_read=True)
-        elif type == "Unread":
+        elif type in ["Unread", "unread"]:
             filters &= Q(is_read=False)
         self.query_set = self.model.objects.filter(filters)
         return super().get(request, id, *args, **kwargs)
+
+    # def get(self, request, id=None, *args, **kwargs):
+    #     queryset = Notification.objects.all().order_by("-updated_on")
+    #     grouped_notifications = []
+    #     today = date.today()
+    #     end_date = today - timedelta(
+    #         days=7
+    #     )
+    #     current_date = today
+    #     while current_date >= end_date:
+    #         notifications = queryset.filter(updated_on__date=current_date)
+    #         if notifications.exists():
+    #             grouped_notifications.append(
+    #                 {
+    #                     "date": current_date.isoformat(),
+    #                     "data": GetNotificationSerializer(
+    #                         notifications, many=True
+    #                     ).data,
+    #                 }
+    #             )
+    #         current_date -= timedelta(days=1)
+    #     return Response(
+    #         data={"data": grouped_notifications, "count": len(grouped_notifications)},
+    #         status=200,
+    #     )
