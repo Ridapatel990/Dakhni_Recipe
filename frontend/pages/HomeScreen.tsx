@@ -200,6 +200,7 @@ const HomeScreen = ({
                     getRecipe?.length > 0 &&
                     getRecipe?.map((recipe: GetRecipeInteface) => (
                       <Card
+                        applyGradient={true}
                         CardWidth={140}
                         CardHeight={140}
                         key={recipe.id}
@@ -223,6 +224,7 @@ const HomeScreen = ({
               recentlySearchedRecipe?.map((recipe: GetPopularInterface) => {
                 return (
                   <Card
+                    applyGradient={true}
                     key={recipe.id}
                     CardName={recipe?.recipe?.name}
                     imageUri={recipe?.recipe?.image1}

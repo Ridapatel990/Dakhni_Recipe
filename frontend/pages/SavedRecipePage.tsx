@@ -72,6 +72,7 @@ const SavedRecipePage = ({
           {savedRecipes && savedRecipes.length
             ? savedRecipes.map((item: { recipe: RecipeInterface }) => (
                 <Card
+                  applyGradient={true}
                   key={item.recipe.id}
                   CardName={item.recipe.name}
                   imageUri={item.recipe.image1}
