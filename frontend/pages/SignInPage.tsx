@@ -41,7 +41,7 @@ const SignInPage = ({
       await AsyncStorage.setItem("user", JSON.stringify(response.data["user"]));
       setApiHeaders();
       login && login();
-      console.log(response.data["user"], "<=============USERRRR");
+      // console.log(response.data["user"], "<=============USERRRR");
       ToastAndroid.show("Login Successfully", ToastAndroid.SHORT);
       // navigation.reset({
       //   routes: [{ name: "BottomBarContainer" }],

@@ -95,7 +95,7 @@ const RecipeCreatePage = ({
   };
 
   // console.log(createCategory);
-  console.log(cookingTime)
+  // console.log(cookingTime)
 
   return (
     <View>

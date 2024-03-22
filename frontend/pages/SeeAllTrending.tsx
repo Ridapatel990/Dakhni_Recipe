@@ -22,10 +22,11 @@ const SeeAllNewRecipe = ({
         <View
           style={{
             flexDirection: "row",
-            justifyContent: "space-between",
+            justifyContent: "center",
             flexWrap: "wrap",
             marginLeft: 20,
             marginRight: 20,
+            marginBottom:40
           }}
         >
           {trendingRecipe && trendingRecipe.length

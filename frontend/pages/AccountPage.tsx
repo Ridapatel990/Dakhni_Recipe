@@ -185,7 +185,7 @@ const AccountPage = ({
           ></BigButton>
         </View>
 
-        <View style={{ marginBottom: 260,paddingRight:20 }}>
+        <View style={{ marginBottom: 260,paddingRight:5,paddingLeft:5 }}>
           {profile?.recipes && profile?.recipes.length ? profile.recipes.map((recipe:RecipeInterface)=>(<BigCard
             key={recipe?.id}
             BigCardName={recipe.name}

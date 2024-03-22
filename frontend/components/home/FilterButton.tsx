@@ -39,7 +39,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({btnWidth, btnPosition = 'rel
   return (
     <TouchableOpacity style= {styles.button} onPress={Press}>
         <LinearGradient colors={['#FC1125', '#FF9300']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonGradient}>
-            <View style= {{padding: 5}}>
+          <View style={{paddingRight:1}}>
               <Image  source={require('../../assets/filter.png')} />
               
             </View>

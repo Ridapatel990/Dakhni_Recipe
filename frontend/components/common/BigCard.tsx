@@ -20,7 +20,7 @@ interface CardProps {
   Rating?: string;
   Review?: string;
   time?: string;
-  is_saved: boolean;
+  is_saved?: boolean;
   recipeId: string;
   Press?: () => void;
 }
@@ -39,7 +39,7 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <TouchableOpacity onPress={Press}>
-      <View style={{ display: "flex" }}>
+      <View style={{ display: "flex",marginBottom:10 }}>
         <View
           style={{ ...styles.card, width: BigCardWidth, height: BigCardHeight }}
         >
@@ -84,7 +84,7 @@ const Card: React.FC<CardProps> = ({
           ></SavedBtn> */}
         </View>
 
-        <View style={{ marginTop: 5, marginBottom: 10 }}>
+        <View style={{ marginTop: 1, marginBottom: 10 }}>
           <Text style={styles.name}>{BigCardName}</Text>
           <Text style={styles.review}>{Review}</Text>
         </View>
@@ -98,7 +98,9 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     // width:100,
     overflow: "hidden", // To clip the overlay to the card boundaries
-    margin: 10,
+    marginRight:10,
+    marginBottom:10,
+    marginTop:10,
     alignItems: "center",
     shadowColor: "black",
     shadowOpacity: 1,
@@ -138,16 +140,14 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     fontSize: 20,
     fontWeight: "400",
-    color: "black",
-    paddingLeft: 10,
+    color: "rgba(48, 48, 48, 1)",
+    paddingLeft: 5,
     marginTop: 1,
     backgroundColor: "transparent",
     textAlignVertical: "bottom",
     opacity: 1,
     zIndex: 3,
     // position: "absolute",
-    bottom: 0,
-    left: 0,
     alignSelf: "flex-start",
   },
 

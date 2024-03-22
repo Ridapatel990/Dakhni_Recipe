@@ -14,6 +14,7 @@ import { useGetAll } from "../hooks";
 import { ProcedureInterface, RecipeDetailInterface } from "../interfaces";
 import StepsCard from "../components/StepsCard";
 
+
 type RootStackParamList = {
   RecipeDescription: { id: string };
 };
@@ -43,6 +44,10 @@ const RecipeDescription = ({
       select: (data: any) => data?.data,
     });
 
+   
+      const isRecipeSaved = recipeDetailsData?.is_saved || false;
+    console.log('000000000000000000000000000',recipeDetailsData?.is_saved)
+
   useFocusEffect(
     React.useCallback(() => {
       RefetchRecipeDetails();
@@ -61,7 +66,7 @@ const RecipeDescription = ({
           Review={`${recipeDetailsData?.reviews} Reviews`}
           Rating={`${recipeDetailsData?.rate}`}
           recipeId={recipeDetailsData?.id || ""}
-          is_saved={recipeDetailsData?.is_saved || false}
+          is_saved={isRecipeSaved}
           imageUri={recipeDetailsData?.image1}
         ></BigCard>
       </View>

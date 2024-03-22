@@ -17,10 +17,10 @@ const Notification: React.FC<{
         <View>
           <Text style={styles.stepText}>New Recipe Alert!</Text>
         </View>
-        <View style={styles.description}>
-          <Text>
-            We've just added a delicious new recipe {data?.recipe?.name} to our
-            collection. Perfect for cooking enthusiasts and anyone who loves
+        <View>
+          <Text style={styles.description}>
+            We've just added a delicious new recipe <Text style={{color:"black",fontWeight:"400"}}>{data?.recipe?.name}</Text> to
+           our collection. Perfect for cooking enthusiasts and anyone who loves
             trying new flavors. Don't miss out!
           </Text>
         </View>
@@ -51,13 +51,16 @@ const styles = StyleSheet.create({
   },
   stepText: {
     padding: 10,
-    color: "black",
+    color: "rgba(0, 0, 0, 1)",
     fontSize: 16,
     fontWeight: "300",
+    fontFamily:"Satoshi Variable"
   },
   description: {
     paddingLeft: 10,
-    color: "#A9A9A9",
+    fontWeight:"400",
+    color: "rgba(169, 169, 169, 1)",
+    fontFamily:"Satoshi Variable"
   },
   time: {
     paddingRight: 10,

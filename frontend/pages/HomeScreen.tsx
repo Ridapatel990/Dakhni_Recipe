@@ -70,11 +70,7 @@ const HomeScreen = ({
 
   const { data: getRecipe, refetch: getRecipeRefetch } = useGetAll({
     key: `/recipes/list/?random=true&q=${
-      allCatChipText == "All" && searchText == ""
-        ? undefined
-        : searchText == ""
-        ? allCatChipText
-        : query
+      allCatChipText == "All" && searchText == ""? undefined : searchText == ""? allCatChipText    : query
     }`,
 
     enabled: true,
@@ -108,6 +104,7 @@ const HomeScreen = ({
     enabled: recentlyEnabled,
     onSuccess(data) {
       setRecentlySearchedRecipe(data);
+      console.log(data)
     },
   });
 
@@ -137,6 +134,7 @@ const HomeScreen = ({
       refetchPopularCatRecipe();
     }
   }, [popularCatChipText]);
+
 
   const onSearchFocus = () => {
     // console.log("in  onSearchFocus");
@@ -180,7 +178,7 @@ const HomeScreen = ({
               ></CustomSearchBar>
 
               <FilterButton
-                btnWidth={30}
+                btnWidth={25}
                 Press={() => navigation.navigate("FilterPage")}
               ></FilterButton>
             </View>
@@ -242,7 +240,8 @@ const HomeScreen = ({
                   style={{
                     flexDirection: "row",
                     maxWidth: "100%",
-                    paddingVertical: 10,
+                    paddingVertical: 20,
+                    paddingRight:5
                   }}
                 >
                   {allCategories && allCategories.length
@@ -288,6 +287,7 @@ const HomeScreen = ({
                             recipeLabel={recipe.name}
                             mins={recipe.cooking_time}
                             imageUri={recipe.image1}
+                            Rating={recipe.rate}
                             Press={() =>
                               navigation.navigate("RecipeDescription", {
                                 id: recipe?.id,
@@ -301,18 +301,19 @@ const HomeScreen = ({
 
                 <View
                   style={{
-                    marginTop: 30,
+                    width:"100%",
+                    marginTop: 40,
                     flexDirection: "row",
                     justifyContent: "space-between",
                   }}
                 >
-                  <View>
-                    {/* <Text style={styles.trendingText}>Trending now</Text> */}
-                    <Image source={require("../assets/category.png")} />
+                  <View style={{flexDirection:"row",justifyContent:"space-between",width:"35%",alignSelf:"flex-start"}}>
+                    <Text style={styles.trendingText}>Trending now</Text>
+                    <Image style={{height:20,width:20}} source={require("../assets/trending.png")} />
                   </View>
 
                   <TouchableOpacity
-                    style={{ flexDirection: "row", marginRight: 20 }}
+                    style={{ flexDirection: "row",alignSelf:"flex-end"}}
                     onPress={() => navigation.navigate("SeeAllTrending")}
                   >
                     <Text style={styles.seeAllText}>See All</Text>
@@ -327,7 +328,7 @@ const HomeScreen = ({
                 <View style={{ width: "100%" }}>
                   <ScrollView
                     horizontal={true}
-                    style={{ flexDirection: "row", marginTop: 20 }}
+                    style={{ flexDirection: "row", marginTop: 7}}
                   >
                     {trendingRecipe && trendingRecipe.length
                       ? trendingRecipe?.map(
@@ -356,7 +357,7 @@ const HomeScreen = ({
                   </ScrollView>
                 </View>
 
-                <View style={{ marginTop: 20 }}>
+                <View style={{ marginTop: 40 }}>
                   <Text style={styles.popularText}>Popular Category</Text>
                 </View>
 
@@ -380,6 +381,7 @@ const HomeScreen = ({
                         )
                       )
                     : ""}
+                    
                 </ScrollView>
 
                 <ScrollView horizontal={true}>
@@ -400,6 +402,7 @@ const HomeScreen = ({
                             is_saved={popRecipe?.recipe?.is_saved}
                             mins={popRecipe?.recipe?.cooking_time}
                             imageUri={popRecipe?.recipe?.image1}
+                            Rating={popRecipe?.recipe?.rate}
                             Press={() =>
                               navigation.navigate("RecipeDescription", {
                                 id: popRecipe?.recipe?.id,
@@ -413,9 +416,10 @@ const HomeScreen = ({
 
                 <View
                   style={{
-                    marginTop: 30,
+                    marginTop: 40,
                     flexDirection: "row",
                     justifyContent: "space-between",
+
                   }}
                 >
                   <View>
@@ -424,7 +428,7 @@ const HomeScreen = ({
                   </View>
 
                   <TouchableOpacity
-                    style={{ flexDirection: "row", marginRight: 5 }}
+                    style={{ flexDirection: "row" }}
                     onPress={() => navigation.navigate("SeeAllNewRecipe")}
                   >
                     <Text style={styles.seeAllText}>See All</Text>
@@ -505,7 +509,8 @@ const styles = StyleSheet.create({
   },
 
   trendingText: {
-    color: "black",
+    fontFamily:"Satoshi Variable",
+    color: "rgba(48, 48, 48, 1)",
     fontWeight: "500",
     fontSize: 16,
   },
@@ -516,9 +521,10 @@ const styles = StyleSheet.create({
     fontWeight: "400",
   },
   popularText: {
+    fontFamily:"Satoshi Variable",
     fontWeight: "500",
     fontSize: 16,
-    color: "black",
+    color: "rgba(48, 48, 48, 1)",
   },
 });
 

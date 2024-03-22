@@ -6,11 +6,17 @@ import CustomTabs from "../components/common/CustomTabs";
 import { useCreateOrUpdate, useGetAll } from "../hooks";
 import { NotificationInterface } from "../interfaces";
 import Notification from "../components/Notification";
+import TimeAgo from "react-native-timeago";
+
+interface NotificationPageProps {
+  data: NotificationInterface;
+  
+}
 
 const NotificationPage = ({
   navigation,
 }: {
-  navigation: NavigationProp<ParamListBase>;
+  navigation: NavigationProp<ParamListBase>; 
 }) => {
   const onItemTapped = (index: number) => {
     switch (index) {
@@ -99,8 +105,12 @@ const NotificationPage = ({
         </View>
 
         <View>
-          <View>
-            <Text style={styles.todayText}>Today</Text>
+          <View style={{alignItems:"center"}}>
+          {getNotification?.length > 0
+              ? getNotification?.map((notification: NotificationInterface) => (
+          <TimeAgo time={notification.created_on}></TimeAgo>
+          ))
+              : ""}
           </View>
 
           <View style={{ margin: 6 }}>
